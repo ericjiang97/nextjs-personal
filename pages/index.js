@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Nav from "../components/nav";
 import Hero from "../components/hero";
-import Footer from "../components/footer";
 
 const Home = () => (
   <div className="text-sans">
@@ -9,8 +7,6 @@ const Home = () => (
       <title>Home</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
-    <Nav />
 
     <div className="w-full text-gray-900">
       <Hero />
@@ -29,7 +25,6 @@ const Home = () => (
         </a>
       </div>
     </div>
-    <Footer />
   </div>
 );
 

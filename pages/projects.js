@@ -9,8 +9,6 @@ const Projects = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Nav />
-
     <div className="w-full text-gray-900">
       <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
