@@ -1,0 +1,34 @@
+{
+  "name": "alpha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericjiang97/alpha.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericjiang97/alpha/issues"
+  },
+  "homepage": "https://github.com/ericjiang97/alpha#readme",
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "autoprefixer": "^9.7.5",
+    "next": "^9.3.4",
+    "postcss-import": "^12.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^1.2.0"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1"
+  }
+}
