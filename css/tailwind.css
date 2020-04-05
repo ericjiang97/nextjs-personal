@@ -1,8 +1,8 @@
 /* purgecss start ignore */
 @import "tailwindcss/base";
-/* purgecss end ignore */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap");
+/* purgecss end ignore */
 
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
