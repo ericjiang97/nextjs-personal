@@ -11,8 +11,8 @@ const Home = () => (
     <Nav />
 
     <div className="w-full text-gray-900">
-      <div className="max-w-4xl mx-auto py-auto pb-8 flex flex-row justify-around">
-        <div className="max-w-4xl mx-auto py-auto pb-8 flex flex-col justify-around">
+      <div className="max-w-4xl mx-auto py-auto flex flex-row justify-around">
+        <div className="max-w-4xl mx-auto py-auto p-8 flex flex-col justify-around">
           <h1 className="m-0 w-full pt-20 leading-tight text-5xl text-left font-bold">
             Hello I'm Eric.
           </h1>
@@ -26,7 +26,7 @@ const Home = () => (
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-8 flex flex-col justify-around">
           <img
-            className="inline"
+            className="hidden md:inline"
             src="/images/transparent_profile.png"
             alt="Eric"
           />
