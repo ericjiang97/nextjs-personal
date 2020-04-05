@@ -24,7 +24,7 @@ const Home = () => (
             building the communities around me.
           </p>
         </div>
-        <div className="max-w-4xl mx-auto py-auto pb-8 flex flex-col justify-around">
+        <div className="max-w-4xl mx-auto py-auto pb-8 flex flex-col justify-end">
           <img
             className="hidden md:inline"
             src="/images/transparent_profile.png"
