@@ -26,7 +26,7 @@ const Nav = () => {
         </button>
       </div>
       <div
-        class={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+        class={`w-full block flex-grow lg:flex md:items-end lg:w-auto ${
           !expanded && "hidden"
         }`}
       >
