@@ -10,7 +10,7 @@ class MyApp extends App {
     return (
       <div className="flex flex-col min-h-screen">
         <Nav />
-        <div className="flex-1 m-6">
+        <div className="flex-1 m-6 flex flex-col">
           <Component {...pageProps}></Component>
         </div>
         <Footer />

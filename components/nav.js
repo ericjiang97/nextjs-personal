@@ -12,7 +12,7 @@ const Nav = () => {
       </div>
       <div class="block lg:hidden">
         <button
-          class="flex items-center px-3 py-2 border rounded text-blue-200 border-blue-400 hover:text-blue-500 hover:border-blue-500"
+          class="flex items-center px-3 py-2 border rounded text-blue-500 border-blue-400 hover:text-blue-700 hover:border-blue-700"
           onClick={() => setExpanded(!expanded)}
         >
           <svg
@@ -33,19 +33,19 @@ const Nav = () => {
         <div class="text-sm lg:flex-grow">
           <a
             href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-blue-500 mr-4"
+            class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-blue-700 mr-4"
           >
             Docs
           </a>
           <a
             href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-blue-500 mr-4"
+            class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-blue-700 mr-4"
           >
             Examples
           </a>
           <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-blue-500"
+            href="/blog"
+            class="block mt-4 lg:inline-block lg:mt-0 text-teal-500 hover:text-blue-700"
           >
             Blog
           </a>
