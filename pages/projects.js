@@ -24,7 +24,7 @@ const Projects = () => (
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row justify-around">
+      <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row flex-wrap justify-around">
         <ProjectCard
           name="MARIE.js"
           url="https://marie.js.org"
@@ -43,8 +43,6 @@ const Projects = () => (
           url="https://muhneeapp.com"
           description="Muhnee is a new and exciting way to make managing your money simple."
         />
-      </div>
-      <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row justify-around">
         <ProjectCard
           name="COVID19 Australia Flight Tracker"
           url="https://covid19-flights.ericjiang.dev/"

@@ -33,7 +33,7 @@ const Home = () => (
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row justify-around">
+      <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row flex-wrap justify-around">
         <a
           href="/projects"
           className="pt-4 px-5 pb-6 w-64 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"

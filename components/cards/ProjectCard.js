@@ -6,7 +6,7 @@ const ProjectCard = ({ url, imageUrl, name, description }) => {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="pt-4 px-5 pb-6 w-64 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"
+      className="pt-4 px-5 pb-6 w-64 mt-2 mb-2 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"
     >
       <div className="max-w-4xl mx-auto py-auto flex flex-row items-center">
         {imageUrl && <img src={imageUrl} className="object-contain h-5 mr-1" />}
