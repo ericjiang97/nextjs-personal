@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "../components/nav";
 import Hero from "../components/hero";
+import Footer from "../components/footer";
 
 const Home = () => (
   <div className="text-sans">
@@ -28,6 +29,7 @@ const Home = () => (
         </a>
       </div>
     </div>
+    <Footer />
   </div>
 );
 
