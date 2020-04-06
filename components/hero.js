@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="max-w-4xl mx-auto py-auto pb-8 flex flex-col justify-end">
         <img
           className="hidden md:inline"
-          src="/images/transparent_profile.png"
+          src="/images/transparent_profile_min.png"
           alt="Eric"
         />
       </div>
