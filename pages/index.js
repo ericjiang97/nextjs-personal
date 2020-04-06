@@ -4,8 +4,7 @@ import Hero from "../components/hero";
 const Home = () => (
   <div className="text-sans">
     <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>Home - Eric Jiang</title>
     </Head>
 
     <div className="w-full text-gray-900">

@@ -22,7 +22,6 @@ export default class extends Component {
       <div className="text-sans">
         <Head>
           <title>{`Blog - ${title.rendered}`}</title>
-          <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <div className="w-full text-gray-900">

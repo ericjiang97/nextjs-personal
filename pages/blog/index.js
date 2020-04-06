@@ -23,8 +23,7 @@ export default class extends Component {
     return (
       <div className="text-sans">
         <Head>
-          <title>Blog</title>
-          <link rel="icon" href="/favicon.ico" />
+          <title>Blog - Eric Jiang</title>
         </Head>
 
         <div className="w-full text-gray-900">

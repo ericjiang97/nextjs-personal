@@ -39,9 +39,21 @@ const Nav = ({ toggleDarkTheme, darkTheme }) => {
         <div className="text-sm lg:flex-grow">
           <a
             href="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
           >
             Blog
+          </a>
+          <a
+            href="/projects"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+          >
+            Projects
+          </a>
+          <a
+            href="/talks"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+          >
+            Tech Talks
           </a>
         </div>
         <div>
