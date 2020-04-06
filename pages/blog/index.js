@@ -52,10 +52,16 @@ export default class extends Component {
                   <h2 className="m-0 w-full pt-14 leading-tight text-xl text-left mb-3">
                     {post.title.rendered}
                   </h2>
-                  <p
+                  <div
+                    className="mb-6"
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                  ></p>
-                  <a href={`/blog/${post.slug}`}>Read more...</a>
+                  ></div>
+                  <a
+                    className="m-0 text-brand text-md font-semibold"
+                    href={`/blog/${post.slug}`}
+                  >
+                    Read more &rarr;
+                  </a>
                 </div>
               );
             })}
