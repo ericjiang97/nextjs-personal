@@ -12,7 +12,7 @@ export default function useDarkTheme() {
       .matches;
     try {
       const item = window.localStorage.getItem(localStorageKey);
-      console.log(item);
+
       if (item === null) {
         setStoredValue(initialValue);
       }
