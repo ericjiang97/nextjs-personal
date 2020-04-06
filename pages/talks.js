@@ -37,10 +37,25 @@ const Projects = () => (
           Upcoming talks
         </h3>
         {talks.upcoming.length === 0 && (
-          <h3 className="m-0 w-full pt-14 leading-tight text-,d text-left font-bold mb-3">
+          <h3 className="m-0 w-full pt-14 leading-tight text-,d text-left font-bold mb-6">
             No talks upcoming... Hit me up!
           </h3>
         )}
+        {talks.upcoming.map((talk, i) => {
+          return (
+            <a
+              key={i}
+              href={talk.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 text-left no-underline text-gray-800"
+            >
+              <span className="m-0 text-xs">{talk.date}</span>
+              <h4 className="m-0 text-brand text-lg">{talk.title}</h4>
+              <p className="m-0 text-md">{talk.org}</p>
+            </a>
+          );
+        })}
         <hr />
         <h3 className="m-0 w-full pt-14 leading-tight text-2xl text-left font-bold mt-2 mb-3">
           Past talks
