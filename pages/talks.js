@@ -52,7 +52,7 @@ const Projects = () => (
               href={talk.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="pt-4 px-5 pb-6 mt-2 mb-2 text-left no-underline text-gray-800"
+              className="p-4 text-left no-underline text-gray-800"
             >
               <span className="m-0 text-xs">{talk.date}</span>
               <h4 className="m-0 text-brand text-lg">{talk.title}</h4>
