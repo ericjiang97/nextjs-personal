@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import App from "next/app";
 
 import Footer from "../components/footer";
 import Nav from "../components/nav";
 
+import useLocalStorage from "../hooks/useLocalStorage";
+
+import "../css/tailwind.css";
+
 function RootComponent({ children }) {
   // You can use hooks here
-  const [darkTheme, setDarkTheme] = useState(true);
+  const [darkTheme, setDarkTheme] = useLocalStorage("darkTheme", true);
 
   return (
     <div
@@ -27,8 +31,6 @@ function RootComponent({ children }) {
   ); // The fragment is just illustrational
 }
 
-import "../css/tailwind.css";
-import { useLocalStorage } from "react-use";
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
