@@ -1,3 +1,4 @@
+const tailwind = require("tailwindcss/defaultTheme");
 module.exports = {
   theme: {
     fontFamily: {
@@ -24,8 +25,7 @@ module.exports = {
         "sans-serif",
       ],
     },
-    extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [require("./theme.config.js")],
 };
