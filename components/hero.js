@@ -14,10 +14,10 @@ const Hero = () => {
   return (
     <div className="max-w-4xl mx-auto py-auto flex flex-row justify-around">
       <div className="max-w-4xl mx-auto py-auto p-8 flex flex-col justify-around">
-        <h1 className="m-0 w-full pt-20 leading-tight text-5xl text-left font-bold">
+        <h1 className="m-0 w-full pt-20 leading-tight text-4xl text-left font-bold">
           {`${randomGreeting()}, I'm Eric.`}
         </h1>
-        <h3 className="m-0 w-full pt-10 leading-tight text-4xl text-left font-bold">
+        <h3 className="m-0 w-full pt-10 leading-tight text-3xl text-left font-bold">
           I’m a Software Engineer
         </h3>
         <p className="text-left my-4 text-m">

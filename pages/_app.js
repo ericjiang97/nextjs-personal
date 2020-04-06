@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import App from "next/app";
 
 import Footer from "../components/footer";
@@ -6,7 +6,7 @@ import Nav from "../components/nav";
 
 function RootComponent({ children }) {
   // You can use hooks here
-  const [darkTheme, setDarkTheme] = useLocalStorage("darkTheme", true);
+  const [darkTheme, setDarkTheme] = useState(true);
 
   return (
     <div
