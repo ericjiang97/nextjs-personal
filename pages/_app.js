@@ -9,8 +9,13 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import "../css/tailwind.css";
 
 function RootComponent({ children }) {
-  // You can use hooks here
-  const [darkTheme, setDarkTheme] = useLocalStorage("darkTheme", true);
+  // TODO: Add PREFER DARK SCHEME SUPPORT
+  //
+  // var preferDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").media === "not all";
+  const [darkTheme, setDarkTheme] = useLocalStorage(
+    "darkTheme",
+    preferDarkScheme
+  );
 
   return (
     <div
