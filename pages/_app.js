@@ -1,9 +1,10 @@
 import React from "react";
 import App from "next/app";
-import "../css/tailwind.css";
+
 import Footer from "../components/footer";
 import Nav from "../components/nav";
 
+import "../css/tailwind.css";
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
