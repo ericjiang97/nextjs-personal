@@ -4,15 +4,12 @@ import App from "next/app";
 import Footer from "../components/footer";
 import Nav from "../components/nav";
 
-import useLocalStorage from "../hooks/useLocalStorage";
+import useDarkTheme from "../hooks/useDarkTheme";
 
 import "../css/tailwind.css";
 
 function RootComponent({ children }) {
-  // TODO: Add PREFER DARK SCHEME SUPPORT
-  //
-  // var preferDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").media === "not all";
-  const [darkTheme, setDarkTheme] = useLocalStorage("darkTheme", true);
+  const [darkTheme, setDarkTheme] = useDarkTheme();
 
   return (
     <div
