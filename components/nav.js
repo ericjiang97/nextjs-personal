@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+
 import Link from "next/link";
 
-const Nav = () => {
+import Icons from "./icons";
+
+const Nav = ({ toggleDarkTheme, darkTheme }) => {
   const [expanded, setExpanded] = useState(false);
+
   return (
     <nav className="sticky top-0 flex items-center justify-between bg-blue-100 flex-wrap p-6 text-on-surface bg-surface">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -26,7 +30,7 @@ const Nav = () => {
         </button>
       </div>
       <div
-        className={`w-full block flex-grow lg:flex md:items-end lg:w-auto ${
+        className={`w-full block flex-grow lg:flex md:items-center lg:w-auto ${
           !expanded && "hidden"
         }`}
       >
@@ -37,6 +41,18 @@ const Nav = () => {
           >
             Blog
           </a>
+        </div>
+        <div>
+          <button
+            className="flex items-center px-3 py-2 text-brand hover:text-blue-700 "
+            onClick={() => toggleDarkTheme()}
+          >
+            {darkTheme ? (
+              <Icons.MoonIcon className="fill-current h-5 w-5" />
+            ) : (
+              <Icons.SunIcon className="fill-current h-5 w-5" />
+            )}
+          </button>
         </div>
       </div>
     </nav>
