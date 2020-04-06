@@ -56,6 +56,7 @@ export default class extends Component {
                   <p
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                   ></p>
+                  <a href={`/blog/${post.slug}`}>Read more...</a>
                 </div>
               );
             })}
