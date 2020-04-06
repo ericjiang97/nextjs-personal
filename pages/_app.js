@@ -12,10 +12,7 @@ function RootComponent({ children }) {
   // TODO: Add PREFER DARK SCHEME SUPPORT
   //
   // var preferDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").media === "not all";
-  const [darkTheme, setDarkTheme] = useLocalStorage(
-    "darkTheme",
-    preferDarkScheme
-  );
+  const [darkTheme, setDarkTheme] = useLocalStorage("darkTheme", true);
 
   return (
     <div
