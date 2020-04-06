@@ -8,7 +8,7 @@ const Nav = ({ toggleDarkTheme, darkTheme }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <nav className="sticky top-0 flex items-center justify-between bg-blue-100 flex-wrap p-6 text-on-surface bg-surface">
+    <nav className="sticky top-0 flex items-center justify-between bg-blue-100 flex-wrap p-6 text-on-surface bg-navigation-secondary">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
           <a className="text-brand no-underline text-lg">Eric Jiang</a>

@@ -16,10 +16,8 @@ const Home = () => (
           href="/projects"
           className="pt-4 px-5 pb-6 w-64 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"
         >
-          <h3 className="m-0 text-blue-500 text-lg font-bold">
-            Projects &rarr;
-          </h3>
-          <p className="m-0 pt-3 py-0 pb-0 text-sm text-gray-900">
+          <h3 className="m-0 text-brand text-lg font-bold">Projects &rarr;</h3>
+          <p className="m-0 pt-3 py-0 pb-0 text-sm text-gray-500">
             Find out about my projects.
           </p>
         </a>

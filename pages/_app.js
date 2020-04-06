@@ -7,7 +7,7 @@ import Nav from "../components/nav";
 function RootComponent({ children }) {
   // You can use hooks here
   const [darkTheme, setDarkTheme] = useLocalStorage("darkTheme", true);
-  console.log(darkTheme);
+
   return (
     <div
       className="flex flex-col min-h-screen transition-all duration-250 bg-background text-on-background"

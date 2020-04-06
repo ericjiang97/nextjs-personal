@@ -81,6 +81,8 @@ const darkTheme = new Theme()
     "on-warning": "#ffffff",
     info: "#83bdff",
     "on-info": "#ffffff",
+
+    white: "#fff",
   })
 
   // Arbitrary variants

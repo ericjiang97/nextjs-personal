@@ -10,7 +10,7 @@ const ProjectCard = ({ url, imageUrl, name, description }) => {
     >
       <div className="max-w-4xl mx-auto py-auto flex flex-row items-center">
         {imageUrl && <img src={imageUrl} className="object-contain h-5 mr-1" />}
-        <h3 className="m-0 text-blue-500 text-lg">{name}</h3>
+        <h3 className="m-0 text-brand text-lg">{name}</h3>
       </div>
       <p className="m-0 pt-3 py-0 pb-0 text-sm text-gray-900">{description}</p>
     </a>
