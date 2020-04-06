@@ -96,7 +96,7 @@ function RootComponent({ children }) {
             }}
             darkTheme={darkTheme}
           />
-          <div className="flex-1 flex flex-col mt-6">{children}</div>
+          <div className="flex-1 flex flex-col mt-6 p-4">{children}</div>
           <Footer />
         </div>
       </div>
