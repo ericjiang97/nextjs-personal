@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import fetch from "isomorphic-unfetch";
 
 import Head from "next/head";
@@ -15,7 +16,7 @@ export default class extends Component {
   }
 
   render() {
-    const { title, content } = this.props;
+    const { title, author_info, content, date } = this.props;
     console.log(this.props);
     return (
       <div className="text-sans">
@@ -26,13 +27,13 @@ export default class extends Component {
 
         <div className="w-full text-gray-900">
           <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
+            <span className="text-left my-4 text-md">
+              {`Published on ${moment(date).format("Do MMMM YYYY hh:mma")}.`}
+            </span>
             <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">
               {title.rendered}
             </h1>
-            <p className="text-left my-4 text-m">
-              I occassionally write on my blog about tech, projects, reviews...
-              so here's some of them.
-            </p>
+            <h2 className="text-left my-4 text-xl">{`By ${author_info.display_name}`}</h2>
           </div>
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">

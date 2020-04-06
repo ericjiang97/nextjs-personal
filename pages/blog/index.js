@@ -39,12 +39,11 @@ export default class extends Component {
               </p>
             </div>
           </div>
-          <ul>
+          <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
             {posts.map((post) => {
-              console.log(post);
               return (
                 <div
-                  className="pt-4 px-5 pb-6 w-64 mt-2 mb-2 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"
+                  className="pt-4 px-5 pb-6 mt-2 mb-2 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"
                   key={post.slug}
                 >
                   <h2 className="m-0 w-full pt-14 leading-tight text-xs mb-2 text-left">
@@ -60,7 +59,7 @@ export default class extends Component {
                 </div>
               );
             })}
-          </ul>
+          </div>
         </div>
       </div>
     );
