@@ -11,7 +11,9 @@ const Nav = ({ toggleDarkTheme, darkTheme }) => {
     <nav className="sticky top-0 flex items-center justify-between bg-blue-100 flex-wrap p-6 text-on-surface bg-navigation-secondary">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
-          <a className="text-brand no-underline text-lg">Eric Jiang</a>
+          <a className="text-brand no-underline text-lg font-semibold">
+            Eric Jiang
+          </a>
         </Link>
       </div>
       <div className="block lg:hidden">
@@ -37,9 +39,21 @@ const Nav = ({ toggleDarkTheme, darkTheme }) => {
         <div className="text-sm lg:flex-grow">
           <a
             href="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
           >
             Blog
+          </a>
+          <a
+            href="/projects"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+          >
+            Projects
+          </a>
+          <a
+            href="/talks"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+          >
+            Tech Talks
           </a>
         </div>
         <div>
