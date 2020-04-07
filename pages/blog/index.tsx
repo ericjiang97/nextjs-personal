@@ -3,8 +3,9 @@ import moment from "moment";
 import fetch from "isomorphic-unfetch";
 
 import Head from "next/head";
+import { Post } from "../../types/wordpress_api";
 
-export default class extends Component {
+export default class extends Component<Post[], {}> {
   // Resolve promise and set initial props.
   static async getInitialProps() {
     // Make request for posts.
