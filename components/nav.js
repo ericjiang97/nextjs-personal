@@ -55,6 +55,12 @@ const Nav = ({ toggleDarkTheme, darkTheme }) => {
           >
             Tech Talks
           </a>
+          <a
+            href="/about"
+            className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+          >
+            About
+          </a>
         </div>
         <div>
           <button
