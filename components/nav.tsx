@@ -4,7 +4,12 @@ import Link from "next/link";
 
 import Icons from "./icons";
 
-const Nav = ({ toggleDarkTheme, darkTheme }) => {
+interface NavProps {
+  toggleDarkTheme: () => void;
+  darkTheme: boolean;
+}
+
+const Nav: React.FC<NavProps> = ({ toggleDarkTheme, darkTheme }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
