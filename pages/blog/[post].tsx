@@ -4,22 +4,37 @@ import moment from "moment";
 import fetch from "isomorphic-unfetch";
 
 import Head from "next/head";
-import { Post } from "../../types/wordpress_api";
+import ErrorPage from "next/error";
 
-export default class extends Component<Post, null> {
+import { Post, ApiRequest } from "../../types/wordpress_api";
+import Custom404 from "../404";
+
+export default class extends Component<ApiRequest<Post>, null> {
   // Resolve promise and set initial props.
-  static async getInitialProps({ query }: NextPageContext) {
+  static async getInitialProps({ query, res }: NextPageContext) {
     const { post } = query;
-    const res = await fetch(
+    const response = await fetch(
       `https://blog.ericjiang.dev/wp-json/wp/v2/posts?slug=${post}`
-    ).then((resp) => resp.json());
-    const data = res[0];
-    return data;
+    );
+    const blogPost = await response.json();
+    if (blogPost.length === 0) {
+      return { error: { statusCode: 404 }, data: null };
+    }
+    const data = blogPost[0];
+    return { data };
   }
 
   render() {
-    const { title, author_info, content, date } = this.props;
+    const { error, data } = this.props;
 
+    if (error) {
+      if (error.statusCode === 404) return <Custom404 />;
+      return <ErrorPage statusCode={error.statusCode} />;
+    }
+
+    const { title, author_info, content, date } = data;
+
+    const html = content.rendered;
     return (
       <div className="text-sans">
         <Head>
@@ -40,7 +55,9 @@ export default class extends Component<Post, null> {
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <div
             className="text-left my-4 text-m p-2"
-            dangerouslySetInnerHTML={{ __html: content.rendered }}
+            dangerouslySetInnerHTML={{
+              __html: html.replace("<p>", "<p className='mt-2'>"),
+            }}
           />
         </div>
       </div>
