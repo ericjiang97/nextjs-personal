@@ -92,9 +92,9 @@ class Nav extends React.Component<NavProps, NavState> {
               onClick={() => toggleDarkTheme()}
             >
               {darkTheme ? (
-                <Icons.MoonIcon className="fill-current h-5 w-5" />
+                <Icons.Moon className="fill-current h-5 w-5" />
               ) : (
-                <Icons.SunIcon className="fill-current h-5 w-5" />
+                <Icons.Sun className="fill-current h-5 w-5" />
               )}
             </button>
           </div>
