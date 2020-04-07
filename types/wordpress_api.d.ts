@@ -7,6 +7,15 @@ interface ContentObject {
   protected: boolean;
 }
 
+export interface ApiError {
+  statusCode: number;
+}
+
+export interface ApiRequest<T> {
+  error?: ApiError;
+  data: T;
+}
+
 export interface Post {
   id: number;
   slug: string;
