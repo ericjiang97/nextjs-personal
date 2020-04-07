@@ -8,20 +8,13 @@ import ErrorPage from "next/error";
 
 import { Post, ApiRequest } from "../../types/wordpress_api";
 import Custom404 from "../404";
+import WordPressApiService from "../../services/WordPressApiService";
 
 export default class extends Component<ApiRequest<Post>, null> {
   // Resolve promise and set initial props.
-  static async getInitialProps({ query, res }: NextPageContext) {
+  static async getInitialProps({ query }: NextPageContext) {
     const { post } = query;
-    const response = await fetch(
-      `https://blog.ericjiang.dev/wp-json/wp/v2/posts?slug=${post}`
-    );
-    const blogPost = await response.json();
-    if (blogPost.length === 0) {
-      return { error: { statusCode: 404 }, data: null };
-    }
-    const data = blogPost[0];
-    return { data, error: null };
+    return await WordPressApiService.getSinglePost(post as string);
   }
 
   render() {
