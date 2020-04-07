@@ -5,7 +5,7 @@ const localStorageKey = "darkTheme";
 export default function useDarkTheme() {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
-  const [storedValue, setStoredValue] = useState(false);
+  const [storedValue, setStoredValue] = useState<boolean>(false);
 
   useEffect(() => {
     const initialValue = window.matchMedia("(prefers-color-scheme: dark)")
@@ -25,10 +25,13 @@ export default function useDarkTheme() {
     }
   });
 
-  const setValue = (value) => {
+  const setValue = (value: boolean) => {
     setStoredValue(value);
     window.localStorage.setItem(localStorageKey, JSON.stringify(value));
   };
 
-  return [storedValue, setValue];
+  return {
+    darkTheme: storedValue,
+    setDarkTheme: setValue,
+  };
 }

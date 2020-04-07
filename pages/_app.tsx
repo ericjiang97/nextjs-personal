@@ -9,8 +9,8 @@ import useDarkTheme from "../hooks/useDarkTheme";
 import "../css/tailwind.css";
 import Head from "next/head";
 
-function RootComponent({ children }) {
-  const [darkTheme, setDarkTheme] = useDarkTheme();
+const RootComponent: React.FC = ({ children }) => {
+  const { darkTheme, setDarkTheme } = useDarkTheme();
 
   return (
     <>
@@ -102,7 +102,7 @@ function RootComponent({ children }) {
       </div>
     </>
   ); // The fragment is just illustrational
-}
+};
 
 class MyApp extends App {
   render() {
