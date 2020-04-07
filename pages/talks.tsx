@@ -2,6 +2,7 @@ import Head from "next/head";
 import ProjectCard from "../components/cards/ProjectCard";
 
 import talks from "../data/talks";
+import { Talk } from "../types/talks";
 
 const Projects = () => (
   <div className="text-sans">
@@ -41,7 +42,7 @@ const Projects = () => (
             No talks upcoming... Hit me up!
           </h3>
         )}
-        {talks.upcoming.map((talk, i) => {
+        {talks.upcoming.map((talk: Talk, i) => {
           return (
             <a
               key={i}
@@ -60,7 +61,7 @@ const Projects = () => (
         <h3 className="m-0 w-full pt-14 leading-tight text-2xl text-left font-bold mt-2 mb-3">
           Past talks
         </h3>
-        {talks.past.map((talk, i) => {
+        {talks.past.map((talk: Talk, i) => {
           return (
             <a
               key={i}
