@@ -17,7 +17,7 @@ export default class extends Component {
 
   render() {
     const { title, author_info, content, date } = this.props;
-    console.log(this.props);
+
     return (
       <div className="text-sans">
         <Head>
@@ -37,7 +37,7 @@ export default class extends Component {
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <div
-            className="text-left my-4 text-m"
+            className="text-left my-4 text-m p-2"
             dangerouslySetInnerHTML={{ __html: content.rendered }}
           />
         </div>
