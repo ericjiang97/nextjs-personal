@@ -1,4 +1,4 @@
-export default {
+const talks = {
   upcoming: [],
   past: [
     {
@@ -39,3 +39,5 @@ export default {
     },
   ],
 };
+
+export default talks;
