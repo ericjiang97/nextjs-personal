@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import moment from "moment";
-import fetch from "isomorphic-unfetch";
 
 import Head from "next/head";
 import ErrorPage from "next/error";

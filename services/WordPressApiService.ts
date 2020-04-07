@@ -1,4 +1,7 @@
+import fetch from "isomorphic-unfetch";
+
 import { ApiRequest, Post } from "../types/wordpress_api";
+
 import SITE_CONFIG from "../config";
 
 class WordPressApiService {
