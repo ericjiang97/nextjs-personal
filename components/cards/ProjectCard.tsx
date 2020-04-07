@@ -1,6 +1,18 @@
 import React from "react";
 
-const ProjectCard = ({ url, imageUrl, name, description }) => {
+interface ProjectCardProps {
+  url: string;
+  imageUrl: string;
+  name: string;
+  description: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  url,
+  imageUrl,
+  name,
+  description,
+}) => {
   return (
     <a
       href={url}
