@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NextContext } from "next";
+import { NextPageContext } from "next";
 import moment from "moment";
 import fetch from "isomorphic-unfetch";
 
@@ -8,7 +8,7 @@ import { Post } from "../../types/wordpress_api";
 
 export default class extends Component<Post, null> {
   // Resolve promise and set initial props.
-  static async getInitialProps({ query }: NextContext) {
+  static async getInitialProps({ query }: NextPageContext) {
     const { post } = query;
     const res = await fetch(
       `https://blog.ericjiang.dev/wp-json/wp/v2/posts?slug=${post}`
