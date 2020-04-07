@@ -53,7 +53,7 @@ export default class Rss extends React.Component {
       return;
     }
     const blogPosts = await fetch(
-      "https://blog.ericjiang.dev/wp-json/wp/v2/posts"
+      "https://blog.ericjiang.dev/wp-json/wp/v2/posts?per_page=100"
     ).then((r) => r.json());
     res.setHeader("Content-Type", "text/xml");
     res.write(getRssXml(blogPosts));

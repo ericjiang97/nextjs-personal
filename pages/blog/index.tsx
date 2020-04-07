@@ -10,7 +10,7 @@ export default class extends Component<{ posts: Post[] }, {}> {
   static async getInitialProps() {
     // Make request for posts.
     const resp = await fetch(
-      "https://blog.ericjiang.dev/wp-json/wp/v2/posts"
+      "https://blog.ericjiang.dev/wp-json/wp/v2/posts?per_page=100"
     ).then((r) => r.json());
 
     // Return response to posts object in props.
