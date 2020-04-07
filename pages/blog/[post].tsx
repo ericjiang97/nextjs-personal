@@ -21,7 +21,7 @@ export default class extends Component<ApiRequest<Post>, null> {
       return { error: { statusCode: 404 }, data: null };
     }
     const data = blogPost[0];
-    return { data };
+    return { data, error: null };
   }
 
   render() {
@@ -30,6 +30,10 @@ export default class extends Component<ApiRequest<Post>, null> {
     if (error) {
       if (error.statusCode === 404) return <Custom404 />;
       return <ErrorPage statusCode={error.statusCode} />;
+    }
+
+    if (!data) {
+      return <Custom404 />;
     }
 
     const { title, author_info, content, date } = data;
