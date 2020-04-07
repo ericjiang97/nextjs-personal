@@ -2,7 +2,7 @@ import React from "react";
 
 interface ProjectCardProps {
   url: string;
-  imageUrl: string;
+  imageUrl?: string;
   name: string;
   description: string;
 }
