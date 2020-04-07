@@ -1,5 +1,7 @@
 import React from "react";
 import { NextPageContext } from "next";
+import fetch from "isomorphic-unfetch";
+
 import { Post } from "../../types/wordpress_api";
 
 const blogPostsRssXml = (blogPosts: Post[]) => {
