@@ -21,6 +21,13 @@ export type ApiRequest<T> =
       data: T;
     };
 
+export interface Posts {
+  pageSize: number;
+  page: number;
+  maxPage: number;
+  posts: Post[];
+}
+
 export interface Post {
   id: number;
   slug: string;

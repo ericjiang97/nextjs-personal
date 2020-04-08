@@ -3,17 +3,23 @@ import moment from "moment";
 
 import Head from "next/head";
 import ErrorPage from "next/error";
+import { useRouter } from "next/router";
 
-import { Post, ApiRequest } from "../../types/wordpress_api";
+import { Post, ApiRequest, Posts } from "../../types/wordpress_api";
 import WordPressApiService from "../../services/WordPressApiService";
 
 import Custom404 from "../404";
+import { NextPageContext } from "next";
 
-export default class extends Component<ApiRequest<Post[]>, {}> {
+export default class extends Component<ApiRequest<Posts>, {}> {
   // Resolve promise and set initial props.
-  static async getInitialProps() {
+  static async getInitialProps({ query }: NextPageContext) {
+    let pageNum = 1;
+    if (query.pageNum) {
+      pageNum = parseInt(query.pageNum as string) || 1;
+    }
     // Make request for posts.
-    return await WordPressApiService.getAllPosts();
+    return await WordPressApiService.getAllPosts(10, pageNum);
   }
 
   render() {
@@ -22,7 +28,10 @@ export default class extends Component<ApiRequest<Post[]>, {}> {
       if (error.statusCode === 404) return <Custom404 />;
       return <ErrorPage statusCode={error.statusCode} />;
     }
-    const posts = data;
+    if (!data) {
+      return <Custom404 />;
+    }
+    const { posts, pageSize, maxPage, page } = data;
     return (
       <div className="text-sans">
         <Head>
@@ -70,6 +79,25 @@ export default class extends Component<ApiRequest<Post[]>, {}> {
                   </div>
                 );
               })}
+          </div>
+          <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around items-center my-4">
+            {page !== 1 && (
+              <a
+                className="bg-brand hover:bg-brand text-white font-bold py-2 px-4 rounded-full"
+                href={`/blog?pageNum=${page - 1}`}
+              >
+                &larr;
+              </a>
+            )}
+            {`Page ${page} of ${maxPage}`}{" "}
+            {page !== maxPage && (
+              <a
+                className="bg-brand hover:bg-brand text-white font-bold py-2 px-4 rounded-full"
+                href={`/blog?pageNum=${page + 1}`}
+              >
+                &rarr;
+              </a>
+            )}
           </div>
         </div>
       </div>
