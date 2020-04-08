@@ -11,6 +11,7 @@ import WordPressApiService from "../../services/WordPressApiService";
 import Custom404 from "../404";
 import { NextPageContext } from "next";
 import { useRouter } from "next/dist/client/router";
+import BlogPostCard from "../../components/cards/BlogPostCard";
 
 const BlogIndexPage: NextPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -64,31 +65,7 @@ const BlogIndexPage: NextPage = () => {
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           {posts &&
             posts.map((post) => {
-              return (
-                <div
-                  className="pt-4 px-5 pb-6 mt-2 mb-2 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500"
-                  key={post.slug}
-                >
-                  <h2 className="m-0 w-full pt-14 leading-tight text-xs mb-2 text-left">
-                    {`${moment(post.date).format("DD MMM YYYY hh:mma")}`}
-                  </h2>
-                  <h2 className="m-0 w-full pt-14 leading-tight text-xl text-left mb-3">
-                    {post.title.rendered}
-                  </h2>
-                  <div
-                    className="mb-6"
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt.rendered,
-                    }}
-                  ></div>
-                  <a
-                    className="m-0 text-brand text-md font-semibold"
-                    href={`/blog/${post.slug}`}
-                  >
-                    Read more &rarr;
-                  </a>
-                </div>
-              );
+              return <BlogPostCard post={post} key={post.id} />;
             })}
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around items-center my-4">
