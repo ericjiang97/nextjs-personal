@@ -28,13 +28,19 @@ export default class extends Component<ApiRequest<Post>, null> {
       return <Custom404 />;
     }
 
-    const { title, author_info, content, date } = data;
+    const { title, author_info, content, date, uagb_excerpt } = data;
 
     const html = content.rendered;
     return (
       <div className="text-sans">
         <Head>
           <title>{`Blog - ${title.rendered}`}</title>
+          <meta name="description" content={uagb_excerpt} />
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
         </Head>
 
         <div className="w-full text-gray-900">
