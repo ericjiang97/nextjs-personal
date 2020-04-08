@@ -18,7 +18,7 @@ const Footer = () => {
             <a href="https://tailwindcss.com/">Tailwind CSS</a>
           </p>
         </div>
-        <div className="max-w-2xl mx-auto py-auto flex flex-row items-center justify-end">
+        <div className="max-w-2xl mx-auto py-auto flex flex-row items-center justify-end my-4">
           <a href={SITE_CONFIG.social.LINKEDIN}>
             <Icons.LinkedIn className="fill-current h-5 w-5 mx-2" />
           </a>
