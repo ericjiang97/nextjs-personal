@@ -11,9 +11,21 @@ export interface ApiError {
   statusCode: number;
 }
 
-export interface ApiRequest<T> {
-  error?: ApiError;
-  data: T;
+export type ApiRequest<T> =
+  | {
+      error: ApiError;
+      data: null;
+    }
+  | {
+      error: null;
+      data: T;
+    };
+
+export interface Posts {
+  pageSize: number;
+  page: number;
+  maxPage: number;
+  posts: Post[];
 }
 
 export interface Post {

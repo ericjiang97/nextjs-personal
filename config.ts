@@ -6,6 +6,9 @@ const SITE_CONFIG = {
     TWITTER: "https://twitter.com/ericjiang97",
     FLICKR: "https://flickr.com/people/lorderikir",
   },
+  urls: {
+    WORDPRESS_URL: "https://blog.ericjiang.dev",
+  },
 };
 
 export default SITE_CONFIG;

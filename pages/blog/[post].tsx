@@ -1,27 +1,19 @@
 import React, { Component } from "react";
 import { NextPageContext } from "next";
 import moment from "moment";
-import fetch from "isomorphic-unfetch";
 
 import Head from "next/head";
 import ErrorPage from "next/error";
 
 import { Post, ApiRequest } from "../../types/wordpress_api";
 import Custom404 from "../404";
+import WordPressApiService from "../../services/WordPressApiService";
 
 export default class extends Component<ApiRequest<Post>, null> {
   // Resolve promise and set initial props.
-  static async getInitialProps({ query, res }: NextPageContext) {
+  static async getInitialProps({ query }: NextPageContext) {
     const { post } = query;
-    const response = await fetch(
-      `https://blog.ericjiang.dev/wp-json/wp/v2/posts?slug=${post}`
-    );
-    const blogPost = await response.json();
-    if (blogPost.length === 0) {
-      return { error: { statusCode: 404 }, data: null };
-    }
-    const data = blogPost[0];
-    return { data };
+    return await WordPressApiService.getSinglePost(post as string);
   }
 
   render() {
@@ -32,13 +24,23 @@ export default class extends Component<ApiRequest<Post>, null> {
       return <ErrorPage statusCode={error.statusCode} />;
     }
 
-    const { title, author_info, content, date } = data;
+    if (!data) {
+      return <Custom404 />;
+    }
+
+    const { title, author_info, content, date, uagb_excerpt } = data;
 
     const html = content.rendered;
     return (
       <div className="text-sans">
         <Head>
           <title>{`Blog - ${title.rendered}`}</title>
+          <meta name="description" content={uagb_excerpt} />
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
         </Head>
 
         <div className="w-full text-gray-900">
