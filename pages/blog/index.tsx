@@ -5,36 +5,73 @@ import Head from "next/head";
 import { NextPage } from "next";
 import ErrorPage from "next/error";
 
-import { ApiRequest, Posts } from "../../types/wordpress_api";
+import { ApiRequest, Posts, Post } from "../../types/wordpress_api";
 import WordPressApiService from "../../services/WordPressApiService";
 
 import Custom404 from "../404";
 import { NextPageContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import BlogPostCard from "../../components/cards/BlogPostCard";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 
-const BlogIndexPage: NextPage = () => {
+const BlogIndexPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [resp, setResp] = useState<ApiRequest<Posts> | null>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    if (router.query.param) {
-      setCurrentPage(parseInt(router.query.pageNum as string));
+  const fetchMorePosts = async () => {
+    console.log("loading more posts...");
+    setCurrentPage(currentPage + 1);
+    const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(
+      10,
+      currentPage + 1
+    );
+    console.log(resp);
+    if (resp.data) {
+      const posts: Post[] = resp.data.posts as any;
+      setPosts((prevState) => [...prevState, ...posts]);
+      setApiResponse(resp);
     }
-    fetchData();
-  });
-
-  const fetchData = async () => {
-    const data = await WordPressApiService.getAllPosts(10, currentPage);
-    setResp(data);
   };
+  const [isFetching, setIsFetching] = useInfiniteScroll(fetchMorePosts);
 
-  if (!resp) {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [apiResponse, setApiResponse] = useState<ApiRequest<Posts> | null>(
+    null
+  );
+
+  /**
+   * Logic Block
+   */
+  useEffect(() => {
+    async function getData() {
+      console.log("loading data...");
+      if (router.query.param) {
+        setCurrentPage(parseInt(router.query.pageNum as string));
+      }
+      const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(
+        10,
+        currentPage
+      );
+      console.log(resp);
+      if (resp.data) {
+        const posts: Post[] = resp.data.posts as any;
+        setPosts((prevState) => [...prevState, ...posts]);
+        setApiResponse(resp);
+      }
+    }
+    getData();
+  }, []);
+
+  /**
+   * Render Page Block
+   */
+
+  if (!apiResponse) {
+    console.log("No Api Response");
     return <ErrorPage statusCode={500} />;
   }
   console.log(currentPage);
-  const { error, data } = resp;
+  const { error, data } = apiResponse;
 
   if (error) {
     if (error.statusCode === 404) return <Custom404 />;
@@ -43,7 +80,7 @@ const BlogIndexPage: NextPage = () => {
   if (!data) {
     return <Custom404 />;
   }
-  const { posts, pageSize, maxPage, page } = data;
+  const { pageSize, maxPage, page } = data;
   return (
     <div className="text-sans">
       <Head>
@@ -64,27 +101,14 @@ const BlogIndexPage: NextPage = () => {
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           {posts &&
-            posts.map((post) => {
-              return <BlogPostCard post={post} key={post.id} />;
+            posts.length > 0 &&
+            posts.map((post: Post, index) => {
+              return <BlogPostCard post={post} key={index} />;
             })}
-        </div>
-        <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around items-center my-4">
-          {page !== 1 && (
-            <a
-              className="bg-brand hover:bg-brand text-white font-bold py-2 px-4 rounded-full"
-              href={`/blog?pageNum=${page - 1}`}
-            >
-              &larr;
-            </a>
-          )}
-          {`Page ${page} of ${maxPage}`}{" "}
-          {page !== maxPage && (
-            <a
-              className="bg-brand hover:bg-brand text-white font-bold py-2 px-4 rounded-full"
-              href={`/blog?pageNum=${page + 1}`}
-            >
-              &rarr;
-            </a>
+          {isFetching && maxPage > currentPage && (
+            <div className="pt-4 px-5 pb-6 mt-2 mb-2 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500">
+              <h2>Loading More Posts...</h2>
+            </div>
           )}
         </div>
       </div>
