@@ -68,7 +68,7 @@ const BlogIndexPage: React.FC = () => {
 
   if (!apiResponse) {
     console.log("No Api Response");
-    return <ErrorPage statusCode={500} />;
+    return <div>Loading...</div>;
   }
   console.log(currentPage);
   const { error, data } = apiResponse;
