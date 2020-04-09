@@ -9,7 +9,6 @@ import { ApiRequest, Posts, Post } from "../../types/wordpress_api";
 import WordPressApiService from "../../services/WordPressApiService";
 
 import Custom404 from "../404";
-import { NextPageContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import BlogPostCard from "../../components/cards/BlogPostCard";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
