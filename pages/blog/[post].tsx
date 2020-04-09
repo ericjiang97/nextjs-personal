@@ -75,7 +75,7 @@ export default class extends Component<
             <h2 className="text-left my-4 text-xl">{`By ${author_info.display_name}`}</h2>
             <a
               className="text-left my-4 text-xs underline"
-              href={`/blog/categories/${id}`}
+              href={`/category/${id}`}
             >{`${name}`}</a>
           </div>
         </div>

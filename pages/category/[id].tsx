@@ -4,17 +4,12 @@ import moment from "moment";
 
 import Head from "next/head";
 import ErrorPage from "next/error";
-import WordPressApiService from "../../../services/WordPressApiService";
-import {
-  ApiRequest,
-  Category,
-  Posts,
-  Post,
-} from "../../../types/wordpress_api";
-import Custom404 from "../../404";
+import WordPressApiService from "../../services/WordPressApiService";
+import { ApiRequest, Category, Posts, Post } from "../../types/wordpress_api";
+import Custom404 from "../404";
 import { useRouter } from "next/dist/client/router";
-import useInfiniteScroll from "../../../hooks/useInfiniteScroll";
-import BlogPostCard from "../../../components/cards/BlogPostCard";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
+import BlogPostCard from "../../components/cards/BlogPostCard";
 
 const CategoryPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,9 +40,12 @@ const CategoryPage: React.FC = () => {
 
   useEffect(() => {
     async function getData() {
+      console.log(router);
       const category = await WordPressApiService.getCategory(
         router.query.id as string
       );
+      console.log(category);
+      setCategory(category);
       const resp: ApiRequest<Posts> = await WordPressApiService.getPostsByCategory(
         10,
         currentPage,
@@ -58,7 +56,6 @@ const CategoryPage: React.FC = () => {
         setPosts((prevState) => [...prevState, ...posts]);
         setApiResponse(resp);
       }
-      setCategory(category);
     }
     getData();
   }, []);
@@ -69,6 +66,7 @@ const CategoryPage: React.FC = () => {
 
   const { error, data } = category;
   if (error) {
+    console.error(`error ${JSON.stringify(error)}`);
     if (error.statusCode === 404) return <Custom404 />;
     return <ErrorPage statusCode={error.statusCode} />;
   }
@@ -77,10 +75,12 @@ const CategoryPage: React.FC = () => {
   }
 
   if (apiResponse && apiResponse.error) {
+    console.log("api response errors");
     if (apiResponse.error.statusCode === 404) return <Custom404 />;
     return <ErrorPage statusCode={apiResponse.error.statusCode} />;
   }
   if (apiResponse && !apiResponse.data) {
+    console.log("api response errors");
     return <Custom404 />;
   }
   const { pageSize, maxPage, page } = apiResponse.data;

@@ -43,7 +43,7 @@ class WordPressApiService {
     const response = await fetch(
       `${SITE_CONFIG.urls.WORDPRESS_URL}/wp-json/wp/v2/categories/${categoryId}`
     );
-
+    console.log(response);
     if (!response.ok) {
       return { error: { statusCode: response.status }, data: null };
     }
