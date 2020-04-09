@@ -62,7 +62,7 @@ const BlogIndexPage: React.FC = () => {
    */
 
   if (!apiResponse) {
-    return <div>Loading...</div>;
+    return <span className="skeleton-box h-64 inline-block"></span>;
   }
   const { error, data } = apiResponse;
 
@@ -99,9 +99,7 @@ const BlogIndexPage: React.FC = () => {
               return <BlogPostCard post={post} key={index} />;
             })}
           {isFetching && maxPage > currentPage && (
-            <div className="pt-4 px-5 pb-6 mt-2 mb-2 text-left no-underline text-gray-800 border border-gray-400 hover:border-blue-500">
-              <h2>Loading More Posts...</h2>
-            </div>
+            <span className="skeleton-box h-12 inline-block"></span>
           )}
         </div>
       </div>
