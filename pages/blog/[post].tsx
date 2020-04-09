@@ -8,6 +8,7 @@ import ErrorPage from "next/error";
 import { Post, ApiRequest, Category } from "../../types/wordpress_api";
 import Custom404 from "../404";
 import WordPressApiService from "../../services/WordPressApiService";
+import ShareModal from "../../components/ShareModal";
 
 export default class extends Component<
   { post: ApiRequest<Post>; category: ApiRequest<Category> },
@@ -87,6 +88,7 @@ export default class extends Component<
             }}
           />
         </div>
+        <ShareModal post={data} />
       </div>
     );
   }
