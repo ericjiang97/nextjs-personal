@@ -19,13 +19,11 @@ const BlogIndexPage: React.FC = () => {
   const router = useRouter();
 
   const fetchMorePosts = async () => {
-    console.log("loading more posts...");
     setCurrentPage(currentPage + 1);
     const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(
       10,
       currentPage + 1
     );
-    console.log(resp);
     if (resp.data) {
       const posts: Post[] = resp.data.posts as any;
       setPosts((prevState) => [...prevState, ...posts]);
@@ -44,7 +42,6 @@ const BlogIndexPage: React.FC = () => {
    */
   useEffect(() => {
     async function getData() {
-      console.log("loading data...");
       if (router.query.param) {
         setCurrentPage(parseInt(router.query.pageNum as string));
       }
@@ -52,7 +49,6 @@ const BlogIndexPage: React.FC = () => {
         10,
         currentPage
       );
-      console.log(resp);
       if (resp.data) {
         const posts: Post[] = resp.data.posts as any;
         setPosts((prevState) => [...prevState, ...posts]);
@@ -67,10 +63,8 @@ const BlogIndexPage: React.FC = () => {
    */
 
   if (!apiResponse) {
-    console.log("No Api Response");
     return <div>Loading...</div>;
   }
-  console.log(currentPage);
   const { error, data } = apiResponse;
 
   if (error) {
