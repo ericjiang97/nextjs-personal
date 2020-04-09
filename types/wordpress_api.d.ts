@@ -47,4 +47,21 @@ export interface Post {
   excerpt: ContentObject;
   uagb_excerpt: string;
   status: "publish" | "future" | "draft" | "pending" | "private";
+  categories: number[];
+}
+
+export interface Category {
+  id: number;
+  count: number;
+  description: string;
+  link: string;
+  name: string;
+  slug: string;
+  taxonomy:
+    | "category"
+    | "post_tag"
+    | "nav_menu"
+    | "link_category"
+    | "post_format";
+  parent: number;
 }

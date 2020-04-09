@@ -5,30 +5,51 @@ import moment from "moment";
 import Head from "next/head";
 import ErrorPage from "next/error";
 
-import { Post, ApiRequest } from "../../types/wordpress_api";
+import { Post, ApiRequest, Category } from "../../types/wordpress_api";
 import Custom404 from "../404";
 import WordPressApiService from "../../services/WordPressApiService";
 
-export default class extends Component<ApiRequest<Post>, null> {
+export default class extends Component<
+  { post: ApiRequest<Post>; category: ApiRequest<Category> },
+  null
+> {
   // Resolve promise and set initial props.
   static async getInitialProps({ query }: NextPageContext) {
     const { post } = query;
-    return await WordPressApiService.getSinglePost(post as string);
+    const postData: ApiRequest<Post> = await WordPressApiService.getSinglePost(
+      post as string
+    );
+    let categoryInfo;
+    if (postData.data) {
+      categoryInfo = await WordPressApiService.getCategory(
+        postData.data.categories[0].toString()
+      );
+    }
+    return { post: postData, category: categoryInfo };
   }
 
   render() {
-    const { error, data } = this.props;
+    const { error, data } = this.props.post;
+
+    const categoryInfoError = this.props.category.error;
+    const categoryInfoData = this.props.category.data;
 
     if (error) {
       if (error.statusCode === 404) return <Custom404 />;
       return <ErrorPage statusCode={error.statusCode} />;
     }
+    if (categoryInfoError) {
+      if (categoryInfoError.statusCode === 404) return <Custom404 />;
+      return <ErrorPage statusCode={categoryInfoError.statusCode} />;
+    }
 
-    if (!data) {
+    if (!data || !categoryInfoData) {
       return <Custom404 />;
     }
 
     const { title, author_info, content, date, uagb_excerpt } = data;
+
+    const { name, id } = categoryInfoData;
 
     const html = content.rendered;
     return (
@@ -52,6 +73,10 @@ export default class extends Component<ApiRequest<Post>, null> {
               {title.rendered}
             </h1>
             <h2 className="text-left my-4 text-xl">{`By ${author_info.display_name}`}</h2>
+            <a
+              className="text-left my-4 text-xs underline"
+              href={`/blog/categories/${id}`}
+            >{`${name}`}</a>
           </div>
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
