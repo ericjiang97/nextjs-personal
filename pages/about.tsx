@@ -25,19 +25,21 @@ const Projects = () => (
             >
               here
             </a>
-            . Not only do I love writing awesome software and cybersecurity, I
-            also love incorporating other sides of the tech field such as
-            DevOps, Product Management, Software Engineering and
-            Web/CloudTechnologies into my development practices.
+            .
           </p>
           <p className="text-left my-4 text-m">
-            Something that I’m currently proud of is winning the Rising Star
-            Category of the 2019 itNews Benchmark Awards for founding and
-            delivering MonPlan whilst I was still a student. I also love
-            impacting to everyone in the community, that is why I love mentoring
-            other fellow developers, friends and family, and why I also love
-            participating in many community events such as hackathons,
-            conferences and meetups.
+            I am known for founding and delivering MonPlan which is the Monash
+            University enterprise course planning tool, built for students by
+            students and was awarded the Rising Star category of the 2019 itnews
+            Benchmark Awards - this is a National Award which recognizes a young
+            IT professional who displays exceptional promise and has already
+            clocked up impressive achievements.
+          </p>
+          <p className="text-left my-4 text-m">
+            I'd like to bring my passion for programming to building software
+            and mechanisms to keep user data safe and ensuring that end users
+            have the best user experience when using software. If you are a
+            recruiter, I am best contacted via email at recruiting@ericjiang.dev
           </p>
           <div className="flex-1 flex justify-center">
             <a
@@ -83,6 +85,9 @@ const Projects = () => (
                     <li key={descipIndex}>{descrip}</li>
                   ))}
                 </ul>
+                {/* <div className="flex flex-1 my-2 justify-around">
+                  Embed Media
+                </div> */}
               </div>
             </div>
           );
