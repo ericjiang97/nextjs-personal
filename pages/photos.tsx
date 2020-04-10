@@ -47,7 +47,7 @@ const PhotosPage: React.FC = () => {
             albumTitle="Best of China"
             albumUrl="https://www.flickr.com/photos/lorderikir/albums/72157705698643954"
             description="This collection was taken in December 2018 in China and highlights some famous sites around China."
-            tags={["japan", "nara", "deers"]}
+            tags={["china", "landscapes"]}
           />
           <PhotoAlbumCard
             date="November 2018"
