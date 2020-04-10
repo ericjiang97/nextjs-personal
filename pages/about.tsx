@@ -8,7 +8,7 @@ const Projects = () => (
       <title>About - Eric jiang</title>
     </Head>
 
-    <div className="w-full text-gray-900">
+    <div className="w-full text-gray-900 flex flex-col items-center">
       <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <h1 className="m-0 w-full pt-14 leading-tight text-5xl text-center font-semibold">
@@ -39,17 +39,27 @@ const Projects = () => (
             participating in many community events such as hackathons,
             conferences and meetups.
           </p>
+          <div className="flex-1 flex justify-center">
+            <a
+              className="bg-transparent border border-brand hover:bg-brand text-gray-500 hover:text-white font-bold py-2 px-4 rounded-full"
+              href="https://resume.ericjiang.dev"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Download my resume
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row flex-wrap justify-around">
+      <div className="max-w-4xl mx-auto pt-10 py-auto pb-8 flex flex-col flex-wrap justify-around">
         <h2 className="m-0 w-full pt-14 leading-tight text-xl text-left font-bold">
           Experience
         </h2>
         {experience.map((experience, index) => {
           return (
             <div
-              className="max-w-4xl mx-auto py-auto flex flex-row justify-around py-6 px-4"
+              className="max-w-4xl py-auto flex flex-row justify-around py-6 px-4 flex-1"
               key={index}
             >
               <div className="w-1/3 mx-auto py-auto flex flex-col justify-start">
@@ -67,7 +77,7 @@ const Projects = () => (
                   ))}
                 </div>
               </div>
-              <div className="max-w-2xl mx-auto py-auto ml-4 flex flex-1 flex-col justify-end">
+              <div className="max-w-2xl mx-auto py-auto ml-4 flex flex-1 flex-col">
                 <ul className="list-disc list-outside">
                   {experience.description.map((descrip, descipIndex) => (
                     <li key={descipIndex}>{descrip}</li>
