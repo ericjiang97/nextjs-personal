@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 import ReactModal from "react-modal";
 import {
@@ -6,13 +7,13 @@ import {
   EmailIcon,
   FacebookShareButton,
   FacebookIcon,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
   TwitterShareButton,
   TwitterIcon,
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
+
+import Icons from "../components/icons";
 
 import { Post } from "../types/wordpress_api";
 
@@ -81,6 +82,20 @@ const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
             <FacebookShareButton url={postUrl}>
               <FacebookIcon size={32} round={true} />
             </FacebookShareButton>
+          </div>
+          <div className="container my-2 flex justify-around align-center">
+            <input
+              className="appearance-none block w-full bg-background text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white flex-1"
+              id="grid-first-name"
+              type="text"
+              placeholder="Jane"
+              value={postUrl}
+            ></input>
+            <CopyToClipboard text={postUrl}>
+              <button className="bg-brand hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <Icons.Copy className="fill-current h-5 w-5 mx-2" />
+              </button>
+            </CopyToClipboard>
           </div>
         </div>
       </ReactModal>
