@@ -80,6 +80,12 @@ class Nav extends React.Component<NavProps, NavState> {
               Tech Talks
             </a>
             <a
+              href="/photos"
+              className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
+            >
+              Photography
+            </a>
+            <a
               href="/about"
               className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
             >
