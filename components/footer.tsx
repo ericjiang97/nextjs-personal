@@ -10,7 +10,7 @@ const Footer = () => {
           className="flex-1 mx-auto py-auto flex flex-col justify-start mr-4"
           style={{ minWidth: 280 }}
         >
-          <p>Copyright &copy; Eric Jiang {new Date().getFullYear()}</p>
+          <p>Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</p>
           <p className="text-xs">
             Powered by <a href="https://zeit.co/">Zeit</a> and{" "}
             <a href="https://wordpress.org">WordPress</a>. Built in{" "}
