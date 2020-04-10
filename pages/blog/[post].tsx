@@ -87,8 +87,10 @@ export default class extends Component<
               __html: html.replace("<p>", "<p className='mt-2'>"),
             }}
           />
+          <div>
+            <ShareModal post={data} />
+          </div>
         </div>
-        <ShareModal post={data} />
       </div>
     );
   }
