@@ -61,10 +61,10 @@ const Projects = () => (
         {experience.map((experience, index) => {
           return (
             <div
-              className="max-w-4xl py-auto flex flex-row justify-around py-6 px-4 flex-1"
+              className="max-w-4xl py-auto flex flex-row flex-wrap justify-around py-6 px-4 flex-1"
               key={index}
             >
-              <div className="w-1/3 mx-auto py-auto flex flex-col justify-start">
+              <div className="w-1/3 mx-auto py-auto flex flex-1 flex-col justify-start">
                 <h3 className="w-full leading-tight text-lg text-left font-semibold">
                   {experience.company}
                 </h3>
@@ -79,7 +79,10 @@ const Projects = () => (
                   ))}
                 </div>
               </div>
-              <div className="max-w-2xl mx-auto py-auto ml-4 flex flex-1 flex-col">
+              <div
+                className="max-w-2xl mx-auto py-auto ml-4 flex flex-3 flex-col"
+                style={{ minWidth: 280 }}
+              >
                 <ul className="list-disc list-outside">
                   {experience.description.map((descrip, descipIndex) => (
                     <li key={descipIndex}>{descrip}</li>
