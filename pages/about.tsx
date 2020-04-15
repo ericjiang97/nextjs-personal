@@ -1,6 +1,8 @@
 import Head from "next/head";
 import ProjectCard from "../components/cards/ProjectCard";
 import experience from "../data/experience";
+import { Experience } from "../types";
+import Link from "next/link";
 
 const Projects = () => (
   <div className="text-sans">
@@ -58,16 +60,23 @@ const Projects = () => (
         <h2 className="m-0 w-full pt-14 leading-tight text-xl text-left font-bold">
           Experience
         </h2>
-        {experience.map((experience, index) => {
+        {experience.map((experience: Experience, index) => {
           return (
             <div
               className="max-w-4xl py-auto flex flex-row flex-wrap justify-around py-6 px-4 flex-1"
               key={index}
             >
               <div className="w-1/3 mx-auto py-auto flex flex-1 flex-col justify-start">
-                <h3 className="w-full leading-tight text-lg text-left font-semibold">
-                  {experience.company}
-                </h3>
+                <a
+                  href={experience.companyUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-left underline"
+                >
+                  <h3 className="w-full leading-tight text-lg text-left font-semibold">
+                    {experience.company}
+                  </h3>
+                </a>
                 <div className="px-4 py-2">
                   {experience.positions.map((position, posIndex) => (
                     <div key={posIndex}>

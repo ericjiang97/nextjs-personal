@@ -1,16 +1,20 @@
-export default [
+import { Experience } from "../types";
+
+const experience: Experience[] = [
   {
     company: "Google",
+    companyUrl: "https://abc.xyz",
     positions: [
       {
         title: "Incoming Test Engineer",
-        dates: "N/A",
+        dates: "Soon!",
       },
     ],
     description: [],
   },
   {
     company: "Monash University",
+    companyUrl: "https://monash.edu/esolutions",
     positions: [
       {
         title: "Software Engineer - Google Cloud",
@@ -47,6 +51,7 @@ export default [
   },
   {
     company: "Localz",
+    companyUrl: "https://localz.com",
     positions: [
       {
         title: "Intern Software Engineer",
@@ -59,3 +64,5 @@ export default [
     ],
   },
 ];
+
+export default experience;
