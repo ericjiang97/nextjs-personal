@@ -3,14 +3,10 @@ import ProjectCard from "../components/cards/ProjectCard";
 
 import talks from "../data/talks";
 import { Talk } from "../types/talks";
+import PageLayout from "../layouts/PageLayout";
 
-const Projects = () => (
-  <div className="text-sans">
-    <Head>
-      <title>Talks</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
+const TechTalks = () => (
+  <PageLayout title="Tech Talks">
     <div className="w-full text-gray-900">
       <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
         <div className="max-w-xl mx-auto py-auto pb-4 flex flex-col">
@@ -78,7 +74,7 @@ const Projects = () => (
         })}
       </div>
     </div>
-  </div>
+  </PageLayout>
 );
 
-export default Projects;
+export default TechTalks;

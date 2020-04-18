@@ -1,13 +1,9 @@
 import Head from "next/head";
 import ProjectCard from "../components/cards/ProjectCard";
+import PageLayout from "../layouts/PageLayout";
 
 const Projects = () => (
-  <div className="text-sans">
-    <Head>
-      <title>Projects</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
+  <PageLayout title="Projects">
     <div className="w-full text-gray-900">
       <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
@@ -53,7 +49,7 @@ const Projects = () => (
         />
       </div>
     </div>
-  </div>
+  </PageLayout>
 );
 
 export default Projects;
