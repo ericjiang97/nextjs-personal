@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
+import React, { useState } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
-import ReactModal from "react-modal";
+import ReactModal from 'react-modal';
 import {
   EmailShareButton,
   EmailIcon,
@@ -11,11 +11,11 @@ import {
   TwitterIcon,
   LinkedinShareButton,
   LinkedinIcon,
-} from "react-share";
+} from 'react-share';
 
-import Icons from "../components/icons";
+import Icons from '../components/icons';
 
-import { Post } from "../types/wordpress_api";
+import { Post } from '../types/wordpress_api';
 
 const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
   const [open, setOpen] = useState(false);
@@ -37,23 +37,23 @@ const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
         onRequestClose={() => setOpen(false)}
         style={{
           overlay: {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(0, 0, 0, 0.75)",
-            padding: "0.25rem 1.25rem",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            padding: '0.25rem 1.25rem',
           },
           content: {
-            position: "initial",
-            border: "none",
-            background: "#fff",
+            position: 'initial',
+            border: 'none',
+            background: '#fff',
             // overflow: "auto",
-            WebkitOverflowScrolling: "touch",
-            borderRadius: "4px",
-            outline: "none",
+            WebkitOverflowScrolling: 'touch',
+            borderRadius: '4px',
+            outline: 'none',
             padding: 0,
-            height: "30%",
-            display: "flex",
+            height: '30%',
+            display: 'flex',
           },
         }}
       >
@@ -75,7 +75,7 @@ const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
               url={postUrl}
               title={`${post.title.rendered} by Eric Jiang!`}
               summary={`${post.uagb_excerpt}`}
-              source={`https://ericjiang.dev`}
+              source={'https://ericjiang.dev'}
             >
               <LinkedinIcon size={32} round={true} />
             </LinkedinShareButton>

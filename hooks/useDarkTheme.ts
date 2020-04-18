@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-const localStorageKey = "darkTheme";
+const localStorageKey = 'darkTheme';
 
 export default function useDarkTheme() {
   // State to store our value
@@ -8,7 +8,7 @@ export default function useDarkTheme() {
   const [storedValue, setStoredValue] = useState<boolean>(false);
 
   useEffect(() => {
-    const initialValue = window.matchMedia("(prefers-color-scheme: dark)")
+    const initialValue = window.matchMedia('(prefers-color-scheme: dark)')
       .matches;
     try {
       const item = window.localStorage.getItem(localStorageKey);

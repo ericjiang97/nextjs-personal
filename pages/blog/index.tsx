@@ -1,17 +1,17 @@
-import React, { Component, useState, useEffect } from "react";
-import moment from "moment";
+import React, { Component, useState, useEffect } from 'react';
+import moment from 'moment';
 
-import Head from "next/head";
-import { NextPage } from "next";
-import ErrorPage from "next/error";
+import Head from 'next/head';
+import { NextPage } from 'next';
+import ErrorPage from 'next/error';
 
-import { ApiRequest, Posts, Post } from "../../types/wordpress_api";
-import WordPressApiService from "../../services/WordPressApiService";
+import { ApiRequest, Posts, Post } from '../../types/wordpress_api';
+import WordPressApiService from '../../services/WordPressApiService';
 
-import Custom404 from "../404";
-import { useRouter } from "next/dist/client/router";
-import BlogPostCard from "../../components/cards/BlogPostCard";
-import useInfiniteScroll from "../../hooks/useInfiniteScroll";
+import Custom404 from '../404';
+import { useRouter } from 'next/dist/client/router';
+import BlogPostCard from '../../components/cards/BlogPostCard';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 const BlogIndexPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,22 +19,19 @@ const BlogIndexPage: React.FC = () => {
 
   const fetchMorePosts = async () => {
     setCurrentPage(currentPage + 1);
-    const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(
-      10,
-      currentPage + 1
-    );
+    const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(10, currentPage + 1);
     if (resp.data) {
       const posts: Post[] = resp.data.posts as any;
-      setPosts((prevState) => [...prevState, ...posts]);
+      setPosts((prevState) => {
+        return [...prevState, ...posts];
+      });
       setApiResponse(resp);
     }
   };
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMorePosts);
 
   const [posts, setPosts] = useState<Post[]>([]);
-  const [apiResponse, setApiResponse] = useState<ApiRequest<Posts> | null>(
-    null
-  );
+  const [apiResponse, setApiResponse] = useState<ApiRequest<Posts> | null>(null);
 
   /**
    * Logic Block
@@ -42,15 +39,14 @@ const BlogIndexPage: React.FC = () => {
   useEffect(() => {
     async function getData() {
       if (router.query.param) {
-        setCurrentPage(parseInt(router.query.pageNum as string));
+        setCurrentPage(parseInt(router.query.pageNum as string, 10));
       }
-      const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(
-        10,
-        currentPage
-      );
+      const resp: ApiRequest<Posts> = await WordPressApiService.getAllPosts(10, currentPage);
       if (resp.data) {
         const posts: Post[] = resp.data.posts as any;
-        setPosts((prevState) => [...prevState, ...posts]);
+        setPosts((prevState) => {
+          return [...prevState, ...posts];
+        });
         setApiResponse(resp);
       }
     }
@@ -83,12 +79,9 @@ const BlogIndexPage: React.FC = () => {
       <div className="w-full text-gray-900">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
           <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-            <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-center font-bold">
-              Blog
-            </h1>
+            <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-center font-bold">Blog</h1>
             <p className="text-center my-4 text-m">
-              I occassionally write on my blog about tech, projects, reviews...
-              so here's some of them.
+              I occassionally write on my blog about tech, projects, reviews... so here's some of them.
             </p>
           </div>
         </div>
@@ -98,9 +91,7 @@ const BlogIndexPage: React.FC = () => {
             posts.map((post: Post, index) => {
               return <BlogPostCard post={post} key={index} />;
             })}
-          {isFetching && maxPage > currentPage && (
-            <span className="skeleton-box h-12 inline-block"></span>
-          )}
+          {isFetching && maxPage > currentPage && <span className="skeleton-box h-12 inline-block"></span>}
         </div>
       </div>
     </div>

@@ -1,13 +1,13 @@
-import React from "react";
-import App from "next/app";
+import React from 'react';
+import App from 'next/app';
 
-import Footer from "../components/footer";
-import Nav from "../components/nav";
+import Footer from '../components/footer';
+import Nav from '../components/nav';
 
-import useDarkTheme from "../hooks/useDarkTheme";
+import useDarkTheme from '../hooks/useDarkTheme';
 
-import "../css/tailwind.css";
-import Head from "next/head";
+import '../css/tailwind.css';
+import Head from 'next/head';
 
 const RootComponent: React.FC = ({ children }) => {
   const { darkTheme, setDarkTheme } = useDarkTheme();
@@ -87,7 +87,7 @@ const RootComponent: React.FC = ({ children }) => {
       </Head>
       <div
         className="flex flex-col min-h-screen transition-all duration-250 bg-background text-on-background"
-        data-theme={darkTheme ? "dark" : "light"}
+        data-theme={darkTheme ? 'dark' : 'light'}
       >
         <div className="flex-1 flex flex-col ">
           <Nav

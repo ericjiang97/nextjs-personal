@@ -1,9 +1,9 @@
-import Head from "next/head";
-import ProjectCard from "../components/cards/ProjectCard";
-import experience from "../data/experience";
-import { Experience } from "../types";
-import Link from "next/link";
-import PageLayout from "../layouts/PageLayout";
+import Head from 'next/head';
+import ProjectCard from '../components/cards/ProjectCard';
+import experience from '../data/experience';
+import { Experience } from '../types';
+import Link from 'next/link';
+import PageLayout from '../layouts/PageLayout';
 
 const AboutMe = () => (
   <PageLayout title="About Me">
@@ -16,7 +16,7 @@ const AboutMe = () => (
           Hi, I’m Eric. I recently finished my course in Bachelor of Information
           Technology at Monash University in Melbourne, Australia where I
           majored in Computer networks and security. You can read more about me
-          and why I choose an IT degree at Monash{" "}
+          and why I choose an IT degree at Monash{' '}
           <a
             href="https://www.monash.edu/it/future-students/meet-our-students/eric-jiang"
             className="w-64 text-left underline text-brand"

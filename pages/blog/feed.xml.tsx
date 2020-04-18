@@ -1,12 +1,12 @@
-import React from "react";
-import { NextPageContext } from "next";
-import fetch from "isomorphic-unfetch";
+import React from 'react';
+import { NextPageContext } from 'next';
+import fetch from 'isomorphic-unfetch';
 
-import { Post } from "../../types/wordpress_api";
+import { Post } from '../../types/wordpress_api';
 
 const blogPostsRssXml = (blogPosts: Post[]) => {
-  let latestPostDate: string = "";
-  let rssItemsXml = "";
+  let latestPostDate: string = '';
+  let rssItemsXml = '';
   blogPosts.forEach((post) => {
     const postDate = Date.parse(post.date);
     if (!latestPostDate || postDate > Date.parse(latestPostDate)) {
@@ -18,7 +18,7 @@ const blogPostsRssXml = (blogPosts: Post[]) => {
         <link>
           ${`https://ericjiang.dev/blog/${post.slug}`}
         </link>
-        
+
         <pubDate>${post.date}</pubDate>
         <description>
         <![CDATA[${post.uagb_excerpt}]]>
@@ -52,10 +52,10 @@ export default class Rss extends React.Component {
     if (!res) {
       return;
     }
-    const blogPosts = await fetch(
-      "https://blog.ericjiang.dev/wp-json/wp/v2/posts?per_page=100"
-    ).then((r) => r.json());
-    res.setHeader("Content-Type", "text/xml");
+    const blogPosts = await fetch('https://blog.ericjiang.dev/wp-json/wp/v2/posts?per_page=100').then((resp) => {
+      return resp.json();
+    });
+    res.setHeader('Content-Type', 'text/xml');
     res.write(getRssXml(blogPosts));
     res.end();
   }

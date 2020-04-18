@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const Hero = () => {
   const randomGreeting = () => {
     const greetings = [
-      "Hello",
-      "Hello there",
-      "こんにちは",
-      "你好",
-      "Bounjour",
+      'Hello',
+      'Hello there',
+      'こんにちは',
+      '你好',
+      'Bounjour',
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
   };

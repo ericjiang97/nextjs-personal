@@ -1,6 +1,6 @@
-import Head from "next/head";
-import ProjectCard from "../components/cards/ProjectCard";
-import PageLayout from "../layouts/PageLayout";
+import Head from 'next/head';
+import ProjectCard from '../components/cards/ProjectCard';
+import PageLayout from '../layouts/PageLayout';
 
 const Projects = () => (
   <PageLayout title="Projects">

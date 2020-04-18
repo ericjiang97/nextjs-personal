@@ -1,8 +1,15 @@
 {
   "extends": ["tslint-config-airbnb", "tslint-react-hooks"],
   "rules": {
+    "react-hooks-nesting": true,
     "import-name": false,
     "align": false,
+    "max-line-length": [
+      true,
+      {
+        "limit": 200
+      }
+    ],
     "function-name": [
       true,
       {
@@ -14,12 +21,7 @@
       }
     ],
     "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-leading-underscore",
-        "allow-pascal-case"
-      ]
+      "options": ["ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
     }
   }
 }

@@ -1,6 +1,6 @@
-import React from "react";
-import moment from "moment";
-import { Post } from "../../types/wordpress_api";
+import React from 'react';
+import moment from 'moment';
+import { Post } from '../../types/wordpress_api';
 
 const BlogPostCard: React.FC<{ post: Post }> = ({ post }) => {
   return (
@@ -9,7 +9,7 @@ const BlogPostCard: React.FC<{ post: Post }> = ({ post }) => {
       key={post.slug}
     >
       <h2 className="m-0 w-full pt-14 leading-tight text-xs mb-2 text-left">
-        {`${moment(post.date).format("DD MMM YYYY hh:mma")}`}
+        {`${moment(post.date).format('DD MMM YYYY hh:mma')}`}
       </h2>
       <h2 className="m-0 w-full pt-14 leading-tight text-xl text-left mb-3">
         {post.title.rendered}

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { NextPageContext } from "next";
-import moment from "moment";
+import React, { Component } from 'react';
+import { NextPageContext } from 'next';
+import moment from 'moment';
 
-import Head from "next/head";
-import ErrorPage from "next/error";
+import Head from 'next/head';
+import ErrorPage from 'next/error';
 
-import { Post, ApiRequest, Category } from "../../types/wordpress_api";
-import Custom404 from "../404";
-import WordPressApiService from "../../services/WordPressApiService";
-import ShareModal from "../../components/ShareModal";
+import { Post, ApiRequest, Category } from '../../types/wordpress_api';
+import Custom404 from '../404';
+import WordPressApiService from '../../services/WordPressApiService';
+import ShareModal from '../../components/ShareModal';
 
 export default class extends Component<
   { post: ApiRequest<Post>; category: ApiRequest<Category> },
@@ -18,12 +18,12 @@ export default class extends Component<
   static async getInitialProps({ query }: NextPageContext) {
     const { post } = query;
     const postData: ApiRequest<Post> = await WordPressApiService.getSinglePost(
-      post as string
+      post as string,
     );
     let categoryInfo;
     if (postData.data) {
       categoryInfo = await WordPressApiService.getCategory(
-        postData.data.categories[0].toString()
+        postData.data.categories[0].toString(),
       );
     }
     return { post: postData, category: categoryInfo };
@@ -68,7 +68,7 @@ export default class extends Component<
         <div className="w-full text-gray-900">
           <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
             <span className="text-left my-4 text-md">
-              {`Published on ${moment(date).format("Do MMMM YYYY hh:mma")}.`}
+              {`Published on ${moment(date).format('Do MMMM YYYY hh:mma')}.`}
             </span>
             <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">
               {title.rendered}
@@ -84,7 +84,7 @@ export default class extends Component<
           <div
             className="text-left my-4 text-m p-2"
             dangerouslySetInnerHTML={{
-              __html: html.replace("<p>", "<p className='mt-2'>"),
+              __html: html.replace('<p>', "<p className='mt-2'>"),
             }}
           />
           <div>

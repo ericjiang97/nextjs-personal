@@ -1,28 +1,28 @@
-import { Experience } from "../types";
+import { Experience } from '../types';
 
 const experience: Experience[] = [
   {
-    company: "Google",
-    companyUrl: "https://abc.xyz",
+    company: 'Google',
+    companyUrl: 'https://abc.xyz',
     positions: [
       {
-        title: "Incoming Test Engineer",
-        dates: "Soon!",
+        title: 'Incoming Test Engineer',
+        dates: 'Soon!',
       },
     ],
     description: [],
   },
   {
-    company: "Monash University",
-    companyUrl: "https://monash.edu/esolutions",
+    company: 'Monash University',
+    companyUrl: 'https://monash.edu/esolutions',
     positions: [
       {
-        title: "Software Engineer - Google Cloud",
-        dates: "Apr 2019 – Nov 2019",
+        title: 'Software Engineer - Google Cloud',
+        dates: 'Apr 2019 – Nov 2019',
       },
       {
-        title: "Junior Software Engineer – MonPlan Founder and Tech Lead",
-        dates: "Dec 2016 – Mar 2019",
+        title: 'Junior Software Engineer – MonPlan Founder and Tech Lead',
+        dates: 'Dec 2016 – Mar 2019',
       },
     ],
     description: [
@@ -50,17 +50,17 @@ const experience: Experience[] = [
     ],
   },
   {
-    company: "Localz",
-    companyUrl: "https://localz.com",
+    company: 'Localz',
+    companyUrl: 'https://localz.com',
     positions: [
       {
-        title: "Intern Software Engineer",
-        dates: "Dec 2017 – Feb 2018",
+        title: 'Intern Software Engineer',
+        dates: 'Dec 2017 – Feb 2018',
       },
     ],
     description: [
-      `Designed and Built various React Native (RN) ‘Core’ Components for future use in RN Apps, which are highly customisable through internal APIs which allowed components to be reused.`,
-      `Designed and built various components for react-native applications which are highly reusable and maintainable through OO Design, ReactJS and Redux Principles, such as the introduction of a modal stack into the core framework of the app.`,
+      'Designed and Built various React Native (RN) ‘Core’ Components for future use in RN Apps, which are highly customisable through internal APIs which allowed components to be reused.',
+      'Designed and built various components for react-native applications which are highly reusable and maintainable through OO Design, ReactJS and Redux Principles, such as the introduction of a modal stack into the core framework of the app.',
     ],
   },
 ];

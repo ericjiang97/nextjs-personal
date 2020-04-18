@@ -1,5 +1,5 @@
-import React from "react";
-import PageLayout from "../layouts/PageLayout";
+import React from 'react';
+import PageLayout from '../layouts/PageLayout';
 
 const Strike: React.FC<{ children: string }> = ({ children }) => {
   return <span className="line-through">{children}</span>;

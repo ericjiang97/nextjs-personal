@@ -1,6 +1,6 @@
-import React from "react";
-import Icons from "../components/icons";
-import SITE_CONFIG from "../config";
+import React from 'react';
+import Icons from '../components/icons';
+import SITE_CONFIG from '../config';
 
 const Footer = () => {
   return (
@@ -12,9 +12,9 @@ const Footer = () => {
         >
           <p>Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</p>
           <p className="text-xs">
-            Powered by <a href="https://zeit.co/">Zeit</a> and{" "}
-            <a href="https://wordpress.org">WordPress</a>. Built in{" "}
-            <a href="https://nextjs.org/">NextJS</a> with{" "}
+            Powered by <a href="https://zeit.co/">Zeit</a> and{' '}
+            <a href="https://wordpress.org">WordPress</a>. Built in{' '}
+            <a href="https://nextjs.org/">NextJS</a> with{' '}
             <a href="https://tailwindcss.com/">Tailwind CSS</a>
           </p>
         </div>

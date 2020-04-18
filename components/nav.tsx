@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import Icons from "./icons";
+import Icons from './icons';
 
 interface NavProps {
   toggleDarkTheme: () => void;
@@ -25,7 +25,7 @@ class Nav extends React.Component<NavProps, NavState> {
     this.setState({
       expanded,
     });
-  };
+  }
 
   render() {
     const { toggleDarkTheme, darkTheme } = this.props;
@@ -57,7 +57,7 @@ class Nav extends React.Component<NavProps, NavState> {
         </div>
         <div
           className={`w-full block flex-grow lg:flex md:items-center lg:w-auto ${
-            !expanded && "hidden"
+            !expanded && 'hidden'
           }`}
         >
           <div className="text-sm lg:flex-grow">

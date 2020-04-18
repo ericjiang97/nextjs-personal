@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "npm run tslint",
-    "tslint": "tslint -p . -c tslint.json"
+    "lint:fix": "npm run tslint:fix",
+    "tslint": "tslint -p . -c tslint.json",
+    "tslint:fix": "tslint -p . -c tslint.json --fix"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,7 @@
   },
   "keywords": [],
   "author": "Eric Jiang <ericjiang97@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ericjiang97/alpha/issues"
   },
@@ -44,9 +46,21 @@
   "devDependencies": {
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@zeit/next-css": "^1.0.1",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.4",
     "tailwindcss-theming": "^2.4.3",
     "tslint": "^6.1.1",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-react-hooks": "^2.2.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tslint"
+    }
   }
 }

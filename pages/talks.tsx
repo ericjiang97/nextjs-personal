@@ -1,9 +1,9 @@
-import Head from "next/head";
-import ProjectCard from "../components/cards/ProjectCard";
+import Head from 'next/head';
+import ProjectCard from '../components/cards/ProjectCard';
 
-import talks from "../data/talks";
-import { Talk } from "../types/talks";
-import PageLayout from "../layouts/PageLayout";
+import talks from '../data/talks';
+import { Talk } from '../types/talks';
+import PageLayout from '../layouts/PageLayout';
 
 const TechTalks = () => (
   <PageLayout title="Tech Talks">

@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Hero from "../components/hero";
-import CallToAction from "../components/CallToAction";
-import PageLayout from "../layouts/PageLayout";
+import Head from 'next/head';
+import Hero from '../components/hero';
+import CallToAction from '../components/CallToAction';
+import PageLayout from '../layouts/PageLayout';
 
 const Home = () => (
   <PageLayout title="Home" banner={<CallToAction />}>
