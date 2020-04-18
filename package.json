@@ -1,19 +1,21 @@
 {
-  "name": "alpha",
+  "name": "nextjs-personal",
   "version": "1.0.0",
-  "description": "",
+  "description": "A NextJS Personal Website with integration to a Headless CMS",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "npm run tslint",
+    "tslint": "tslint -p . -c tslint.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ericjiang97/alpha.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eric Jiang <ericjiang97@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ericjiang97/alpha/issues"
@@ -42,6 +44,9 @@
   "devDependencies": {
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@zeit/next-css": "^1.0.1",
-    "tailwindcss-theming": "^2.4.3"
+    "tailwindcss-theming": "^2.4.3",
+    "tslint": "^6.1.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-react-hooks": "^2.2.2"
   }
 }
