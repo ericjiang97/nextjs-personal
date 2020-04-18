@@ -1,5 +1,3 @@
-import Head from 'next/head';
-import ProjectCard from '../components/cards/ProjectCard';
 
 import talks from '../data/talks';
 import { Talk } from '../types/talks';

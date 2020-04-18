@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import ProjectCard from '../components/cards/ProjectCard';
 import PageLayout from '../layouts/PageLayout';
 

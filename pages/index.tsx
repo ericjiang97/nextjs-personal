@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Hero from '../components/hero';
 import CallToAction from '../components/CallToAction';
 import PageLayout from '../layouts/PageLayout';

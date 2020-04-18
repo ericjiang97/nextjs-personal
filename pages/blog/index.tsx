@@ -1,8 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
-import moment from 'moment';
+import React, { useState, useEffect } from 'react';
 
 import Head from 'next/head';
-import { NextPage } from 'next';
 import ErrorPage from 'next/error';
 
 import { ApiRequest, Posts, Post } from '../../types/wordpress_api';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface PhotoAlbumCardProps {
+export interface PhotoAlbumCardItem {
   imgUrl: string;
   albumUrl: string;
   date: string;
@@ -9,7 +9,7 @@ interface PhotoAlbumCardProps {
   tags?: string[];
 }
 
-const PhotoAlbumCard: React.FC<PhotoAlbumCardProps> = ({ imgUrl, albumUrl, date, albumTitle, description, tags }) => {
+const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({ imgUrl, albumUrl, date, albumTitle, description, tags }) => {
   return (
     <a
       className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col"

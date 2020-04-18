@@ -1,8 +1,5 @@
-import Head from 'next/head';
-import ProjectCard from '../components/cards/ProjectCard';
 import experience from '../data/experience';
 import { Experience } from '../types';
-import Link from 'next/link';
 import PageLayout from '../layouts/PageLayout';
 
 const AboutMe = () => (
