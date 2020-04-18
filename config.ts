@@ -5,6 +5,7 @@ const SITE_CONFIG = {
     GITHUB: 'https://github.com/ericjiang97',
     TWITTER: 'https://twitter.com/ericjiang97',
     FLICKR: 'https://flickr.com/people/lorderikir',
+    INSTAGRAM: 'https://instagram.com/lorderikir',
   },
   urls: {
     WORDPRESS_URL: 'https://blog.ericjiang.dev',

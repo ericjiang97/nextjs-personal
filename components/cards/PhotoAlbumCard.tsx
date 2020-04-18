@@ -9,17 +9,10 @@ interface PhotoAlbumCardProps {
   tags?: string[];
 }
 
-const PhotoAlbumCard: React.FC<PhotoAlbumCardProps> = ({
-  imgUrl,
-  albumUrl,
-  date,
-  albumTitle,
-  description,
-  tags,
-}) => {
+const PhotoAlbumCard: React.FC<PhotoAlbumCardProps> = ({ imgUrl, albumUrl, date, albumTitle, description, tags }) => {
   return (
     <a
-      className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 flex flex-col"
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col"
       href={albumUrl}
       target="_blank"
       rel="noreferer noopener"
