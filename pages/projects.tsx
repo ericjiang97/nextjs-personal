@@ -1,17 +1,14 @@
 import ProjectCard from '../components/cards/ProjectCard';
-import PageLayout from '../layouts/PageLayout';
+import PageLayout from '../containers/layouts/PageLayout';
 
 const Projects = () => (
   <PageLayout title="Projects">
     <div className="w-full text-gray-900">
       <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-          <h1 className="m-0 w-full pt-14 leading-tight text-5xl text-center font-bold">
-            Projects
-          </h1>
+          <h1 className="m-0 w-full pt-14 leading-tight text-5xl text-center font-bold">Projects</h1>
           <p className="text-center my-4 text-m">
-            These are some of the current and past software projects that I have
-            worked on
+            These are some of the current and past software projects that I have worked on
           </p>
         </div>
       </div>
