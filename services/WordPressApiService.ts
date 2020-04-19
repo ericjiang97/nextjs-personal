@@ -43,13 +43,26 @@ class WordPressApiService {
     return { data: category, error: null };
   }
 
+  static async getCategoryBySlug(slug: string): Promise<ApiRequest<Category>> {
+    const response = await fetch(`${SITE_CONFIG.urls.WORDPRESS_URL}/wp-json/wp/v2/categories?slug=${slug}`);
+    if (!response.ok) {
+      return { error: { statusCode: response.status }, data: null };
+    }
+    const category: Category[] = await response.json();
+    if (!(category.length > 0)) {
+      return { error: { statusCode: 404 }, data: null };
+    }
+    return { data: category[0], error: null };
+  }
+
   static async getPostsByCategory(
     pageSize: number = 100,
     pageNumber: number = 1,
-    category: string,
+    category: string = '1',
   ): Promise<ApiRequest<Posts>> {
+    console.log(pageSize, pageNumber, category);
     const response = await fetch(
-      `${SITE_CONFIG.urls.WORDPRESS_URL}/wp-json/wp/v2/posts?per_page=${pageSize}&page=${pageNumber}&category=${category}`,
+      `${SITE_CONFIG.urls.WORDPRESS_URL}/wp-json/wp/v2/posts?per_page=${pageSize}&page=${pageNumber}&categories=${category}`,
     );
     const blogPosts: Post[] = await response.json();
     const pages: string = response.headers.get('X-WP-TotalPages') || '1';

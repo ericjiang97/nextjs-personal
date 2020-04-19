@@ -55,7 +55,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "trailingComma": "es5",
+    "trailingComma": "all",
     "printWidth": 120
   },
   "husky": {

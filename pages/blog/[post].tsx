@@ -10,21 +10,14 @@ import Custom404 from '../404';
 import WordPressApiService from '../../services/WordPressApiService';
 import ShareModal from '../../components/ShareModal';
 
-export default class extends Component<
-  { post: ApiRequest<Post>; category: ApiRequest<Category> },
-  null
-> {
+export default class extends Component<{ post: ApiRequest<Post>; category: ApiRequest<Category> }, null> {
   // Resolve promise and set initial props.
   static async getInitialProps({ query }: NextPageContext) {
     const { post } = query;
-    const postData: ApiRequest<Post> = await WordPressApiService.getSinglePost(
-      post as string,
-    );
+    const postData: ApiRequest<Post> = await WordPressApiService.getSinglePost(post as string);
     let categoryInfo;
     if (postData.data) {
-      categoryInfo = await WordPressApiService.getCategory(
-        postData.data.categories[0].toString(),
-      );
+      categoryInfo = await WordPressApiService.getCategory(postData.data.categories[0].toString());
     }
     return { post: postData, category: categoryInfo };
   }
@@ -50,7 +43,7 @@ export default class extends Component<
 
     const { title, author_info, content, date, uagb_excerpt } = data;
 
-    const { name, id } = categoryInfoData;
+    const { name, slug } = categoryInfoData;
 
     const html = content.rendered;
     return (
@@ -59,10 +52,7 @@ export default class extends Component<
           <title>{`Blog - ${title.rendered}`}</title>
           <meta name="description" content={uagb_excerpt} />
           <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
 
         <div className="w-full text-gray-900">
@@ -70,14 +60,9 @@ export default class extends Component<
             <span className="text-left my-4 text-md">
               {`Published on ${moment(date).format('Do MMMM YYYY hh:mma')}.`}
             </span>
-            <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">
-              {title.rendered}
-            </h1>
+            <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">{title.rendered}</h1>
             <h2 className="text-left my-4 text-xl">{`By ${author_info.display_name}`}</h2>
-            <a
-              className="text-left my-4 text-xs underline"
-              href={`/category/${id}`}
-            >{`${name}`}</a>
+            <a className="text-left my-4 text-xs underline" href={`/category/${slug}`}>{`${name}`}</a>
           </div>
         </div>
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
