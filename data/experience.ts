@@ -7,7 +7,7 @@ const experience: Experience[] = [
     positions: [
       {
         title: 'Incoming Test Engineer',
-        dates: 'Soon!',
+        dates: 'April 2020 - Present',
       },
     ],
     description: [],
