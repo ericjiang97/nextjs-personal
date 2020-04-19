@@ -39,6 +39,17 @@ const PhotosPage: React.FC = () => {
             <icons.Flickr className="fill-current h-5 w-5 mr-2" /> Flickr
           </a>
         </div>
+        <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col flex-wrap justify-around flex-1 my-3">
+          <h2 className="my-4 w-full max-w-xl leading-tight text-sm text-center font-light">
+            Images and Media Work are licensed under Creative-Commons Attribution-NonCommercial License unless otherwise
+            stated.
+          </h2>
+          <div className="flex-1 flex justify-center">
+            <a href="https://creativecommons.org/licenses/by-nc/2.0/">
+              <img src="https://licensebuttons.net/l/by-nc/3.0/88x31.png" />
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="max-w-screen-xl mx-auto pt-20 py-auto pb-8 flex flex-row flex-wrap justify-around">

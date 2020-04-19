@@ -6,7 +6,7 @@ const experience: Experience[] = [
     companyUrl: 'https://abc.xyz',
     positions: [
       {
-        title: 'Incoming Test Engineer',
+        title: 'Test Engineer',
         dates: 'April 2020 - Present',
       },
     ],
