@@ -10,6 +10,9 @@ const SITE_CONFIG = {
   urls: {
     WORDPRESS_URL: 'https://blog.ericjiang.dev',
   },
+  site: {
+    title: 'Eric Jiang',
+  },
 };
 
 export default SITE_CONFIG;
