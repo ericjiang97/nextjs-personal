@@ -2,7 +2,6 @@
 title: Test Article
 author: Eric Jiang <eric@ericjiang.dev>
 date: '2019-07-10T10:00:00Z'
-# hero_image: ../static/bali-15.jpg
 ---
 
 This is a test article.

@@ -12,6 +12,10 @@ const SITE_CONFIG = {
   },
   site: {
     title: 'Eric Jiang',
+    description: `
+    I’m a Test Engineer at Google. \n
+In my spare time, I make impact by building awesome software solutions and building the communities around me.
+    `,
   },
 };
 
