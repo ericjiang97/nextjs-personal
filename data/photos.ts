@@ -4,11 +4,12 @@ export const photos: PhotoAlbumCardItem[] = [
   {
     date: 'April 2020',
     imgUrl: 'https://live.staticflickr.com/65535/49786504693_24a3911632_k_d.jpg',
-    albumTitle: 'Photo Picks (2018 - 2019)',
+    albumTitle: 'Photo Picks - April 2020',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157713935845637',
     description:
       'This collection features unpublished and unshared photos taken in the past two years, and highlights the world more.',
-    tags: ['melbourne', 'japan', 'spring'],
+    tags: ['melbourne', 'japan', 'spring', 'nature'],
+    pdfUrl: 'https://links.ericjiang.dev/photo-picks-apr2020',
   },
   {
     date: 'October 2019',

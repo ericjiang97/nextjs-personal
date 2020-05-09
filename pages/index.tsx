@@ -1,9 +1,8 @@
 import Hero from '../components/hero';
-import CallToAction from '../components/CallToAction';
 import PageLayout from '../containers/layouts/PageLayout';
 
 const Home = () => (
-  <PageLayout title="Home" banner={<CallToAction />}>
+  <PageLayout title="Home">
     <Hero />
 
     <div className="max-w-4xl mx-auto pt-20 py-auto pb-8 flex flex-row flex-wrap justify-around">
