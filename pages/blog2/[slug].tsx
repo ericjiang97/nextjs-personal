@@ -1,15 +1,20 @@
 import matter from 'gray-matter';
+import moment from 'moment';
+import glob from 'glob';
+
 import ReactMarkdown from 'react-markdown';
 
 import PageLayout from '../../containers/layouts/PageLayout';
-import glob from 'glob';
+
 import CodeBlock from '../../components/renderers/CodeBlock';
 import HeadingBlock from '../../components/renderers/HeadingBlock';
+import TextBlock from '../../components/renderers/TextBlock';
 
 interface BlogTemplateInterface {
   siteTitle: string;
   frontmatter: {
     title: string;
+    date: string;
     author: string;
   };
   markdownBody: string;
@@ -21,23 +26,28 @@ export default function BlogTemplate(props: BlogTemplateInterface) {
     <PageLayout title={props.siteTitle}>
       <div className="w-full text-gray-900">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-          <article>
+          <div>
             <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">{props.frontmatter.title}</h1>
-            <span className="my-3 w-full pt-24 leading-tight text-xl text-left font-semibold">
-              By {props.frontmatter.author}
-            </span>
+            <p className="my-1 w-full pt-2 leading-tight text-xl text-left font-semibold">
+              {`By ${props.frontmatter.author} | ${moment(props.frontmatter.date).format('ddd DD MMM YYYY hh:mm a')}`}
+            </p>
             <hr />
             <div className="mt-2">
               <ReactMarkdown
                 source={props.markdownBody}
                 renderers={{
-                  text: ({ children }) => <div className="my-2">{children}</div>,
+                  text: TextBlock,
                   heading: HeadingBlock,
                   code: CodeBlock,
+                  link: ({ href, children }) => (
+                    <a href={href} target="_blank" className="inline-block mx-1 underline text-brand">
+                      {children}
+                    </a>
+                  ),
                 }}
               />
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </PageLayout>

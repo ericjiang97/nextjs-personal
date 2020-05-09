@@ -14,7 +14,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, value }) => {
     <div className="my-2">
       <Highlight {...defaultProps} code={value} language={language as Language} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={`${className} py-2 px-2 relative`} style={style}>
+          <pre className={`${className} py-2 px-2 relative z-0`} style={style}>
             <div className="absolute top-0 right-0">
               <div className="px-2 py-1 bg-brand">{language}</div>
               <CopyToClipboard text={value}>

@@ -62,3 +62,15 @@ export default class CookieReader {
 
 ##### Markdown
 ```
+
+---
+
+## Embeds
+
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+You should check out this [Google Cloud](https://cloud.google.com) video https://www.youtube.com/watch?v=AlSS3d9QHOk
+
+https://twitter.com/ericjiang97/status/1247493010213855233
+
+https://twitter.com/madebygoogle/status/1254802907402252292
