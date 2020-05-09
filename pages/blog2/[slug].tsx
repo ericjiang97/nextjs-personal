@@ -1,12 +1,16 @@
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
+
 import PageLayout from '../../containers/layouts/PageLayout';
 import glob from 'glob';
+import CodeBlock from '../../components/renderers/CodeBlock';
+import HeadingBlock from '../../components/renderers/HeadingBlock';
 
 interface BlogTemplateInterface {
   siteTitle: string;
   frontmatter: {
     title: string;
+    author: string;
   };
   markdownBody: string;
 }
@@ -15,12 +19,27 @@ export default function BlogTemplate(props: BlogTemplateInterface) {
   // Render data from `getStaticProps`
   return (
     <PageLayout title={props.siteTitle}>
-      <article>
-        <h1>{props.frontmatter.title}</h1>
-        <div>
-          <ReactMarkdown source={props.markdownBody} />
+      <div className="w-full text-gray-900">
+        <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
+          <article>
+            <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">{props.frontmatter.title}</h1>
+            <span className="my-3 w-full pt-24 leading-tight text-xl text-left font-semibold">
+              By {props.frontmatter.author}
+            </span>
+            <hr />
+            <div className="mt-2">
+              <ReactMarkdown
+                source={props.markdownBody}
+                renderers={{
+                  text: ({ children }) => <div className="my-2">{children}</div>,
+                  heading: HeadingBlock,
+                  code: CodeBlock,
+                }}
+              />
+            </div>
+          </article>
         </div>
-      </article>
+      </div>
     </PageLayout>
   );
 }
