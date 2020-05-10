@@ -32,7 +32,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
                       return (
                         <a
                           key={index}
-                          href={`/blog2/tags/${tag}`}
+                          // href={`/blog2/tags/${tag}`}
                           className="inline-block border rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-1 my-1 hover:bg-brand hover:border-brand"
                         >
                           {tag}
@@ -99,7 +99,7 @@ export async function getStaticPaths() {
 
   // create paths with `slug` param
   const paths = blogSlugs.map((slug) => {
-    return `/blog2/${slug}`;
+    return `/blog/${slug}`;
   });
 
   return {
