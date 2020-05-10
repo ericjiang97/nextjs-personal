@@ -99,7 +99,7 @@ export async function getStaticPaths() {
 
   // create paths with `slug` param
   const paths = blogSlugs.map((slug) => {
-    return `/blog2/${slug}`;
+    return `/blog/${slug}`;
   });
 
   return {
