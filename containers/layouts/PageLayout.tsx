@@ -8,16 +8,17 @@ interface PageLayoutProps {
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, isExperimental = false }) => {
+  const titleString = `${title} - Eric Jiang`;
   return (
     <>
       {isExperimental && (
         <div className="w-full px-2 py-1 bg-error text-gray-900 mt-2 mb-4">
-          Warning! This Page is is experiemental and may be buggy
+          {`Warning! This page ${titleString} is experiemental and may be buggy`}
         </div>
       )}
       <div className="text-sans">
         <Head>
-          <title>{`${title} - Eric Jiang`}</title>
+          <title>{titleString}</title>
         </Head>
         {banner && banner}
         <div className="w-full text-gray-900">{children}</div>

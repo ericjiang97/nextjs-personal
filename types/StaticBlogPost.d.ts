@@ -3,6 +3,7 @@ export interface BlogPostFrontmatter {
   author: string;
   date: string;
   summary?: string;
+  tags?: string[];
 }
 
 export interface StaticBlogPost {
