@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import moment from 'moment';
 
 import BlogList from '../../components/BlogList';
 
@@ -51,10 +52,14 @@ export async function getStaticProps() {
     return data;
   })(require.context('../../posts', true, /\.md$/));
 
+  const sortedPosts = posts.sort((a, b) => {
+    return moment(b.frontmatter.date) - moment(a.frontmatter.date);
+  });
+
   return {
     props: {
       description: configData.default.site.description,
-      allPosts: posts,
+      allPosts: sortedPosts,
     },
   };
 }
