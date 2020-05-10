@@ -19,7 +19,6 @@ const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({
   tags,
   pdfUrl,
 }) => {
-  console.log(pdfUrl);
   return (
     <a
       className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col"

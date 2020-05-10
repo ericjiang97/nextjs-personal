@@ -1,13 +1,24 @@
-import BlogList from '../../components/BlogList';
-import PageLayout from '../../containers/layouts/PageLayout';
 import matter from 'gray-matter';
 
-const Index = ({ title, allBlogs }) => {
+import BlogList from '../../components/BlogList';
+
+import PageLayout from '../../containers/layouts/PageLayout';
+
+const Index = ({ title, allPosts }) => {
   return (
-    <PageLayout title={title}>
-      <section>
-        <BlogList allBlogs={allBlogs} />
-      </section>
+    <PageLayout title={title} isExperimental={true}>
+      <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
+        <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
+          <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-center font-bold">Blog (experimental)</h1>
+          <p className="text-center my-4 text-m">
+            I occassionally write on my blog about tech, projects, reviews... so here's some of them.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
+        <BlogList allPosts={allPosts} />
+      </div>
     </PageLayout>
   );
 };
@@ -15,21 +26,22 @@ const Index = ({ title, allBlogs }) => {
 export default Index;
 
 export async function getStaticProps() {
-  const configData = await import('../../config'); //get posts & context from folder
+  // get posts & context from folder
+  const configData = await import('../../config');
   const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
     const data = keys.map((key, index) => {
       // Create slug from filename
-      const slug = key
-        .replace(/^.*[\\\/]/, '')
-        .split('.')
-        .slice(0, -1)
-        .join('.');
+      const filePath = key.split('/');
+      const slug = filePath[filePath.length - 1].replace('.md', '');
+
       const value = values[index];
+
       // Parse yaml metadata & markdownbody in document
       const document = matter(value.default);
+
       return {
         frontmatter: document.data,
         markdownBody: document.content,
@@ -43,6 +55,7 @@ export async function getStaticProps() {
     props: {
       title: configData.default.site.title,
       description: configData.default.site.description,
+      allPosts: posts,
     },
   };
 }

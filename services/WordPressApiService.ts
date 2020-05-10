@@ -60,7 +60,6 @@ class WordPressApiService {
     pageNumber: number = 1,
     category: string = '1',
   ): Promise<ApiRequest<Posts>> {
-    console.log(pageSize, pageNumber, category);
     const response = await fetch(
       `${SITE_CONFIG.urls.WORDPRESS_URL}/wp-json/wp/v2/posts?per_page=${pageSize}&page=${pageNumber}&categories=${category}`,
     );

@@ -32,7 +32,6 @@ const TextBlock: React.FC = ({ children }) => {
 
   if (twitterRegex.test(body)) {
     const tweet = body.match(twitterRegex);
-    console.log(tweet);
     return (
       <div className="my-2 whitespace-normal">
         {children}
