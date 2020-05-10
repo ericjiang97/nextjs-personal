@@ -12,10 +12,10 @@ const TextBlock: React.FC = ({ children }) => {
   if (youtubeRegex.test(body)) {
     const youtubeLink = body.match(youtubeRegex);
     return (
-      <div className="my-2 whitespace-normal">
+      <p className="my-2 whitespace-normal inline">
         {children}
         {body && youtubeLink && (
-          <div className="w-full flex justify-center my-2">
+          <p className="w-full flex justify-center my-2">
             <iframe
               width="560"
               height="315"
@@ -24,23 +24,23 @@ const TextBlock: React.FC = ({ children }) => {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div>
+          </p>
         )}
-      </div>
+      </p>
     );
   }
 
   if (twitterRegex.test(body)) {
     const tweet = body.match(twitterRegex);
     return (
-      <div className="my-2 whitespace-normal">
+      <div className="my-2 inline whitespace-normal">
         {children}
         {body && tweet && <TweetEmbed id={tweet[1]} options={{ theme: darkTheme ? 'dark' : 'light' }} />}
       </div>
     );
   }
 
-  return <div className="my-2 inline-block whitespace-normal">{children}</div>;
+  return <p className="my-2 inline-block whitespace-normal">{children}</p>;
 };
 
 export default TextBlock;

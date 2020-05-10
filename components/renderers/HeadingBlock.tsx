@@ -15,7 +15,7 @@ const HeadingBlock: React.FC<HeadingBlockProps> = ({ level, children }) => {
     case 5:
       return <h5 className="m-0 w-full pt-14 leading-tight text-lg text-left font-medium">{children}</h5>;
     default:
-      return <div>{children}</div>;
+      return <p>{children}</p>;
   }
 };
 

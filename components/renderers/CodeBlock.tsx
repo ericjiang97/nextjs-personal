@@ -11,7 +11,7 @@ interface CodeBlockProps {
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ language, value }) => {
   return (
-    <div className="my-2">
+    <p className="my-2">
       <Highlight {...defaultProps} code={value} language={language as Language} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={`${className} py-2 px-2 relative z-0`} style={style}>
@@ -34,7 +34,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, value }) => {
           </pre>
         )}
       </Highlight>
-    </div>
+    </p>
   );
 };
 

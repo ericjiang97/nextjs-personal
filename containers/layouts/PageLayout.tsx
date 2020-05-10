@@ -12,7 +12,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, isExpe
   return (
     <>
       {isExperimental && (
-        <div className="w-full px-2 py-1 bg-error text-gray-900 mt-2 mb-4">
+        <div className="w-full px-2 py-1 bg-warning text-warning-900 mt-2 mb-4">
           {`Warning! This page ${titleString} is experiemental and may be buggy`}
         </div>
       )}

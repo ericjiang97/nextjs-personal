@@ -48,13 +48,20 @@ export default function BlogTemplate(props: StaticBlogPost) {
                 source={props.markdownBody}
                 renderers={{
                   text: TextBlock,
+                  // paragraph: ({ children }) => <p className="my-2 inline-block whitespace-normal">{children}</p>,
                   heading: HeadingBlock,
                   code: CodeBlock,
                   link: ({ href, children }) => (
-                    <a href={href} target="_blank" className="inline-block mx-1 underline text-brand">
+                    <a href={href} target="_blank" className="inline underline text-brand">
                       {children}
                     </a>
                   ),
+                  blockquote: ({ children }) => (
+                    <blockquote className="max-w-lg m-auto italic border-l-solid border-l-2 border-brand pl-4 my-2">
+                      {children}
+                    </blockquote>
+                  ),
+                  image: ({ src, alt }) => <img src={src} alt={alt} className="m-auto self-center" />,
                 }}
               />
             </div>

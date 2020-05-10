@@ -1,7 +1,7 @@
 ---
 title: Test Article
 author: Eric Jiang <eric@ericjiang.dev>
-date: '2020-02-20T20:02:02+1000'
+date: '2016-06-16:16:16+1000'
 summary: Aliquam lobortis a quam ut vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, dui in vehicula ullamcorper, augue nisi elementum sapien, at euismod tellus turpis a ligula. Phasellus nec urna velit. Nam vel tempor erat. Proin vel metus mattis tellus vulputate pretium a a sem. Duis at sem aliquam, suscipit lorem ut, venenatis enim. In at dui tempus lacus auctor commodo id id nunc.
 tags: ['test']
 ---
@@ -75,3 +75,5 @@ You should check out this [Google Cloud](https://cloud.google.com) video https:/
 https://twitter.com/ericjiang97/status/1247493010213855233
 
 https://twitter.com/madebygoogle/status/1254802907402252292
+
+> Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.

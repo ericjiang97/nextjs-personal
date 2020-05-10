@@ -17,8 +17,7 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
             <a href={`./blog2/${post.slug}`} className="underline">
               <h3 className="my-1 pt-1 leading-tight text-xl text-left font-semibold">{post.frontmatter.title}</h3>
             </a>
-            <h4 className="my-2 leading-tight text-lg text-left font-semibold">{post.frontmatter.author}</h4>
-            <p className="my-1 leading-tight text-sm text-left font-light">{post.frontmatter.summary}</p>
+            <p className="my-1 pt-1 leading-tight text-sm text-left font-light">{post.frontmatter.summary}</p>
           </div>
         );
       })}
