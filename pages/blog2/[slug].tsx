@@ -21,7 +21,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
       <div className="w-full text-gray-900">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <div>
-            <h3 className="my-2">{moment(date).format('ddd DD MMM YYYY hh:mm a')}</h3>
+            <h3 className="my-2">{`Published on ${moment(date).format('ddd Do MMM YYYY hh:mm a')}`}</h3>
             <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">{title}</h1>
             <p className="my-3 mb-4 w-full pt-2 leading-tight text-lg text-left font-light">{`By ${author}`}</p>
             <div className="my-1">

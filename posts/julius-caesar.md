@@ -1,7 +1,7 @@
 ---
 title: Test Article
 author: Eric Jiang <eric@ericjiang.dev>
-date: '2019-07-10T10:00:00+1000'
+date: '2020-02-20T20:02:02+1000'
 summary: Aliquam lobortis a quam ut vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, dui in vehicula ullamcorper, augue nisi elementum sapien, at euismod tellus turpis a ligula. Phasellus nec urna velit. Nam vel tempor erat. Proin vel metus mattis tellus vulputate pretium a a sem. Duis at sem aliquam, suscipit lorem ut, venenatis enim. In at dui tempus lacus auctor commodo id id nunc.
 tags: ['test']
 ---
