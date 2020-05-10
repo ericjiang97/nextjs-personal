@@ -6,16 +6,11 @@ const Footer = () => {
   return (
     <footer>
       <div className="max-w-4xl mx-auto pt-20 py-auto p-8 flex flex-row flex-wrap justify-around">
-        <div
-          className="flex-1 mx-auto py-auto flex flex-col justify-start mr-4"
-          style={{ minWidth: 280 }}
-        >
+        <div className="flex-1 mx-auto py-auto flex flex-col justify-start mr-4" style={{ minWidth: 280 }}>
           <p>Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</p>
           <p className="text-xs">
-            Powered by <a href="https://zeit.co/">Zeit</a> and{' '}
-            <a href="https://wordpress.org">WordPress</a>. Built in{' '}
-            <a href="https://nextjs.org/">NextJS</a> with{' '}
-            <a href="https://tailwindcss.com/">Tailwind CSS</a>
+            Powered by <a href="https://vercel.com/">Vercel</a> and <a href="https://wordpress.org">WordPress</a>. Built
+            in <a href="https://nextjs.org/">NextJS</a> with <a href="https://tailwindcss.com/">Tailwind CSS</a>
           </p>
         </div>
         <div className="max-w-2xl mx-auto py-auto flex flex-row items-center justify-end my-4">

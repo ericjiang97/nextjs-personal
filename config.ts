@@ -10,6 +10,13 @@ const SITE_CONFIG = {
   urls: {
     WORDPRESS_URL: 'https://blog.ericjiang.dev',
   },
+  site: {
+    title: 'Eric Jiang',
+    description: `
+    I’m a Test Engineer at Google. \n
+In my spare time, I make impact by building awesome software solutions and building the communities around me.
+    `,
+  },
 };
 
 export default SITE_CONFIG;

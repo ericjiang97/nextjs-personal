@@ -32,12 +32,13 @@ class Nav extends React.Component<NavProps, NavState> {
     const { expanded } = this.state;
 
     return (
-      <nav className="sticky top-0 flex items-center justify-between flex-wrap p-6 text-on-surface bg-navigation-secondary">
+      <nav
+        className="sticky top-0 flex items-center justify-between flex-wrap p-6 text-on-surface bg-navigation-secondary"
+        style={{ zIndex: 1 }}
+      >
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link href="/">
-            <a className="text-brand no-underline text-lg font-semibold">
-              Eric Jiang
-            </a>
+            <a className="text-brand no-underline text-lg font-semibold">Eric Jiang</a>
           </Link>
         </div>
         <div className="block lg:hidden">
@@ -45,50 +46,27 @@ class Nav extends React.Component<NavProps, NavState> {
             className="flex items-center px-3 py-2 border rounded text-brand border-brand hover:text-blue-700 hover:border-blue-700"
             onClick={() => this.setExpanded(!expanded)}
           >
-            <svg
-              className="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
           </button>
         </div>
-        <div
-          className={`w-full block flex-grow lg:flex md:items-center lg:w-auto ${
-            !expanded && 'hidden'
-          }`}
-        >
+        <div className={`w-full block flex-grow lg:flex md:items-center lg:w-auto ${!expanded && 'hidden'}`}>
           <div className="text-sm lg:flex-grow">
-            <a
-              href="/blog"
-              className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
-            >
+            <a href="/blog" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               Blog
             </a>
-            <a
-              href="/projects"
-              className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
-            >
+            <a href="/projects" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               Projects
             </a>
-            <a
-              href="/talks"
-              className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
-            >
+            <a href="/talks" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               Tech Talks
             </a>
-            <a
-              href="/photos"
-              className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
-            >
+            <a href="/photos" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               Photography
             </a>
-            <a
-              href="/about"
-              className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand"
-            >
+            <a href="/about" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               About
             </a>
           </div>
@@ -100,8 +78,8 @@ class Nav extends React.Component<NavProps, NavState> {
               {darkTheme ? (
                 <Icons.Moon className="fill-current h-5 w-5" />
               ) : (
-                <Icons.Sun className="fill-current h-5 w-5" />
-              )}
+                  <Icons.Sun className="fill-current h-5 w-5" />
+                )}
             </button>
           </div>
         </div>
