@@ -17,7 +17,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
 
   const { author, date, title, tags } = frontmatter;
   return (
-    <PageLayout title={`Blog - ${title}`} isExperimental={true}>
+    <PageLayout title={`Blog - ${title}`}>
       <div className="w-full text-gray-900">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <div className="w-full">
