@@ -20,6 +20,8 @@ const Projects = () => (
           imageUrl="https://avatars1.githubusercontent.com/u/18567331?v=4"
           description="MARIE.js is a very simple and intuitive Assembly Language Simulator.
       It is a web-based version of the MARIE simulator."
+          screenshotUrl="/images/projects/mariejs.png"
+          repoUrl="https://github.com/MARIE-js/MARIE.js"
         />
         <ProjectCard
           name="MonPlan"

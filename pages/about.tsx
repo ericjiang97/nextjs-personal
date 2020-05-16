@@ -31,7 +31,7 @@ const AboutMe = () => (
           ensuring that end users have the best user experience when using software. If you are a recruiter, I am best
           contacted via email at recruiting@ericjiang.dev
         </p>
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex items-center">
           <a
             className="bg-transparent border border-brand hover:bg-brand text-gray-500 hover:text-white font-bold py-2 px-4 rounded-full"
             href="https://resume.ericjiang.dev"
