@@ -9,3 +9,13 @@ export interface Experience {
   positions: ExperiencePosition[];
   description: string[];
 }
+
+export interface Project {
+  url: string;
+  imageUrl?: string;
+  repoUrl?: string;
+  name: string;
+  description: string;
+  screenshotUrl?: string;
+  technologies?: string[];
+}

@@ -1,20 +1,16 @@
 import React from 'react';
+import { Project } from '../../types';
 
-interface ProjectCardProps {
-  url: string;
-  imageUrl?: string;
-  repoUrl?: string;
-  name: string;
-  description: string;
-  screenshotUrl?: string;
-  technologies?: string[];
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = ({ url, imageUrl, name, description, screenshotUrl, repoUrl }) => {
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+  const { url, imageUrl, name, description, screenshotUrl, repoUrl, technologies } = project;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col">
-      {screenshotUrl && <img className="w-full" src={screenshotUrl} alt={name} />}
-      <div className="flex-column flex-1 px-6 py-6 pb-2 flex-1">
+      {screenshotUrl && (
+        <div className="flex-1 flex items-center">
+          <img className="w-full" src={screenshotUrl} alt={name} />
+        </div>
+      )}
+      <div className="flex-column px-6 py-6 pb-2">
         <div className="max-w-4xl mx-auto py-auto flex flex-1 flex-row items-center">
           {imageUrl && <img src={imageUrl} className="object-contain h-5 mr-1" />}
           <h3 className="m-0 text-brand text-lg">{name}</h3>
@@ -22,7 +18,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ url, imageUrl, name, descript
         <div>
           <p className="m-0 pt-3 py-0 pb-0 text-sm text-gray-900">{description}</p>
         </div>
-        <div className="m-0 py-2 flex flex-1 justify-around">
+        {technologies && (
+          <div>
+            <h4 className="m-0 py-4 pb-0 text-sm text-gray-900 font-semibold">Technologies Used</h4>
+            <ul className="list-inside list-disc">
+              {technologies.map((tech, index) => (
+                <li className="text-sm text-gray-900" key={index}>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <div className="m-0 mt-2 py-2 flex flex-1 justify-around">
           <a
             href={url}
             target="_blank"

@@ -25,7 +25,7 @@ class Nav extends React.Component<NavProps, NavState> {
     this.setState({
       expanded,
     });
-  }
+  };
 
   render() {
     const { toggleDarkTheme, darkTheme } = this.props;
@@ -66,6 +66,9 @@ class Nav extends React.Component<NavProps, NavState> {
             <a href="/photos" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               Photography
             </a>
+            <a href="/videography" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
+              Videography
+            </a>
             <a href="/about" className="block mt-4 mx-2 lg:inline-block lg:mt-0 text-brand hover:text-brand">
               About
             </a>
@@ -78,8 +81,8 @@ class Nav extends React.Component<NavProps, NavState> {
               {darkTheme ? (
                 <Icons.Moon className="fill-current h-5 w-5" />
               ) : (
-                  <Icons.Sun className="fill-current h-5 w-5" />
-                )}
+                <Icons.Sun className="fill-current h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
