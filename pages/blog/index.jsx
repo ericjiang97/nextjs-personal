@@ -7,7 +7,7 @@ import PageLayout from '../../containers/layouts/PageLayout';
 
 const Index = ({ allPosts }) => {
   return (
-    <PageLayout title={'Blog'} isExperimental={true}>
+    <PageLayout title={'Blog'}>
       <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-center font-bold">Blog (experimental)</h1>

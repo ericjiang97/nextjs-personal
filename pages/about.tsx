@@ -29,9 +29,12 @@ const AboutMe = () => (
         <p className="text-left my-4 text-m">
           I'd like to bring my passion for programming to building software and mechanisms to keep user data safe and
           ensuring that end users have the best user experience when using software. If you are a recruiter, I am best
-          contacted via email at recruiting@ericjiang.dev
+          contacted via email at{' '}
+          <a href="mailto:recruiting@ericjiang.dev" className="underline text-brand">
+            recruiting@ericjiang.dev
+          </a>
         </p>
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex items-center">
           <a
             className="bg-transparent border border-brand hover:bg-brand text-gray-500 hover:text-white font-bold py-2 px-4 rounded-full"
             href="https://resume.ericjiang.dev"

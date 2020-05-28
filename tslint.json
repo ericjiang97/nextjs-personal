@@ -4,6 +4,7 @@
     "react-hooks-nesting": true,
     "import-name": false,
     "align": false,
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
     "max-line-length": [
       true,
       {
