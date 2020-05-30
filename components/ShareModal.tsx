@@ -15,12 +15,15 @@ import {
 
 import Icons from '../components/icons';
 
-import { Post } from '../types/wordpress_api';
+interface SharePostModal {
+  slug: string;
+  title: string;
+}
 
-const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
+const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   const [open, setOpen] = useState(false);
 
-  const postUrl = `https://ericjiang.dev/blog/${post.slug}`;
+  const postUrl = `https://ericjiang.dev/blog/${slug}`;
 
   return (
     <>
@@ -59,7 +62,7 @@ const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
       >
         <div className="container p-4 flex justify-center flex-col bg-background text-on-surface flex-1">
           <h2 className="text-center text-lg font-semibold">Share</h2>
-          <h3 className="text-center text-sm mb-2">{post.title.rendered}</h3>
+          <h3 className="text-center text-sm mb-2">{title}</h3>
           <hr className="mb-2" />
           <div className="container my-2 flex justify-around">
             <EmailShareButton url={postUrl}>
@@ -67,14 +70,13 @@ const ShareModal: React.FC<{ post: Post }> = ({ post }) => {
             </EmailShareButton>
             <TwitterShareButton
               url={postUrl}
-              title={`${post.title.rendered} by Eric Jiang!`}
+              title={`${title} by Eric Jiang!`}
             >
               <TwitterIcon size={32} round={true} />
             </TwitterShareButton>
             <LinkedinShareButton
               url={postUrl}
-              title={`${post.title.rendered} by Eric Jiang!`}
-              summary={`${post.uagb_excerpt}`}
+              title={`${title} by Eric Jiang!`}
               source={'https://ericjiang.dev'}
             >
               <LinkedinIcon size={32} round={true} />

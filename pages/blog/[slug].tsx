@@ -10,10 +10,11 @@ import CodeBlock from '../../components/renderers/CodeBlock';
 import HeadingBlock from '../../components/renderers/HeadingBlock';
 import TextBlock from '../../components/renderers/TextBlock';
 import { StaticBlogPost } from '../../types/StaticBlogPost';
+import ShareModal from '../../components/ShareModal';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
-  const { frontmatter } = props;
+  const { frontmatter, slug } = props;
 
   const { author, date, title, tags } = frontmatter;
   return (
@@ -65,6 +66,8 @@ export default function BlogTemplate(props: StaticBlogPost) {
                 }}
               />
             </div>
+            <hr />
+            <ShareModal title={title} slug={slug} />
           </div>
         </div>
       </div>
@@ -83,6 +86,7 @@ export async function getStaticProps({ ...ctx }) {
       siteTitle: config.default.site.title,
       frontmatter: data.data,
       markdownBody: data.content,
+      slug: `${slug}`,
     },
   };
 }
