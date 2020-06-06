@@ -39,24 +39,24 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
         isOpen={open}
         onRequestClose={() => setOpen(false)}
         style={{
-          overlay: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-            padding: '0.25rem 1.25rem',
-          },
           content: {
-            position: 'initial',
-            border: 'none',
-            background: '#fff',
             // overflow: "auto",
             WebkitOverflowScrolling: 'touch',
+            background: '#fff',
+            border: 'none',
             borderRadius: '4px',
+            display: 'flex',
+            height: '30%',
             outline: 'none',
             padding: 0,
-            height: '30%',
+            position: 'initial',
+          },
+          overlay: {
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
             display: 'flex',
+            justifyContent: 'center',
+            padding: '0.25rem 1.25rem',
           },
         }}
       >

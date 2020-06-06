@@ -21,13 +21,18 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         {technologies && (
           <div>
             <h4 className="m-0 py-4 pb-0 text-sm text-gray-900 font-semibold">Technologies Used</h4>
-            <ul className="list-inside list-disc">
-              {technologies.map((tech, index) => (
-                <li className="text-sm text-gray-900" key={index}>
-                  {tech}
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-wrap flex-row mt-2 py-1">
+              {technologies.map((tech, index) => {
+                const Icon = tech.icon;
+                return (
+                  <a href={tech.url || undefined} key={index} target="_blank" rel="noreferrer noopener" title={tech.name}>
+                    <div className="text-sm text-gray-900 flex-1 mx-2" key={index}>
+                      {tech.icon ? <Icon className="h-12" alt={tech.name} /> : tech.name}
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         )}
         <div className="m-0 mt-2 py-2 flex flex-1 justify-around">
