@@ -48,25 +48,25 @@ export default function BlogTemplate(props: StaticBlogPost) {
               <ReactMarkdown
                 source={props.markdownBody}
                 renderers={{
-                  text: TextBlock,
-                  // paragraph: ({ children }) => <p className="my-2 inline-block whitespace-normal">{children}</p>,
-                  heading: HeadingBlock,
-                  code: CodeBlock,
-                  link: ({ href, children }) => (
-                    <a href={href} target="_blank" className="inline underline text-brand">
-                      {children}
-                    </a>
-                  ),
                   blockquote: ({ children }) => (
                     <blockquote className="max-w-lg m-auto italic border-l-solid border-l-2 border-brand pl-4 my-2">
                       {children}
                     </blockquote>
                   ),
+                  code: CodeBlock,
+                  heading: HeadingBlock,
                   image: ({ src, alt }) => <img src={src} alt={alt} className="m-auto self-center" />,
+                  link: ({ href, children }) => (
+                    <a href={href} target="_blank" className="inline underline text-brand">
+                      {children}
+                    </a>
+                  ),
+                  // paragraph: ({ children }) => <p className="my-2 inline-block whitespace-normal">{children}</p>,
+                  text: TextBlock,
                 }}
               />
             </div>
-            <hr />
+            <hr className="my-2" />
             <ShareModal title={title} slug={slug} />
           </div>
         </div>
@@ -83,9 +83,9 @@ export async function getStaticProps({ ...ctx }) {
 
   return {
     props: {
-      siteTitle: config.default.site.title,
       frontmatter: data.data,
       markdownBody: data.content,
+      siteTitle: config.default.site.title,
       slug: `${slug}`,
     },
   };
@@ -107,7 +107,7 @@ export async function getStaticPaths() {
   });
 
   return {
-    paths,
     fallback: false,
+    paths: [...paths],
   };
 }

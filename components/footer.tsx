@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex-1 mx-auto py-auto flex flex-col justify-start mr-4" style={{ minWidth: 280 }}>
           <p>Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</p>
           <p className="text-xs">
-            Powered by <a href="https://vercel.com/">Vercel</a> and <a href="https://wordpress.org">WordPress</a>. Built
+            Powered by <a href="https://vercel.com/">Vercel</a>. Built
             in <a href="https://nextjs.org/">NextJS</a> with <a href="https://tailwindcss.com/">Tailwind CSS</a>
           </p>
         </div>
