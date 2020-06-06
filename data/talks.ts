@@ -31,6 +31,7 @@ const talks = {
       url: 'https://speakerdeck.com/ericjiang97/getting-started-at-hackathons-track-1-gitting-started',
     },
   ],
+  upcoming: [],
 };
 
 export default talks;
