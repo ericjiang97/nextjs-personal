@@ -1,8 +1,8 @@
-# NextJS + Tailwind CSS + Headless Wordpress
+# NextJS + Tailwind CSS
 
 This is my new site, you can find this at [https://www.ericjiang.dev](https://www.ericjiang.dev).
 
-It is built with Tailwind CSS and NextJS, while my blog is powered by Wordpress on my old site blog.ericjiang.dev
+It is built with Tailwind CSS and NextJS, while my blog is powered by markdown under the [/posts](/posts) directory
 
 ## Getting Started
 
@@ -27,3 +27,7 @@ yarn dev
 ```
 npm run dev
 ```
+
+### LICENSE
+
+This repo is licensed under `MIT`
