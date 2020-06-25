@@ -1,10 +1,10 @@
 import React from 'react';
 
-import PhotoAlbumCard from '../components/cards/PhotoAlbumCard';
-import PageLayout from '../containers/layouts/PageLayout';
-import icons from '../components/icons';
-import SITE_CONFIG from '../config';
-import { photos } from '../data/photos';
+import PhotoAlbumCard from '../../components/cards/PhotoAlbumCard';
+import PageLayout from '../../containers/layouts/PageLayout';
+import icons from '../../components/icons';
+import SITE_CONFIG from '../../config';
+import { photos } from '../../data/photos';
 
 const PhotosPage: React.FC = () => {
   return (

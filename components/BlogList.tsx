@@ -13,7 +13,16 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
       {allPosts.map((post, index) => {
         return (
           <div className="w-full my-8" key={index}>
-            <div className="text-xs">{moment(post.frontmatter.date).format('ddd Do MMM YYYY')}</div>
+            <div className="text-xs">
+              {moment(post.frontmatter.date).format('ddd Do MMM YYYY')} /{' '}
+              <a
+                // href={`/blog2/tags/${tag}`}
+                className="font-semibold"
+                style={{ color: '#f7a046' }}
+              >
+                {post.frontmatter.category}
+              </a>{' '}
+            </div>
             <a href={`./blog/${post.slug}`} className="underline">
               <h3 className="my-1 pt-1 leading-tight text-xl text-left font-semibold">{post.frontmatter.title}</h3>
             </a>

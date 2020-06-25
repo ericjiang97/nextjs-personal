@@ -4,7 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2020-04-03T20:34:00+1000'
 summary: Today, while browsing through Reddit I came upon a post where the user was talking about how he was talking to his Lyft driver. This reminded me of a conversation that I had with my taxi driver last year.
 tags: ['random']
-category: 'Review'
+category: 'Random'
 ---
 
 Today, while browsing through Reddit I came upon a post where the user was talking about how he was talking to his Lyft driver. This reminded me of a conversation that I had with my taxi driver last year.

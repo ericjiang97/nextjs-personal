@@ -4,7 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2019-03-31T12:00:00+1000'
 summary: As I previous stated back in late February 2019, that this year was going to be hectic Over the past couple of weeks I’ve been quite busy, with...
 tags: ['careers']
-category: 'Review'
+category: 'Careers'
 ---
 
 https://twitter.com/ericjiang97/status/1102876496815771649

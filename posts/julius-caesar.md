@@ -4,7 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2016-06-16T16:16:16+1000'
 summary: Aliquam lobortis a quam ut vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, dui in vehicula ullamcorper, augue nisi elementum sapien, at euismod tellus turpis a ligula. Phasellus nec urna velit. Nam vel tempor erat. Proin vel metus mattis tellus vulputate pretium a a sem. Duis at sem aliquam, suscipit lorem ut, venenatis enim. In at dui tempus lacus auctor commodo id id nunc.
 tags: ['test']
-category: 'Review'
+category: 'Test'
 ---
 
 This is a test article.

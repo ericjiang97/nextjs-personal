@@ -4,7 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2020-02-07T13:56:00+1000'
 summary: I use my terminal 90-100% of the time whenever I’m on my MacBook Pro and like many other developers I really like customising my terminal so that it helps me with my workflow.
 tags: ['tech']
-category: 'Review'
+category: 'Technology'
 ---
 
 I use my terminal 90-100% of the time whenever I’m on my MacBook Pro and like many other developers I really like customising my terminal so that it helps me with my workflow.
