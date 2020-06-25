@@ -8,11 +8,10 @@ export interface Experience {
   companyUrl: string;
   positions: ExperiencePosition[];
   description: string[];
-
 }
 
 export interface ProjectTechology {
-  icon?: FunctionComponent<IconProps>
+  icon?: FunctionComponent<IconProps>;
   url?: string;
   name: string;
 }
