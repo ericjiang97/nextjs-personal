@@ -6,13 +6,15 @@ const youtubeRegex = /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/
 const twitterRegex = /http(?:s?):\/\/twitter\.com\/.*\/status(?:es)?\/([^\/\?]+)/;
 
 const TextBlock: React.FC = ({ children }) => {
+  const defaultClass = 'mx-1 my-1 text-wrap whitespace-normal';
+
   const { darkTheme } = useDarkTheme();
 
   const body = children as string;
   if (youtubeRegex.test(body)) {
     const youtubeLink = body.match(youtubeRegex);
     return (
-      <p className="my-2 whitespace-normal inline">
+      <p className={`${defaultClass} inline`}>
         {children}
         {body && youtubeLink && (
           <p className="w-full flex justify-center my-2">
@@ -33,14 +35,14 @@ const TextBlock: React.FC = ({ children }) => {
   if (twitterRegex.test(body)) {
     const tweet = body.match(twitterRegex);
     return (
-      <div className="my-2 inline whitespace-normal">
+      <div className={`${defaultClass} inline`}>
         {children}
         {body && tweet && <TweetEmbed id={tweet[1]} options={{ theme: darkTheme ? 'dark' : 'light' }} />}
       </div>
     );
   }
 
-  return <p className="my-2 inline-block whitespace-normal">{children}</p>;
+  return <p className={`${defaultClass} inline-block`}>{children}</p>;
 };
 
 export default TextBlock;

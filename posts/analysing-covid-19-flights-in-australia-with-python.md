@@ -4,6 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2020-04-02T15:55:00+1000'
 summary: I you all may have been aware over the past few months, the COVID-19 Coronavirus outbreak started spreading all over the world and into Australia. I’ve been tracking the Australian cases as it started to slowly climb the exponential curve, with most of the cases being imported (and still is) and now central way of keeping track of it. I decided to build a tool which captures this data source from various government websites.
 tags: ['development']
+category: 'Review'
 ---
 
 As you all may have been aware over the past few months, the COVID-19 Coronavirus outbreak started spreading all over the world and into Australia. I’ve been tracking the Australian cases as it started to slowly climb the exponential curve, with most of the cases being imported (and still is) and now central way of keeping track of it. I decided to build a tool which captures this data source from various government websites.

@@ -4,6 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2018-06-02T01:07:00+1000'
 summary: This article is inspired by Josh Farr’s post about ‘Given it’s 2018 and knowing what you know now, what advice would you give to your 16-year old self?’
 tags: ['careers']
+category: 'Review'
 ---
 
 This article is inspired by Josh Farr’s post about ‘Given it’s 2018 and knowing what you know now, what advice would you give to your 16-year old self?’

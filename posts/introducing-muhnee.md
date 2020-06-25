@@ -4,6 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2020-02-17T09:00:00+1000'
 summary: Today, while browsing through Reddit I came upon a post where the user was talking about how he was talking to his Lyft driver. This reminded me of a conversation that I had with my taxi driver last year.
 tags: ['development']
+category: 'Review'
 ---
 
 Today I am really excited to announce that [Nikhil Ramesh](https://rameshnikhil.com/) and I are launching something that we have been working on recently over the past couple of months – [Muhnee](https://muhneeapp.com).

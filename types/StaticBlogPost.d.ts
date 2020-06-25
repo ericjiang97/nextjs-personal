@@ -4,6 +4,7 @@ export interface BlogPostFrontmatter {
   date: string;
   summary?: string;
   tags?: string[];
+  category: string;
 }
 
 export interface StaticBlogPost {
