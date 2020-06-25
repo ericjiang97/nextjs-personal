@@ -11,6 +11,7 @@ import HeadingBlock from '../../components/renderers/HeadingBlock';
 import TextBlock from '../../components/renderers/TextBlock';
 import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
+import SITE_CONFIG from '../../config';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
@@ -70,7 +71,15 @@ export default function BlogTemplate(props: StaticBlogPost) {
               />
             </div>
             <hr className="my-2" />
-            <ShareModal title={title} slug={slug} />
+            <div className="my-2 flex flex-wrap justify-between">
+              <ShareModal title={title} slug={slug} />
+              <a
+                href={`${SITE_CONFIG.urls.REPO_URL}/tree/posts/main/${slug}.md`}
+                className="bg-transparent border border-brand hover:bg-brand text-gray-500 hover:text-white font-bold py-2 px-4 rounded-full"
+              >
+                Submit an edit
+              </a>
+            </div>
           </div>
         </div>
       </div>
