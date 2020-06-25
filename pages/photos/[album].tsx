@@ -14,7 +14,7 @@ export default function AlbumTemplate(props: {}) {
 
 export async function getStaticProps({ ...ctx }) {
   const { album } = ctx.params;
-  return album;
+  return { props: { album } };
 }
 
 export async function getStaticPaths() {
