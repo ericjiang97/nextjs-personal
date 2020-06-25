@@ -11,35 +11,39 @@ import HeadingBlock from '../../components/renderers/HeadingBlock';
 import TextBlock from '../../components/renderers/TextBlock';
 import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
+import SITE_CONFIG from '../../config';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
   const { frontmatter, slug } = props;
 
-  const { author, date, title, tags } = frontmatter;
+  const { author, date, title, category } = frontmatter;
   return (
     <PageLayout title={`Blog - ${title}`}>
       <div className="w-full text-gray-900">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
           <div className="w-full">
             <div className="w-full flex">
-              <div>
-                <h3 className="my-2">{`Published on ${moment(date).format('ddd Do MMM YYYY hh:mm a')}`}</h3>
+              <div className="flex flex-1 flex-col">
+                <a
+                  // href={`/blog2/tags/${tag}`}
+                  className="font-semibold"
+                  style={{ color: '#f7a046' }}
+                >
+                  {category}
+                </a>
                 <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-left font-bold">{title}</h1>
-                <p className="my-3 mb-4 w-full pt-2 leading-tight text-lg text-left font-light">{`By ${author}`}</p>
-                <div className="my-1">
-                  {tags &&
-                    tags.map((tag, index) => {
-                      return (
-                        <a
-                          key={index}
-                          // href={`/blog2/tags/${tag}`}
-                          className="inline-block border rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-1 my-1 hover:bg-brand hover:border-brand"
-                        >
-                          {tag}
-                        </a>
-                      );
-                    })}
+                <div className="flex flex-wrap flex-1 justify-evenly mt-4">
+                  <div>
+                    <strong className="font-light text-sm font-bold">By</strong>
+                    <p className="mb-3 mb-4 w-full pb-1 leading-tight text-md text-left font-medium">{author}</p>
+                  </div>
+                  <div>
+                    <strong className="font-light text-sm font-bold">Published on</strong>
+                    <p className="mb-3 mb-4 w-full pb-1 leading-tight text-md text-left font-medium">
+                      {moment(date).format('ddd Do MMM YYYY')}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,7 +71,15 @@ export default function BlogTemplate(props: StaticBlogPost) {
               />
             </div>
             <hr className="my-2" />
-            <ShareModal title={title} slug={slug} />
+            <div className="my-2 flex flex-wrap justify-between">
+              <ShareModal title={title} slug={slug} />
+              <a
+                href={`${SITE_CONFIG.urls.REPO_URL}/tree/posts/main/${slug}.md`}
+                className="bg-transparent border border-brand hover:bg-brand text-gray-500 hover:text-white font-bold py-2 px-4 rounded-full"
+              >
+                Submit an edit
+              </a>
+            </div>
           </div>
         </div>
       </div>

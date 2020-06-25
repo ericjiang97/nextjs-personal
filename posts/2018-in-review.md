@@ -4,6 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2018-12-31T23:59:00+1000'
 summary: And that’s it! We’re now at the end of 2019 which also means it’s the end of the decade too. These past 10 years have gone by in a flash, at the start of the decade I started high school, now at the end of it I finished my degree at Monash University. So here’s a look back across 2019.
 tags: ['review']
+category: 'Review'
 ---
 
 That was quick! 2018 went by in a breeze and we’re here with a new year. For me this year, it was about making a difference to the community.

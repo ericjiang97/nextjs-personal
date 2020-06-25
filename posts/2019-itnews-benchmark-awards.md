@@ -4,6 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2019-03-14T23:00:00+1000'
 summary: It’s a great honour and privilege to win the 2019 itnews #BenchmarkAwards – Rising Star Category along side Fiona Sparks (Go Victoria!)
 tags: ['careers']
+category: 'Review'
 ---
 
 It’s a great honour and privilege to win the 2019 itnews #BenchmarkAwards – Rising Star Category along side Fiona Sparks (Go Victoria!)

@@ -4,6 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2019-11-03T16:00:00+1000'
 summary: To be honest, I don’t really like saying goodbyes and usually hope I can just disappear quietly. Yet, at the same time I realise that I have to do this otherwise I’ll probably regret it in a couple of months. So I’m writing this to reflect my time at Monash and what I have learnt along this journey.
 tags: ['careers']
+category: 'Review'
 ---
 
 To be honest, I don’t really like saying goodbyes and usually hope I can just disappear quietly. Yet, at the same time I realise that I have to do this otherwise I’ll probably regret it in a couple of months. So I’m writing this to reflect my time at Monash and what I have learnt along this journey.

@@ -15,6 +15,7 @@ In my spare time, I make impact by building awesome software solutions and build
     TWITTER: 'https://twitter.com/ericjiang97',
   },
   urls: {
+    REPO_URL: 'https://github.com/ericjiang97/nextjs-personal',
     WORDPRESS_URL: 'https://blog.ericjiang.dev',
   },
 };
