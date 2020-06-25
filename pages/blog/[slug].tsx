@@ -61,7 +61,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
                   heading: HeadingBlock,
                   image: ({ src, alt }) => <img src={src} alt={alt} className="m-auto self-center" />,
                   link: ({ href, children }) => (
-                    <a href={href} target="_blank" className="inline underline text-brand">
+                    <a href={href} target="_blank" className="inline underline text-brand break-all">
                       {children}
                     </a>
                   ),
@@ -74,7 +74,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
             <div className="my-2 flex flex-wrap justify-between">
               <ShareModal title={title} slug={slug} />
               <a
-                href={`${SITE_CONFIG.urls.REPO_URL}/tree/posts/main/${slug}.md`}
+                href={`${SITE_CONFIG.urls.REPO_URL}/tree/main/posts/${slug}.md`}
                 className="bg-transparent border border-brand hover:bg-brand text-gray-500 hover:text-white font-bold py-2 px-4 rounded-full"
               >
                 Submit an edit
