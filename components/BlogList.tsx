@@ -20,7 +20,9 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
             )}
             <div className="flex-1 mt-2 p-4">
               <a href={`./blog/${post.slug}`}>
-                <h3 className="my-1 pt-1 leading-tight text-xl text-left font-semibold">{post.frontmatter.title}</h3>
+                <h3 className="my-1 pt-1 leading-tight text-xl text-left font-semibold" style={{ color: '#12AD41' }}>
+                  {post.frontmatter.title}
+                </h3>
               </a>
               <div className="text-xs">
                 {moment(post.frontmatter.date).format('ddd Do MMM YYYY')} /{' '}
