@@ -14,7 +14,7 @@ export default function AlbumTemplate(props: { album: string }) {
 
 export async function getStaticProps({ ...ctx }) {
   const { album } = ctx.params;
-  const albumData = fetch(
+  const albumData = await fetch(
     `https://www.flickr.com/services/rest?method=flickr.photosets.getPhotos&api_key=${process.env.NEXT_PUBLIC_FLICKR_API_KEY}&photoset_id=${album}&user_id=${process.env.NEXT_PUBLIC_FLICKR_API_USER_ID}&format=json&nojsoncallback=1`,
   ).then((resp) => {
     return resp.json();
