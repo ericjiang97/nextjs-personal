@@ -33,14 +33,14 @@ const RootComponent: React.FC = ({ children }) => {
         className="flex flex-col min-h-screen transition-all duration-250 bg-background text-on-background"
         data-theme={darkTheme ? 'dark' : 'light'}
       >
-        <div className="flex-1 flex flex-col ">
+        <div className="flex-1 flex flex-col">
           <Nav
             toggleDarkTheme={() => {
               setDarkTheme(!darkTheme);
             }}
             darkTheme={darkTheme}
           />
-          <div className="flex-1 flex flex-col mt-6">{children}</div>
+          <div className="flex-1 flex flex-col mt-6 p-4">{children}</div>
           <Footer />
         </div>
       </div>
