@@ -4,21 +4,16 @@ import PageLayout from '../../containers/layouts/PageLayout';
 import { photos } from '../../data/photos';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
 import CONSTANTS from '../../constants';
+import { InferGetStaticPropsType } from 'next';
 
-interface AlbumTemplateProps {
-  album: string;
-  albumData: FlickrPhotoset;
-  albumInfo: FlickrPhotosetInfo;
-}
-
-export default function AlbumTemplate(props: AlbumTemplateProps) {
+export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { albumData, albumInfo } = props;
   return (
-    <PageLayout title={`Photo - ${albumData.photoset && albumData.photoset.title}`}>
+    <PageLayout title={`Photo - ${albumData.photoset.title}`}>
       <div className="w-full text-gray-900">
         <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-          <h3 className="text-3xl font-semibold">{albumInfo.photoset && albumInfo.photoset.title._content}</h3>
-          <h3 className="text-2xl font-regular">{albumInfo.photoset && albumInfo.photoset.description._content}</h3>
+          <h3 className="text-3xl font-semibold">{albumInfo.photoset.title._content}</h3>
+          <h3 className="text-2xl font-regular">{albumInfo.photoset.description._content}</h3>
 
           <div className="flex-1 flex flex-col mt-2">
             {albumData.photoset &&
@@ -61,7 +56,7 @@ export default function AlbumTemplate(props: AlbumTemplateProps) {
 
 export async function getStaticProps({ ...ctx }) {
   const { album } = ctx.params;
-  const albumData = await fetch(
+  const albumData: FlickrPhotoset = await fetch(
     `${CONSTANTS.FLICKR_API.BASE_URI}?method=flickr.photosets.getPhotos` +
       `&api_key=${process.env.NEXT_PUBLIC_FLICKR_API_KEY}&photoset_id=${album}` +
       `&user_id=${process.env.NEXT_PUBLIC_FLICKR_API_USER_ID}&format=json&nojsoncallback=1` +
@@ -69,7 +64,7 @@ export async function getStaticProps({ ...ctx }) {
   ).then((resp) => {
     return resp.json();
   });
-  const albumInfo = await fetch(
+  const albumInfo: FlickrPhotosetInfo = await fetch(
     `${CONSTANTS.FLICKR_API.BASE_URI}?method=flickr.photosets.getInfo` +
       `&api_key=${process.env.NEXT_PUBLIC_FLICKR_API_KEY}&photoset_id=${album}` +
       `&user_id=${process.env.NEXT_PUBLIC_FLICKR_API_USER_ID}&format=json&nojsoncallback=1`,
