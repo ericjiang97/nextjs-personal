@@ -1,15 +1,33 @@
+export interface FlickrPhotosetInfo {
+  photoset: {
+    id: string;
+    primary: string;
+    owner: string;
+    ownername: string;
+    page: number;
+    per_page: number;
+    perpage: number;
+    pages: number;
+    title: FlickrPhotoContent;
+    description: FlickrPhotoContent;
+    total: number;
+  };
+  stat: 'ok';
+}
+
 export interface FlickrPhotoset {
   photoset: {
     id: string;
     primary: string;
     owner: string;
     ownername: string;
-    photo: FlickrPhoto[];
+    photo?: FlickrPhoto[];
     page: number;
     per_page: number;
     perpage: number;
     pages: number;
-    title: string;
+    title: string | FlickrPhotoContent;
+    description: string | FlickrPhotoContent;
     total: number;
   };
   stat: 'ok';
@@ -17,7 +35,9 @@ export interface FlickrPhotoset {
 
 export interface FlickrPhoto {
   id: string;
+  datetaken: string;
   dateupload: string;
+  description: FlickrPhotoContent;
   farm: number;
   height_m: number;
   height_o: number;
@@ -30,4 +50,8 @@ export interface FlickrPhoto {
   url_o: string;
   width_m: number;
   width_o: number;
+}
+
+export interface FlickrPhotoContent {
+  _content: string;
 }
