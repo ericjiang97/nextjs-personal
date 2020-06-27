@@ -59,7 +59,7 @@ export default function AlbumTemplate(props: AlbumTemplateProps) {
   );
 }
 
-export async function getStaticProps({ ...ctx }) {
+export async function getServerSideProps({ ...ctx }) {
   const { album } = ctx.params;
   const albumData = await fetch(
     `${CONSTANTS.FLICKR_API.BASE_URI}?method=flickr.photosets.getPhotos` +
@@ -77,15 +77,4 @@ export async function getStaticProps({ ...ctx }) {
     return resp.json();
   });
   return { props: { album, albumData, albumInfo } };
-}
-
-export async function getStaticPaths() {
-  const paths = photos.map((photo) => {
-    return `/photos/${photo.albumId}`;
-  });
-
-  return {
-    fallback: false,
-    paths: [...paths],
-  };
 }
