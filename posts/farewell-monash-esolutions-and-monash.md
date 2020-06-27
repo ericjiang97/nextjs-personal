@@ -4,7 +4,8 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2019-11-03T16:00:00+1000'
 summary: To be honest, I don’t really like saying goodbyes and usually hope I can just disappear quietly. Yet, at the same time I realise that I have to do this otherwise I’ll probably regret it in a couple of months. So I’m writing this to reflect my time at Monash and what I have learnt along this journey.
 tags: ['careers']
-category: 'Review'
+category: 'Careers'
+coverImageUrl: '/images/blog/farewell-monash-esolutions-and-monash/eric-done-column-kanban-1024x768.jpeg'
 ---
 
 To be honest, I don’t really like saying goodbyes and usually hope I can just disappear quietly. Yet, at the same time I realise that I have to do this otherwise I’ll probably regret it in a couple of months. So I’m writing this to reflect my time at Monash and what I have learnt along this journey.
@@ -66,7 +67,3 @@ To all the Monash staff, students, friends, family and especially the Monash Com
 That’s all from me, once again thank you!
 
 P.S. Do let me know if you are around and willing to grab a coffee (or bubble tea) – my emails and social DMs are always open.
-
-![eric is done!](/images/blog/farewell-monash-esolutions-and-monash/eric-done-column-kanban-1024x768.jpeg)
-
-_Note: I’m in the ‘done’ column here on our Kanban wall… you get it?_

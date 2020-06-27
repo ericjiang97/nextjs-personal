@@ -5,6 +5,7 @@ date: '2019-12-26T21:25:00+1000'
 summary: And that’s it! We’re now at the end of 2019 which also means it’s the end of the decade too. These past 10 years have gone by in a flash, at the start of the decade I started high school, now at the end of it I finished my degree at Monash University. So here’s a look back across 2019.
 tags: ['review']
 category: 'Review'
+coverImageUrl: '/images/blog/2019-in-review/banner.jpg'
 ---
 
 And that’s it! We’re now at the end of 2019 which also means it’s the end of the decade too. These past 10 years have gone by in a flash, at the start of the decade I started high school, now at the end of it I finished my degree at Monash University. So here’s a look back across 2019.
@@ -24,8 +25,6 @@ Towards May/June 2019, I made a tough decision to hand over a lot of the mainten
 ### Awards
 
 Something that really surprised me was that I was announced as a finalist of the itNews Benchmark awards – the awards night was hosted at KPMG Barangaroo in Sydney. Surprisingly I took the award jointly with the other finalist Fiona Sparks of Victoria’s Department of Health and Human Services (DHHS).
-
-![itnews award](/images/blog/2019-in-review/banner.jpg)
 
 ## Leaving Monash
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 export interface PhotoAlbumCardItem {
+  albumId: string;
   imgUrl: string;
   albumUrl: string;
   date: string;
@@ -11,8 +12,8 @@ export interface PhotoAlbumCardItem {
 }
 
 const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({
+  albumId,
   imgUrl,
-  albumUrl,
   date,
   albumTitle,
   description,
@@ -22,9 +23,7 @@ const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({
   return (
     <a
       className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col"
-      href={albumUrl}
-      target="_blank"
-      rel="noreferer noopener"
+      href={`/photos/${albumId}`}
     >
       <img className="w-full" src={imgUrl} alt={albumTitle} />
       <div className="px-6 py-4 flex-1">

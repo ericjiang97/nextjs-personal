@@ -1,10 +1,10 @@
 import React from 'react';
 
-import PhotoAlbumCard from '../components/cards/PhotoAlbumCard';
-import PageLayout from '../containers/layouts/PageLayout';
-import icons from '../components/icons';
-import SITE_CONFIG from '../config';
-import { photos } from '../data/photos';
+import PhotoAlbumCard from '../../components/cards/PhotoAlbumCard';
+import PageLayout from '../../containers/layouts/PageLayout';
+import icons from '../../components/icons';
+import SITE_CONFIG from '../../config';
+import { photos } from '../../data/photos';
 
 const PhotosPage: React.FC = () => {
   return (
@@ -54,9 +54,10 @@ const PhotosPage: React.FC = () => {
 
       <div className="max-w-screen-xl mx-auto pt-20 py-auto pb-8 flex flex-row flex-wrap justify-around">
         {photos.map((photo, index) => {
-          const { date, imgUrl, albumTitle, albumUrl, description, tags, pdfUrl } = photo;
+          const { date, imgUrl, albumTitle, albumUrl, description, tags, pdfUrl, albumId } = photo;
           return (
             <PhotoAlbumCard
+              albumId={albumId}
               date={date}
               imgUrl={imgUrl}
               albumTitle={albumTitle}

@@ -5,6 +5,7 @@ export interface BlogPostFrontmatter {
   summary?: string;
   tags?: string[];
   category: string;
+  coverImageUrl?: string;
 }
 
 export interface StaticBlogPost {
