@@ -21,7 +21,8 @@ export default function AlbumTemplate(props: AlbumTemplateProps) {
           <h3 className="text-2xl font-regular">{albumInfo.photoset && albumInfo.photoset.description._content}</h3>
 
           <div className="flex-1 flex flex-col mt-2">
-            {albumData.photoset.photo &&
+            {albumData.photoset &&
+              albumData.photoset.photo &&
               albumData.photoset.photo.map((photo, index) => {
                 const isEven = index % 2 === 0;
                 const text = (
