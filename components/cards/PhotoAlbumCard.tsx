@@ -14,7 +14,6 @@ export interface PhotoAlbumCardItem {
 const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({
   albumId,
   imgUrl,
-  albumUrl,
   date,
   albumTitle,
   description,
