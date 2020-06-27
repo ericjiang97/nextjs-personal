@@ -28,6 +28,17 @@ const RootComponent: React.FC = ({ children }) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120714098-3"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-120714098-3');
+              `,
+          }}
+        />
       </Head>
       <div
         className="flex flex-col min-h-screen transition-all duration-250 bg-background text-on-background"
