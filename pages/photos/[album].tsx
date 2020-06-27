@@ -1,7 +1,6 @@
 import moment from 'moment';
 
 import PageLayout from '../../containers/layouts/PageLayout';
-import { photos } from '../../data/photos';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
 import CONSTANTS from '../../constants';
 
