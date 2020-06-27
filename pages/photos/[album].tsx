@@ -80,7 +80,7 @@ export async function getStaticProps({ ...ctx }) {
 
 export async function getStaticPaths() {
   const paths = photos.map((photo) => {
-    return `/photos/${photo.albumUrl.split('/')[photo.albumUrl.split('/').length - 1]}`;
+    return `/photos/${photo.albumId}`;
   });
 
   return {

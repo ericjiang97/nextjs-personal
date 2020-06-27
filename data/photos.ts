@@ -2,6 +2,7 @@ import { PhotoAlbumCardItem } from '../components/cards/PhotoAlbumCard';
 
 export const photos: PhotoAlbumCardItem[] = [
   {
+    albumId: '72157713935845637',
     albumTitle: 'Photo Picks - April 2020',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157713935845637',
     date: 'April 2020',
@@ -12,6 +13,7 @@ export const photos: PhotoAlbumCardItem[] = [
     tags: ['melbourne', 'japan', 'spring', 'nature'],
   },
   {
+    albumId: '72157711561759951',
     albumTitle: 'Melbourne in Spring (2019)',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157711561759951',
     date: 'October 2019',
@@ -21,6 +23,7 @@ export const photos: PhotoAlbumCardItem[] = [
     tags: ['melbourne', 'photowalk', 'spring'],
   },
   {
+    albumId: '72157711187396608',
     albumTitle: 'Landscapes of Japan & China',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157711187396608',
     date: 'November - December 2018',
@@ -30,6 +33,7 @@ export const photos: PhotoAlbumCardItem[] = [
     tags: ['japan', 'china', 'landscapes'],
   },
   {
+    albumId: '72157705698643954',
     albumTitle: 'Best of China',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157705698643954',
     date: 'December 2018',
@@ -38,6 +42,7 @@ export const photos: PhotoAlbumCardItem[] = [
     tags: ['china', 'landscapes'],
   },
   {
+    albumId: '72157711478836948',
     albumTitle: 'Deers of Nara',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157711478836948',
     date: 'November 2018',
@@ -47,6 +52,7 @@ export const photos: PhotoAlbumCardItem[] = [
     tags: ['japan', 'nara', 'deers'],
   },
   {
+    albumId: '72157688634271683',
     albumTitle: 'Best of Japan',
     albumUrl: 'https://www.flickr.com/photos/lorderikir/albums/72157688634271683',
     date: 'November 2018',
