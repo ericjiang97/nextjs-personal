@@ -33,6 +33,16 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
                         <p className="text-sm">{photo.description._content}</p>
                       </div>
                     )}
+                    <div className="mt-2" style={{ minWidth: 280 }}>
+                      <a
+                        className="text-xs font-semibold underline text-brand "
+                        href={photo.url_o}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        Download
+                      </a>
+                    </div>
                   </div>
                 );
                 return (
