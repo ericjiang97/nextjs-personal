@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 import PageLayout from '../../containers/layouts/PageLayout';
+import { photos } from '../../data/photos';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
 import CONSTANTS from '../../constants';
 
@@ -58,7 +59,7 @@ export default function AlbumTemplate(props: AlbumTemplateProps) {
   );
 }
 
-export async function getServerSideProps({ ...ctx }) {
+export async function getStaticProps({ ...ctx }) {
   const { album } = ctx.params;
   const albumData = await fetch(
     `${CONSTANTS.FLICKR_API.BASE_URI}?method=flickr.photosets.getPhotos` +
@@ -76,4 +77,15 @@ export async function getServerSideProps({ ...ctx }) {
     return resp.json();
   });
   return { props: { album, albumData, albumInfo } };
+}
+
+export async function getStaticPaths() {
+  const paths = photos.map((photo) => {
+    return `/photos/${photo.albumId}`;
+  });
+
+  return {
+    fallback: false,
+    paths: [...paths],
+  };
 }
