@@ -36,11 +36,7 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
                   </div>
                 );
                 return (
-                  <div
-                    className="flex-1 flex my-2 flex-wrap"
-                    key={index}
-                    style={{ backgroundColor: isEven ? '#222' : 'inherit' }}
-                  >
+                  <div className="flex-1 flex my-2 flex-wrap bg-surface" key={index}>
                     {isEven && text}
                     <img src={photo.url_m} alt={photo.title} />
                     {!isEven && text}
