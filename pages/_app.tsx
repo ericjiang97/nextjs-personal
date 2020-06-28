@@ -7,6 +7,7 @@ import Nav from '../components/nav';
 import useDarkTheme from '../hooks/useDarkTheme';
 
 import '../css/tailwind.css';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import Head from 'next/head';
 
 const RootComponent: React.FC = ({ children }) => {

@@ -3,6 +3,7 @@ import moment from 'moment';
 import glob from 'glob';
 
 import ReactMarkdown from 'react-markdown';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 
@@ -35,7 +36,9 @@ export default function BlogTemplate(props: StaticBlogPost) {
             </div>
 
             <div className="my-3 max-w-4xl max-h-xl">
-              {coverImageUrl && <img src={coverImageUrl} alt={`banner for ${title}`} className="w-full" />}
+              {coverImageUrl && (
+                <LazyLoadImage src={coverImageUrl} alt={`banner for ${title}`} className="w-full" effect="blur" />
+              )}
             </div>
 
             <div className="mt-2 p-4 flex flex-col items-center">
@@ -62,7 +65,9 @@ export default function BlogTemplate(props: StaticBlogPost) {
                     ),
                     code: CodeBlock,
                     heading: HeadingBlock,
-                    image: ({ src, alt }) => <img src={src} alt={alt} className="m-auto self-center" />,
+                    image: ({ src, alt }) => (
+                      <LazyLoadImage src={src} alt={alt} className="m-auto self-center" effect="blur" />
+                    ),
                     link: ({ href, children }) => (
                       <a href={href} target="_blank" className="inline underline text-brand break-all">
                         {children}
