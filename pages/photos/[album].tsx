@@ -6,8 +6,8 @@ import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
 import CONSTANTS from '../../constants';
 import { InferGetStaticPropsType } from 'next';
 
-export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { albumData, albumInfo } = props;
+export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getServerSideProps>) {
+  const { albumData, albumInfo, meta } = props;
   return (
     <PageLayout title={`Photo - ${albumData.photoset.title}`}>
       <div className="w-full text-gray-900">
@@ -15,6 +15,16 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
           <h3 className="text-3xl font-semibold">{albumInfo.photoset.title._content}</h3>
           <h3 className="text-2xl font-regular">{albumInfo.photoset.description._content}</h3>
 
+          <div className="px-6 py-4 flex flex-wrap justify-center">
+            {meta.pdfUrl && (
+              <a
+                href={meta.pdfUrl}
+                className="bg-transparent hover:bg-brand text-blue-700 font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded flex items-center mx-2"
+              >
+                Download Photobook
+              </a>
+            )}
+          </div>
           <div className="flex-1 flex flex-col mt-2">
             {albumData.photoset &&
               albumData.photoset.photo &&
@@ -60,7 +70,7 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
   );
 }
 
-export async function getStaticProps({ ...ctx }) {
+export async function getServerSideProps({ ...ctx }) {
   const { album } = ctx.params;
   const albumData: FlickrPhotoset = await fetch(
     `${CONSTANTS.FLICKR_API.BASE_URI}?method=flickr.photosets.getPhotos` +
@@ -77,16 +87,9 @@ export async function getStaticProps({ ...ctx }) {
   ).then((resp) => {
     return resp.json();
   });
-  return { props: { album, albumData, albumInfo } };
-}
-
-export async function getStaticPaths() {
-  const paths = photos.map((photo) => {
-    return `/photos/${photo.albumId}`;
+  const index = photos.findIndex((ele) => {
+    return ele.albumId === album;
   });
-
-  return {
-    fallback: false,
-    paths: [...paths],
-  };
+  const meta = photos[index];
+  return { props: { album, albumData, meta, albumInfo } };
 }
