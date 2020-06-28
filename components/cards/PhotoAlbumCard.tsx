@@ -11,15 +11,7 @@ export interface PhotoAlbumCardItem {
   pdfUrl?: string;
 }
 
-const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({
-  albumId,
-  imgUrl,
-  date,
-  albumTitle,
-  description,
-  tags,
-  pdfUrl,
-}) => {
+const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({ albumId, imgUrl, date, albumTitle, description, tags }) => {
   return (
     <a
       className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col"
@@ -41,16 +33,6 @@ const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({
               {`#${tag}`}
             </span>
           ))}
-      </div>
-      <div className="px-6 py-4 flex flex-wrap justify-center">
-        {pdfUrl && (
-          <a
-            href={pdfUrl}
-            className="bg-transparent hover:bg-brand text-blue-700 font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded flex items-center mx-2"
-          >
-            Download Album
-          </a>
-        )}
       </div>
     </a>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { StaticBlogPost } from '../types/StaticBlogPost';
 
@@ -15,7 +16,11 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
           <div className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col " key={index}>
             {post.frontmatter.coverImageUrl && (
               <div>
-                <img src={post.frontmatter.coverImageUrl} alt={`cover image for ${post.frontmatter.title}`} />
+                <LazyLoadImage
+                  effect="blur"
+                  src={post.frontmatter.coverImageUrl}
+                  alt={`cover image for ${post.frontmatter.title}`}
+                />
               </div>
             )}
             <div className="flex-1 mt-2 p-4">
