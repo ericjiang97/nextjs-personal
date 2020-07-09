@@ -2,7 +2,7 @@
 title: Supercharging your development environment on Visual Studio Code
 author: Eric Jiang <eric@ericjiang.dev>
 date: '2020-02-15T12:24:00+1100'
-summary: Today, while browsing through Reddit I came upon a post where the user was talking about how he was talking to his Lyft driver. This reminded me of a conversation that I had with my taxi driver last year.
+summary: Like many developers out there, Visual Studio Code (VSCode) is now my go to editor for almost everything (with the exception for Android Studio (for Android) and IntelliJ IDEA (for Java)). I really like customising my VSCode, so that it is easier for me to develop on.
 tags: ['development']
 category: 'Technology'
 ---
