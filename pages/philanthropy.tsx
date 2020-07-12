@@ -3,15 +3,7 @@ import moment, { Moment } from 'moment';
 import PageLayout from '../containers/layouts/PageLayout';
 import MainContainer from '../containers/MainContainer';
 import { InferGetServerSidePropsType } from 'next';
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  VerticalGridLines,
-  HorizontalGridLines,
-  VerticalBarSeries,
-  DiscreteColorLegend,
-} from 'react-vis';
+import { XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries } from 'react-vis';
 import useDarkTheme from '../hooks/useDarkTheme';
 
 interface Donation {
