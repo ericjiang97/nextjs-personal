@@ -14,7 +14,7 @@ const blogPostsRssXml = (blogPosts) => {
       <item>
         <title>${post.frontmatter.title}</title>
         <link>
-          ${`https://ericjiang.dev/blog2/${post.slug}`}
+          ${`https://ericjiang.dev/blog/${post.slug}`}
         </link>
 
         <pubDate>${moment(post.frontmatter.date).toISOString()}</pubDate>
