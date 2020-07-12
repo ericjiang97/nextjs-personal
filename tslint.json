@@ -1,17 +1,11 @@
 {
-  "extends": [
-    "tslint-config-airbnb",
-    "tslint-react-hooks"
-  ],
+  "extends": ["tslint-config-airbnb", "tslint-react-hooks"],
   "rules": {
+    "no-unused-variable": true,
     "react-hooks-nesting": true,
     "import-name": false,
     "align": false,
-    "semicolon": [
-      true,
-      "always",
-      "ignore-bound-class-methods"
-    ],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
     "object-literal-sort-keys": true,
     "max-line-length": [
       true,
@@ -30,12 +24,7 @@
       }
     ],
     "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-leading-underscore",
-        "allow-pascal-case"
-      ]
+      "options": ["ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
     }
   }
 }
