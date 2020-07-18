@@ -3,16 +3,7 @@ import moment, { Moment } from 'moment';
 import PageLayout from '../containers/layouts/PageLayout';
 import MainContainer from '../containers/MainContainer';
 import { InferGetServerSidePropsType } from 'next';
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  VerticalGridLines,
-  HorizontalGridLines,
-  VerticalBarSeries,
-  RadialChart,
-} from 'react-vis';
-import useDarkTheme from '../hooks/useDarkTheme';
+import { Chart } from 'react-google-charts';
 
 interface Donation {
   Date: string;
@@ -20,6 +11,7 @@ interface Donation {
   Amount: number;
   Fund: string;
   Matched: boolean;
+  'Employer Matched': boolean;
 }
 
 const getFinancialYear = (date: Moment = moment()) => {
@@ -37,8 +29,6 @@ const getTotal = (donations: Donation[]) => {
 };
 
 const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { darkTheme } = useDarkTheme();
-  const currentDate = moment();
   const currentFinancialYear = getFinancialYear();
 
   const totalThisFY = getTotal(donation[currentFinancialYear]);
@@ -46,10 +36,33 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
   const diff = totalThisFY - lastFY;
 
   const donationsByCategory = Object.keys(donationByCategoryMap).map((category: string) => {
-    return { label: `${category}: $${donationByCategoryMap[category]}`, angle: donationByCategoryMap[category] };
+    return [category, donationByCategoryMap[category]];
   });
 
-  const axesStyle = { stroke: 'none', fill: darkTheme ? '#AEAEAE' : '#2e2e2e', fontWeight: 600, margin: '3rem' };
+  const chartData = Object.keys(donation).flatMap((key) => {
+    if (Number(key) < getFinancialYear()) {
+      const fyMatched = donation[key].reduce((acc, cur) => {
+        return cur['Employer Matched'] ? acc + cur.Amount : acc;
+      }, 0);
+
+      const fyUnmatched = donation[key].reduce((acc, cur) => {
+        return !cur['Employer Matched'] ? acc + cur.Amount : acc;
+      }, 0);
+
+      return [[`FY${key}`, fyUnmatched, fyMatched, 0]];
+    }
+    const res = donation[key].map((d) => {
+      const isFuture: boolean = moment(d.Date).isAfter(moment());
+      return [
+        d.Date,
+        !isFuture && !d['Employer Matched'] ? d.Amount : 0,
+        !isFuture && d['Employer Matched'] ? d.Amount : 0,
+        isFuture ? d.Amount : 0,
+      ];
+    });
+    return res;
+  });
+
   return (
     <PageLayout title="Philanthropy">
       <MainContainer>
@@ -59,65 +72,70 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
             As part of my idea of giving back to society apart from volunteering and mentoring, I'm also doing some
             donations and charity work.
           </p>
-          <hr className="my-1" />
-          <div className="m-0 w-full pt-14 leading-tight font-medium">{`This year I've donated/commited $${totalThisFY}, which is $${Math.abs(
-            diff,
-          )} ${diff < 0 ? 'less' : 'more'} than last financial year`}</div>
           <div className="m-0 mt-2 w-full pt-14 leading-tight text-xs font-medium">
-            Financial Years are Australia Financial Years which are between 1st July and 30th June
+            Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
+          </div>
+          <hr className="my-1" />
+
+          <div className="m-0 w-full pt-14 leading-tight font-medium flex">
+            <div className="m-0 w-full pt-14 leading-tight font-medium flex-1">
+              <span className="text-xs">{`Total donated this year FY${currentFinancialYear}`}</span>
+              <h3 className="mt-1 text-3xl">{`$${totalThisFY}`}</h3>
+              <span className="text-xs" style={{ color: diff < 0 ? 'red' : 'green' }}>
+                {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
+              </span>
+            </div>
           </div>
         </div>
       </MainContainer>
       <div className="max-w-4xl mx-auto pt-10 py-auto pb-8 flex flex-col flex-wrap justify-around overflow-x-scroll">
-        <div className="max-w-4xl mx-auto">
-          <XYPlot className="m-auto text-grey-500 max-w-4xl w-xl" xType="ordinal" stackBy="y" width={500} height={300}>
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis style={axesStyle} />
-            <YAxis
-              style={axesStyle}
-              tickFormat={(v) => {
-                return `$${v}`;
-              }}
-              tickPadding={0}
-            />
-            {Object.keys(donation).map((key: string, i) => {
-              const fyDonations = donation[key];
-              const data = fyDonations.map((donation) => {
-                const transDate = moment(donation.Date);
-                const financialYear = getFinancialYear(transDate);
-
-                const isInCurrentFinancialYear = financialYear < currentDate.year();
-                return {
-                  x: isInCurrentFinancialYear ? `FY${key}` : transDate.format('MMM YYYY'),
-                  y: donation.Amount,
-                };
-              });
-              return (
-                <VerticalBarSeries
-                  barWidth={Number(key) < moment().year() ? 0.2 : 0.5}
-                  color={Number(key) < moment().year() ? '#ccc' : '#12939A'}
-                  data={data}
-                  key={i}
-                />
-              );
-            })}
-          </XYPlot>
+        <div className="max-w-4xl mx-auto w-full">
+          <Chart
+            chartType="BarChart"
+            width="100%"
+            height="30vh"
+            loader={<div>Loading...</div>}
+            data={[['Date', 'Unmatched', 'Employer Matched', 'Committed'], ...chartData]}
+            options={{
+              chartArea: { width: '50%' },
+              hAxis: {
+                title: 'Total Donated (A$)',
+              },
+              isStacked: true,
+              title: 'Donations by FY',
+              vAxis: {
+                title: 'Date / Financial Year',
+              },
+            }}
+          />
         </div>
         <div className="my-3">
           <h3 className="m-0 w-full pt-14 leading-tight text-xl font-semibold">
             Donation by Category (this Financial Year)
-            <RadialChart data={donationsByCategory} width={500} height={300} showLabels={true}></RadialChart>
           </h3>
+          <Chart
+            chartType="PieChart"
+            width="100%"
+            height="30vh"
+            loader={<div>Loading...</div>}
+            data={[['Category', 'Amount'], ...donationsByCategory]}
+            options={{
+              chartArea: { width: '50%' },
+              title: 'Donations by Category this FY',
+            }}
+          />
         </div>
-        <iframe
-          className="airtable-embed"
-          src="https://airtable.com/embed/shrk5nvmKvWV8ZeOi?backgroundColor=gray&viewControls=on"
-          frameBorder="0"
-          width="100%"
-          height="533"
-          style={{ background: 'transparent', border: '1px solid #ccc' }}
-        ></iframe>
+        <div className="my-3">
+          <h3 className="m-0 w-full pt-14 leading-tight text-xl font-semibold">All Transactions</h3>
+          <iframe
+            className="airtable-embed"
+            src="https://airtable.com/embed/shrk5nvmKvWV8ZeOi?backgroundColor=gray&viewControls=on"
+            frameBorder="0"
+            width="100%"
+            height="533"
+            style={{ background: 'transparent', border: '1px solid #ccc' }}
+          ></iframe>
+        </div>
       </div>
     </PageLayout>
   );
@@ -161,7 +179,6 @@ export async function getServerSideProps() {
     });
 
   const donationByCategoryMap = allDonations[getFinancialYear()].reduce((acc: { [key: string]: number }, donation) => {
-    console.log(donation, acc);
     if (acc[donation.Category]) {
       acc[donation.Category] += donation.Amount;
     }
