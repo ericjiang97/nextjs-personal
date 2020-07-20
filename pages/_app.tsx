@@ -1,5 +1,6 @@
 import React from 'react';
 import App from 'next/app';
+import { Provider as BumbagProvider } from 'bumbag';
 
 import Footer from '../components/footer';
 import Nav from '../components/nav';
@@ -65,9 +66,11 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <RootComponent>
-        <Component {...pageProps}></Component>
-      </RootComponent>
+      <BumbagProvider>
+        <RootComponent>
+          <Component {...pageProps}></Component>
+        </RootComponent>
+      </BumbagProvider>
     );
   }
 }

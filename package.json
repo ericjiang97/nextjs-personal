@@ -30,6 +30,8 @@
     "@types/react-lazy-load-image-component": "^1.5.0",
     "@types/react-modal": "^3.10.5",
     "autoprefixer": "^9.7.5",
+    "bumbag": "^0.10.2",
+    "emotion-server": "^10.0.27",
     "gray-matter": "^4.0.2",
     "gridsome-plugin-feed": "^1.0.2",
     "isomorphic-unfetch": "^3.0.0",
