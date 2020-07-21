@@ -3,17 +3,16 @@ import App from 'next/app';
 import { Provider as BumbagProvider } from 'bumbag';
 
 import Footer from '../components/footer';
-import Nav from '../components/nav';
 
 import useDarkTheme from '../hooks/useDarkTheme';
 
 import '../css/tailwind.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Head from 'next/head';
+import theme from '../config/theme';
 
 const RootComponent: React.FC = ({ children }) => {
-  const { darkTheme, setDarkTheme } = useDarkTheme();
-
+  const { darkTheme } = useDarkTheme();
   return (
     <>
       <Head>
@@ -48,13 +47,7 @@ const RootComponent: React.FC = ({ children }) => {
         data-theme={darkTheme ? 'dark' : 'light'}
       >
         <div className="flex-1 flex flex-col">
-          <Nav
-            toggleDarkTheme={() => {
-              setDarkTheme(!darkTheme);
-            }}
-            darkTheme={darkTheme}
-          />
-          <div className="flex-1 flex flex-col mt-6 p-4">{children}</div>
+          <div className="flex-1 flex flex-col">{children}</div>
           <Footer />
         </div>
       </div>
@@ -66,7 +59,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <BumbagProvider>
+      <BumbagProvider theme={theme} collapseBelow="desktop">
         <RootComponent>
           <Component {...pageProps}></Component>
         </RootComponent>

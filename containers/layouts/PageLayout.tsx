@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import { PageContent, PageWithHeader } from 'bumbag';
+import Nav from '../../components/nav';
 
 interface PageLayoutProps {
   title: string;
@@ -8,29 +10,16 @@ interface PageLayoutProps {
   ignoreHorizontalPadding?: boolean;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({
-  title,
-  banner,
-  children,
-  isExperimental = false,
-  ignoreHorizontalPadding = false,
-}) => {
+const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children }) => {
   const titleString = `${title} - Eric Jiang`;
   return (
-    <>
-      {isExperimental && (
-        <div className={`w-full ${ignoreHorizontalPadding && 'px-2'} py-1 bg-warning text-warning-900 mt-2 mb-4`}>
-          {`Warning! This page ${titleString} is experiemental and may be buggy`}
-        </div>
-      )}
-      <div className="text-sans">
-        <Head>
-          <title>{titleString}</title>
-        </Head>
-        {banner && banner}
-        <div className="w-full text-gray-900">{children}</div>
-      </div>
-    </>
+    <PageWithHeader header={<Nav />}>
+      <Head>
+        <title>{titleString}</title>
+      </Head>
+      {banner && banner}
+      <PageContent>{children}</PageContent>
+    </PageWithHeader>
   );
 };
 
