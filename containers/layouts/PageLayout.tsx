@@ -13,12 +13,14 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children }) => {
   const titleString = `${title} - Eric Jiang`;
   return (
-    <PageWithHeader header={<Nav />}>
+    <PageWithHeader header={<Nav />} display="flex" flexDirection="column">
       <Head>
         <title>{titleString}</title>
       </Head>
-      {banner && banner}
-      <PageContent>{children}</PageContent>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        {banner && banner}
+        <PageContent flex={1}>{children}</PageContent>
+      </div>
     </PageWithHeader>
   );
 };
