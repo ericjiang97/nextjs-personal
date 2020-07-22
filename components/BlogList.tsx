@@ -3,6 +3,7 @@ import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { StaticBlogPost } from '../types/StaticBlogPost';
+import { Card, Stack, Paragraph, Heading, Button } from 'bumbag';
 
 interface BlogList {
   allPosts: StaticBlogPost[];
@@ -10,41 +11,33 @@ interface BlogList {
 
 const BlogList: React.FC<BlogList> = ({ allPosts }) => {
   return (
-    <div className="flex flex-wrap justify-evenly">
+    <Stack>
       {allPosts.map((post, index) => {
         return (
-          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-surface my-2 mx-2 flex flex-col " key={index}>
+          <Card standalone key={index}>
             {post.frontmatter.coverImageUrl && (
-              <div>
-                <LazyLoadImage
-                  effect="blur"
-                  src={post.frontmatter.coverImageUrl}
-                  alt={`cover image for ${post.frontmatter.title}`}
-                />
-              </div>
+              <LazyLoadImage
+                effect="blur"
+                src={post.frontmatter.coverImageUrl}
+                alt={`cover image for ${post.frontmatter.title}`}
+              />
             )}
-            <div className="flex-1 mt-2 p-4">
-              <a href={`./blog/${post.slug}`}>
-                <h3 className="my-1 pt-1 leading-tight text-xl text-left font-semibold" style={{ color: '#12AD41' }}>
-                  {post.frontmatter.title}
-                </h3>
-              </a>
-              <div className="text-xs">
-                {moment(post.frontmatter.date).format('ddd Do MMM YYYY')} /{' '}
-                <a
-                  // href={`/blog2/tags/${tag}`}
-                  className="font-semibold"
-                  style={{ color: '#f7a046' }}
-                >
-                  {post.frontmatter.category}
-                </a>{' '}
-              </div>
-              <p className="my-1 pt-1 leading-tight text-sm text-left font-light">{post.frontmatter.summary}</p>
-            </div>
-          </div>
+            <Card.Header>
+              <Card.Title fontPalette="primary">{post.frontmatter.title}</Card.Title>
+            </Card.Header>
+            <Card.Content>
+              <Heading use="h6">{moment(post.frontmatter.date).format('ddd Do MMM YYYY')}</Heading>
+              <Paragraph>{post.frontmatter.summary}</Paragraph>
+            </Card.Content>
+            <Card.Footer>
+              <Button use="a" href={`/blog/${post.frontmatter.slug}`}>
+                Read Article
+              </Button>
+            </Card.Footer>
+          </Card>
         );
       })}
-    </div>
+    </Stack>
   );
 };
 
