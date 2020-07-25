@@ -27,7 +27,7 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
 
   return (
     <>
-      <Modal.Disclosure use={Button} {...modal} palette="primary">
+      <Modal.Disclosure use={Button} {...modal}>
         Share Post
       </Modal.Disclosure>
       <Modal {...modal}>
