@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Heading, Text, Paragraph, Button } from 'bumbag';
+import { Card, Heading, Text, Paragraph, Button, Link } from 'bumbag';
 
 export interface PhotoAlbumCardItem {
   albumId: string;
@@ -24,9 +24,9 @@ const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({ albumId, imgUrl, date, a
         <Paragraph fontSize="0.9rem">{description}</Paragraph>
       </Card.Content>
       <Card.Footer>
-        <Button use="a" href={`/photos/${albumId}`}>
-          View Album
-        </Button>
+        <Link href={`/photos/${albumId}`}>
+          <Button>View Album</Button>
+        </Link>
       </Card.Footer>
     </Card>
   );

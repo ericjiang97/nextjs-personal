@@ -19,12 +19,16 @@ const PhotosPage: React.FC = () => {
         Follow me
       </Heading>
       <Stack orientation="horizontal">
-        <Button use="a" href={SITE_CONFIG.social.INSTAGRAM} rel="noreferrer noopener" target="_blank">
-          <icons.Instagram className="fill-current h-5 w-5 mr-2" /> Instagram
-        </Button>
-        <Button use="a" href={SITE_CONFIG.social.FLICKR} rel="noreferrer noopener" target="_blank">
-          <icons.Flickr className="fill-current h-5 w-5 mr-2" /> Flickr
-        </Button>
+        <a href={SITE_CONFIG.social.INSTAGRAM} rel="noreferrer noopener" target="_blank">
+          <Button>
+            <icons.Instagram className="fill-current h-5 w-5 mr-2" /> Instagram
+          </Button>
+        </a>
+        <a href={SITE_CONFIG.social.FLICKR} rel="noreferrer noopener" target="_blank">
+          <Button>
+            <icons.Flickr className="fill-current h-5 w-5 mr-2" /> Flickr
+          </Button>
+        </a>
       </Stack>
       <Text fontSize="0.6rem" marginTop="0.7rem">
         Images and Media Work are licensed under Creative-Commons Attribution-NonCommercial License unless otherwise

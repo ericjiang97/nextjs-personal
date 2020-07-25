@@ -30,10 +30,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                     target="_blank"
                     rel="noreferrer noopener"
                     title={tech.name}
+                    style={{ marginLeft: '0.4rem', marginRight: '0.4rem' }}
                   >
-                    <div className="text-sm text-gray-900 flex-1 mx-2" key={index}>
-                      {tech.icon ? <Icon className="h-12" alt={tech.name} /> : tech.name}
-                    </div>
+                    {tech.icon ? <Icon className="h-12" alt={tech.name} /> : tech.name}
                   </a>
                 );
               })}
@@ -42,12 +41,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         </Container>
         <Card.Footer>
           <Set>
-            <Button use="a" href={url}>
-              Product Url
-            </Button>
-            <Button use="a" href={repoUrl}>
-              Source Code
-            </Button>
+            <a href={url}>
+              <Button>Product Url</Button>
+            </a>
+            <a href={repoUrl}>
+              <Button>Source Code</Button>
+            </a>
           </Set>
         </Card.Footer>
       </Card.Content>

@@ -16,9 +16,9 @@ const TalkCard: React.FC<Talk> = (talk) => {
         <Paragraph>{talk.org}</Paragraph>
       </Card.Content>
       <Card.Footer>
-        <Button use="a" href={talk.url} target="_blank" rel="noopener noreferrer">
-          View Talk
-        </Button>
+        <a href={talk.url} target="_blank" rel="noopener noreferrer">
+          <Button>View Talk</Button>
+        </a>
       </Card.Footer>
     </Card>
   );

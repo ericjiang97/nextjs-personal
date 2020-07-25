@@ -26,16 +26,20 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
       <Paragraph>{albumInfo.photoset.description._content}</Paragraph>
       <Stack orientation="horizontal">
         {meta.pdfUrl && (
-          <Button use="a" href={meta.pdfUrl}>
-            <BookOpen className="mr-2" />
-            Photobook
-          </Button>
+          <a href={meta.pdfUrl}>
+            <Button>
+              <BookOpen className="mr-2" />
+              Photobook
+            </Button>
+          </a>
         )}
         {meta.pdfUrl && (
-          <Button use="a" href={meta.pdfUrl}>
-            <Icons.Flickr className="fill-current h-5 w-5 mx-2" />
-            View album
-          </Button>
+          <a href={meta.albumUrl}>
+            <Button>
+              <Icons.Flickr className="fill-current h-5 w-5 mx-2" />
+              View album
+            </Button>
+          </a>
         )}
       </Stack>
       <Stack>
@@ -61,9 +65,9 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
                   )}
                 </Card.Content>
                 <Card.Footer>
-                  <Button use="a" href={photo.url_o} target="_blank" rel="noreferrer noopener">
-                    Download
-                  </Button>
+                  <a href={photo.url_o} target="_blank" rel="noreferrer noopener">
+                    <Button>Download</Button>
+                  </a>
                 </Card.Footer>
               </Card>
             );

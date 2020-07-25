@@ -24,9 +24,9 @@ const AboutMe = () => (
         ensuring that end users have the best user experience when using software. If you are a recruiter, I am best
         contacted via email at <Link href="mailto:recruiting@ericjiang.dev">recruiting@ericjiang.dev</Link>
       </Paragraph>
-      <Button use="a" palette="primary" href="https://resume.ericjiang.dev" target="_blank" rel="noreferrer noopener">
-        Download my resume
-      </Button>
+      <a href="https://resume.ericjiang.dev" target="_blank" rel="noreferrer noopener">
+        <Button palette="primary">Download my resume</Button>
+      </a>
     </Container>
     <Container>
       <Heading use="h4">Experience</Heading>

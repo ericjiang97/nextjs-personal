@@ -3,7 +3,7 @@ import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { StaticBlogPost } from '../types/StaticBlogPost';
-import { Card, Stack, Paragraph, Heading, Button } from 'bumbag';
+import { Card, Stack, Paragraph, Heading, Link } from 'bumbag';
 
 interface BlogList {
   allPosts: StaticBlogPost[];
@@ -30,9 +30,7 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
               <Paragraph>{post.frontmatter.summary}</Paragraph>
             </Card.Content>
             <Card.Footer>
-              <Button use="a" href={`/blog/${post.slug}`}>
-                Read Article
-              </Button>
+              <Link href={`/blog/${post.slug}`}>Read Article</Link>
             </Card.Footer>
           </Card>
         );
