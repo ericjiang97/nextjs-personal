@@ -34,6 +34,7 @@ class Nav extends React.Component<NavProps, NavState> {
           <TopNav.Item href="/projects">Projects</TopNav.Item>
           <TopNav.Item href="/photos">Photos</TopNav.Item>
           <TopNav.Item href="/philanthropy">Philanthropy</TopNav.Item>
+          <TopNav.Item href="/talks">Talks</TopNav.Item>
           <TopNav.Item href="/videos">Videos</TopNav.Item>
           <TopNav.Item href="/about">About</TopNav.Item>
         </TopNav.Section>

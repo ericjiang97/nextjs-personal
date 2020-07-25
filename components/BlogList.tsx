@@ -26,11 +26,11 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
               <Card.Title fontPalette="primary">{post.frontmatter.title}</Card.Title>
             </Card.Header>
             <Card.Content>
-              <Heading use="h6">{moment(post.frontmatter.date).format('ddd Do MMM YYYY')}</Heading>
+              <Heading use="h7">{moment(post.frontmatter.date).format('ddd Do MMM YYYY')}</Heading>
               <Paragraph>{post.frontmatter.summary}</Paragraph>
             </Card.Content>
             <Card.Footer>
-              <Button use="a" href={`/blog/${post.frontmatter.slug}`}>
+              <Button use="a" href={`/blog/${post.slug}`}>
                 Read Article
               </Button>
             </Card.Footer>

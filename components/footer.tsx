@@ -1,42 +1,47 @@
 import React from 'react';
 import Icons from '../components/icons';
 import SITE_CONFIG from '../config';
+import { Container, Paragraph, Text, Link, Stack } from 'bumbag';
 
 const Footer = () => {
   return (
     <footer>
-      <div className="max-w-4xl mx-auto pt-20 py-auto p-8 flex flex-row flex-wrap justify-around">
-        <div className="flex-1 mx-auto py-auto flex flex-col justify-start mr-4" style={{ minWidth: 280 }}>
-          <p>Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</p>
-          <p className="text-xs">
-            Powered by <a href="https://vercel.com/">Vercel</a>. Built in <a href="https://nextjs.org/">NextJS</a> with{' '}
-            <a href="https://bumbag.style/">Bumbag</a>
-          </p>
-        </div>
-        <div className="max-w-2xl mx-auto py-auto flex flex-row items-center justify-end my-4">
-          <a href={SITE_CONFIG.social.LINKEDIN}>
-            <Icons.LinkedIn className="fill-current h-5 w-5 mx-2" />
-          </a>
-          <a href={SITE_CONFIG.social.GITHUB}>
-            <Icons.GitHub className="fill-current h-5 w-5 mx-2" />
-          </a>
-          <a href={SITE_CONFIG.social.TWITTER}>
-            <Icons.Twitter className="fill-current h-5 w-5 mx-2" />
-          </a>
-          <a href="mailto:hello@ericjiang.dev">
-            <Icons.Gmail className="fill-current h-5 w-5 mx-2" />
-          </a>
-          <a href={SITE_CONFIG.social.FACEBOOK}>
-            <Icons.Facebook className="fill-current h-5 w-5 mx-2" />
-          </a>
-          <a href={SITE_CONFIG.social.FLICKR}>
-            <Icons.Flickr className="fill-current h-5 w-5 mx-2" />
-          </a>
-          <a href="/blog/feed.xml">
-            <Icons.Rss className="fill-current h-5 w-5 mx-2" />
-          </a>
-        </div>
-      </div>
+      <Container maxWidth="700px">
+        <Stack orientation="horizontal" display="flex">
+          <Container flex="1">
+            <Paragraph marginBottom="0.5rem">Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</Paragraph>
+            <Text fontSize="0.75rem">
+              Powered by <Link href="https://vercel.com/">Vercel</Link>. Built in{' '}
+              <Link href="https://nextjs.org/">NextJS</Link> with <Link href="https://bumbag.style/">Bumbag</Link>
+            </Text>
+          </Container>
+          <Container maxWidth="30%">
+            <Stack orientation="horizontal">
+              <Link href={SITE_CONFIG.social.LINKEDIN}>
+                <Icons.LinkedIn style={{ fill: 'currentColor' }} />
+              </Link>
+              <Link href={SITE_CONFIG.social.GITHUB}>
+                <Icons.GitHub style={{ fill: 'currentColor' }} />
+              </Link>
+              <Link href={SITE_CONFIG.social.TWITTER}>
+                <Icons.Twitter style={{ fill: 'currentColor' }} />
+              </Link>
+              <Link href="mailto:hello@ericjiang.dev">
+                <Icons.Gmail style={{ fill: 'currentColor' }} />
+              </Link>
+              <Link href={SITE_CONFIG.social.FACEBOOK}>
+                <Icons.Facebook style={{ fill: 'currentColor' }} />
+              </Link>
+              <Link href={SITE_CONFIG.social.FLICKR}>
+                <Icons.Flickr style={{ fill: 'currentColor' }} />
+              </Link>
+              <Link href="/blog/feed.xml">
+                <Icons.Rss style={{ fill: 'currentColor' }} />
+              </Link>
+            </Stack>
+          </Container>
+        </Stack>
+      </Container>
     </footer>
   );
 };

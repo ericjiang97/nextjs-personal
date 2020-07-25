@@ -5,21 +5,15 @@ import BlogList from '../../components/BlogList';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 
+import { Heading, Paragraph } from 'bumbag';
+
 const Index = ({ allPosts }) => {
   return (
     <PageLayout title={'Blog'}>
-      <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-row justify-around">
-        <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-          <h1 className="m-0 w-full pt-14 leading-tight text-4xl text-center font-bold">Blog</h1>
-          <p className="text-center my-4 text-m">
-            I occassionally write on my blog about tech, projects, reviews... so here's some of them.
-          </p>
-        </div>
-      </div>
+      <Heading use="h3">Blog</Heading>
+      <Paragraph>I occassionally write on my blog about tech, projects, reviews... so here's some of them.</Paragraph>
 
-      <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-        <BlogList allPosts={allPosts} />
-      </div>
+      <BlogList allPosts={allPosts} />
     </PageLayout>
   );
 };
