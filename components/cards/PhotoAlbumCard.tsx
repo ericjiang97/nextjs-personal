@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Heading, Text, Paragraph, Button, Link } from 'bumbag';
+import { Card, Heading, Text, Paragraph, Button, Link, Image } from 'bumbag';
 
 export interface PhotoAlbumCardItem {
   albumId: string;
@@ -15,7 +15,7 @@ export interface PhotoAlbumCardItem {
 const PhotoAlbumCard: React.FC<PhotoAlbumCardItem> = ({ albumId, imgUrl, date, albumTitle, description }) => {
   return (
     <Card minWidth="300px" standalone marginY="0.5rem">
-      <img className="w-full" src={imgUrl} alt={albumTitle} />
+      <Image width="100%" src={imgUrl} alt={albumTitle} />
       <Card.Title>
         <Text fontSize="0.75rem">{date}</Text>
         <Heading use="h5">{albumTitle}</Heading>

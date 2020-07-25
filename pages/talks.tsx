@@ -35,7 +35,7 @@ const TechTalks = () => (
         </Paragraph>
       </Container>
       <Container>
-        <Image src="/images/gcp-juniordev-talk-removebg.png" alt="Eric" />
+        <Image src="/images/gcp-juniordev-talk-removebg.png" alt="Eric" width="100%" />
       </Container>
     </Stack>
     <Container>

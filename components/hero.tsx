@@ -15,7 +15,7 @@ const Hero = () => {
         </Paragraph>
       </Container>
       <Container padding="0.5rem" flex={1} minWidth="280px">
-        <Image src="/images/transparent_profile_min.png" alt="Eric" />
+        <Image src="/images/transparent_profile_min.png" alt="Eric" width="100%" />
       </Container>
     </Container>
   );

@@ -20,6 +20,7 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
                 effect="blur"
                 src={post.frontmatter.coverImageUrl}
                 alt={`cover image for ${post.frontmatter.title}`}
+                width="100%"
               />
             )}
             <Card.Header>

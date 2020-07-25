@@ -7,9 +7,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <Card standalone>
       {screenshotUrl && (
-        <div className="flex-1 flex items-center">
-          <Image width="100%" src={screenshotUrl} alt={name} />
-        </div>
+        <Image width="100%" src={screenshotUrl} alt={name} />
       )}
       <Card.Header justifyContent="unset">
         {imageUrl && <Image src={imageUrl} height="2rem" marginRight="0.5rem" />}

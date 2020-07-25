@@ -343,8 +343,8 @@ export const FlutterIcon: React.FC<IconProps> = ({ className }) => {
         y1="1930.7407"
         y2="1929.7407"
       >
-        <stop offset=".2" stop-opacity=".15" />
-        <stop offset=".85" stopColor="#616161" stop-opacity=".01" />
+        <stop offset=".2" stopOpacity=".15" />
+        <stop offset=".85" stopColor="#616161" stopOpacity=".01" />
       </linearGradient>
       <linearGradient
         id="b"
