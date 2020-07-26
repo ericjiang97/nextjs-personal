@@ -1,18 +1,32 @@
-import Hero from '../components/hero';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Stack, Card, Set, Button, Link } from 'bumbag';
+import { Stack, Card, Set, Button, Link, Heading, Paragraph } from 'bumbag';
+import HeroBase from '../components/HeroBase';
 
 const Home = () => (
-  <PageLayout title="Home">
-    <Hero />
-
+  <PageLayout
+    title="Home"
+    banner={
+      <HeroBase backgroundImage="url(/images/eric-jiang-bitbybit.jpeg)">
+        {' '}
+        <Heading use="h3" shrinkBelow="tablet">
+          G'day, I'm Eric.
+        </Heading>
+        <Heading use="h5">I’m a Test Engineer at Google.</Heading>
+        <Paragraph>
+          In my spare time, I make impact by building awesome software solutions and building the communities around me.
+        </Paragraph>
+      </HeroBase>
+    }
+  >
     <Stack orientation="horizontal" marginTop="1rem">
       <Card
         title="Projects"
         headerAddon={
           <Set>
             <Link href="/projects">
-              <Button variant="outlined" palette="primary">View Projects</Button>
+              <Button variant="outlined" palette="primary">
+                View Projects
+              </Button>
             </Link>
           </Set>
         }
@@ -24,7 +38,9 @@ const Home = () => (
         headerAddon={
           <Set>
             <Link href="/talks">
-              <Button variant="outlined" palette="primary">View Talks</Button>
+              <Button variant="outlined" palette="primary">
+                View Talks
+              </Button>
             </Link>
           </Set>
         }

@@ -1,5 +1,5 @@
 import { ThemeConfig, IconThemeConfig } from 'bumbag';
-import { faCopy, faShare, faEdit, faSun, faMoon, faEnvelope, faRss } from '@fortawesome/free-solid-svg-icons';
+import { faCopy, faShare, faEdit, faSun, faMoon, faEnvelope, faRss, faBars } from '@fortawesome/free-solid-svg-icons';
 import {
   faBootstrap,
   faLinkedin,
@@ -16,7 +16,7 @@ import {
 const IconConfig: IconThemeConfig = {
   iconSets: [
     {
-      icons: [faSun, faMoon, faEnvelope, faRss, faCopy, faShare, faEdit],
+      icons: [faBars, faSun, faMoon, faEnvelope, faRss, faCopy, faShare, faEdit],
       prefix: 'solid-',
       type: 'font-awesome',
     },
