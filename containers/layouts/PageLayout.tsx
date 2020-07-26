@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { PageContent, PageWithHeader } from 'bumbag';
+import { PageContent, PageWithHeader, Callout, Container, Link } from 'bumbag';
 import Nav from '../../components/nav';
 
 interface PageLayoutProps {
@@ -19,7 +19,15 @@ const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children }) => {
       </Head>
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
         {banner && banner}
-        <PageContent flex={1}>{children}</PageContent>
+
+        <PageContent flex={1}>
+          <Container>
+            <Callout type="info" title="Warning: Experimental" width="800px" marginY="1rem">
+              This site is experimental, please report any bugs to <Link href="https://github.com/ericjiang97/nextjs-personal/issues">https://github.com/ericjiang97/nextjs-personal/issues</Link>
+            </Callout>
+          </Container>
+          {children}
+        </PageContent>
       </div>
     </PageWithHeader>
   );
