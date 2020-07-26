@@ -32,7 +32,13 @@ const theme: ThemeConfig = {
   palette: {
     danger: '#da1717',
     info: '#1e67d5',
-    primary: '#574feb',
+    modes: {
+      dark: {
+        background: '#0C2D48',
+        text: 'white',
+      },
+    },
+    primary: '#145DA0',
     success: '#0a7d33',
     text: '#212121',
     warning: '#ed9c22',

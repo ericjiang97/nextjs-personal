@@ -17,8 +17,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children }) => {
       <Head>
         <title>{titleString}</title>
       </Head>
+      {banner && banner}
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-        {banner && banner}
 
         <PageContent flex={1}>
           <Container>

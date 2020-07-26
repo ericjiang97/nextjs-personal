@@ -2,7 +2,6 @@ import matter from 'gray-matter';
 import moment from 'moment';
 import glob from 'glob';
 import { Markdown } from 'bumbag-addon-markdown';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 
@@ -10,6 +9,7 @@ import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
 import SITE_CONFIG from '../../config';
 import { Heading, Label, Paragraph, Container, Button, Stack, Link } from 'bumbag';
+import HeroBase from '../../components/HeroBase';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
@@ -17,21 +17,21 @@ export default function BlogTemplate(props: StaticBlogPost) {
 
   const { author, date, title, category, coverImageUrl } = frontmatter;
   return (
-    <PageLayout title={`Blog - ${title}`} ignoreHorizontalPadding={true}>
+    <PageLayout title={`Blog - ${title}`} ignoreHorizontalPadding={true} banner={<HeroBase backgroundImage={`url(${coverImageUrl})`}>
       <Label color="secondary">{category}</Label>
       <Heading use="h3">{title}</Heading>
-      {coverImageUrl && <LazyLoadImage src={coverImageUrl} alt={`banner for ${title}`} width="100%" effect="blur" />}
-      <Container display="flex" justifyContent="space-around" marginY="1rem">
-        <div>
-          <Label>By</Label>
-          <Paragraph>{author}</Paragraph>
-        </div>
-        <div>
-          <Label>Published on</Label>
-          <Paragraph>{moment(date).format('ddd Do MMM YYYY')}</Paragraph>
-        </div>
+      <Container marginY="1rem">
+        <Label>By</Label>
+        <Paragraph>{author}</Paragraph>
+        <Label>Published on</Label>
+        <Paragraph>{moment(date).format('ddd Do MMM YYYY')}</Paragraph>
       </Container>
-      <Markdown wrap={(children: any) => <Stack spacing="major-2">{children}</Stack>} content={props.markdownBody} />
+    </ HeroBase>}>
+      <Markdown
+        wrap={(children: any) => <Stack spacing="major-2" maxWidth="100%" width="100%">{children}</Stack>}
+        content={props.markdownBody}
+        elementProps={{ maxWidth: '100%' }}
+      />
       <hr style={{ marginTop: '1rem', marginBottom: '0.75rem' }} />
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={title} slug={slug} />
