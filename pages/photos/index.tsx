@@ -2,7 +2,6 @@ import React from 'react';
 
 import PhotoAlbumCard from '../../components/cards/PhotoAlbumCard';
 import PageLayout from '../../containers/layouts/PageLayout';
-import icons from '../../components/icons';
 import SITE_CONFIG from '../../config';
 import { photos } from '../../data/photos';
 import { Container, Heading, Paragraph, Stack, Text, Button } from 'bumbag';
@@ -20,13 +19,11 @@ const PhotosPage: React.FC = () => {
       </Heading>
       <Stack orientation="horizontal">
         <a href={SITE_CONFIG.social.INSTAGRAM} rel="noreferrer noopener" target="_blank">
-          <Button>
-            <icons.Instagram className="fill-current h-5 w-5 mr-2" /> Instagram
+          <Button iconBefore="brand-instagram" palette="primary" variant="outlined"> Instagram
           </Button>
         </a>
         <a href={SITE_CONFIG.social.FLICKR} rel="noreferrer noopener" target="_blank">
-          <Button>
-            <icons.Flickr className="fill-current h-5 w-5 mr-2" /> Flickr
+          <Button iconBefore="brand-flickr" palette="primary" variant="outlined"> Flickr
           </Button>
         </a>
       </Stack>

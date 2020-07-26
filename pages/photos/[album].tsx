@@ -4,14 +4,13 @@ import { InferGetStaticPropsType } from 'next';
 import { BookOpen } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import Icons from '../../components/icons';
 import PageLayout from '../../containers/layouts/PageLayout';
 import Custom404 from '../404';
 
 import { photos } from '../../data/photos';
 import CONSTANTS from '../../constants';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
-import { Card, Heading, Paragraph, Stack, Button } from 'bumbag';
+import { Card, Heading, Paragraph, Stack, Button, Icon } from 'bumbag';
 
 export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   const { error, payload } = props;
@@ -36,7 +35,7 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
         {meta.pdfUrl && (
           <a href={meta.albumUrl}>
             <Button>
-              <Icons.Flickr className="fill-current h-5 w-5 mx-2" />
+              <Icon aria-label="flickr" icon="brand-flickr" />
               View album
             </Button>
           </a>

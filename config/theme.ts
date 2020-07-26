@@ -10,6 +10,7 @@ import {
   faGrunt,
   faJs,
   faReact,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
 const IconConfig: IconThemeConfig = {
@@ -20,7 +21,7 @@ const IconConfig: IconThemeConfig = {
       type: 'font-awesome',
     },
     {
-      icons: [faLinkedin, faGithub, faTwitter, faFacebook, faFlickr, faGrunt, faReact, faJs, faBootstrap],
+      icons: [faInstagram, faLinkedin, faGithub, faTwitter, faFacebook, faFlickr, faGrunt, faReact, faJs, faBootstrap],
       prefix: 'brand-',
       type: 'font-awesome',
     },
