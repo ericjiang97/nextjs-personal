@@ -22,7 +22,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
       ignoreHorizontalPadding={true}
       banner={
         <HeroBase backgroundImage={`url(${coverImageUrl})`}>
-          <Label color="secondary">{category}</Label>
+          <Label color="#C2D2F7">{category}</Label>
           <Heading use="h3">{title}</Heading>
           <Container marginY="1rem">
             <Label>By</Label>
