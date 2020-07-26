@@ -17,26 +17,38 @@ export default function BlogTemplate(props: StaticBlogPost) {
 
   const { author, date, title, category, coverImageUrl } = frontmatter;
   return (
-    <PageLayout title={`Blog - ${title}`} ignoreHorizontalPadding={true} banner={<HeroBase backgroundImage={`url(${coverImageUrl})`}>
-      <Label color="secondary">{category}</Label>
-      <Heading use="h3">{title}</Heading>
-      <Container marginY="1rem">
-        <Label>By</Label>
-        <Paragraph>{author}</Paragraph>
-        <Label>Published on</Label>
-        <Paragraph>{moment(date).format('ddd Do MMM YYYY')}</Paragraph>
-      </Container>
-    </ HeroBase>}>
+    <PageLayout
+      title={`Blog - ${title}`}
+      ignoreHorizontalPadding={true}
+      banner={
+        <HeroBase backgroundImage={`url(${coverImageUrl})`}>
+          <Label color="secondary">{category}</Label>
+          <Heading use="h3">{title}</Heading>
+          <Container marginY="1rem">
+            <Label>By</Label>
+            <Paragraph>{author}</Paragraph>
+            <Label>Published on</Label>
+            <Paragraph>{moment(date).format('ddd Do MMM YYYY')}</Paragraph>
+          </Container>
+        </HeroBase>
+      }
+    >
       <Markdown
-        wrap={(children: any) => <Stack spacing="major-2" maxWidth="100%" width="100%">{children}</Stack>}
+        wrap={(children: any) => (
+          <Stack spacing="major-2" maxWidth="100%" width="100%">
+            {children}
+          </Stack>
+        )}
         content={props.markdownBody}
-        elementProps={{ maxWidth: '100%' }}
+        elementProps={{ img: { maxWidth: '100%' } }}
       />
       <hr style={{ marginTop: '1rem', marginBottom: '0.75rem' }} />
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={title} slug={slug} />
         <Link href={`${SITE_CONFIG.urls.REPO_URL}/tree/main/posts/${slug}.md`}>
-          <Button palette="secondary" iconBefore="solid-edit">Submit an edit</Button>
+          <Button palette="secondary" iconBefore="solid-edit">
+            Submit an edit
+          </Button>
         </Link>
       </Container>
     </PageLayout>
