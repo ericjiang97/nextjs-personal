@@ -12,8 +12,7 @@ import {
   LinkedinIcon,
 } from 'react-share';
 
-import Icons from '../components/icons';
-import { Modal, Button, Card, Heading, Container } from 'bumbag';
+import { Modal, Button, Card, Heading, Container, Icon, Group, Input } from 'bumbag';
 
 interface SharePostModal {
   slug: string;
@@ -28,6 +27,7 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   return (
     <>
       <Modal.Disclosure use={Button} {...modal}>
+        <Icon aria-label="Share article" icon="solid-share" marginRight="0.5rem" />
         Share Post
       </Modal.Disclosure>
       <Modal {...modal}>
@@ -52,11 +52,16 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
               <FacebookShareButton url={postUrl}>
                 <FacebookIcon size={32} round={true} />
               </FacebookShareButton>
-              <CopyToClipboard text={postUrl}>
-                <Button palette="primary">
-                  <Icons.Copy className="fill-current h-5 w-5 mx-2" />
-                </Button>
-              </CopyToClipboard>
+            </Container>
+            <Container>
+              <Group>
+                <Input width="100%" disabled defaultValue={postUrl} />
+                <CopyToClipboard text={postUrl}>
+                  <Button palette="primary">
+                    <Icon aria-label="Copy to Clipboard" icon="solid-copy" />
+                  </Button>
+                </CopyToClipboard>
+              </Group>
             </Container>
           </Container>
         </Card>

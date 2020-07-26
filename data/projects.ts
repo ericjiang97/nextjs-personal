@@ -1,5 +1,13 @@
 import { Project, ProjectTechology } from '../types';
-import { GruntIcon, JavaScriptIcon, BootstrapIcon, FlutterIcon, FirebaseIcon, ReactIcon, MaterialUIIcon } from '../components/icons';
+import {
+  GruntIcon,
+  JavaScriptIcon,
+  BootstrapIcon,
+  FlutterIcon,
+  FirebaseIcon,
+  ReactIcon,
+  MaterialUIIcon,
+} from '../components/icons';
 
 interface Projects {
   current: Project[];
@@ -76,9 +84,17 @@ const PROJECTS: Projects = {
   ],
   previous: [
     {
-      description: 'MonPlan is the official Monash University enterprise course planning tool, built for students by students.',
+      description:
+        'MonPlan is the official Monash University enterprise course planning tool, built for students by students.',
       name: 'MonPlan',
-      technologies: [Technology.React, { name: 'spring' }, { name: 'Google App Engine' }, { name: 'Cloud Firestore' }, { name: 'Cloud Storage' }, { name: 'Sendgrid' }],
+      technologies: [
+        Technology.React,
+        { name: 'spring' },
+        { name: 'Google App Engine' },
+        { name: 'Cloud Firestore' },
+        { name: 'Cloud Storage' },
+        { name: 'Sendgrid' },
+      ],
       url: 'https://monplan.apps.monash.edu',
     },
     {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, TopNav, useColorMode } from 'bumbag';
+import { Button, TopNav, useColorMode, Icon } from 'bumbag';
 
 const Nav: React.FC = () => {
   const { colorMode, setColorMode } = useColorMode();
@@ -30,7 +30,7 @@ const Nav: React.FC = () => {
             } else {
               setColorMode('light');
             }
-          }}>{`${isLightMode ? 'Light' : 'Dark'} Mode`}</Button>
+          }}><Icon aria-label={`Switch to ${isLightMode ? 'Dark' : 'Light'} Mode`} icon={`solid-${isLightMode ? 'moon' : 'sun'}`} /> </Button>
         </TopNav.Item>
       </TopNav.Section>
     </TopNav>
