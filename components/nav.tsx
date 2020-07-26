@@ -5,14 +5,14 @@ import { Button, TopNav, useColorMode, Icon, useBreakpoint, usePage } from 'bumb
 const Nav: React.FC = () => {
   const { colorMode, setColorMode } = useColorMode();
   const { sidebar } = usePage();
-  const isTabletOrLarger = useBreakpoint('min-tablet');
+  const isDesktopOrLarger = useBreakpoint('min-desktop');
 
   const isLightMode = colorMode === 'light';
 
   return (
     <TopNav>
       <TopNav.Section>
-        {!isTabletOrLarger && (
+        {!isDesktopOrLarger && (
           <TopNav.Item>
             <Button onClick={sidebar.toggle} variant="ghost">
               <Icon aria-label="toggle sidebar" icon="solid-bars" color="primary" />
@@ -25,7 +25,7 @@ const Nav: React.FC = () => {
             Eric Jiang
           </Button>
         </TopNav.Item>
-        {isTabletOrLarger && (
+        {isDesktopOrLarger && (
           <>
             <TopNav.Item href="/blog">Blog</TopNav.Item>
             <TopNav.Item href="/projects">Projects</TopNav.Item>
@@ -52,7 +52,7 @@ const Nav: React.FC = () => {
             <Icon
               aria-label={`Switch to ${isLightMode ? 'Dark' : 'Light'} Mode`}
               icon={`solid-${isLightMode ? 'moon' : 'sun'}`}
-            />{' '}
+            />
           </Button>
         </TopNav.Item>
       </TopNav.Section>
