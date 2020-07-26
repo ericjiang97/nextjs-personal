@@ -25,6 +25,8 @@ const Contact = () => {
     fetch('https://formspree.io/xbjzqpbd', {
       body: formData,
       method: 'POST',
+      // DO NOT REDIRECT
+      redirect: 'manual',
     })
       .then((resp) => {
         console.log(resp);

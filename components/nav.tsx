@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Button, TopNav, useColorMode, Icon, useBreakpoint, usePage } from 'bumbag';
+import { Button, TopNav, useColorMode, Icon, useBreakpoint } from 'bumbag';
+import SideBar from './SideBar';
 
 const Nav: React.FC = () => {
   const { colorMode, setColorMode } = useColorMode();
-  const { sidebar } = usePage();
   const isDesktopOrLarger = useBreakpoint('min-desktop');
 
   const isLightMode = colorMode === 'light';
@@ -13,10 +13,8 @@ const Nav: React.FC = () => {
     <TopNav>
       <TopNav.Section>
         {!isDesktopOrLarger && (
-          <TopNav.Item>
-            <Button onClick={sidebar.toggle} variant="ghost">
-              <Icon aria-label="toggle sidebar" icon="solid-bars" color="primary" />
-            </Button>
+          <TopNav.Item marginLeft="1rem">
+            <SideBar />
           </TopNav.Item>
         )}
         <TopNav.Item href="/">

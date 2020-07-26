@@ -1,8 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import { PageContent, PageWithSidebar, PageWithHeader, Callout, Container, Link, useBreakpoint } from 'bumbag';
+import { PageContent, PageWithHeader, Callout, Container, Link } from 'bumbag';
 import Nav from '../../components/nav';
-import SideBar from '../../components/SideBar';
 
 interface PageLayoutProps {
   title: string;
@@ -42,14 +41,11 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children }) => 
 
 const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children }) => {
   const titleString = `${title} - Eric Jiang`;
-  const isTabletOrSmaller = useBreakpoint('max-tablet');
   return (
     <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true}>
-      <PageWithSidebar sidebar={<SideBar />} defaultIsVisible={isTabletOrSmaller}>
-        <PageChildren title={titleString} banner={banner}>
-          {children}
-        </PageChildren>
-      </PageWithSidebar>
+      <PageChildren title={titleString} banner={banner}>
+        {children}
+      </PageChildren>
     </PageWithHeader>
   );
 };
