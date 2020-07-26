@@ -12,7 +12,7 @@ const Home = () => (
         headerAddon={
           <Set>
             <Link href="/projects">
-              <Button variant="link">View Projects</Button>
+              <Button variant="outlined" palette="primary">View Projects</Button>
             </Link>
           </Set>
         }
@@ -24,7 +24,7 @@ const Home = () => (
         headerAddon={
           <Set>
             <Link href="/talks">
-              <Button variant="link">View Talks</Button>
+              <Button variant="outlined" palette="primary">View Talks</Button>
             </Link>
           </Set>
         }

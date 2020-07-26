@@ -30,7 +30,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                     title={tech.name}
                     style={{ marginLeft: '0.4rem', marginRight: '0.4rem' }}
                   >
-                    {tech.icon ? <Icon className="h-12" alt={tech.name} /> : tech.name}
+                    {tech.icon ? <Icon style={{ height: '1rem' }} alt={tech.name} /> : tech.name}
                   </a>
                 );
               })}

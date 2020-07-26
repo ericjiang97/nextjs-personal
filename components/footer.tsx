@@ -18,25 +18,25 @@ const Footer = () => {
           <Container maxWidth="30%">
             <Stack orientation="horizontal">
               <Link href={SITE_CONFIG.social.LINKEDIN}>
-                <Icons.LinkedIn style={{ fill: 'currentColor' }} />
+                <Icons.LinkedIn style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
               <Link href={SITE_CONFIG.social.GITHUB}>
-                <Icons.GitHub style={{ fill: 'currentColor' }} />
+                <Icons.GitHub style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
               <Link href={SITE_CONFIG.social.TWITTER}>
-                <Icons.Twitter style={{ fill: 'currentColor' }} />
+                <Icons.Twitter style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
               <Link href="mailto:hello@ericjiang.dev">
-                <Icons.Gmail style={{ fill: 'currentColor' }} />
+                <Icons.Gmail style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
               <Link href={SITE_CONFIG.social.FACEBOOK}>
-                <Icons.Facebook style={{ fill: 'currentColor' }} />
+                <Icons.Facebook style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
               <Link href={SITE_CONFIG.social.FLICKR}>
-                <Icons.Flickr style={{ fill: 'currentColor' }} />
+                <Icons.Flickr style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
               <Link href="/blog/feed.xml">
-                <Icons.Rss style={{ fill: 'currentColor' }} />
+                <Icons.Rss style={{ fill: 'currentColor', height: '1rem' }} />
               </Link>
             </Stack>
           </Container>
