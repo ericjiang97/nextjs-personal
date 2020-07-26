@@ -1,8 +1,8 @@
-# NextJS + Tailwind CSS
+# NextJS + Bumbag
 
 This is my new site, you can find this at [https://www.ericjiang.dev](https://www.ericjiang.dev).
 
-It is built with Tailwind CSS and NextJS, while my blog is powered by markdown under the [/posts](/posts) directory
+It is built with Bumbag and NextJS, while my blog is powered by markdown under the [/posts](/posts) directory
 
 ## Getting Started
 
