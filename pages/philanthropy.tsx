@@ -1,9 +1,9 @@
 import moment, { Moment } from 'moment';
 
 import PageLayout from '../containers/layouts/PageLayout';
-import MainContainer from '../containers/MainContainer';
 import { InferGetServerSidePropsType } from 'next';
 import { Chart } from 'react-google-charts';
+import { Heading, Paragraph, Text, Label, Container } from 'bumbag';
 
 interface Donation {
   Date: string;
@@ -65,31 +65,25 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
 
   return (
     <PageLayout title="Philanthropy">
-      <MainContainer>
-        <div className="max-w-4xl mx-auto py-auto pb-2 flex flex-col justify-around">
-          <h1 className="m-0 w-full pt-14 leading-tight text-5xl text-center font-semibold">Philanthropy</h1>
-          <p>
-            As part of my idea of giving back to society apart from volunteering and mentoring, I'm also doing some
-            donations and charity work.
-          </p>
-          <div className="m-0 mt-2 w-full pt-14 leading-tight text-xs font-medium">
-            Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
-          </div>
-          <hr className="my-1" />
-
-          <div className="m-0 w-full pt-14 leading-tight font-medium flex">
-            <div className="m-0 w-full pt-14 leading-tight font-medium flex-1">
-              <span className="text-xs">{`Total donated this year FY${currentFinancialYear}`}</span>
-              <h3 className="mt-1 text-3xl">{`$${totalThisFY}`}</h3>
-              <span className="text-xs" style={{ color: diff < 0 ? 'red' : 'green' }}>
-                {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
-              </span>
-            </div>
-          </div>
-        </div>
-      </MainContainer>
-      <div className="max-w-4xl mx-auto pt-10 py-auto pb-8 flex flex-col flex-wrap justify-around overflow-x-scroll">
-        <div className="max-w-4xl mx-auto w-full">
+      <Heading use="h3">Philanthropy</Heading>
+      <Paragraph>
+        As part of my idea of giving back to society apart from volunteering and mentoring, I'm also doing some
+        donations and charity work.
+      </Paragraph>
+      <Text fontSize="0.75rem">
+        Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
+      </Text>
+      <hr style={{ marginTop: '0.75rem', marginBottom: '0.5rem' }} />
+      <div>
+        <Label fontSize="0.8rem">{`Total commited this year (FY${currentFinancialYear})`}</Label>
+        <Heading use="h3" fontWeight="500" marginBottom="0">{`$${totalThisFY}`}</Heading>
+        <Text marginTop="0" fontSize="0.75rem" color={diff < 0 ? 'red' : 'green'}>
+          {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
+        </Text>
+      </div>
+      <Container overflowX="scroll">
+        <Container marginTop="0.75rem">
+          <Heading use="h4">Donations over Time</Heading>
           <Chart
             chartType="BarChart"
             width="100%"
@@ -108,11 +102,9 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
               },
             }}
           />
-        </div>
-        <div className="my-3">
-          <h3 className="m-0 w-full pt-14 leading-tight text-xl font-semibold">
-            Donation by Category (this Financial Year)
-          </h3>
+        </Container>
+        <Container marginTop="0.75rem">
+          <Heading use="h4">Donation by Category (this Financial Year)</Heading>
           <Chart
             chartType="PieChart"
             width="100%"
@@ -124,9 +116,9 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
               title: 'Donations by Category this FY',
             }}
           />
-        </div>
-        <div className="my-3">
-          <h3 className="m-0 w-full pt-14 leading-tight text-xl font-semibold">All Transactions</h3>
+        </Container>
+        <Container marginTop="0.75rem">
+          <Heading use="h4">All Transactions</Heading>
           <iframe
             className="airtable-embed"
             src="https://airtable.com/embed/shrk5nvmKvWV8ZeOi?backgroundColor=gray&viewControls=on"
@@ -135,8 +127,8 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
             height="533"
             style={{ background: 'transparent', border: '1px solid #ccc' }}
           ></iframe>
-        </div>
-      </div>
+        </Container>
+      </Container>
     </PageLayout>
   );
 };

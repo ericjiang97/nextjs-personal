@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export interface ExperiencePosition {
   title: string;
   dates: string;
@@ -11,7 +13,7 @@ export interface Experience {
 }
 
 export interface ProjectTechology {
-  icon?: FunctionComponent<IconProps>;
+  icon?: FunctionComponent<IconProps> | ReactElement;
   url?: string;
   name: string;
 }
