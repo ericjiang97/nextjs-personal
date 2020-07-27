@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import { PageContent, PageWithHeader, Callout, Container, Link } from 'bumbag';
+import Nav from '../../components/nav';
 
 interface PageLayoutProps {
   title: string;
@@ -8,29 +10,43 @@ interface PageLayoutProps {
   ignoreHorizontalPadding?: boolean;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({
-  title,
-  banner,
-  children,
-  isExperimental = false,
-  ignoreHorizontalPadding = false,
-}) => {
-  const titleString = `${title} - Eric Jiang`;
+interface PageInnerProps {
+  title?: string;
+  banner?: JSX.Element | JSX.Element[];
+}
+
+const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children }) => {
   return (
     <>
-      {isExperimental && (
-        <div className={`w-full ${ignoreHorizontalPadding && 'px-2'} py-1 bg-warning text-warning-900 mt-2 mb-4`}>
-          {`Warning! This page ${titleString} is experiemental and may be buggy`}
-        </div>
-      )}
-      <div className="text-sans">
-        <Head>
-          <title>{titleString}</title>
-        </Head>
-        {banner && banner}
-        <div className="w-full text-gray-900">{children}</div>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      {banner && banner}
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <PageContent flex={1}>
+          <Container>
+            <Callout type="info" title="Warning: Experimental Site" maxWidth="800px" width="100%" marginY="1rem">
+              This site is experimental, please report any bugs to{' '}
+              <Link href="https://github.com/ericjiang97/nextjs-personal/issues">
+                https://github.com/ericjiang97/nextjs-personal/issues
+              </Link>
+            </Callout>
+          </Container>
+          {children}
+        </PageContent>
       </div>
     </>
+  );
+};
+
+const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children }) => {
+  const titleString = `${title} - Eric Jiang`;
+  return (
+    <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true}>
+      <PageChildren title={titleString} banner={banner}>
+        {children}
+      </PageChildren>
+    </PageWithHeader>
   );
 };
 
