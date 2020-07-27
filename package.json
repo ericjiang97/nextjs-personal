@@ -1,6 +1,6 @@
 {
   "name": "nextjs-personal",
-  "version": "3.0.0-rc1",
+  "version": "3.0.1-rc1",
   "description": "A NextJS Personal Website with integration to a Headless CMS",
   "main": "index.js",
   "scripts": {
