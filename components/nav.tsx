@@ -13,28 +13,25 @@ const Nav: React.FC = () => {
     <TopNav>
       <TopNav.Section>
         {!isDesktopOrLarger && (
-          <TopNav.Item marginLeft="1rem">
+          <TopNav.Item marginLeft="minor-1">
             <SideBar />
           </TopNav.Item>
         )}
-        <TopNav.Item href="/">
-          {/** TODO: Make a SVG logo for this */}
-          <Button palette="primary" variant="ghost">
-            Eric Jiang
-          </Button>
+        <TopNav.Item href="/" marginLeft="major-2">
+          Eric Jiang
         </TopNav.Item>
-        {isDesktopOrLarger && (
-          <>
-            <TopNav.Item href="/blog">Blog</TopNav.Item>
-            <TopNav.Item href="/projects">Projects</TopNav.Item>
-            <TopNav.Item href="/photos">Photos</TopNav.Item>
-            <TopNav.Item href="/philanthropy">Philanthropy</TopNav.Item>
-            <TopNav.Item href="/talks">Talks</TopNav.Item>
-            <TopNav.Item href="/videos">Videos</TopNav.Item>
-            <TopNav.Item href="/about">About</TopNav.Item>
-          </>
-        )}
       </TopNav.Section>
+      {isDesktopOrLarger && (
+        <TopNav.Section>
+          <TopNav.Item href="/blog">Blog</TopNav.Item>
+          <TopNav.Item href="/projects">Projects</TopNav.Item>
+          <TopNav.Item href="/photos">Photos</TopNav.Item>
+          <TopNav.Item href="/philanthropy">Philanthropy</TopNav.Item>
+          <TopNav.Item href="/talks">Talks</TopNav.Item>
+          <TopNav.Item href="/videos">Videos</TopNav.Item>
+          <TopNav.Item href="/about">About</TopNav.Item>
+        </TopNav.Section>
+      )}
       <TopNav.Section marginRight="major-2">
         <TopNav.Item>
           <Button

@@ -11,7 +11,7 @@ const SideBar: React.FC = () => {
         <Icon aria-label="toggle sidebar" icon="solid-bars" color="primary" />
       </Drawer.Disclosure>
       <Drawer {...drawer}>
-        <Menu>
+        <Menu marginTop="2rem">
           <Menu.Item>
             <Link href="/blog">Blog</Link>
           </Menu.Item>
