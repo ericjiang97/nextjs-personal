@@ -4,7 +4,7 @@ import { Heading } from 'bumbag';
 
 export default function VideographyPage() {
   return (
-    <PageLayout title="Videography">
+    <PageLayout title="Videography" pageMeta={{ description: 'Page coming soon!' }}>
       <Heading use="h3">Videos</Heading>
 
       <div>

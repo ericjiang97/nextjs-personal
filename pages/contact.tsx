@@ -50,7 +50,7 @@ const Contact = () => {
   const isEmailValid = emailRegex.test(email) && email !== '';
 
   return (
-    <PageLayout title="Contact">
+    <PageLayout title="Contact" pageMeta={{ description: 'Feel free to contact me', endpoint: '/contact' }}>
       <Heading use="h3">Contact</Heading>
       <Paragraph>Feel free to contact me using the below form</Paragraph>
       <Container>
