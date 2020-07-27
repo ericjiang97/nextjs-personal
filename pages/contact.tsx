@@ -52,6 +52,7 @@ const Contact = () => {
   return (
     <PageLayout title="Contact">
       <Heading use="h3">Contact</Heading>
+      <Paragraph>Feel free to contact me using the below form</Paragraph>
       <Container>
         <Card standalone>
           <Card.Title>

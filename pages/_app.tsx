@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'next/app';
-import { Provider as BumbagProvider } from 'bumbag';
+import { Provider as BumbagProvider, ToastManager } from 'bumbag';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Head from 'next/head';
@@ -53,6 +53,7 @@ class MyApp extends App {
         <RootComponent>
           <Component {...pageProps}></Component>
         </RootComponent>
+        <ToastManager />
       </BumbagProvider>
     );
   }

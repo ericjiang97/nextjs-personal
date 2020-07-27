@@ -12,7 +12,7 @@ import {
   LinkedinIcon,
 } from 'react-share';
 
-import { Modal, Button, Card, Heading, Container, Icon, Group, Input } from 'bumbag';
+import { Modal, Button, Card, Heading, Container, Icon, Group, Input, useToasts } from 'bumbag';
 
 interface SharePostModal {
   slug: string;
@@ -21,6 +21,7 @@ interface SharePostModal {
 
 const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   const modal = Modal.useState();
+  const toasts = useToasts();
 
   const postUrl = `https://ericjiang.dev/blog/${slug}`;
 
@@ -56,7 +57,24 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
             <Container>
               <Group>
                 <Input width="100%" disabled defaultValue={postUrl} />
-                <CopyToClipboard text={postUrl}>
+                <CopyToClipboard
+                  text={postUrl}
+                  onCopy={(text, success) => {
+                    console.info(`Copying ${text} to clipboard`);
+                    if (success) {
+                      toasts.success({
+                        message: 'Successfully copied article link to clipboard',
+                        title: 'Successfully copied',
+                      });
+                    } else {
+                      toasts.success({
+                        message:
+                          'Failed to copy article link to clipboard, try hightlighting and copying the url manually',
+                        title: 'Failed to copy',
+                      });
+                    }
+                  }}
+                >
                   <Button palette="primary">
                     <Icon aria-label="Copy to Clipboard" icon="solid-copy" />
                   </Button>
