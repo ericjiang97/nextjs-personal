@@ -15,7 +15,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
   const { frontmatter, slug } = props;
 
-  const { author, date, title, category, coverImageUrl } = frontmatter;
+  const { author, date, title, summary, category, coverImageUrl } = frontmatter;
   return (
     <PageLayout
       title={`Blog - ${title}`}
@@ -32,6 +32,11 @@ export default function BlogTemplate(props: StaticBlogPost) {
           </Container>
         </HeroBase>
       }
+      pageMeta={{
+        description: summary,
+        endpoint: `/blog/${slug}`,
+        imageUrl: coverImageUrl,
+      }}
     >
       <Markdown
         wrap={(children: any) => (

@@ -17,6 +17,11 @@ const Home = () => (
         </Paragraph>
       </HeroBase>
     }
+    pageMeta={{
+      description: "G'day, I'm Eric. I’m a Test Engineer at Google.",
+      endpoint: '/',
+      imageUrl: '/images/eric-jiang-bitbybit.jpeg',
+    }}
   >
     <Stack orientation="horizontal" marginTop="1rem">
       <Card

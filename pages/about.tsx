@@ -4,7 +4,14 @@ import PageLayout from '../containers/layouts/PageLayout';
 import { Heading, Paragraph, Link, Button, Container, Card, Stack, Label, List } from 'bumbag';
 
 const AboutMe = () => (
-  <PageLayout title="About Me">
+  <PageLayout
+    title="About Me"
+    pageMeta={{
+      description: `Hi, I’m Eric. I recently finished my course in Bachelor of Information Technology at Monash University in
+        Melbourne, Australia where I majored in Computer networks and security.`,
+      endpoint: '/about',
+    }}
+  >
     <Heading use="h3">About Me</Heading>
     <Container>
       <Paragraph>
