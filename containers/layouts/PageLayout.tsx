@@ -10,6 +10,7 @@ interface PageLayoutProps {
   banner?: JSX.Element | JSX.Element[];
   isExperimental?: boolean;
   ignoreHorizontalPadding?: boolean;
+  inChildrenInContainer?: boolean;
 }
 
 interface PageMeta {
@@ -23,9 +24,16 @@ interface PageInnerProps {
   title?: string;
   pageMeta: PageMeta;
   banner?: JSX.Element | JSX.Element[];
+  inChildrenInContainer?: boolean;
 }
 
-const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageMeta }) => {
+const PageChildren: React.FC<PageInnerProps> = ({
+  title,
+  banner,
+  children,
+  pageMeta,
+  inChildrenInContainer = true,
+}) => {
   const { endpoint, description, keywords, imageUrl } = pageMeta;
   const siteDescription = description || SITE_CONFIG.site.description;
 
@@ -52,18 +60,24 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
               </Link>
             </Callout>
           </Container>
-          {children}
+          {inChildrenInContainer && children}
         </PageContent>
+        {!inChildrenInContainer && children}
       </div>
     </>
   );
 };
 
-const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, pageMeta }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, pageMeta, inChildrenInContainer = true }) => {
   const titleString = `${title} - Eric Jiang`;
   return (
     <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true}>
-      <PageChildren title={titleString} banner={banner} pageMeta={pageMeta}>
+      <PageChildren
+        title={titleString}
+        banner={banner}
+        pageMeta={pageMeta}
+        inChildrenInContainer={inChildrenInContainer}
+      >
         {children}
       </PageChildren>
     </PageWithHeader>

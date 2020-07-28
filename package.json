@@ -1,6 +1,6 @@
 {
   "name": "nextjs-personal",
-  "version": "3.0.0-rc1",
+  "version": "3.0.1-rc1",
   "description": "A NextJS Personal Website with integration to a Headless CMS",
   "main": "index.js",
   "scripts": {
@@ -32,8 +32,8 @@
     "@types/react-lazy-load-image-component": "^1.5.0",
     "@types/react-modal": "^3.10.5",
     "autoprefixer": "^9.7.5",
-    "bumbag": "^1.0.0-rc.1",
-    "bumbag-addon-markdown": "^1.0.0-rc.9",
+    "bumbag": "^1.0.0-rc.11",
+    "bumbag-addon-markdown": "^1.0.0-rc.11",
     "emotion-server": "^10.0.27",
     "gray-matter": "^4.0.2",
     "gridsome-plugin-feed": "^1.0.2",
