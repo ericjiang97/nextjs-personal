@@ -1,15 +1,13 @@
 import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import PageLayout from '../../containers/layouts/PageLayout';
 import Custom404 from '../404';
 
 import { photos } from '../../data/photos';
 import CONSTANTS from '../../constants';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
-import { Card, Heading, Paragraph, Stack, Button, Link } from 'bumbag';
+import { Heading, Paragraph, Stack, Button, Link, Container, Image } from 'bumbag';
 import HeroBase from '../../components/HeroBase';
 
 export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getServerSideProps>) {
@@ -48,35 +46,45 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
           </Stack>
         </HeroBase>
       }
+      inChildrenInContainer={false}
     >
       <Stack>
         {albumData.photoset &&
           albumData.photoset.photo &&
           albumData.photoset.photo.map((photo, index) => {
             return (
-              <Card standalone key={index}>
-                <LazyLoadImage src={photo.url_m} alt={photo.title} width={'100%'} effect="blur" />
-                <Card.Title>{photo.title}</Card.Title>
-                <Card.Content>
-                  <Paragraph fontSize="0.75rem">
-                    <b style={{ fontWeight: 600 }}>Taken: </b>
-                    {moment(photo.datetaken).format('Do MMM yyyy')}
-                  </Paragraph>
-                  {photo.description._content && (
-                    <>
-                      <Heading use="h7" fontWeight={600}>
-                        Description
-                      </Heading>
-                      <Paragraph fontSize="0.75rem">{photo.description._content}</Paragraph>
-                    </>
-                  )}
-                </Card.Content>
-                <Card.Footer>
-                  <Link href={photo.url_o}>
-                    <Button iconBefore="solid-download">Download</Button>
-                  </Link>
-                </Card.Footer>
-              </Card>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
+                  flexWrap: 'wrap',
+                  width: '100%',
+                }}
+              >
+                <div style={{ flex: 1, minWidth: 280 }}>
+                  <Container flex={1} padding="0.75rem">
+                    <Heading use="h5">{photo.title}</Heading>
+                    <Paragraph fontSize="0.75rem">
+                      <b style={{ fontWeight: 600 }}>Taken: </b>
+                      {moment(photo.datetaken).format('Do MMM yyyy')}
+                    </Paragraph>
+                    {photo.description._content && (
+                      <>
+                        <Heading use="h7" fontWeight={600}>
+                          Description
+                        </Heading>
+                        <Paragraph fontSize="0.75rem">{photo.description._content}</Paragraph>
+                      </>
+                    )}
+                    <Link href={photo.url_o}>
+                      <Button iconBefore="solid-download">Download</Button>
+                    </Link>
+                  </Container>
+                </div>
+                <div style={{ flex: 1, minWidth: 280 }}>
+                  <Image src={photo.url_m} alt={photo.title} width="100%" />
+                </div>
+              </div>
             );
           })}
       </Stack>
