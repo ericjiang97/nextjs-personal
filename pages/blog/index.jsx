@@ -7,11 +7,19 @@ import PageLayout from '../../containers/layouts/PageLayout';
 
 import { Heading, Paragraph } from 'bumbag';
 
+const subHeading = "I occassionally write on my blog about tech, projects, reviews... so here's some of them.";
+
 const Index = ({ allPosts }) => {
   return (
-    <PageLayout title={'Blog'}>
+    <PageLayout
+      title={'Blog'}
+      pageMeta={{
+        description: subHeading,
+        endpoint: '/blog',
+      }}
+    >
       <Heading use="h3">Blog</Heading>
-      <Paragraph>I occassionally write on my blog about tech, projects, reviews... so here's some of them.</Paragraph>
+      <Paragraph>{subHeading}</Paragraph>
 
       <BlogList allPosts={allPosts} />
     </PageLayout>

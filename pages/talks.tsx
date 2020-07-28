@@ -26,16 +26,24 @@ const TalkCard: React.FC<Talk> = (talk) => {
 };
 
 const TechTalks = () => (
-  <PageLayout title="Tech Talks" banner={
-    <HeroBase backgroundImage="url('/images/gcp-juniordev-talk.jpg')">
-      <Heading use="h3">Tech Talks</Heading>
-      <Paragraph>
-        I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up if you
-        are interested in letting me do a talk on Google Cloud, Frontend/Backend Development or my Career Journey
-    </Paragraph>
-    </HeroBase>
-  }>
-
+  <PageLayout
+    title="Tech Talks"
+    banner={
+      <HeroBase backgroundImage="url('/images/gcp-juniordev-talk.jpg')">
+        <Heading use="h3">Tech Talks</Heading>
+        <Paragraph>
+          I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up if you
+          are interested in letting me do a talk on Google Cloud, Frontend/Backend Development or my Career Journey
+        </Paragraph>
+      </HeroBase>
+    }
+    pageMeta={{
+      description: `I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up if you
+    are interested in letting me do a talk on Google Cloud, Frontend/Backend Development or my Career Journey`,
+      endpoint: '/talks',
+      imageUrl: '/images/gcp-juniordev-talk.jpg',
+    }}
+  >
     <Container>
       <Heading use="h4">Upcoming Talks</Heading>
       {talks.upcoming.length === 0 && <Paragraph>No talks upcoming... Hit me up!</Paragraph>}

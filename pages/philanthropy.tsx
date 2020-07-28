@@ -64,11 +64,19 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
   });
 
   return (
-    <PageLayout title="Philanthropy">
+    <PageLayout
+      title="Philanthropy"
+      pageMeta={{
+        description: `As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some
+        donations and charity work.`,
+        endpoint: '/',
+        imageUrl: '/images/eric-jiang-bitbybit.jpeg',
+      }}
+    >
       <Heading use="h3">Philanthropy</Heading>
       <Paragraph>
-        As part of my idea of giving back to society apart from volunteering and mentoring, I'm also doing some
-        donations and charity work.
+        As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some donations
+        and charity work.
       </Paragraph>
       <Text fontSize="0.75rem">
         Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.

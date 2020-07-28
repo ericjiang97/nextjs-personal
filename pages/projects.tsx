@@ -4,7 +4,13 @@ import PROJECTS from '../data/projects';
 import { Text, Heading, Stack } from 'bumbag';
 
 const Projects = () => (
-  <PageLayout title="Projects">
+  <PageLayout
+    title="Projects"
+    pageMeta={{
+      description: 'These are some of the current and past software projects that I have worked on',
+      endpoint: '/projects',
+    }}
+  >
     <Heading>Projects</Heading>
     <Text>These are some of the current and past software projects that I have worked on</Text>
     <Heading use="h3">Current Projects</Heading>
