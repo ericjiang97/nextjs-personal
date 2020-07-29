@@ -71,7 +71,7 @@ const PageChildren: React.FC<PageInnerProps> = ({
 const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, pageMeta, inChildrenInContainer = true }) => {
   const titleString = `${title} - Eric Jiang`;
   return (
-    <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true}>
+    <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true} sticky>
       <PageChildren
         title={titleString}
         banner={banner}

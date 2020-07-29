@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
 
 import PageLayout from '../../containers/layouts/PageLayout';
@@ -7,8 +6,19 @@ import Custom404 from '../404';
 import { photos } from '../../data/photos';
 import CONSTANTS from '../../constants';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
-import { Heading, Paragraph, Stack, Button, Link, Container } from 'bumbag';
+import { Heading, Paragraph, Stack, Button, styled } from 'bumbag';
 import HeroBase from '../../components/HeroBase';
+import PhotoCard from '../../components/cards/PhotoCard';
+
+const PhotoGrid = styled.div`
+  display: grid;
+  grid-gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+  max-width: 1200px;
+  padding: 3rem;
+  align-self: center;
+`;
 
 export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   const { error, payload } = props;
@@ -48,56 +58,13 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
       }
       inChildrenInContainer={false}
     >
-      <div
-        style={{
-          display: 'grid',
-          gridGap: '0.75rem',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(250px,1fr))',
-          gridTemplateRows: 'repeat(auto-fill, minmax(250px,1fr))',
-        }}
-      >
+      <PhotoGrid>
         {albumData.photoset &&
           albumData.photoset.photo &&
           albumData.photoset.photo.map((photo, index) => {
-            const bgColor = '#09203390';
-            return (
-              <div
-                style={{
-                  backgroundImage: `linear-gradient(to top, ${bgColor}, ${bgColor}), url(${photo.url_m})`,
-                  backgroundPositionX: 'center',
-                  backgroundSize: 'cover',
-                  color: 'white',
-                  display: 'flex',
-                  flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
-                  flexWrap: 'wrap',
-                  height: 400,
-                  width: '100%',
-                }}
-              >
-                <Container flex={1} padding="0.75rem" display="flex" flexDirection="column">
-                  <div style={{ flex: 1 }}>
-                    <Heading use="h5">{photo.title}</Heading>
-                    <Paragraph fontSize="0.75rem">
-                      <b style={{ fontWeight: 600 }}>Taken: </b>
-                      {moment(photo.datetaken).format('Do MMM yyyy')}
-                    </Paragraph>
-                    {photo.description._content && (
-                      <>
-                        <Heading use="h7" fontWeight={600}>
-                          Description
-                        </Heading>
-                        <Paragraph fontSize="0.75rem">{photo.description._content}</Paragraph>
-                      </>
-                    )}
-                  </div>
-                  <Link href={photo.url_o}>
-                    <Button iconBefore="solid-download">Download</Button>
-                  </Link>
-                </Container>
-              </div>
-            );
+            return <PhotoCard photo={photo} key={index} />;
           })}
-      </div>
+      </PhotoGrid>
     </PageLayout>
   );
 }
