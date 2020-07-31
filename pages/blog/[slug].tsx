@@ -8,10 +8,12 @@ import PageLayout from '../../containers/layouts/PageLayout';
 import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
 import SITE_CONFIG from '../../config';
-import { Heading, Label, Paragraph, Container, Button, Stack, Link } from 'bumbag';
+import { Heading, Label, Paragraph, Container, Button, Stack, Link, useColorMode } from 'bumbag';
 import HeroBase from '../../components/HeroBase';
+import UtterancesComments from '../../components/UtterancesComments';
 
 export default function BlogTemplate(props: StaticBlogPost) {
+  const { colorMode } = useColorMode();
   // Render data from `getStaticProps`
   const { frontmatter, slug } = props;
 
@@ -55,6 +57,9 @@ export default function BlogTemplate(props: StaticBlogPost) {
             Submit an edit
           </Button>
         </Link>
+      </Container>
+      <Container>
+        <UtterancesComments isDarkTheme={colorMode === 'dark'} />
       </Container>
     </PageLayout>
   );
