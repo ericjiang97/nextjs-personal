@@ -40,27 +40,28 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
   });
 
   const chartData = Object.keys(donation).flatMap((key) => {
-    if (Number(key) < getFinancialYear()) {
-      const fyMatched = donation[key].reduce((acc, cur) => {
-        return cur['Employer Matched'] ? acc + cur.Amount : acc;
-      }, 0);
+    const fyData = donation[key].reduce(
+      (acc, cur) => {
+        const isFuture: boolean = moment(cur.Date).isAfter(moment());
 
-      const fyUnmatched = donation[key].reduce((acc, cur) => {
-        return !cur['Employer Matched'] ? acc + cur.Amount : acc;
-      }, 0);
+        const { matched, unmatched, commited } = acc;
+        if (!isFuture) {
+          return {
+            commited,
+            matched: cur['Employer Matched'] ? matched + cur.Amount : matched,
+            unmatched: !cur['Employer Matched'] ? unmatched + cur.Amount : unmatched,
+          };
+        }
+        return {
+          matched,
+          unmatched,
+          commited: commited + cur.Amount,
+        };
+      },
+      { unmatched: 0, matched: 0, commited: 0 },
+    );
 
-      return [[`FY${key}`, fyUnmatched, fyMatched, 0]];
-    }
-    const res = donation[key].map((d) => {
-      const isFuture: boolean = moment(d.Date).isAfter(moment());
-      return [
-        d.Date,
-        !isFuture && !d['Employer Matched'] ? d.Amount : 0,
-        !isFuture && d['Employer Matched'] ? d.Amount : 0,
-        isFuture ? d.Amount : 0,
-      ];
-    });
-    return res;
+    return [[`FY${key}`, fyData.unmatched, fyData.matched, fyData.commited]];
   });
 
   return (
@@ -106,7 +107,7 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
               isStacked: true,
               title: 'Donations by FY',
               vAxis: {
-                title: 'Date / Financial Year',
+                title: 'Financial Year',
               },
             }}
           />

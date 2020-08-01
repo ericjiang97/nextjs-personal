@@ -7,7 +7,7 @@ tags: ['careers']
 category: 'Careers'
 ---
 
-https://twitter.com/ericjiang97/status/1102876496815771649
+[https://twitter.com/ericjiang97/status/1102876496815771649](https://twitter.com/ericjiang97/status/1102876496815771649)
 
 As I previous stated back in late February 2019, that this year was going to be hectic. Over the past couple of weeks I’ve been quite busy, with:
 

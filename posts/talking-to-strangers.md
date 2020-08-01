@@ -9,7 +9,7 @@ category: 'Random'
 
 Today, while browsing through Reddit I came upon a post where the user was talking about how he was talking to his Lyft driver. This reminded me of a conversation that I had with my taxi driver last year.
 
-https://www.reddit.com/r/CitiesSkylines/comments/fcm6xl/to_my_lyft_driver_saturday_evening_with_whom_i/?ref=share&ref_source=embed&utm_content=body&utm_medium=post_embed&utm_name=b4537bb36503425da63c8bdd2223912c&utm_source=embedly&utm_term=fcm6xl
+[https://www.reddit.com/r/CitiesSkylines/comments/fcm6xl/to_my_lyft_driver_saturday_evening_with_whom_i/?ref=share&ref_source=embed&utm_content=body&utm_medium=post_embed&utm_name=b4537bb36503425da63c8bdd2223912c&utm_source=embedly&utm_term=fcm6xl](https://www.reddit.com/r/CitiesSkylines/comments/fcm6xl/to_my_lyft_driver_saturday_evening_with_whom_i/?ref=share&ref_source=embed&utm_content=body&utm_medium=post_embed&utm_name=b4537bb36503425da63c8bdd2223912c&utm_source=embedly&utm_term=fcm6xl)
 
 This happened last year on the way back from Sydney. I had just left the Google office where I was visiting for both work and catching up with a friend at Google.
 

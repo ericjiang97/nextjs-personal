@@ -23,11 +23,11 @@ There’s a lot of shortcuts that I use on a day to day basis within VSCode, the
 
 There’s a lot more shortcut keys that I use, but those are the most common ones. The VSCode team also has some awesome key binding posters that you can print out and stick near your desk (I used to print these out with macOS on one side and Windows on the other and stick it around the office).
 
-Windows: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
-
-macOS: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
-
-Linux: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+| Operating System | Shortcuts                                                                                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| Windows          | [keyboard-shortcuts-windows.pdf](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) |
+| macOS            | [keyboard-shortcuts-macos.pdf](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)     |
+| Linux            | [keyboard-shortcuts-linux.pdf](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)     |
 
 ## User Settings
 
