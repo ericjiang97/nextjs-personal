@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <Container maxWidth="700px" padding="1rem">
         <div style={{ flexDirection: 'row', display: 'flex', flexWrap: 'wrap' }}>
-          <div style={{ flex: 1 }}>
+          <div style={{ minWidth: 280, flex: 1 }}>
             <Paragraph marginBottom="0.2rem">Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</Paragraph>
             <Text fontSize="0.75rem" marginTop="0">
               Powered by <Link href="https://vercel.com/">Vercel</Link>. Built in{' '}

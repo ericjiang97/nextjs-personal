@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 import {
@@ -22,8 +22,27 @@ interface SharePostModal {
 const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   const modal = Modal.useState();
   const toasts = useToasts();
+  const [webNavigator, setWebNavigator] = useState<Navigator | null>(null);
 
   const postUrl = `https://ericjiang.dev/blog/${slug}`;
+
+  useEffect(() => {
+    console.log('running useEffect()');
+    setWebNavigator(window.navigator);
+  }, []);
+
+  if (webNavigator?.share) {
+    return (
+      <Button
+        onClick={async () => {
+          await webNavigator.share({ title, url: postUrl });
+        }}
+        iconBefore="solid-share"
+      >
+        Share Post
+      </Button>
+    );
+  }
 
   return (
     <>
