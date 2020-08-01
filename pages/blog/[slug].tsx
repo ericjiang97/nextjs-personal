@@ -47,11 +47,12 @@ export default function BlogTemplate(props: StaticBlogPost) {
           </Stack>
         )}
         content={props.markdownBody}
-        elementProps={{ img: { maxWidth: '100%' } }}
+        elementProps={{ img: { maxWidth: '100%' }, p: { wordWrap: 'break-word' } }}
       />
       <hr style={{ marginTop: '1rem', marginBottom: '0.75rem' }} />
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={title} slug={slug} />
+
         <Link href={`${SITE_CONFIG.urls.REPO_URL}/tree/main/posts/${slug}.md`}>
           <Button palette="secondary" iconBefore="solid-edit">
             Submit an edit
