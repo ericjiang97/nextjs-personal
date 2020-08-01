@@ -22,7 +22,7 @@ interface SharePostModal {
 const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   const modal = Modal.useState();
   const toasts = useToasts();
-  const [webNavigator, setWebNavigator] = useState<Navigator | null>(null);
+  const [webNavigator, setWebNavigator] = useState<any | null>(null);
 
   const postUrl = `https://ericjiang.dev/blog/${slug}`;
 
