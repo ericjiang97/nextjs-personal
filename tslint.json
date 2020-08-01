@@ -6,7 +6,6 @@
     "import-name": false,
     "align": false,
     "semicolon": [true, "always", "ignore-bound-class-methods"],
-    "object-literal-sort-keys": true,
     "max-line-length": [
       true,
       {
