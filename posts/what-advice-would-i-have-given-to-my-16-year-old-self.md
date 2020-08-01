@@ -9,7 +9,7 @@ category: 'Careers'
 
 This article is inspired by Josh Farr’s post about ‘Given it’s 2018 and knowing what you know now, what advice would you give to your 16-year old self?’
 
-You can find the original post here: https://www.linkedin.com/feed/update/urn:li:activity:6407742813550837760
+You can find the original post here: [https://www.linkedin.com/feed/update/urn:li:activity:6407742813550837760](https://www.linkedin.com/feed/update/urn:li:activity:6407742813550837760)
 
 So you can find my answer to this question below.
 
@@ -28,4 +28,4 @@ These examples may seem too ambitious, I know a lot of problems exist in the wor
 
 So, studying at university helps you to learn how you should study. Because you should never stop learning (I sort of tied that into Monash University’s motto — Ancora Imparo (or “I’m still learning”)
 
-https://twitter.com/ericjiang97/status/1002085911931240448
+[https://twitter.com/ericjiang97/status/1002085911931240448](https://twitter.com/ericjiang97/status/1002085911931240448)
