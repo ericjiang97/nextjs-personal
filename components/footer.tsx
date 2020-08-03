@@ -5,7 +5,7 @@ import { Container, Paragraph, Text, Link, Icon } from 'bumbag';
 const Footer = () => {
   return (
     <footer>
-      <Container maxWidth="700px" padding="1rem">
+      <Container padding="1rem" width="100vw" breakpoint="widescreen">
         <div style={{ flexDirection: 'row', display: 'flex', flexWrap: 'wrap' }}>
           <div style={{ minWidth: 280, flex: 1 }}>
             <Paragraph marginBottom="0.2rem">Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</Paragraph>

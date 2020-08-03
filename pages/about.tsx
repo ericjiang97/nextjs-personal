@@ -2,6 +2,7 @@ import experience from '../data/experience';
 import { Experience } from '../types';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Heading, Paragraph, Link, Button, Container, Card, Stack, Label, List } from 'bumbag';
+import HeroBase from '../components/HeroBase';
 
 const AboutMe = () => (
   <PageLayout
@@ -11,20 +12,21 @@ const AboutMe = () => (
         Melbourne, Australia where I majored in Computer networks and security.`,
       endpoint: '/about',
     }}
+    banner={
+      <HeroBase backgroundImage="url(/images/itnews-2019benchmarkmain.jpg)">
+        <Heading use="h3">About Me</Heading>
+        <Paragraph>
+          Hi, I’m Eric. Technology has been rapidly growing and is at the forefront of bringing change. I've always
+          wanted to build products for everyone which are delightful, stable and secure.
+        </Paragraph>
+      </HeroBase>
+    }
   >
-    <Heading use="h3">About Me</Heading>
     <Container>
       <Paragraph>
-        Hi, I’m Eric. I recently finished my course in Bachelor of Information Technology at Monash University in
-        Melbourne, Australia where I majored in Computer networks and security. You can read more about me and why I
-        choose an IT degree at Monash{' '}
-        <Link href="https://www.monash.edu/it/future-students/meet-our-students/eric-jiang">here</Link>.
-      </Paragraph>
-      <Paragraph>
-        I am known for founding and delivering MonPlan which is the Monash University enterprise course planning tool,
-        built for students by students and was awarded the Rising Star category of the 2019 itnews Benchmark Awards -
-        this is a National Award which recognizes a young IT professional who displays exceptional promise and has
-        already clocked up impressive achievements.
+        As a Test Engineer on the Script Automation Team within the Pixel Software Product Area at{' '}
+        <Link href="https://about.google">Google</Link> I work on building and maintaining test automation tools, as
+        well as shaping better processes to enable software and hardware teams to build the best products possible.
       </Paragraph>
       <Paragraph>
         I'd like to bring my passion for programming to building software and mechanisms to keep user data safe and

@@ -40,8 +40,8 @@ const RootComponent: React.FC = ({ children }) => {
       </Head>
       <div>
         <div>{children}</div>
-        <Footer />
       </div>
+      <Footer />
     </>
   ); // The fragment is just illustrational
 };
