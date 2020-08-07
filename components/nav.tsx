@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, TopNav, useColorMode, Icon, useBreakpoint } from 'bumbag';
+import { Button, TopNav, useColorMode, Icon, useBreakpoint, Popover, Switch } from 'bumbag';
 import SideBar from './SideBar';
 
 const Nav: React.FC = () => {
@@ -34,21 +34,25 @@ const Nav: React.FC = () => {
       )}
       <TopNav.Section marginRight="major-2">
         <TopNav.Item>
-          <Button
-            palette="primary"
-            onClick={() => {
-              if (isLightMode) {
-                setColorMode('dark');
-              } else {
-                setColorMode('light');
-              }
-            }}
-          >
-            <Icon
-              aria-label={`Switch to ${isLightMode ? 'Dark' : 'Light'} Mode`}
-              icon={`solid-${isLightMode ? 'moon' : 'sun'}`}
-            />
-          </Button>
+          <Popover.State placement="bottom">
+            <Popover.Disclosure use={Button}>
+              <Icon icon="solid-cog" />
+            </Popover.Disclosure>
+            <Popover title="Settings">
+              {/* <Heading use="h6">User Settings</Heading> */}
+              <Switch
+                label={`${isLightMode ? 'Light' : 'Dark'} Mode`}
+                checked={isLightMode}
+                onChange={() => {
+                  if (isLightMode) {
+                    setColorMode('dark');
+                  } else {
+                    setColorMode('light');
+                  }
+                }}
+              />
+            </Popover>
+          </Popover.State>
         </TopNav.Item>
       </TopNav.Section>
     </TopNav>

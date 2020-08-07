@@ -2,18 +2,17 @@ import matter from 'gray-matter';
 import moment from 'moment';
 import glob from 'glob';
 import { Markdown } from 'bumbag-addon-markdown';
+import { DiscussionEmbed } from 'disqus-react';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 
 import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
 import SITE_CONFIG from '../../config';
-import { Heading, Label, Paragraph, Container, Button, Stack, Link, useColorMode } from 'bumbag';
+import { Heading, Label, Paragraph, Container, Button, Stack, Link } from 'bumbag';
 import HeroBase from '../../components/HeroBase';
-import UtterancesComments from '../../components/UtterancesComments';
 
 export default function BlogTemplate(props: StaticBlogPost) {
-  const { colorMode } = useColorMode();
   // Render data from `getStaticProps`
   const { frontmatter, slug } = props;
 
@@ -60,7 +59,15 @@ export default function BlogTemplate(props: StaticBlogPost) {
         </Link>
       </Container>
       <Container>
-        <UtterancesComments isDarkTheme={colorMode === 'dark'} />
+        <DiscussionEmbed
+          shortname="example"
+          config={{
+            url: 'https://ericjiang.dev',
+            identifier: slug,
+            title: frontmatter.title,
+            language: 'en_AU',
+          }}
+        />
       </Container>
     </PageLayout>
   );
