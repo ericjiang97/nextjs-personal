@@ -60,7 +60,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
       </Container>
       <Container>
         <DiscussionEmbed
-          shortname="example"
+          shortname={SITE_CONFIG.disqus.shortname}
           config={{
             url: 'https://ericjiang.dev',
             identifier: slug,

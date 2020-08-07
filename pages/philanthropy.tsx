@@ -3,7 +3,7 @@ import moment, { Moment } from 'moment';
 import PageLayout from '../containers/layouts/PageLayout';
 import { InferGetServerSidePropsType } from 'next';
 import { Chart } from 'react-google-charts';
-import { Heading, Paragraph, Text, Label, Container } from 'bumbag';
+import { Heading, Paragraph, Text, Label, Container, Image, Stack, Tag } from 'bumbag';
 
 interface Donation {
   Date: string;
@@ -12,6 +12,8 @@ interface Donation {
   Fund: string;
   Matched: boolean;
   'Employer Matched': boolean;
+  'Tax Deductible (Aus)': boolean;
+  Logo: string;
 }
 
 const getFinancialYear = (date: Moment = moment()) => {
@@ -39,7 +41,7 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
     return [category, donationByCategoryMap[category]];
   });
 
-  const chartData = Object.keys(donation).flatMap((key) => {
+  const chartData = Object.keys(donation).map((key) => {
     const fyData = donation[key].reduce(
       (acc, cur) => {
         const isFuture: boolean = moment(cur.Date).isAfter(moment());
@@ -61,8 +63,10 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
       { unmatched: 0, matched: 0, commited: 0 },
     );
 
-    return [[`FY${key}`, fyData.unmatched, fyData.matched, fyData.commited]];
+    return [`FY${key}`, fyData.unmatched, fyData.matched, fyData.commited];
   });
+
+  console.log(chartData);
 
   return (
     <PageLayout
@@ -91,6 +95,38 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
         </Text>
       </div>
       <Container overflowX="scroll">
+        <Container marginTop="0.75rem">
+          <Heading use="h4">Donations committed this month</Heading>
+          {donation[currentFinancialYear]
+            .filter((val) => {
+              const date = moment(val.Date);
+              return date.month() === moment().month();
+            })
+            .map((d, index) => {
+              return (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  {d.Logo && (
+                    <div>
+                      <Image src={d.Logo} alt={`${d.Fund} logo`} height="6rem" />
+                    </div>
+                  )}
+
+                  <div key={index} style={{ flex: 1, marginLeft: '1rem' }}>
+                    <Label fontSize="1rem">{`$${d.Amount}`}</Label>
+                    <Heading use="h5">{d.Fund}</Heading>
+                    <Stack direction="horizontal">
+                      <Tag palette="primary">{d.Category}</Tag>
+                    </Stack>
+                  </div>
+                </div>
+              );
+            })}
+        </Container>
         <Container marginTop="0.75rem">
           <Heading use="h4">Donations over Time</Heading>
           <Chart
@@ -159,7 +195,7 @@ export async function getServerSideProps() {
     })
     .then((data) => {
       return data.records.map((record: any) => {
-        return record.fields;
+        return { ...record.fields, Logo: record.fields.Logo ? record.fields.Logo[0].url : null };
       });
     })
     .then((donations: Donation[]) => {

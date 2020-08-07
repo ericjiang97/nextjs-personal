@@ -1,6 +1,6 @@
 import React from 'react';
 import SITE_CONFIG from '../config';
-import { Container, Paragraph, Text, Link, Icon } from 'bumbag';
+import { Container, Paragraph, Link, Icon } from 'bumbag';
 
 const Footer = () => {
   return (
@@ -8,13 +8,26 @@ const Footer = () => {
       <Container padding="1rem" width="100vw" breakpoint="widescreen">
         <div style={{ flexDirection: 'row', display: 'flex', flexWrap: 'wrap' }}>
           <div style={{ minWidth: 280, flex: 1 }}>
-            <Paragraph marginBottom="0.2rem">Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}</Paragraph>
-            <Text fontSize="0.75rem" marginTop="0">
+            <Paragraph fontSize="1.1rem" marginBottom="0.2rem">
+              Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}
+            </Paragraph>
+            <Paragraph marginTop="0">
               Powered by <Link href="https://vercel.com/">Vercel</Link>. Built in{' '}
               <Link href="https://nextjs.org/">NextJS</Link> with <Link href="https://bumbag.style/">Bumbag</Link>
-            </Text>
+            </Paragraph>
+            <Paragraph>
+              Encoutering issues? <Link href="https://github.com/ericjiang97/nextjs-personal/issues">Submit a bug</Link>
+            </Paragraph>
           </div>
-          <div style={{ minWidth: 280, display: 'flex', justifyContent: 'space-evenly', padding: '0.5rem 0' }}>
+          <div
+            style={{
+              minWidth: 280,
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'flex-end',
+              padding: '0.5rem 0',
+            }}
+          >
             <Link href={SITE_CONFIG.social.LINKEDIN}>
               <Icon aria-label="LinkedIn" icon="brand-linkedin" fontSize="400" />
             </Link>
