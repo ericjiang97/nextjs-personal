@@ -4,10 +4,12 @@ import moment from 'moment';
 import BlogList from '../../components/BlogList';
 
 import PageLayout from '../../containers/layouts/PageLayout';
+import HeroBase from '../../components/HeroBase';
 
-import { Heading, Paragraph } from 'bumbag';
+import { Heading, Paragraph, Link, Button } from 'bumbag';
 
-const subHeading = "I occassionally write on my blog about tech, projects, reviews... so here's some of them.";
+const subHeading =
+  "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them.";
 
 const Index = ({ allPosts }) => {
   return (
@@ -17,10 +19,18 @@ const Index = ({ allPosts }) => {
         description: subHeading,
         endpoint: '/blog',
       }}
+      banner={
+        <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
+          <Heading use="h3">Blog</Heading>
+          <Paragraph>{subHeading}</Paragraph>
+          <Link href="/blog/feed.xml">
+            <Button palette="primary" iconBefore="solid-rss">
+              RSS Feed
+            </Button>
+          </Link>
+        </HeroBase>
+      }
     >
-      <Heading use="h3">Blog</Heading>
-      <Paragraph>{subHeading}</Paragraph>
-
       <BlogList allPosts={allPosts} />
     </PageLayout>
   );

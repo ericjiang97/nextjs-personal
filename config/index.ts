@@ -18,6 +18,9 @@ In my spare time, I make impact by building awesome software solutions and build
     BASE_URL: 'https://ericjiang.dev',
     REPO_URL: 'https://github.com/ericjiang97/nextjs-personal',
   },
+  disqus: {
+    shortname: 'ericjiang',
+  },
 };
 
 export default SITE_CONFIG;

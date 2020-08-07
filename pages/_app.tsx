@@ -40,8 +40,8 @@ const RootComponent: React.FC = ({ children }) => {
       </Head>
       <div>
         <div>{children}</div>
-        <Footer />
       </div>
+      <Footer />
     </>
   ); // The fragment is just illustrational
 };
@@ -50,7 +50,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <BumbagProvider theme={theme} collapseBelow="desktop">
+      <BumbagProvider theme={theme} collapseBelow="desktop" isSSR>
         <RootComponent>
           <Component {...pageProps}></Component>
         </RootComponent>
