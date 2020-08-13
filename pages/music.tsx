@@ -128,7 +128,7 @@ const Music: React.FC = () => {
           </>
         ) : (
           <>
-            <Card.Header>
+            <Card.Header display="flex" flexDirection="column">
               <Heading color="primary" use="h3">
                 Currently Not Playing Anything
               </Heading>
@@ -136,6 +136,11 @@ const Music: React.FC = () => {
             </Card.Header>
             <Card.Content>
               <Heading use="h5">Previously Played</Heading>
+              <TrackContainer>
+                {recentTracks.recenttracks.track.map((track, index) => {
+                  return <MusicTrack nowPlaying={false} track={track} key={index} />;
+                })}
+              </TrackContainer>
             </Card.Content>
           </>
         )}
