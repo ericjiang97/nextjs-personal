@@ -11,6 +11,8 @@ import {
   faBookOpen,
   faDownload,
   faCog,
+  faSync,
+  faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faBootstrap,
@@ -28,7 +30,21 @@ import {
 const IconConfig: IconThemeConfig = {
   iconSets: [
     {
-      icons: [faCog, faBars, faDownload, faSun, faMoon, faEnvelope, faRss, faCopy, faShare, faEdit, faBookOpen],
+      icons: [
+        faInfoCircle,
+        faSync,
+        faCog,
+        faBars,
+        faDownload,
+        faSun,
+        faMoon,
+        faEnvelope,
+        faRss,
+        faCopy,
+        faShare,
+        faEdit,
+        faBookOpen,
+      ],
       prefix: 'solid-',
       type: 'font-awesome',
     },
