@@ -4,7 +4,7 @@ import { Container, Paragraph, Link, Icon } from 'bumbag';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{ backgroundColor: '#EEE', color: '#555' }}>
       <Container padding="1rem" width="100vw" breakpoint="widescreen">
         <div style={{ flexDirection: 'row', display: 'flex', flexWrap: 'wrap' }}>
           <div style={{ minWidth: 280, flex: 1 }}>
@@ -15,7 +15,10 @@ const Footer = () => {
               Powered by <Link href="https://vercel.com/">Vercel</Link>. Built in{' '}
               <Link href="https://nextjs.org/">NextJS</Link> with <Link href="https://bumbag.style/">Bumbag</Link>
             </Paragraph>
-            <Paragraph>
+            <Paragraph marginTop="0.5rem" marginBottom="0">
+              Find the code on <Link href="https://github.com/ericjiang97/nextjs-personal">GitHub</Link>
+            </Paragraph>
+            <Paragraph marginTop="0.5rem" marginBottom="0">
               Encoutering issues? <Link href="https://github.com/ericjiang97/nextjs-personal/issues">Submit a bug</Link>
             </Paragraph>
           </div>

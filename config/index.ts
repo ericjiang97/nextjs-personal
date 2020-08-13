@@ -21,6 +21,11 @@ In my spare time, I make impact by building awesome software solutions and build
   disqus: {
     shortname: 'ericjiang',
   },
+  lastfm: {
+    API_KEY: process.env.NEXT_PUBLIC_LASTFM_API_KEY,
+    BASE_URI: 'https://ws.audioscrobbler.com/2.0/',
+    USER_NAME: 'lorderikir',
+  },
 };
 
 export default SITE_CONFIG;
