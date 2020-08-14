@@ -13,6 +13,29 @@ const TrackContainer = styled.div`
   overflow-y: scroll;
 `;
 
+const DiskContainer = styled.div`
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: spin;
+  animation-duration: 10000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
 const MusicTrack: React.FC<{ nowPlaying?: boolean; track: LastFmTrack }> = ({ nowPlaying, track }) => {
   const linkProps = Link.useProps({
     href: track.url,
@@ -32,7 +55,7 @@ const MusicTrack: React.FC<{ nowPlaying?: boolean; track: LastFmTrack }> = ({ no
       <div style={{ flex: 1, minWidth: 280 }}>
         {nowPlaying && (
           <Heading color="success" use="h6" marginBottom="0">
-            Now playing.
+            Now Playing...
           </Heading>
         )}
         <Heading use="h4" marginBottom="0" marginTop="0.25rem">
@@ -45,7 +68,26 @@ const MusicTrack: React.FC<{ nowPlaying?: boolean; track: LastFmTrack }> = ({ no
           Track Info
         </Button>
       </div>
-      <Image src={track.image[2]['#text']} alt={track.name} height="100px" marginY="0.25rem" />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {nowPlaying ? (
+          <DiskContainer
+            style={{
+              backgroundImage: `url(${track.image[2]['#text']})`,
+            }}
+          >
+            <div
+              style={{
+                height: 30,
+                width: 30,
+                borderRadius: '100%',
+                backgroundColor: 'white',
+              }}
+            />
+          </DiskContainer>
+        ) : (
+          <Image src={track.image[2]['#text']} alt={track.name} height="100px" marginY="0.25rem" />
+        )}
+      </div>
     </Card>
   );
 };
