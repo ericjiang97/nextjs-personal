@@ -11,6 +11,7 @@ import ShareModal from '../../components/ShareModal';
 import SITE_CONFIG from '../../config';
 import { Heading, Label, Paragraph, Container, Button, Stack, Link } from 'bumbag';
 import HeroBase from '../../components/HeroBase';
+import { BlogCategoryLink } from '../../components/BlogList';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
@@ -23,7 +24,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
       ignoreHorizontalPadding={true}
       banner={
         <HeroBase backgroundImage={`url(${coverImageUrl})`}>
-          <Label color="#C2D2F7">{category}</Label>
+          <BlogCategoryLink category={category} />
           <Heading use="h3">{title}</Heading>
           <Container marginY="1rem">
             <Label>By</Label>

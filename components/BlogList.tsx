@@ -3,12 +3,30 @@ import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { StaticBlogPost } from '../types/StaticBlogPost';
-import { Card, Stack, Heading, Link } from 'bumbag';
+import { Card, Stack, Heading, Link, Tag, Button } from 'bumbag';
 import { Markdown } from 'bumbag-addon-markdown';
 
 interface BlogList {
   allPosts: StaticBlogPost[];
 }
+
+export const BlogCategoryLink: React.FC<{ category: string }> = ({ category }) => {
+  const LinkProps = Link.useProps({ href: `/blog/category/${category}`, color: 'white' });
+  return (
+    <Tag palette="info" use={Link} {...LinkProps}>
+      {category}
+    </Tag>
+  );
+};
+
+const ReadArticleButton: React.FC<{ slug: string }> = ({ slug }) => {
+  const LinkProps = Link.useProps({ href: `/blog/${slug}` });
+  return (
+    <Button palette="primary" use={Link} {...LinkProps}>
+      Read Article
+    </Button>
+  );
+};
 
 const BlogList: React.FC<BlogList> = ({ allPosts }) => {
   return (
@@ -24,7 +42,8 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
                 width="100%"
               />
             )}
-            <Card.Header>
+            <Card.Header flexDirection="column" alignItems="start">
+              <BlogCategoryLink category={post.frontmatter.category} />
               <Card.Title fontPalette="primary">{post.frontmatter.title}</Card.Title>
             </Card.Header>
             <Card.Content>
@@ -40,7 +59,7 @@ const BlogList: React.FC<BlogList> = ({ allPosts }) => {
               />
             </Card.Content>
             <Card.Footer>
-              <Link href={`/blog/${post.slug}`}>Read Article</Link>
+              <ReadArticleButton slug={post.slug} />
             </Card.Footer>
           </Card>
         );
