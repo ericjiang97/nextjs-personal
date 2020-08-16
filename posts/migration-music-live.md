@@ -4,7 +4,7 @@ author: Eric Jiang <eric@ericjiang.dev>
 date: '2020-08-03T22:00:00+1000'
 summary: A few days ago whilst browsing through my old repositories on GitHub, I've discovered a really old app which showcased chaining some really awesome technologies together. This app showed what music I was playing anytime on Spotify or iTunes via Last.fm.
 tags: ['announcements']
-category: 'Announcements'
+category: 'Development'
 coverImageUrl: '/images/juja-han-HU-uL54pfQI-unsplash.jpg'
 ---
 

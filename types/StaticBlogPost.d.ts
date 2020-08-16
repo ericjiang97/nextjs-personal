@@ -10,6 +10,6 @@ export interface BlogPostFrontmatter {
 
 export interface StaticBlogPost {
   frontmatter: BlogPostFrontmatter;
-  markdownBody: string;
+  markdownBody?: string;
   slug: string;
 }
