@@ -67,7 +67,7 @@ export async function getStaticProps({ ...ctx }) {
       const filePath = post.split('/');
       const slug = filePath[filePath.length - 1].replace('.md', '');
 
-      filteredPosts.push({ frontmatter: frontmatter.data as BlogPostFrontmatter, slug: `/blog/${slug}` });
+      filteredPosts.push({ frontmatter: frontmatter.data as BlogPostFrontmatter, slug: `${slug}` });
     }
   }
 
