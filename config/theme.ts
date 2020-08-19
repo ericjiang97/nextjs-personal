@@ -13,6 +13,8 @@ import {
   faCog,
   faSync,
   faInfoCircle,
+  faChevronDown,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faBootstrap,
@@ -31,6 +33,8 @@ const IconConfig: IconThemeConfig = {
   iconSets: [
     {
       icons: [
+        faTimes,
+        faChevronDown,
         faInfoCircle,
         faSync,
         faCog,
