@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Button, TopNav, useColorMode, Icon, useBreakpoint, Popover, Switch } from 'bumbag';
+import { Button, TopNav, useColorMode, Icon, useBreakpoint, Popover, Switch, DropdownMenu, Link } from 'bumbag';
 import SideBar from './SideBar';
+import { navItems } from '../config/navItems';
 
-const Nav: React.FC = () => {
+const Nav = () => {
   const { colorMode, setColorMode } = useColorMode();
   const isDesktopOrLarger = useBreakpoint('min-desktop');
 
@@ -23,13 +24,36 @@ const Nav: React.FC = () => {
       </TopNav.Section>
       {isDesktopOrLarger && (
         <TopNav.Section>
-          <TopNav.Item href="/blog">Blog</TopNav.Item>
-          <TopNav.Item href="/projects">Projects</TopNav.Item>
-          <TopNav.Item href="/photos">Photos</TopNav.Item>
-          <TopNav.Item href="/philanthropy">Philanthropy</TopNav.Item>
-          <TopNav.Item href="/talks">Talks</TopNav.Item>
-          <TopNav.Item href="/videos">Videos</TopNav.Item>
-          <TopNav.Item href="/about">About</TopNav.Item>
+          {navItems.map((item, navTopItemIndex) => {
+            if (!item.childNav) {
+              return (
+                <TopNav.Item href={item.href} key={navTopItemIndex}>
+                  {item.label}
+                </TopNav.Item>
+              );
+            }
+            return (
+              <TopNav.Item key={navTopItemIndex}>
+                <DropdownMenu
+                  menu={
+                    <>
+                      {item.childNav.map((childItem, childItemIndex) => {
+                        return (
+                          <DropdownMenu.Item key={childItemIndex}>
+                            <Link href={childItem.href}>{childItem.label}</Link>
+                          </DropdownMenu.Item>
+                        );
+                      })}
+                    </>
+                  }
+                >
+                  <Button variant="ghost" iconAfter="solid-chevron-down">
+                    {item.label}
+                  </Button>
+                </DropdownMenu>
+              </TopNav.Item>
+            );
+          })}
         </TopNav.Section>
       )}
       <TopNav.Section marginRight="major-2">
