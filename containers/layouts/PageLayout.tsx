@@ -4,28 +4,7 @@ import { PageContent, PageWithHeader } from 'bumbag';
 import Nav from '../../components/nav';
 import SITE_CONFIG from '../../config';
 
-interface PageLayoutProps {
-  title: string;
-  pageMeta: PageMeta;
-  banner?: JSX.Element | JSX.Element[];
-  isExperimental?: boolean;
-  ignoreHorizontalPadding?: boolean;
-  inChildrenInContainer?: boolean;
-}
-
-interface PageMeta {
-  endpoint?: string;
-  description?: string;
-  keywords?: string[];
-  imageUrl?: string;
-}
-
-interface PageInnerProps {
-  title?: string;
-  pageMeta: PageMeta;
-  banner?: JSX.Element | JSX.Element[];
-  inChildrenInContainer?: boolean;
-}
+import { PageInnerProps, PageLayoutProps } from './PageLayoutProps';
 
 const PageChildren: React.FC<PageInnerProps> = ({
   title,
@@ -50,8 +29,8 @@ const PageChildren: React.FC<PageInnerProps> = ({
         {imageUrl && <meta name="og:image" content={imageUrl} />}
       </Head>
       {banner && banner}
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <PageContent flex={1}>{inChildrenInContainer && children}</PageContent>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh' }}>
+        <PageContent style={{ flex: 1 }}>{inChildrenInContainer && children}</PageContent>
         {!inChildrenInContainer && children}
       </div>
     </>
