@@ -27,7 +27,6 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   const postUrl = `https://ericjiang.dev/blog/${slug}`;
 
   useEffect(() => {
-    console.log('running useEffect()');
     setWebNavigator(window.navigator);
   }, []);
 

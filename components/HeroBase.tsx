@@ -7,7 +7,6 @@ export interface HeroBaseProps {
 
 const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage }) => {
   const bgColor = '#09203399';
-  console.log(backgroundImage, bgColor);
 
   const HeroBaseContainer = styled.div`
     width: 100vw;

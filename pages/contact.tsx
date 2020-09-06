@@ -56,8 +56,7 @@ const Contact = () => {
       // DO NOT REDIRECT
       redirect: 'manual',
     })
-      .then((resp) => {
-        console.log(resp);
+      .then(() => {
         resetData();
         setHasSent(true);
       })

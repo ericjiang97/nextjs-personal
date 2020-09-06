@@ -10,7 +10,6 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
   const { endpoint, description, keywords, imageUrl } = pageMeta;
   const siteDescription = description || SITE_CONFIG.site.description;
 
-  console.log(isChildrenPadded);
   return (
     <>
       <Head>

@@ -104,7 +104,6 @@ const Music: React.FC = () => {
         ).then((resp) => {
           return resp.json();
         });
-        console.log(data as LastFmRecent);
         setRecentTracks(data);
         setShouldUpdate(false);
       }

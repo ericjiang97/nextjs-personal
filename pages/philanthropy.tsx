@@ -66,8 +66,6 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
     return [`FY${key}`, fyData.unmatched, fyData.matched, fyData.commited];
   });
 
-  console.log(chartData);
-
   return (
     <PageLayout
       title="Philanthropy"

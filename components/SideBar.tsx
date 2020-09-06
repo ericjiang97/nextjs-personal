@@ -22,14 +22,14 @@ const SideBar: React.FC = () => {
           {navItems.map((item, navTopItemIndex) => {
             if (!item.childNav) {
               return (
-                <>
+                <React.Fragment key={navTopItemIndex}>
                   <Menu.Group title={item.label}>
-                    <Menu.Item key={navTopItemIndex}>
+                    <Menu.Item>
                       <Link href={item.href}>{item.label}</Link>
                     </Menu.Item>
                   </Menu.Group>
                   <Divider />
-                </>
+                </React.Fragment>
               );
             }
             return (
