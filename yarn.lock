@@ -1835,10 +1835,10 @@ bn.js@^5.1.1:
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.1.2.tgz#c9686902d3c9a27729f43ab10f9d79c2004da7b0"
   integrity sha512-40rZaf3bUNKTVYu9sIeeEGOg7g14Yvnj9kH7b50EiwX0Q7A6umbvfI5tvHaOERH0XigqKkfLkFQxzb4e6CIXnA==
 
-body-scroll-lock@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.0.3.tgz#221d87435bcfb50e27ab5d4508735f622aed11a2"
-  integrity sha512-EUryImgD6Gv87HOjJB/yB2WIGECiZMhmcUK+DrqVRFDDa64xR+FsK0LgvLPnBxZDTxIl+W80/KJ8i6gp2IwOHQ==
+body-scroll-lock@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.1.3.tgz#cf78cc04d82328bb54276e104bda66dc93cb3695"
+  integrity sha512-KMV9MT96y2PFUL2C98e2nx/Gs2mhCAzYP6Gsu/9r7Rhn27qxu1yTnQBqHogUuvwVSbstEHNXTaToPNsL7oBZ9g==
 
 boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
@@ -1996,18 +1996,18 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-bumbag-addon-markdown@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/bumbag-addon-markdown/-/bumbag-addon-markdown-1.0.9.tgz#6e11056f801d57404098707f110b60fe03de77d9"
-  integrity sha512-a2gHpemIOd4Fow0KhidNYklGU3UTgDwE98n0iU7uoDvtW44CicO2KJSFGIt9y9c5if1CC77Xi9V8+2mrGYNdiw==
+bumbag-addon-markdown@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bumbag-addon-markdown/-/bumbag-addon-markdown-1.3.0.tgz#71e1c54c4f8dbfaa3e94c47dc89e9ccddfb687a6"
+  integrity sha512-EVL/zSInBL4GKiwHLbv96N33yz0GRcgPgDEgIJblmcxxyUqI0phEHo1GXR5pCnuFSzsi6tkPTRSt8kr8c8cY9g==
   dependencies:
     lodash "^4.17.19"
     markdown-react-js "^1.0.2"
 
-bumbag@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/bumbag/-/bumbag-1.0.9.tgz#d728bcb37cd1132f2c2105f856a22d2d77fc169d"
-  integrity sha512-dCDdCmpvFTPXPJYGHhcqZW0h5YMy4VWTRl71B0sV4FlCeWGTnLunX7bghu9eQbEYy7nlsiyUIQ1hM3nFhJ/Gdw==
+bumbag@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bumbag/-/bumbag-1.3.0.tgz#3487de8f145f3646509b074aefbba47650f79306"
+  integrity sha512-hX0BQYTYh+l5ePsnJ2YobDVV1kiFG2gSuhXRQGfSAWDLhUaOzu2+yrhGBR0ZwE5ermYLdb+dvQMmVZrkpiVmMw==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@emotion/is-prop-valid" "^0.8.2"
@@ -2015,6 +2015,7 @@ bumbag@^1.0.9:
     "@fortawesome/fontawesome-common-types" "^0.2.29"
     "@fortawesome/free-solid-svg-icons" "^5.13.1"
     "@types/classnames" "^2.2.9"
+    capsize "^1.1.0"
     classnames "^2.2.6"
     conditional-wrap "^1.0.0"
     deepmerge "^4.2.2"
@@ -2023,7 +2024,7 @@ bumbag@^1.0.9:
     lodash "^4.17.19"
     react-input-mask "^2.0.4"
     react-loads-next "npm:react-loads@9.2.3"
-    reakit "^1.1.0"
+    reakit "^1.2.2"
     styled-tools "^1.7.1"
     tinycolor2 "^1.4.1"
 
@@ -2145,6 +2146,13 @@ caniuse-lite@^1.0.30001039:
   version "1.0.30001054"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001054.tgz#7e82fc42d927980b0ce1426c4813df12381e1a75"
   integrity sha512-jiKlTI6Ur8Kjfj8z0muGrV6FscpRvefcQVPSuMuXnvRCfExU7zlVLNjmOz1TnurWgUrAY7MMmjyy+uTgIl1XHw==
+
+capsize@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/capsize/-/capsize-1.1.0.tgz#d70f918b5ecadc2390b2a3b3b672ced639907ed6"
+  integrity sha512-tV0weOXxQ9hsbqewiWfGQBXsGzSN/i/w9IGuH+JVySzGOhscTAzeK3N9ZAM3Kf89bWgYot80Za5fSXKi6ZynvA==
+  dependencies:
+    round-to "^4.1.0"
 
 chalk@4.0.0:
   version "4.0.0"
@@ -5889,35 +5897,35 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-reakit-system@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.14.0.tgz#ddc6045eee209f0835f9b64078258535c0ea6344"
-  integrity sha512-DqCL9IzhTm5swdvOLGZh/Ht948hXF/7v8aqnSL2pUv5pYkYZIjzkIthCimBVLzxS1jDgV5jE0IGOH3I5LDuo6g==
+reakit-system@^0.14.4:
+  version "0.14.4"
+  resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.14.4.tgz#93e3883ad441bfa6167bede147dc7cee5db51ec1"
+  integrity sha512-nQlo+fLKttGfEMzLJP9ubvALVUZXAhil2gEXpu26Gzvd4Mk4ywhBcAVhX0GrkesDx5Qzo2E0J5OYytPTeXvo5Q==
   dependencies:
-    reakit-utils "^0.14.0"
+    reakit-utils "0.14.3"
 
-reakit-utils@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/reakit-utils/-/reakit-utils-0.14.0.tgz#b5cf633b3f12eaa060ccccf374ec3a633850f0af"
-  integrity sha512-c3WWhWtvtP9umb3lq0CcRsZ3JTXAgP0RzQL+EYQjsx0GmJNmXdXSJ6bI44mrwfG815ibjvrg1hPX2nMEyyKXLQ==
+reakit-utils@0.14.3:
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/reakit-utils/-/reakit-utils-0.14.3.tgz#ea77684c2126ec41a26f02ef2b154e47a100371e"
+  integrity sha512-EQlalje+8UiybchMobZi6LrwbBBrqMFOG7f8Z5RJQil1Szt6SFP5BXfAIFj9J3gZunCXVk/NRaiyTdTbFiZ1CA==
 
-reakit-warning@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/reakit-warning/-/reakit-warning-0.5.0.tgz#a8fa44de6a832f7d20ebf038630fdd92962c82e0"
-  integrity sha512-Bd2Fp5It8U3c41ks04qSII2Dttr8XIn0vM2wKAmzEJ317U3dKqh4N+JaYCYWd2sa0W5HG1hdsKNb0sSREYn1Wg==
+reakit-warning@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/reakit-warning/-/reakit-warning-0.5.4.tgz#78bcbf0a11b0f963d61c8796e1c60f6f1eaad33f"
+  integrity sha512-11EFsGnnT/Y5wVa6OJl3IlfzAl1P77aANlXnuiS5ToDd94xGCwOWM563YtjYaNlZppD/fC9S5p7YOa6W0LlmoQ==
   dependencies:
-    reakit-utils "^0.14.0"
+    reakit-utils "0.14.3"
 
-reakit@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.2.0.tgz#be23a2fd76faff7d0c33845a60de362f269e671c"
-  integrity sha512-SNUoOkC2pPrjqjfbzYU+AoKDGedqns4i8v/cAJ7te1VU4Z3o35lTANAgIowEdlnghw61xnqWnEc5aE0f0v8S9g==
+reakit@^1.2.2:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.2.4.tgz#4cb6347038202eac1b944852309c6759f843cd47"
+  integrity sha512-l3Vll1Bg/spz6slVfpgikFoYySE6cSC81psMXyq90Sehxw5aB5eprnTqMbnMpp/kqsDf9u1RUr2ZXT6ItYhhpA==
   dependencies:
     "@popperjs/core" "^2.4.4"
-    body-scroll-lock "^3.0.2"
-    reakit-system "^0.14.0"
-    reakit-utils "^0.14.0"
-    reakit-warning "^0.5.0"
+    body-scroll-lock "^3.1.3"
+    reakit-system "^0.14.4"
+    reakit-utils "0.14.3"
+    reakit-warning "^0.5.4"
 
 reflect-metadata@^0.1.12:
   version "0.1.13"
@@ -6121,6 +6129,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+round-to@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/round-to/-/round-to-4.1.0.tgz#148d768d18b2f127f78e6648cb8b0a5943c416bf"
+  integrity sha512-H/4z+4QdWS82iMZ23+5St302Mv2jJws0hUvEogrD6gC8NN6Z5TalDtbg51owCrVy4V/4c8ePvwVLNtlhEfPo5g==
 
 run-queue@^1.0.0, run-queue@^1.0.3:
   version "1.0.3"

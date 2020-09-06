@@ -1,68 +1,68 @@
 import React from 'react';
 
-import { Drawer, Menu, Icon, Link, Disclosure, Button } from 'bumbag';
+import { Drawer, Menu, Icon, Link, Switch, useColorMode, Divider } from 'bumbag';
 import { navItems } from '../config/navItems';
 
 const SideBar: React.FC = () => {
-  const drawer = Drawer.useState();
+  const drawer = Drawer.useState({ animated: true });
+  const { colorMode, setColorMode } = useColorMode();
+
+  const isLightMode = colorMode === 'light';
 
   return (
     <>
       <Drawer.Disclosure {...drawer} marginLeft="1rem">
         <Icon aria-label="toggle sidebar" icon="solid-bars" color="primary" />
       </Drawer.Disclosure>
-      <Drawer {...drawer}>
+      <Drawer {...drawer} fade slide>
         <Menu marginTop="2rem">
-          <Menu.Item>
-            <Button
-              onClick={() => {
-                drawer.setVisible(false);
-              }}
-              palette="primary"
-              marginY="1rem"
-              iconBefore="solid-times"
-            >
-              Close Drawer
-            </Button>
+          <Menu.Item paddingY="1rem">
+            <Icon aria-label="Calendar" icon="logo" fontSize="100px" />
           </Menu.Item>
           {navItems.map((item, navTopItemIndex) => {
             if (!item.childNav) {
               return (
-                <Menu.Item key={navTopItemIndex}>
-                  <Link href={item.href}>{item.label}</Link>
-                </Menu.Item>
+                <>
+                  <Menu.Group title={item.label}>
+                    <Menu.Item key={navTopItemIndex}>
+                      <Link href={item.href}>{item.label}</Link>
+                    </Menu.Item>
+                  </Menu.Group>
+                  <Divider />
+                </>
               );
             }
             return (
-              <Disclosure.State key={navTopItemIndex}>
-                {(disclosure) => {
-                  return (
-                    <>
-                      <Disclosure {...disclosure}>
-                        {(disclosureProps) => {
-                          return (
-                            <Menu.Item {...disclosureProps} iconAfter="solid-chevron-down">
-                              {item.label}
-                            </Menu.Item>
-                          );
-                        }}
-                      </Disclosure>
-                      <Disclosure.Content paddingLeft="0.5rem">
-                        {item.childNav?.map((childItem, childItemIndex) => {
-                          return (
-                            <Menu.Item key={childItemIndex}>
-                              <Link href={childItem.href}>{childItem.label}</Link>
-                            </Menu.Item>
-                          );
-                        })}
-                      </Disclosure.Content>
-                    </>
-                  );
-                }}
-              </Disclosure.State>
+              <>
+                <Menu.Group title={item.label}>
+                  {item.childNav?.map((childItem, childItemIndex) => {
+                    return (
+                      <Menu.Item key={childItemIndex}>
+                        <Link href={childItem.href}>{childItem.label}</Link>
+                      </Menu.Item>
+                    );
+                  })}
+                </Menu.Group>
+                <Divider />
+              </>
             );
           })}
         </Menu>
+        <Menu.Group title="Settings">
+          <div style={{ padding: '0.25rem 1rem' }}>
+            <Switch
+              label={`${isLightMode ? 'Light' : 'Dark'} Mode`}
+              checked={isLightMode}
+              onChange={() => {
+                if (isLightMode) {
+                  setColorMode('dark');
+                } else {
+                  setColorMode('light');
+                }
+              }}
+            />
+          </div>
+        </Menu.Group>
       </Drawer>
     </>
   );

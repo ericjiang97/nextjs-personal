@@ -56,7 +56,7 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
           </Stack>
         </HeroBase>
       }
-      inChildrenInContainer={false}
+      isChildrenPadded={false}
     >
       <PhotoGrid>
         {albumData.photoset &&
