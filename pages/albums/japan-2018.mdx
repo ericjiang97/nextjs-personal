@@ -1,0 +1,48 @@
+---
+layout: 'album-page'
+title: 'Best of Japan'
+subheading: 'November 2018 / Japan'
+description: 'I went to Japan with a group of friends in late November 2018, we visited various amazing and beautiful places in Japan. This album highlights some of the beauty of Japan and some of the experiences that we experienced'
+albumImage: 'https://live.staticflickr.com/7848/31757740647_c63499810c_k_d.jpg'
+---
+
+import { Image, Stack, Container, Paragraph } from 'bumbag';
+import Carousel from 'react-images';
+
+<div
+  style={{
+    marginTop: '1rem',
+  }}
+>
+  <Carousel
+    views={[
+      { source: 'https://live.staticflickr.com/7803/31764954627_1ecab51a8d_c_d.jpg' },
+      { source: 'https://live.staticflickr.com/4908/39735158833_67e4a54cde_c_d.jpg' },
+    ]}
+  />
+</div>
+
+## Tokyo
+
+We stayed in Tokyo for the first week.
+
+<Stack orientation="horizontal" width="100%">
+  <Container>
+    <Image src="https://live.staticflickr.com/4908/39735158833_67e4a54cde_c_d.jpg" width="100%" />
+    <Paragraph fontSize="0.75rem" color="#777">
+      Shibuya Crossing
+    </Paragraph>
+  </Container>
+  <Container>
+    <Image src="https://live.staticflickr.com/4888/45982675964_f967eec78b_c_d.jpg" width="100%" />
+    <Paragraph fontSize="0.75rem" color="#777">
+      Entrance to Meiji Shrine
+    </Paragraph>
+  </Container>
+  <Container>
+    <Image src="https://live.staticflickr.com/4862/31840907017_e09a65b8a3_c_d.jpg" width="100%" />
+    <Paragraph fontSize="0.75rem" color="#777">
+      Akihabara
+    </Paragraph>
+  </Container>
+</Stack>

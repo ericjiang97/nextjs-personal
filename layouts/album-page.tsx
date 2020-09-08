@@ -16,12 +16,13 @@ export interface FrontMatterAlbum {
 
 const HeadingContainer = styled.div`
   flex: 1;
+  min-width: 280px;
+  padding: 0.75rem 0.9rem;
 `;
 
 // This function must be named otherwise it disables Fast Refresh.
 const DocsPage: React.FC<FrontMatterAlbum> = ({ children, frontMatter }) => {
   // React hooks, for example `useState` or `useEffect`, go here.
-  console.log(frontMatter);
   return (
     <PageLayout
       title={`Photo - ${frontMatter.title}`}
@@ -31,7 +32,7 @@ const DocsPage: React.FC<FrontMatterAlbum> = ({ children, frontMatter }) => {
       }}
       banner={<HeroBase backgroundImage={`url(${frontMatter.albumImage})`}></HeroBase>}
     >
-      <Container display="flex">
+      <Container display="flex" flexWrap="wrap">
         <HeadingContainer>
           <Heading use="h3">{frontMatter.title}</Heading>
           {frontMatter.subheading && (
