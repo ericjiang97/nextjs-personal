@@ -71,6 +71,13 @@ const IconConfig: IconThemeConfig = {
 
 const theme: ThemeConfig = {
   Icon: IconConfig,
+  Paragraph: {
+    styles: {
+      base: {
+        marginTop: '0.75rem',
+      },
+    },
+  },
   palette: {
     danger: '#da1717',
     info: '#1e67d5',
