@@ -24,7 +24,7 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
   const toasts = useToasts();
   const [webNavigator, setWebNavigator] = useState<any | null>(null);
 
-  const postUrl = `https://ericjiang.dev/blog/${slug}`;
+  const postUrl = `https://ericjiang.dev/${slug}`;
 
   useEffect(() => {
     setWebNavigator(window.navigator);

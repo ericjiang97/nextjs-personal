@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Heading, Paragraph, Container, styled } from 'bumbag';
 import HeroBase from '../components/HeroBase';
+import LinkButton from '../components/LinkButton';
 
 export interface FrontMatterAlbum {
   frontMatter: {
@@ -23,12 +24,15 @@ const HeadingContainer = styled.div`
 // This function must be named otherwise it disables Fast Refresh.
 const DocsPage: React.FC<FrontMatterAlbum> = ({ children, frontMatter }) => {
   // React hooks, for example `useState` or `useEffect`, go here.
+  const endpoint = `/${frontMatter.__resourcePath.replace(/\.mdx$/, '')}`;
+
+  const fullUri = `https://ericjiang.dev${endpoint}`;
   return (
     <PageLayout
       title={`Photo - ${frontMatter.title}`}
       pageMeta={{
+        endpoint,
         description: frontMatter.description,
-        endpoint: `/albums/${frontMatter.__resourcePath.replace(/\.mdx$/, '')}`,
       }}
       banner={<HeroBase backgroundImage={`url(${frontMatter.albumImage})`}></HeroBase>}
     >
@@ -46,6 +50,17 @@ const DocsPage: React.FC<FrontMatterAlbum> = ({ children, frontMatter }) => {
         </HeadingContainer>
       </Container>
       {children}
+      <Container>
+        <LinkButton iconBefore="brand-facebook" href={`https://www.facebook.com/sharer/sharer.php?u=${fullUri}`}>
+          Share on Facebook
+        </LinkButton>
+        <LinkButton
+          iconBefore="brand-twitter"
+          href={`https://twitter.com/intent/tweet?text=Check out this album by Eric Jiang! ${fullUri}`}
+        >
+          Tweet this
+        </LinkButton>
+      </Container>
     </PageLayout>
   );
 };

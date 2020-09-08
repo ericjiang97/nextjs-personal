@@ -51,7 +51,7 @@ export default function BlogTemplate(props: StaticBlogPost) {
       />
       <hr style={{ marginTop: '1rem', marginBottom: '0.75rem' }} />
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
-        <ShareModal title={title} slug={slug} />
+        <ShareModal title={title} slug={`/blog/${slug}`} />
 
         <Link href={`${SITE_CONFIG.urls.REPO_URL}/tree/main/posts/${slug}.md`}>
           <Button palette="secondary" iconBefore="solid-edit">
