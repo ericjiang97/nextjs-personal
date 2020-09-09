@@ -8,6 +8,7 @@ albumImage: 'https://live.staticflickr.com/7848/31757740647_c63499810c_k_d.jpg'
 
 import { Image, Stack, Container, Paragraph, Link } from 'bumbag';
 import Carousel from 'react-images';
+import GalleryModal from '../../components/GalleryModal';
 
 <div
   style={{
@@ -58,8 +59,8 @@ my love of photography and nature.
     marginTop: '1rem',
   }}
 >
-  <Carousel
-    views={[
+  <GalleryModal
+    images={[
       {
         source: 'https://live.staticflickr.com/7876/46655849012_a3f074430c_c_d.jpg',
         caption: 'View of Tokyo from Mt Takao',
