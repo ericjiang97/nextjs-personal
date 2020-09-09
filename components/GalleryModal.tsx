@@ -3,7 +3,7 @@ import Carousel, { Modal, ModalGateway, ViewType } from 'react-images';
 import { Button } from 'bumbag';
 
 const GalleryModal: React.FC<{ images: ViewType[] }> = ({ images }) => {
-  const [modalOpen, setModalOpen] = useState<boolean>(true);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   console.log(images);
   return (
