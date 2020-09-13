@@ -15,10 +15,23 @@ export default class MyDocument extends Document {
       ),
     };
   }
+
   render() {
     return (
       <html lang="en">
-        <Head />
+        <Head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120714098-3"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-120714098-3');
+              `,
+            }}
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
