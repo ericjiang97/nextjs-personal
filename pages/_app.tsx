@@ -28,6 +28,7 @@ const RootComponent: React.FC = ({ children }) => {
         <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#145DA0" />
       </Head>
       <div>
         <div>{children}</div>
