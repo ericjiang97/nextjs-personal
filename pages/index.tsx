@@ -7,7 +7,7 @@ const Home = () => (
   <PageLayout
     title="Home"
     banner={
-      <HeroBase backgroundImage="url(/images/eric-jiang-bitbybit.jpeg)">
+      <HeroBase backgroundImage="url(/images/eric-jiang-bitbybit.webp)">
         {' '}
         <Heading use="h3" shrinkBelow="tablet">
           G'day, I'm Eric.

@@ -40,7 +40,7 @@
     "gridsome-plugin-feed": "^1.0.2",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.25.3",
-    "next": "^9.3.4",
+    "next": "^9.5.3",
     "next-fonts": "^1.0.3",
     "next-mdx-enhanced": "^4.0.0",
     "prism-react-renderer": "^1.1.0",
