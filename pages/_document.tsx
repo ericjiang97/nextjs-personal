@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript, DocumentContext } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 export default class MyDocument extends Document {
@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120714098-3"></script>
           <script
@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
