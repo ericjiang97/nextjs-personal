@@ -34,7 +34,7 @@ const SideBar: React.FC = () => {
             }
             return (
               <>
-                <Menu.Group title={item.label}>
+                <Menu.Group title={item.label} key={navTopItemIndex}>
                   {item.childNav?.map((childItem, childItemIndex) => {
                     return (
                       <Menu.Item key={childItemIndex}>

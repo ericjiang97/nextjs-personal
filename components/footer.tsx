@@ -22,7 +22,9 @@ const Footer = () => {
               Encoutering issues? <Link href="https://github.com/ericjiang97/nextjs-personal/issues">Submit a bug</Link>
             </Paragraph>
           </div>
-          <SocialStack />
+          <div>
+            <SocialStack />
+          </div>
         </div>
       </Container>
     </footer>
