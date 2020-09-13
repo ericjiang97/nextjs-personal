@@ -1,5 +1,5 @@
 import React from 'react';
-import App from 'next/app';
+import App, { NextWebVitalsMetric } from 'next/app';
 import { Provider as BumbagProvider, ToastManager } from 'bumbag';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -47,6 +47,17 @@ class MyApp extends App {
       </BumbagProvider>
     );
   }
+}
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  const { id, name, label, value } = metric;
+  window.gtag('send', 'event', {
+    eventCategory: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+    eventAction: name,
+    eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+    eventLabel: id, // id unique to current page load
+    nonInteraction: true, // avoids affecting bounce rate.
+  });
 }
 
 export default MyApp;
