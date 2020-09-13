@@ -4,10 +4,11 @@ import { Button, Link } from 'bumbag';
 interface LinkButtonProps {
   href: string;
   iconBefore?: string;
-  palette?: 'primary' | 'secondary' | 'ghost' | 'outlined';
+  palette?: 'primary' | 'secondary';
+  variant?: 'outlined' | 'ghost' | 'link';
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, palette = 'primary' }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, palette = 'primary', variant }) => {
   const linkProps = Link.useProps({ href: `${href}` });
   return (
     <Button
@@ -15,8 +16,9 @@ const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, pal
       palette={palette}
       margin="0.25rem"
       iconBefore={iconBefore}
-      {...linkProps}
+      variant={variant}
       aria-label={`link button to ${href}`}
+      {...linkProps}
     >
       {children}
     </Button>
