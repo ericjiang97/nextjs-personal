@@ -12,7 +12,7 @@ export default function Custom404() {
       <Heading use="h3">
         404 - <Strike>Droids</Strike> Page Not Found
       </Heading>
-      <Image width="100%" src="/images/hello_there.gif" />
+      <Image width="100%" src="/images/hello_there.webp" />
       <Heading use="h4">
         Hello there. <Strike>These are not the droids</Strike> This is not the page, you are looking for.
       </Heading>
