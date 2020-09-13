@@ -5,6 +5,7 @@ import BlogList from '../../components/BlogList';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 import HeroBase from '../../components/HeroBase';
+import LinkButton from '../../components/LinkButton';
 
 import { Heading, Paragraph, Link, Button } from 'bumbag';
 
@@ -23,11 +24,9 @@ const Index = ({ allPosts }) => {
         <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
           <Heading use="h3">Blog</Heading>
           <Paragraph>{subHeading}</Paragraph>
-          <Link href="/blog/feed.xml">
-            <Button palette="primary" iconBefore="solid-rss">
-              RSS Feed
-            </Button>
-          </Link>
+          <LinkButton href="/blog/feed.xml" palette="primary" iconBefore="solid-rss">
+            RSS Feed
+          </LinkButton>
         </HeroBase>
       }
     >

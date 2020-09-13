@@ -130,6 +130,7 @@ const Contact = () => {
                   palette="primary"
                   onClick={() => submitForm()}
                   disabled={!(isEmailValid && message.length > 0) || isSending}
+                  aria-label="submit form button"
                 >
                   Submit
                 </Button>

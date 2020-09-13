@@ -1,8 +1,9 @@
 import talks from '../data/talks';
 import { Talk } from '../types/talks';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Stack, Container, Card, Button, Label } from 'bumbag';
+import { Heading, Paragraph, Stack, Container, Card, Label } from 'bumbag';
 import HeroBase from '../components/HeroBase';
+import LinkButton from '../components/LinkButton';
 
 const TalkCard: React.FC<Talk> = (talk) => {
   return (
@@ -17,9 +18,7 @@ const TalkCard: React.FC<Talk> = (talk) => {
         <Paragraph>{talk.org}</Paragraph>
       </Card.Content>
       <Card.Footer>
-        <a href={talk.url} target="_blank" rel="noopener noreferrer">
-          <Button>View Talk</Button>
-        </a>
+        <LinkButton href={talk.url}>View Talk</LinkButton>
       </Card.Footer>
     </Card>
   );

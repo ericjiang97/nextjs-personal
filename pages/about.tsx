@@ -1,8 +1,9 @@
 import experience from '../data/experience';
 import { Experience } from '../types';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Link, Button, Container, Card, Stack, Label, List } from 'bumbag';
+import { Heading, Paragraph, Link, Container, Card, Stack, Label, List } from 'bumbag';
 import HeroBase from '../components/HeroBase';
+import LinkButton from '../components/LinkButton';
 
 const AboutMe = () => (
   <PageLayout
@@ -33,9 +34,9 @@ const AboutMe = () => (
         ensuring that end users have the best user experience when using software. If you are a recruiter, I am best
         contacted via email at <Link href="mailto:recruiting@ericjiang.dev">recruiting@ericjiang.dev</Link>
       </Paragraph>
-      <a href="https://resume.ericjiang.dev" target="_blank" rel="noreferrer noopener">
-        <Button palette="primary">Download my resume</Button>
-      </a>
+      <LinkButton palette="primary" href="https://resume.ericjiang.dev">
+        Download my resume
+      </LinkButton>
     </Container>
     <Container>
       <Heading use="h4">Experience</Heading>

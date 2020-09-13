@@ -4,7 +4,8 @@ import PhotoAlbumCard from '../../components/cards/PhotoAlbumCard';
 import PageLayout from '../../containers/layouts/PageLayout';
 import SITE_CONFIG from '../../config';
 import { photos } from '../../data/photos';
-import { Container, Heading, Paragraph, Stack, Text, Button, styled } from 'bumbag';
+import { Container, Heading, Paragraph, Stack, Text, styled } from 'bumbag';
+import LinkButton from '../../components/LinkButton';
 
 const PhotoPageLayoutContainer = styled.div`
   display: flex;
@@ -45,16 +46,12 @@ const PhotosPage: React.FC = () => {
             Follow me
           </Heading>
           <Stack orientation="horizontal">
-            <a href={SITE_CONFIG.social.INSTAGRAM} rel="noreferrer noopener" target="_blank">
-              <Button iconBefore="brand-instagram" palette="primary">
-                Instagram
-              </Button>
-            </a>
-            <a href={SITE_CONFIG.social.FLICKR} rel="noreferrer noopener" target="_blank">
-              <Button iconBefore="brand-flickr" palette="primary">
-                Flickr
-              </Button>
-            </a>
+            <LinkButton href={SITE_CONFIG.social.INSTAGRAM} iconBefore="brand-instagram" palette="primary">
+              Instagram
+            </LinkButton>
+            <LinkButton href={SITE_CONFIG.social.FLICKR} iconBefore="brand-flickr" palette="primary">
+              Flickr
+            </LinkButton>
           </Stack>
           <Text fontSize="0.6rem" marginTop="0.7rem">
             Images and Media Work are licensed under Creative-Commons Attribution-NonCommercial License unless otherwise

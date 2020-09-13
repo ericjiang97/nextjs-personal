@@ -49,7 +49,9 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ photo }) => {
         )}
       </div>
       <Link href={photo.url_o}>
-        <Button iconBefore="solid-download">Download</Button>
+        <Button iconBefore="solid-download" aria-label="download image button">
+          Download
+        </Button>
       </Link>
     </div>
   );

@@ -22,7 +22,7 @@ export const BlogCategoryLink: React.FC<{ category: string }> = ({ category }) =
 const ReadArticleButton: React.FC<{ slug: string }> = ({ slug }) => {
   const LinkProps = Link.useProps({ href: `/blog/${slug}` });
   return (
-    <Button palette="primary" use={Link} {...LinkProps}>
+    <Button palette="primary" use={Link} {...LinkProps} aria-label="read article button">
       Read Article
     </Button>
   );

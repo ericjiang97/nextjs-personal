@@ -37,6 +37,7 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
           await webNavigator.share({ title, url: postUrl });
         }}
         iconBefore="solid-share"
+        aria-label="share button"
       >
         Share Post
       </Button>
@@ -93,7 +94,7 @@ const ShareModal: React.FC<SharePostModal> = ({ slug, title }) => {
                     }
                   }}
                 >
-                  <Button palette="primary">
+                  <Button palette="primary" aria-label="copy link to clipboard button">
                     <Icon aria-label="Copy to Clipboard" icon="solid-copy" />
                   </Button>
                 </CopyToClipboard>

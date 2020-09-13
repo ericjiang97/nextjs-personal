@@ -1,6 +1,7 @@
 import PageLayout from '../containers/layouts/PageLayout';
-import { Stack, Card, Set, Button, Link, Heading, Paragraph } from 'bumbag';
+import { Stack, Card, Set, Heading, Paragraph } from 'bumbag';
 import HeroBase from '../components/HeroBase';
+import LinkButton from '../components/LinkButton';
 
 const Home = () => (
   <PageLayout
@@ -28,11 +29,9 @@ const Home = () => (
         title="Projects"
         headerAddon={
           <Set>
-            <Link href="/projects">
-              <Button variant="outlined" palette="primary">
-                View Projects
-              </Button>
-            </Link>
+            <LinkButton href="/projects" variant="outlined" palette="primary">
+              View Projects
+            </LinkButton>
           </Set>
         }
       >
@@ -42,11 +41,9 @@ const Home = () => (
         title="🎤 Tech Talks"
         headerAddon={
           <Set>
-            <Link href="/talks">
-              <Button variant="outlined" palette="primary">
-                View Talks
-              </Button>
-            </Link>
+            <LinkButton href="/talks" variant="outlined" palette="primary">
+              View Talks
+            </LinkButton>
           </Set>
         }
       >

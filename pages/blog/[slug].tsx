@@ -9,9 +9,10 @@ import PageLayout from '../../containers/layouts/PageLayout';
 import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
 import SITE_CONFIG from '../../config';
-import { Heading, Label, Paragraph, Container, Button, Stack, Link } from 'bumbag';
+import { Heading, Label, Paragraph, Container, Stack } from 'bumbag';
 import HeroBase from '../../components/HeroBase';
 import { BlogCategoryLink } from '../../components/BlogList';
+import LinkButton from '../../components/LinkButton';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
@@ -52,12 +53,13 @@ export default function BlogTemplate(props: StaticBlogPost) {
       <hr style={{ marginTop: '1rem', marginBottom: '0.75rem' }} />
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={title} slug={`/blog/${slug}`} />
-
-        <Link href={`${SITE_CONFIG.urls.REPO_URL}/tree/main/posts/${slug}.md`}>
-          <Button palette="secondary" iconBefore="solid-edit">
-            Submit an edit
-          </Button>
-        </Link>
+        <LinkButton
+          href={`${SITE_CONFIG.urls.REPO_URL}/tree/main/posts/${slug}.md`}
+          palette="secondary"
+          iconBefore="solid-edit"
+        >
+          Submit an edit
+        </LinkButton>
       </Container>
       <Container>
         <DiscussionEmbed
