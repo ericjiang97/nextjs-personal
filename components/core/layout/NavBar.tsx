@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TopNav, Icon } from 'bumbag';
-import SideBar from '../SideBar';
+import SideBar from './SideBar';
 
 const Nav = () => {
   return (
