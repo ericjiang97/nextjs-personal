@@ -3,8 +3,8 @@ import moment from 'moment';
 
 import BlogList from '../../components/blog/BlogList';
 
-import PageLayout from '../../containers/layouts/PageLayout';
-import HeroBase from '../../components/layouts/HeroBase';
+import PageLayout from '../../containers/core/layouts/PageLayout';
+import HeroBase from '../../components/core/layouts/HeroBase';
 import LinkButton from '../../components/buttons/LinkButton';
 
 import { Heading, Paragraph, Link, Button } from 'bumbag';
