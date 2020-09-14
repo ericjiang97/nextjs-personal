@@ -7,7 +7,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import PageLayout from '../../containers/layouts/PageLayout';
 
 import { StaticBlogPost } from '../../types/StaticBlogPost';
-import ShareModal from '../../components/ShareModal';
+import ShareModal from '../../components/modals/ShareModal';
 import SITE_CONFIG from '../../config';
 import { Heading, Label, Paragraph, Container, Stack } from 'bumbag';
 import HeroBase from '../../components/core/HeroBase';
