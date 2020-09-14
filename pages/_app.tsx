@@ -5,7 +5,7 @@ import { Provider as BumbagProvider, ToastManager } from 'bumbag';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Head from 'next/head';
 import theme from '../config/theme';
-import Footer from '../components/footer';
+import Footer from '../components/core/layout/Footer';
 import { NextWebVitalsMetrics } from '../types/Next.canary';
 
 const RootComponent: React.FC = ({ children }) => {

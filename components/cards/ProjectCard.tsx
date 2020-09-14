@@ -1,7 +1,7 @@
 import React from 'react';
 import { Project } from '../../types';
 import { Card, Heading, Image, Text, Container, Set } from 'bumbag';
-import LinkButton from '../LinkButton';
+import LinkButton from '../buttons/LinkButton';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const { url, imageUrl, name, description, screenshotUrl, repoUrl, technologies } = project;

@@ -5,7 +5,7 @@ import PageLayout from '../../containers/layouts/PageLayout';
 import SITE_CONFIG from '../../config';
 import { photos } from '../../data/photos';
 import { Container, Heading, Paragraph, Stack, Text, styled } from 'bumbag';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/buttons/LinkButton';
 
 const PhotoPageLayoutContainer = styled.div`
   display: flex;

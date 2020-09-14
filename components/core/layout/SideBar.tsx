@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Drawer, Menu, Icon, Link, Switch, useColorMode, Divider } from 'bumbag';
-import { navItems } from '../config/navItems';
+import { navItems } from '../../../config/navItems';
 
 const SideBar: React.FC = () => {
   const drawer = Drawer.useState({ animated: true });

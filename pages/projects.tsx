@@ -2,7 +2,7 @@ import ProjectCard from '../components/cards/ProjectCard';
 import PageLayout from '../containers/layouts/PageLayout';
 import PROJECTS from '../data/projects';
 import { Heading, Stack, Paragraph } from 'bumbag';
-import HeroBase from '../components/HeroBase';
+import HeroBase from '../components/core/HeroBase';
 
 const Projects = () => (
   <PageLayout

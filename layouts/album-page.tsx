@@ -1,8 +1,8 @@
 import React from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Heading, Paragraph, Container, styled } from 'bumbag';
-import HeroBase from '../components/HeroBase';
-import LinkButton from '../components/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import LinkButton from '../components/buttons/LinkButton';
 
 export interface FrontMatterAlbum {
   frontMatter: {

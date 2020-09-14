@@ -3,8 +3,8 @@ import experience from '../data/experience';
 import { Experience } from '../types';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Heading, Paragraph, Link, Container, Card, Stack, Label, List } from 'bumbag';
-import HeroBase from '../components/HeroBase';
-import LinkButton from '../components/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
 import { NextPageContext } from 'next';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Paragraph, Link } from 'bumbag';
-import SocialStack from './SocialStack';
+import SocialStack from '../../SocialStack';
 
 const Footer = () => {
   return (

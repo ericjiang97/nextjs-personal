@@ -7,7 +7,7 @@ import { photos } from '../../data/photos';
 import CONSTANTS from '../../constants';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
 import { Heading, Paragraph, Stack, Button, styled } from 'bumbag';
-import HeroBase from '../../components/HeroBase';
+import HeroBase from '../../components/core/HeroBase';
 import PhotoCard from '../../components/cards/PhotoCard';
 
 const PhotoGrid = styled.div`

@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import { StaticBlogPost } from '../types/StaticBlogPost';
+import { StaticBlogPost } from '../../types/StaticBlogPost';
 import { Card, Stack, Heading, Link, Tag, Button } from 'bumbag';
 import { Markdown } from 'bumbag-addon-markdown';
 

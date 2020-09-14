@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import SITE_CONFIG from '../config';
 import PageLayout from '../containers/layouts/PageLayout';
-import HeroBase from '../components/HeroBase';
+import HeroBase from '../components/core/HeroBase';
 import { Heading, Paragraph, Card, Spinner, Image, Button, Link, styled } from 'bumbag';
 import { LastFmRecent, LastFmTrack } from '../types/LastFmApi';
-import LinkButton from '../components/LinkButton';
+import LinkButton from '../components/buttons/LinkButton';
 
 const { lastfm } = SITE_CONFIG;
 

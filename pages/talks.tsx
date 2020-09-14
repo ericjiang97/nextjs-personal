@@ -4,8 +4,8 @@ import talks from '../data/talks';
 import { Talk } from '../types/talks';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Heading, Paragraph, Stack, Container, Card, Label } from 'bumbag';
-import HeroBase from '../components/HeroBase';
-import LinkButton from '../components/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
 import { NextPageContext } from 'next';
 

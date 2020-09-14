@@ -4,9 +4,9 @@ import fs from 'fs';
 import util from 'util';
 import glob from 'glob';
 import { StaticBlogPost, BlogPostFrontmatter } from '../../../types/StaticBlogPost';
-import BlogList from '../../../components/BlogList';
+import BlogList from '../../../components/blog/BlogList';
 import PageLayout from '../../../containers/layouts/PageLayout';
-import HeroBase from '../../../components/HeroBase';
+import HeroBase from '../../../components/core/HeroBase';
 import { Button, Heading, Paragraph, Link } from 'bumbag';
 
 const readFile = util.promisify(fs.readFile);

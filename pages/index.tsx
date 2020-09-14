@@ -2,8 +2,8 @@ import React from 'react';
 import { NextPageContext } from 'next';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Stack, Card, Set, Heading, Paragraph } from 'bumbag';
-import HeroBase from '../components/HeroBase';
-import LinkButton from '../components/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
 
 interface Props {

@@ -10,9 +10,9 @@ import { StaticBlogPost } from '../../types/StaticBlogPost';
 import ShareModal from '../../components/ShareModal';
 import SITE_CONFIG from '../../config';
 import { Heading, Label, Paragraph, Container, Stack } from 'bumbag';
-import HeroBase from '../../components/HeroBase';
-import { BlogCategoryLink } from '../../components/BlogList';
-import LinkButton from '../../components/LinkButton';
+import HeroBase from '../../components/core/HeroBase';
+import { BlogCategoryLink } from '../../components/blog/BlogList';
+import LinkButton from '../../components/buttons/LinkButton';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`

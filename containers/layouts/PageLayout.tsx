@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { PageContent, PageWithHeader } from 'bumbag';
-import Nav from '../../components/nav';
+import Nav from '../../components/core/layout/NavBar';
 import SITE_CONFIG from '../../config';
 
 import { PageInnerProps, PageLayoutProps } from './PageLayoutProps';
