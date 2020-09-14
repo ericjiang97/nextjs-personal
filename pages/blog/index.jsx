@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 import moment from 'moment';
 
-import BlogList from '../../components/BlogList';
+import BlogList from '../../components/blog/BlogList';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 import HeroBase from '../../components/HeroBase';
