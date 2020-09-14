@@ -5,7 +5,7 @@ import BlogList from '../../components/blog/BlogList';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 import HeroBase from '../../components/HeroBase';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/buttons/LinkButton';
 
 import { Heading, Paragraph, Link, Button } from 'bumbag';
 
