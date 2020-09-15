@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import BlogList from '../../components/blog/BlogList';
 
-import PageLayout from '../../containers/core/layouts/PageLayout';
+import PageLayout from '../../containers/layouts/PageLayout';
 import HeroBase from '../../components/core/HeroBase';
 import LinkButton from '../../components/buttons/LinkButton';
 
