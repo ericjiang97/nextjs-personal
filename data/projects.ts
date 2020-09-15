@@ -7,7 +7,7 @@ import {
   FirebaseIcon,
   ReactIcon,
   MaterialUIIcon,
-} from '../components/icons';
+} from '../components/core/icons';
 
 interface Projects {
   current: Project[];

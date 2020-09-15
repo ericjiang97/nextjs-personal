@@ -56,8 +56,7 @@ const Contact = () => {
       // DO NOT REDIRECT
       redirect: 'manual',
     })
-      .then((resp) => {
-        console.log(resp);
+      .then(() => {
         resetData();
         setHasSent(true);
       })
@@ -131,6 +130,7 @@ const Contact = () => {
                   palette="primary"
                   onClick={() => submitForm()}
                   disabled={!(isEmailValid && message.length > 0) || isSending}
+                  aria-label="submit form button"
                 >
                   Submit
                 </Button>

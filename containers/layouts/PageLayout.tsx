@@ -1,18 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 import { PageContent, PageWithHeader } from 'bumbag';
-import Nav from '../../components/nav';
+import Nav from '../../components/core/layout/NavBar';
 import SITE_CONFIG from '../../config';
 
 import { PageInnerProps, PageLayoutProps } from './PageLayoutProps';
 
-const PageChildren: React.FC<PageInnerProps> = ({
-  title,
-  banner,
-  children,
-  pageMeta,
-  inChildrenInContainer = true,
-}) => {
+const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageMeta, isChildrenPadded = true }) => {
   const { endpoint, description, keywords, imageUrl } = pageMeta;
   const siteDescription = description || SITE_CONFIG.site.description;
 
@@ -29,15 +23,21 @@ const PageChildren: React.FC<PageInnerProps> = ({
         {imageUrl && <meta name="og:image" content={imageUrl} />}
       </Head>
       {banner && banner}
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh' }}>
-        <PageContent style={{ flex: 1 }}>{inChildrenInContainer && children}</PageContent>
-        {!inChildrenInContainer && children}
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh', flexWrap: 'wrap' }}>
+        {isChildrenPadded ? <PageContent style={{ flex: 1 }}>{children}</PageContent> : children}
       </div>
     </>
   );
 };
 
-const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, pageMeta, inChildrenInContainer = true }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({
+  title,
+  banner,
+  children,
+  pageMeta,
+  isChildrenPadded = true,
+  ...props
+}) => {
   const titleString = `${title} - Eric Jiang`;
   return (
     <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true}>
@@ -45,7 +45,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ title, banner, children, pageMe
         title={titleString}
         banner={banner}
         pageMeta={pageMeta}
-        inChildrenInContainer={inChildrenInContainer}
+        isChildrenPadded={isChildrenPadded}
+        {...props}
       >
         {children}
       </PageChildren>

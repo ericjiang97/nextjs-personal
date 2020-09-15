@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import SITE_CONFIG from '../config';
 import PageLayout from '../containers/layouts/PageLayout';
-import HeroBase from '../components/HeroBase';
+import HeroBase from '../components/core/HeroBase';
 import { Heading, Paragraph, Card, Spinner, Image, Button, Link, styled } from 'bumbag';
 import { LastFmRecent, LastFmTrack } from '../types/LastFmApi';
+import LinkButton from '../components/buttons/LinkButton';
 
 const { lastfm } = SITE_CONFIG;
 
@@ -64,9 +65,9 @@ const MusicTrack: React.FC<{ nowPlaying?: boolean; track: LastFmTrack }> = ({ no
         <Heading use="h5" marginTop="0.5rem">
           {track.artist['#text']}
         </Heading>
-        <Button use={Link} {...linkProps} iconBefore="solid-info-circle" palette="secondary">
+        <LinkButton {...linkProps} iconBefore="solid-info-circle" palette="secondary">
           Track Info
-        </Button>
+        </LinkButton>
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         {nowPlaying ? (
@@ -104,7 +105,6 @@ const Music: React.FC = () => {
         ).then((resp) => {
           return resp.json();
         });
-        console.log(data as LastFmRecent);
         setRecentTracks(data);
         setShouldUpdate(false);
       }
@@ -137,7 +137,12 @@ const Music: React.FC = () => {
               Unsplash
             </Link>
           </Paragraph>
-          <Button onClick={() => setShouldUpdate(true)} palette="primary" iconBefore="solid-sync">
+          <Button
+            onClick={() => setShouldUpdate(true)}
+            palette="primary"
+            iconBefore="solid-sync"
+            aria-label="refresh currently playing song"
+          >
             Refresh
           </Button>
         </HeroBase>

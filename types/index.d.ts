@@ -1,5 +1,13 @@
 import { ReactElement } from 'react';
 
+declare global {
+  interface Window {
+    gtag: any;
+  }
+}
+
+window.gtag = window.gtag || {};
+
 export interface ExperiencePosition {
   title: string;
   dates: string;

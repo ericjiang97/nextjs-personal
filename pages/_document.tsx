@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript, DocumentContext } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 export default class MyDocument extends Document {
@@ -15,15 +15,28 @@ export default class MyDocument extends Document {
       ),
     };
   }
+
   render() {
     return (
-      <html>
-        <Head />
+      <Html lang="en">
+        <Head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120714098-3"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-120714098-3');
+              `,
+            }}
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

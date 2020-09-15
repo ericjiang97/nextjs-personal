@@ -7,7 +7,7 @@ import { photos } from '../../data/photos';
 import CONSTANTS from '../../constants';
 import { FlickrPhotoset, FlickrPhotosetInfo } from '../../types/FlickrApi';
 import { Heading, Paragraph, Stack, Button, styled } from 'bumbag';
-import HeroBase from '../../components/HeroBase';
+import HeroBase from '../../components/core/HeroBase';
 import PhotoCard from '../../components/cards/PhotoCard';
 
 const PhotoGrid = styled.div`
@@ -56,7 +56,7 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
           </Stack>
         </HeroBase>
       }
-      inChildrenInContainer={false}
+      isChildrenPadded={false}
     >
       <PhotoGrid>
         {albumData.photoset &&
@@ -80,6 +80,7 @@ export async function getServerSideProps({ ...ctx }) {
   ).then((resp) => {
     return resp.json();
   });
+
   const albumInfo: FlickrPhotosetInfo = await fetch(
     `${CONSTANTS.FLICKR_API.BASE_URI}?method=flickr.photosets.getInfo` +
       `&api_key=${process.env.NEXT_PUBLIC_FLICKR_API_KEY}&photoset_id=${album}` +

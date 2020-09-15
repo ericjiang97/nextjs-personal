@@ -1,10 +1,6 @@
-export interface PageLayoutProps {
-  title: string;
-  pageMeta: PageMeta;
-  banner?: JSX.Element | JSX.Element[];
+export interface PageLayoutProps extends PageInnerProps {
   isExperimental?: boolean;
   ignoreHorizontalPadding?: boolean;
-  inChildrenInContainer?: boolean;
 }
 
 export interface PageMeta {
@@ -18,5 +14,6 @@ export interface PageInnerProps {
   title?: string;
   pageMeta: PageMeta;
   banner?: JSX.Element | JSX.Element[];
-  inChildrenInContainer?: boolean;
+  isChildrenPadded?: boolean;
+  backgroundImageUri?: string;
 }
