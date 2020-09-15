@@ -4,7 +4,7 @@ import moment from 'moment';
 import BlogList from '../../components/blog/BlogList';
 
 import PageLayout from '../../containers/core/layouts/PageLayout';
-import HeroBase from '../../components/core/layouts/HeroBase';
+import HeroBase from '../../components/core/HeroBase';
 import LinkButton from '../../components/buttons/LinkButton';
 
 import { Heading, Paragraph, Link, Button } from 'bumbag';
