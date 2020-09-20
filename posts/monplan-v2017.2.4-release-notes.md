@@ -1,5 +1,5 @@
 ---
-title: monPlan — v2017.2.4 Release Notes
+title: monPlan Update — Release Notes
 author: Eric Jiang <eric@ericjiang.dev>
 date: '2017-05-31T00:00:00+1000'
 summary: As one of the many developers on this team, I am very happy to announce our new public release! This is one of latest patches not only going back to our roots and making it better but also bringing the foundations of some key new features which will be present in the application over the next few months.

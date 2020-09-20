@@ -1,5 +1,5 @@
 ---
-title: monPlan Beta and v2018.0.0 Release
+title: monPlan Beta Release
 author: Eric Jiang <eric@ericjiang.dev>
 date: '2018-02-09T00:00:00+1000'
 summary: Today, we are excited to announce the release of v2018.0.0. This release launches 🚀 us out of Alpha into Beta.
