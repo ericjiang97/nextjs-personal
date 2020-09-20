@@ -20,7 +20,11 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
         {keywords && <meta name="keywords" content={keywords.join(', ')} />}
         {endpoint && <meta name="og:url" content={`${SITE_CONFIG.urls.BASE_URL}${endpoint}`} />}
         <meta name="og:description" content={siteDescription} />
-        {imageUrl && <meta name="og:image" content={imageUrl} />}
+        {imageUrl ? (
+          <meta name="og:image" content={imageUrl} />
+        ) : (
+          <meta name="og:image" content={`https://og-image.ericjiang.dev${endpoint}`} />
+        )}
       </Head>
       {banner && banner}
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh', flexWrap: 'wrap' }}>

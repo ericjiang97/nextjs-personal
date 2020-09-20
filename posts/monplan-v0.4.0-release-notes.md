@@ -1,5 +1,5 @@
 ---
-title: monPlan — v0.4.0 Release Notes
+title: monPlan Update - Release Notes
 author: Eric Jiang <eric@ericjiang.dev>
 date: '2017-05-01T00:00:00+1000'
 summary: Version 0.4.0 refines our integration with our API as well as introduction nice and cool features. Most of the updates this time is improving our app through various fixes such as improvements to the server-side as well as other cool features.

@@ -38,7 +38,6 @@ export default function BlogTemplate(props: StaticBlogPost) {
       pageMeta={{
         description: summary,
         endpoint: `/blog/${slug}`,
-        imageUrl: coverImageUrl,
       }}
     >
       <Markdown
