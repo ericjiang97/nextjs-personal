@@ -21,10 +21,20 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
         {endpoint && <meta name="og:url" content={`${SITE_CONFIG.urls.BASE_URL}${endpoint}`} />}
         <meta name="og:description" content={siteDescription} />
         {imageUrl ? (
-          <meta name="og:image" content={imageUrl} />
+          <>
+            <meta name="og:image" content={imageUrl} />
+            <meta name="twitter:image" content={imageUrl}></meta>
+          </>
         ) : (
-          <meta name="og:image" content={`https://og-image.ericjiang.dev${endpoint}`} />
+          <>
+            <meta name="og:image" content={`https://og-image.ericjiang.dev${endpoint}`} />
+            <meta name="twitter:image" content={`https://og-image.ericjiang.dev${endpoint}`}></meta>
+          </>
         )}
+        <meta property="twitter:url" content={`${SITE_CONFIG.urls.BASE_URL}${endpoint}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={siteDescription} />
       </Head>
       {banner && banner}
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh', flexWrap: 'wrap' }}>
