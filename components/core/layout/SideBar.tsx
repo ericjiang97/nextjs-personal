@@ -7,7 +7,7 @@ const SideBar: React.FC = () => {
   const drawer = Drawer.useState({ animated: true });
   const { colorMode, setColorMode } = useColorMode();
 
-  const isLightMode = colorMode === 'light';
+  const isLightMode = colorMode !== 'dark';
 
   return (
     <>
