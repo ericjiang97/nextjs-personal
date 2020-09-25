@@ -87,29 +87,29 @@ function PhotosPage({ allAlbums }: InferGetStaticPropsType<typeof getStaticProps
           const { frontmatter, slug } = album;
           const { title, subheading, albumImage } = frontmatter;
           return (
-            <a
-              key={index}
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: 500,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'none',
-                color: 'white',
-                backgroundImage: `linear-gradient(to top, ${bgColor}, ${bgColor}), url(${albumImage})`,
-              }}
-              href={`/albums/${slug}`}
-            >
-              <Container maxWidth="75%" textAlign="center">
-                <Heading use="h4" marginY="0.5rem">
-                  {title}
-                </Heading>
-                <Divider />
-                <Heading use="h6" marginY="0.5rem">
-                  {subheading}
-                </Heading>
-              </Container>
+            <a key={index} href={`/albums/${slug}`}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  minHeight: 500,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'none',
+                  color: 'white',
+                  backgroundImage: `linear-gradient(to top, ${bgColor}, ${bgColor}), url(${albumImage})`,
+                }}
+              >
+                <Container maxWidth="75%" textAlign="center">
+                  <Heading use="h4" marginY="0.5rem">
+                    {title}
+                  </Heading>
+                  <Divider />
+                  <Heading use="h6" marginY="0.5rem">
+                    {subheading}
+                  </Heading>
+                </Container>
+              </div>
             </a>
           );
         })}
