@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Carousel, { Modal, ModalGateway, ViewType } from 'react-images';
-import { Button } from 'bumbag';
 
 const GalleryModal: React.FC<{ images: ViewType[] }> = ({ images }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -28,11 +27,6 @@ const GalleryModal: React.FC<{ images: ViewType[] }> = ({ images }) => {
         }}
         views={images}
       />
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button onClick={() => setModalOpen(true)} iconBefore="solid-expand" variant="ghost" palette="primary">
-          View Larger Image
-        </Button>
-      </div>
     </>
   );
 };
