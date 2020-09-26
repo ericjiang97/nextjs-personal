@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 import SITE_CONFIG from '../../config';
@@ -28,7 +29,12 @@ export const getStaticProps = async () => {
         frontmatter: value.frontMatter as FrontMatterAlbum,
       };
     });
-  })(require.context('./', true, /\.mdx$/));
+  })(require.context('./', true, /\.mdx$/)).sort((a, b) => {
+    if (moment(a.frontmatter.date).isAfter(moment(b.frontmatter.date))) {
+      return -1;
+    }
+    return 1;
+  });
 
   return {
     props: {

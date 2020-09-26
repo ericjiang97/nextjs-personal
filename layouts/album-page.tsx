@@ -11,6 +11,7 @@ export interface FrontMatterAlbum {
   description: string;
   albumImage: string;
   flickrAlbum?: string;
+  date: string;
   __resourcePath: string;
 }
 
