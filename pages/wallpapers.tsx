@@ -5,7 +5,13 @@ import wallpapers from '../data/wallpapers';
 
 export default function Wallpapers() {
   return (
-    <PageLayout title="Wallpapers" pageMeta={{ description: '404: Droids Not found' }}>
+    <PageLayout
+      title="Wallpapers"
+      pageMeta={{
+        description:
+          'Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for 4K, 5K & 6K displays, in addition to P3 color profiles for more vibrant colors.',
+      }}
+    >
       <Heading use="h3">Wallpapers</Heading>
       <Paragraph marginY="1.25rem">
         Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for{' '}
