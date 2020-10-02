@@ -51,7 +51,7 @@ const DocsPage: React.FC<FrontMatterAlbumProps> = ({ children, frontMatter }) =>
           )}
           {frontMatter.flickrAlbum && (
             <Container marginY="0.75rem">
-              <LinkButton href={frontMatter.flickrAlbum} iconBefore="brand-flickr" sty>
+              <LinkButton href={frontMatter.flickrAlbum} iconBefore="brand-flickr">
                 View Album on Flickr
               </LinkButton>
             </Container>
