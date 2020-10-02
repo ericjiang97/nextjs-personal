@@ -5,14 +5,18 @@ import HeroBase from '../components/core/HeroBase';
 import LinkButton from '../components/buttons/LinkButton';
 
 export interface FrontMatterAlbum {
-  frontMatter: {
-    title: string;
-    subheading?: string;
-    album: string;
-    description: string;
-    albumImage: string;
-    __resourcePath: string;
-  };
+  title: string;
+  subheading?: string;
+  album: string;
+  description: string;
+  albumImage: string;
+  flickrAlbum?: string;
+  date: string;
+  __resourcePath: string;
+}
+
+interface FrontMatterAlbumProps {
+  frontMatter: FrontMatterAlbum;
 }
 
 const HeadingContainer = styled.div`
@@ -22,11 +26,12 @@ const HeadingContainer = styled.div`
 `;
 
 // This function must be named otherwise it disables Fast Refresh.
-const DocsPage: React.FC<FrontMatterAlbum> = ({ children, frontMatter }) => {
+const DocsPage: React.FC<FrontMatterAlbumProps> = ({ children, frontMatter }) => {
   // React hooks, for example `useState` or `useEffect`, go here.
   const endpoint = `/${frontMatter.__resourcePath.replace(/\.mdx$/, '')}`;
 
   const fullUri = `https://ericjiang.dev${endpoint}`;
+
   return (
     <PageLayout
       title={`Photo - ${frontMatter.title}`}
@@ -40,9 +45,16 @@ const DocsPage: React.FC<FrontMatterAlbum> = ({ children, frontMatter }) => {
         <HeadingContainer>
           <Heading use="h3">{frontMatter.title}</Heading>
           {frontMatter.subheading && (
-            <Heading use="h5" fontWeight="400">
+            <Heading use="h5" fontWeight="400" color="gray400" fontSize="1rem">
               {frontMatter.subheading}
             </Heading>
+          )}
+          {frontMatter.flickrAlbum && (
+            <Container marginY="0.75rem">
+              <LinkButton href={frontMatter.flickrAlbum} iconBefore="brand-flickr">
+                View Album on Flickr
+              </LinkButton>
+            </Container>
           )}
         </HeadingContainer>
         <HeadingContainer>

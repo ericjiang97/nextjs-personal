@@ -9,8 +9,8 @@ const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage }) => {
   const bgColor = '#09203399';
 
   const HeroBaseContainer = styled.div`
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 600px;
     background-image: linear-gradient(to top, ${bgColor}, ${bgColor}), ${backgroundImage};
     background-size: cover;

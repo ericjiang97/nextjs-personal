@@ -2,7 +2,6 @@ import matter from 'gray-matter';
 import moment from 'moment';
 import glob from 'glob';
 import { Markdown } from 'bumbag-addon-markdown';
-import { DiscussionEmbed } from 'disqus-react';
 
 import PageLayout from '../../containers/layouts/PageLayout';
 
@@ -59,17 +58,6 @@ export default function BlogTemplate(props: StaticBlogPost) {
         >
           Submit an edit
         </LinkButton>
-      </Container>
-      <Container>
-        <DiscussionEmbed
-          shortname={SITE_CONFIG.disqus.shortname}
-          config={{
-            url: `https://ericjiang.dev/blog/${slug}`,
-            identifier: slug,
-            title: frontmatter.title,
-            language: 'en_AU',
-          }}
-        />
       </Container>
     </PageLayout>
   );
