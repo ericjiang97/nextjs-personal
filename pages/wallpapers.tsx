@@ -4,6 +4,7 @@ import { Image, Heading, Paragraph, Text, Container, Tag, Link } from 'bumbag';
 import wallpapers from '../data/wallpapers';
 
 export default function Wallpapers() {
+  const anchorProps = Link.useProps({ fontSize: '100' });
   return (
     <PageLayout
       title="Wallpapers"
@@ -59,9 +60,9 @@ export default function Wallpapers() {
                       <Container>
                         <Text fontSize="100">{resolution}</Text>
                       </Container>
-                      <Link href={downloadUrl} fontSize="100">
+                      <a href={downloadUrl} {...anchorProps} download>
                         Download
-                      </Link>
+                      </a>
                     </div>
                   );
                 })}
