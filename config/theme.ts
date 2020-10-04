@@ -28,6 +28,7 @@ import {
   faJs,
   faReact,
   faInstagram,
+  faPaypal,
 } from '@fortawesome/free-brands-svg-icons';
 
 const IconConfig: IconThemeConfig = {
@@ -55,7 +56,19 @@ const IconConfig: IconThemeConfig = {
       type: 'font-awesome',
     },
     {
-      icons: [faInstagram, faLinkedin, faGithub, faTwitter, faFacebook, faFlickr, faGrunt, faReact, faJs, faBootstrap],
+      icons: [
+        faInstagram,
+        faLinkedin,
+        faGithub,
+        faTwitter,
+        faFacebook,
+        faFlickr,
+        faGrunt,
+        faReact,
+        faJs,
+        faBootstrap,
+        faPaypal,
+      ],
       prefix: 'brand-',
       type: 'font-awesome',
     },

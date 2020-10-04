@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Image, Heading, Paragraph, Text, Container, Tag, Link } from 'bumbag';
 import wallpapers from '../data/wallpapers';
+import LinkButton from '../components/buttons/LinkButton';
 
 export default function Wallpapers() {
   const anchorProps = Link.useProps({ fontSize: '100' });
@@ -25,22 +26,31 @@ export default function Wallpapers() {
         </Tag>{' '}
         color profiles for more vibrant colors.
       </Paragraph>
+      <Paragraph marginY="1.25rem">
+        Like the wallpapers? Please consider donating to help compensate for my time and also that I can continue making
+        these awesome wallpapers.
+        <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal">
+          Donate via Paypal
+        </LinkButton>
+      </Paragraph>
       <Container display="flex" flexWrap="wrap" justifyContent="flex-start" marginTop="1.5rem">
         {wallpapers.map((wallpaperGroup, groupIndex) => {
+          const { wallpapers, slug, wallpaperSlug } = wallpaperGroup;
           return (
             <Container flex={1} minWidth="280px" maxWidth="45%" marginX={0} key={groupIndex}>
               <Heading use="h4" fontWeight="400" marginY="0.75rem">
                 {wallpaperGroup.title}
               </Heading>
               <Image
-                src={wallpaperGroup.previewUrl}
+                src={`/downloads/wallpapers/${slug}/preview.webp`}
                 alt={`${wallpaperGroup.title} preview`}
                 width="100%"
                 marginY="0.5rem"
               />
               <Container width="100%" display="flex" flexWrap="wrap">
-                {wallpaperGroup.wallpapers.map((wallpaper, wallpaperIndex) => {
-                  const { title, meta, resolution, downloadUrl } = wallpaper;
+                {wallpapers.map((wallpaper, wallpaperIndex) => {
+                  const { title, meta, resolution, screenType } = wallpaper;
+                  const downloadUrl = `/downloads/wallpapers/${slug}/${wallpaperSlug}_${screenType}_${meta.colorType}_${resolution}.jpg`;
                   const { colorType, hdRes } = meta;
                   return (
                     <div key={wallpaperIndex} style={{ marginRight: '1.5rem', marginBottom: '1.5rem' }}>

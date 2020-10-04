@@ -1,15 +1,17 @@
 interface Wallpaper {
   meta: {
-    colorType: 'P3' | 'sRGB';
+    colorType: 'P3' | 'SRGB';
     hdRes?: '4K' | '5K' | '6K';
   };
   title: string;
-  downloadUrl: string;
   resolution: string;
+  screenType: 'XDR' | 'iMacPro' | 'MacBookPro' | 'Desktop';
 }
 
 interface WallpaperGroup {
   wallpapers: Wallpaper[];
+  slug: string;
+  wallpaperSlug: string;
   title: string;
   previewUrl: string;
 }
@@ -17,7 +19,9 @@ interface WallpaperGroup {
 const wallpapers: WallpaperGroup[] = [
   {
     title: 'Spring Skies',
+    slug: 'spring-skies',
     previewUrl: '/downloads/wallpapers/spring-skies/SpringSkies_preview.webp',
+    wallpaperSlug: 'SpringSkies',
     wallpapers: [
       {
         title: 'XDR',
@@ -25,17 +29,17 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '6K',
         },
-        resolution: '6016 x 3384',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_ProXDR_P3_6016x3384.jpg',
+        resolution: '6016x3384',
+        screenType: 'XDR',
       },
       {
         title: 'XDR',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
           hdRes: '6K',
         },
-        resolution: '6016 x 3384',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_ProXDR_6016x3384.jpg',
+        resolution: '6016x3384',
+        screenType: 'XDR',
       },
       {
         title: 'iMac',
@@ -43,47 +47,49 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '5K',
         },
-        resolution: '5120 x 2880',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_iMacPro_P3_5120x2880.jpg',
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
       },
       {
         title: 'MacBook Pro',
         meta: {
           colorType: 'P3',
         },
-        resolution: '2560 x 1600',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_MacbookProAIr_P3_2560x1600.jpg',
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
       },
       {
         title: '4K Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
           hdRes: '4K',
         },
-        resolution: '3840 x 2160',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_Desktop_4k_3840x2160.jpg',
+        resolution: '3840x2160',
+        screenType: 'Desktop',
       },
       {
         title: '1440p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '2560 x 1440',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_Desktop_SRGB_2560x1440.jpg',
+        resolution: '2560x1440',
+        screenType: 'Desktop',
       },
       {
         title: '1080p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '1920 x 1080',
-        downloadUrl: '/downloads/wallpapers/spring-skies/SpringSkies_Desktop_SRGB_1920x1080.jpg',
+        resolution: '1920x1080',
+        screenType: 'Desktop',
       },
     ],
   },
   {
     title: 'Peach Blossom 1',
+    slug: 'peach-blossom-1',
     previewUrl: '/downloads/wallpapers/peach-blossom-1/preview.webp',
+    wallpaperSlug: 'PeachBlossom',
     wallpapers: [
       {
         title: 'XDR',
@@ -91,8 +97,8 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '6K',
         },
-        resolution: '6016 x 3384',
-        downloadUrl: '/downloads/wallpapers/peach-blossom-1/PeachBlossom_ProXDR_P3_6016x3384.jpg',
+        resolution: '6016x3384',
+        screenType: 'XDR',
       },
       {
         title: 'iMac',
@@ -100,47 +106,49 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '5K',
         },
-        resolution: '5120 x 2880',
-        downloadUrl: '/downloads/wallpapers/peach-blossom-1/PeachBlossom_iMacPro_P3_5120x2880.jpg',
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
       },
       {
         title: 'MacBook Pro',
         meta: {
           colorType: 'P3',
         },
-        resolution: '2560 x 1600',
-        downloadUrl: '/downloads/wallpapers/peach-blossom-1/PeachBlossom_MacbookProAIr_P3_2560x1600.jpg',
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
       },
       {
         title: '4K Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
           hdRes: '4K',
         },
-        resolution: '3840 x 2160',
-        downloadUrl: '/downloads/wallpapers/peach-blossom-1/PeachBlossom_Desktop_4k_3840x2160.jpg',
+        resolution: '3840x2160',
+        screenType: 'Desktop',
       },
       {
         title: '1440p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '2560 x 1440',
-        downloadUrl: '/downloads/wallpapers/peach-blossom-1/PeachBlossom_Desktop_SRGB_2560x1440.jpg',
+        resolution: '2560x1440',
+        screenType: 'Desktop',
       },
       {
         title: '1080p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '1920 x 1080',
-        downloadUrl: '/downloads/wallpapers/peach-blossom-1/PeachBlossom_Desktop_SRGB_1920x1080.jpg',
+        resolution: '1920x1080',
+        screenType: 'Desktop',
       },
     ],
   },
   {
     title: 'Fumushi Inari',
+    slug: 'fumushi-inari-1',
     previewUrl: '/downloads/wallpapers/fumushi-inari-1/preview.webp',
+    wallpaperSlug: 'FumushiInari',
     wallpapers: [
       {
         title: 'XDR',
@@ -148,8 +156,8 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '6K',
         },
-        resolution: '6016 x 3384',
-        downloadUrl: '/downloads/wallpapers/fumushi-inari-1/FumushiInari_ProXDR_P3_6016x3384.jpg',
+        resolution: '6016x3384',
+        screenType: 'XDR',
       },
       {
         title: 'iMac',
@@ -157,47 +165,49 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '5K',
         },
-        resolution: '5120 x 2880',
-        downloadUrl: '/downloads/wallpapers/fumushi-inari-1/FumushiInari_iMacPro_P3_5120x2880.jpg',
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
       },
       {
         title: 'MacBook Pro',
         meta: {
           colorType: 'P3',
         },
-        resolution: '2560 x 1600',
-        downloadUrl: '/downloads/wallpapers/fumushi-inari-1/FumushiInari_MacbookProAIr_P3_2560x1600.jpg',
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
       },
       {
         title: '4K Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
           hdRes: '4K',
         },
-        resolution: '3840 x 2160',
-        downloadUrl: '/downloads/wallpapers/fumushi-inari-1/FumushiInari_Desktop_4k_3840x2160.jpg',
+        resolution: '3840x2160',
+        screenType: 'Desktop',
       },
       {
         title: '1440p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '2560 x 1440',
-        downloadUrl: '/downloads/wallpapers/fumushi-inari-1/FumushiInari_Desktop_SRGB_2560x1440.jpg',
+        resolution: '2560x1440',
+        screenType: 'Desktop',
       },
       {
         title: '1080p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '1920 x 1080',
-        downloadUrl: '/downloads/wallpapers/fumushi-inari-1/FumushiInari_Desktop_SRGB_1920x1080.jpg',
+        resolution: '1920x1080',
+        screenType: 'Desktop',
       },
     ],
   },
   {
     title: 'Great Wall',
+    slug: 'great-wall-1',
     previewUrl: '/downloads/wallpapers/great-wall-1/preview.webp',
+    wallpaperSlug: 'GreatWall',
     wallpapers: [
       {
         title: 'XDR',
@@ -205,8 +215,8 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '6K',
         },
-        resolution: '6016 x 3384',
-        downloadUrl: '/downloads/wallpapers/great-wall-1/GreatWall_ProXDR_P3_6016x3384.jpg',
+        resolution: '6016x3384',
+        screenType: 'XDR',
       },
       {
         title: 'iMac',
@@ -214,41 +224,41 @@ const wallpapers: WallpaperGroup[] = [
           colorType: 'P3',
           hdRes: '5K',
         },
-        resolution: '5120 x 2880',
-        downloadUrl: '/downloads/wallpapers/great-wall-1/GreatWall_iMacPro_P3_5120x2880.jpg',
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
       },
       {
         title: 'MacBook Pro',
         meta: {
           colorType: 'P3',
         },
-        resolution: '2560 x 1600',
-        downloadUrl: '/downloads/wallpapers/great-wall-1/GreatWall_MacbookProAIr_P3_2560x1600.jpg',
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
       },
       {
         title: '4K Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
           hdRes: '4K',
         },
-        resolution: '3840 x 2160',
-        downloadUrl: '/downloads/wallpapers/great-wall-1/GreatWall_Desktop_4k_3840x2160.jpg',
+        resolution: '3840x2160',
+        screenType: 'Desktop',
       },
       {
         title: '1440p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '2560 x 1440',
-        downloadUrl: '/downloads/wallpapers/great-wall-1/GreatWall_Desktop_SRGB_2560x1440.jpg',
+        resolution: '2560x1440',
+        screenType: 'Desktop',
       },
       {
         title: '1080p Display',
         meta: {
-          colorType: 'sRGB',
+          colorType: 'SRGB',
         },
-        resolution: '1920 x 1080',
-        downloadUrl: '/downloads/wallpapers/great-wall-1/GreatWall_Desktop_SRGB_1920x1080.jpg',
+        resolution: '1920x1080',
+        screenType: 'Desktop',
       },
     ],
   },
