@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
 import { Image, Heading, Paragraph, Text, Container, Tag, Link } from 'bumbag';
 import wallpapers from '../data/wallpapers';
+import LinkButton from '../components/buttons/LinkButton';
 
 export default function Wallpapers() {
   const anchorProps = Link.useProps({ fontSize: '100' });
@@ -24,6 +25,13 @@ export default function Wallpapers() {
           P3
         </Tag>{' '}
         color profiles for more vibrant colors.
+      </Paragraph>
+      <Paragraph marginY="1.25rem">
+        Like the wallpapers? Please consider donating to help compensate for my time and also that I can continue making
+        these awesome wallpapers.
+        <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal">
+          Donate via Paypal
+        </LinkButton>
       </Paragraph>
       <Container display="flex" flexWrap="wrap" justifyContent="flex-start" marginTop="1.5rem">
         {wallpapers.map((wallpaperGroup, groupIndex) => {
