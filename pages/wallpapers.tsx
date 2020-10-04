@@ -29,10 +29,10 @@ export default function Wallpapers() {
       <Paragraph marginY="1.25rem">
         Like the wallpapers? Please consider donating to help compensate for my time and also that I can continue making
         these awesome wallpapers.
-        <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal">
-          Donate via Paypal
-        </LinkButton>
       </Paragraph>
+      <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal">
+        Donate via Paypal
+      </LinkButton>
       <Container display="flex" flexWrap="wrap" justifyContent="flex-start" marginTop="1.5rem">
         {wallpapers.map((wallpaperGroup, groupIndex) => {
           const { wallpapers, slug, wallpaperSlug } = wallpaperGroup;
