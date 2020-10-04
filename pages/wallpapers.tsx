@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Image, Heading, Paragraph, Text, Container, Tag, Link } from 'bumbag';
-import wallpapers from '../data/wallpapers';
+import { Image, Heading, Paragraph, Text, Container, Tag, Link, Input } from 'bumbag';
+import _wallpapers, { WallpaperGroup } from '../data/wallpapers';
 import LinkButton from '../components/buttons/LinkButton';
 
 export default function Wallpapers() {
+  const [wallpapers, setWallpapers] = useState<WallpaperGroup[]>(_wallpapers);
   const anchorProps = Link.useProps({ fontSize: '100' });
+
   return (
     <PageLayout
       title="Wallpapers"
@@ -33,6 +35,21 @@ export default function Wallpapers() {
       <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal">
         Donate via Paypal
       </LinkButton>
+      <Container marginY="0.75rem">
+        <Input
+          placeholder="Search for a wallpaper"
+          before={<Input.Icon icon="solid-search" />}
+          onChange={(e) => {
+            if (e.currentTarget.value === '') {
+              setWallpapers(_wallpapers);
+            }
+            const results = [..._wallpapers].filter((element) => {
+              return element.title.includes(e.currentTarget.value);
+            });
+            setWallpapers([...results]);
+          }}
+        />
+      </Container>
       <Container display="flex" flexWrap="wrap" justifyContent="flex-start" marginTop="1.5rem">
         {wallpapers.map((wallpaperGroup, groupIndex) => {
           const { wallpapers, slug, wallpaperSlug } = wallpaperGroup;
@@ -53,7 +70,10 @@ export default function Wallpapers() {
                   const downloadUrl = `/downloads/wallpapers/${slug}/${wallpaperSlug}_${screenType}_${meta.colorType}_${resolution}.jpg`;
                   const { colorType, hdRes } = meta;
                   return (
-                    <div key={wallpaperIndex} style={{ marginRight: '1.5rem', marginBottom: '1.5rem' }}>
+                    <div
+                      key={wallpaperIndex}
+                      style={{ marginRight: '1.5rem', marginBottom: '0.75rem', height: '100%' }}
+                    >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <Heading use="h6">{title}</Heading>
                         {colorType === 'P3' && (
