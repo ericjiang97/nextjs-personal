@@ -258,6 +258,64 @@ const wallpapers: WallpaperGroup[] = [
     ],
   },
   {
+    title: 'Himeji Castle',
+    slug: 'himeji-castle-1',
+    wallpaperSlug: 'HimejiCastle',
+    wallpapers: [
+      {
+        title: 'XDR',
+        meta: {
+          colorType: 'P3',
+          hdRes: '6K',
+        },
+        resolution: '6016x3384',
+        screenType: 'XDR',
+      },
+      {
+        title: 'iMac',
+        meta: {
+          colorType: 'P3',
+          hdRes: '5K',
+        },
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
+      },
+      {
+        title: 'MacBook Pro',
+        meta: {
+          colorType: 'P3',
+        },
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
+      },
+      {
+        title: '4K Display',
+        meta: {
+          colorType: 'SRGB',
+          hdRes: '4K',
+        },
+        resolution: '3840x2160',
+        screenType: 'Desktop',
+      },
+      {
+        title: '1440p Display',
+        meta: {
+          colorType: 'SRGB',
+        },
+        resolution: '2560x1440',
+        screenType: 'Desktop',
+      },
+      {
+        title: '1080p Display',
+        meta: {
+          colorType: 'SRGB',
+        },
+        resolution: '1920x1080',
+        screenType: 'Desktop',
+      },
+    ],
+  },
+  {
     title: 'Mt Takao 1',
     slug: 'mt-takao-1',
     wallpaperSlug: 'MtTakao',
