@@ -3,6 +3,7 @@ import PageLayout from '../containers/layouts/PageLayout';
 import { Image, Heading, Paragraph, Text, Container, Tag, Link, Input } from 'bumbag';
 import _wallpapers, { WallpaperGroup } from '../data/wallpapers';
 import LinkButton from '../components/buttons/LinkButton';
+import { wallpaperSearch } from '../utils/search';
 
 export default function Wallpapers() {
   const [wallpapers, setWallpapers] = useState<WallpaperGroup[]>(_wallpapers);
@@ -40,24 +41,29 @@ export default function Wallpapers() {
           placeholder="Search for a wallpaper"
           before={<Input.Icon icon="solid-search" />}
           onChange={(e) => {
-            if (e.currentTarget.value === '') {
-              setWallpapers(_wallpapers);
-            }
-            const results = [..._wallpapers].filter((element) => {
-              return element.title.includes(e.currentTarget.value);
-            });
-            setWallpapers([...results]);
+            setWallpapers(wallpaperSearch(e.currentTarget.value, _wallpapers));
           }}
         />
       </Container>
       <Container display="flex" flexWrap="wrap" justifyContent="flex-start" marginTop="1.5rem">
         {wallpapers.map((wallpaperGroup, groupIndex) => {
-          const { wallpapers, slug, wallpaperSlug } = wallpaperGroup;
+          const { wallpapers, slug, wallpaperSlug, tags } = wallpaperGroup;
           return (
             <Container flex={1} minWidth="280px" maxWidth="45%" marginX={0} key={groupIndex}>
               <Heading use="h4" fontWeight="400" marginY="0.75rem">
                 {wallpaperGroup.title}
               </Heading>
+              {tags && (
+                <Container marginY="0.5rem">
+                  {tags.map((tag, i) => {
+                    return (
+                      <Tag palette="success" variant="tint" marginX="0.15rem" key={i}>
+                        {tag}
+                      </Tag>
+                    );
+                  })}
+                </Container>
+              )}
               <Image
                 src={`/downloads/wallpapers/${slug}/preview.webp`}
                 alt={`${wallpaperGroup.title} preview`}
