@@ -4,7 +4,7 @@ export const wallpaperSearch = (searchTerm: string, items: WallpaperGroup[]) => 
   if (searchTerm === '') {
     return items;
   }
-  const results = [...items].filter((element) => {
+  const results = items.filter((element) => {
     if (element.tags?.includes(searchTerm)) {
       return true;
     }
