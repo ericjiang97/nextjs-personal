@@ -13,6 +13,7 @@ export interface WallpaperGroup {
   slug: string;
   wallpaperSlug: string;
   title: string;
+  tags?: string[];
 }
 
 const wallpapers: WallpaperGroup[] = [
@@ -20,6 +21,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Spring Skies',
     slug: 'spring-skies',
     wallpaperSlug: 'SpringSkies',
+    tags: ['spring', 'sky'],
     wallpapers: [
       {
         title: 'XDR',
@@ -87,6 +89,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Peach Blossom 1',
     slug: 'peach-blossom-1',
     wallpaperSlug: 'PeachBlossom',
+    tags: ['nature', 'flowers', 'spring'],
     wallpapers: [
       {
         title: 'XDR',
@@ -145,6 +148,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Fumushi Inari',
     slug: 'fumushi-inari-1',
     wallpaperSlug: 'FumushiInari',
+    tags: ['japan', 'torii', 'shrine', 'sunset'],
     wallpapers: [
       {
         title: 'XDR',
@@ -203,6 +207,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Great Wall',
     slug: 'great-wall-1',
     wallpaperSlug: 'GreatWall',
+    tags: ['china'],
     wallpapers: [
       {
         title: 'XDR',
@@ -261,6 +266,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Himeji Castle',
     slug: 'himeji-castle-1',
     wallpaperSlug: 'HimejiCastle',
+    tags: ['japan', 'castles'],
     wallpapers: [
       {
         title: 'XDR',
@@ -319,6 +325,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Mt Takao 1',
     slug: 'mt-takao-1',
     wallpaperSlug: 'MtTakao',
+    tags: ['japan', 'mountains', 'nature'],
     wallpapers: [
       {
         title: 'XDR',
@@ -377,6 +384,7 @@ const wallpapers: WallpaperGroup[] = [
     title: 'Hakone Ropeway',
     slug: 'hakone-ropeway-1',
     wallpaperSlug: 'HakoneRopeway',
+    tags: ['japan', 'mountains', 'nature'],
     wallpapers: [
       {
         title: 'XDR',
