@@ -498,7 +498,6 @@ const wallpapers: WallpaperGroup[] = [
       },
     ],
   },
-  ,
   {
     title: 'Deer of Nara',
     slug: 'deer-of-nara-1',
