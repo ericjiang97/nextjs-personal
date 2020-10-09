@@ -439,6 +439,125 @@ const wallpapers: WallpaperGroup[] = [
       },
     ],
   },
+  {
+    title: 'Japan Airlines B787 at Haneda Airport',
+    slug: 'japan-airlines-b787-1',
+    wallpaperSlug: 'JapanAirlinesB787',
+    tags: ['japan', 'jal', 'b787'],
+    wallpapers: [
+      {
+        title: 'XDR',
+        meta: {
+          colorType: 'P3',
+          hdRes: '6K',
+        },
+        resolution: '6016x3384',
+        screenType: 'XDR',
+      },
+      {
+        title: 'iMac',
+        meta: {
+          colorType: 'P3',
+          hdRes: '5K',
+        },
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
+      },
+      {
+        title: 'MacBook Pro',
+        meta: {
+          colorType: 'P3',
+        },
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
+      },
+      {
+        title: '4K Display',
+        meta: {
+          colorType: 'SRGB',
+          hdRes: '4K',
+        },
+        resolution: '3840x2160',
+        screenType: 'Desktop',
+      },
+      {
+        title: '1440p Display',
+        meta: {
+          colorType: 'SRGB',
+        },
+        resolution: '2560x1440',
+        screenType: 'Desktop',
+      },
+      {
+        title: '1080p Display',
+        meta: {
+          colorType: 'SRGB',
+        },
+        resolution: '1920x1080',
+        screenType: 'Desktop',
+      },
+    ],
+  },
+  ,
+  {
+    title: 'Deer of Nara',
+    slug: 'deer-of-nara-1',
+    wallpaperSlug: 'DeerNara',
+    tags: ['deer', 'nara', 'japan', 'nature', 'animals'],
+    wallpapers: [
+      {
+        title: 'XDR',
+        meta: {
+          colorType: 'P3',
+          hdRes: '6K',
+        },
+        resolution: '6016x3384',
+        screenType: 'XDR',
+      },
+      {
+        title: 'iMac',
+        meta: {
+          colorType: 'P3',
+          hdRes: '5K',
+        },
+        resolution: '5120x2880',
+        screenType: 'iMacPro',
+      },
+      {
+        title: 'MacBook Pro',
+        meta: {
+          colorType: 'P3',
+        },
+        resolution: '2560x1600',
+        screenType: 'MacBookPro',
+      },
+      {
+        title: '4K Display',
+        meta: {
+          colorType: 'SRGB',
+          hdRes: '4K',
+        },
+        resolution: '3840x2160',
+        screenType: 'Desktop',
+      },
+      {
+        title: '1440p Display',
+        meta: {
+          colorType: 'SRGB',
+        },
+        resolution: '2560x1440',
+        screenType: 'Desktop',
+      },
+      {
+        title: '1080p Display',
+        meta: {
+          colorType: 'SRGB',
+        },
+        resolution: '1920x1080',
+        screenType: 'Desktop',
+      },
+    ],
+  },
 ];
 
 export default wallpapers;
