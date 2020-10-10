@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Image, Heading, Paragraph, Text, Container, Tag, Link, Input } from 'bumbag';
+import { Image, Heading, Paragraph, Container, Tag, Link, Input, Icon, Tooltip } from 'bumbag';
 import _wallpapers, { WallpaperGroup } from '../data/wallpapers';
 import LinkButton from '../components/buttons/LinkButton';
 import { wallpaperSearch } from '../utils/search';
 
 export default function Wallpapers() {
   const [wallpapers, setWallpapers] = useState<WallpaperGroup[]>(_wallpapers);
-  const anchorProps = Link.useProps({ fontSize: '100' });
 
   return (
     <PageLayout
@@ -71,34 +70,67 @@ export default function Wallpapers() {
                 marginY="0.5rem"
               />
               <Container width="100%" display="flex" flexWrap="wrap">
-                {wallpapers.map((wallpaper, wallpaperIndex) => {
-                  const { title, meta, resolution, screenType } = wallpaper;
-                  const downloadUrl = `/downloads/wallpapers/${slug}/${wallpaperSlug}_${screenType}_${meta.colorType}_${resolution}.jpg`;
-                  const { colorType, hdRes } = meta;
+                {wallpapers.map((group, wallpaperIndex) => {
+                  const { groupName, colorSpace } = group;
                   return (
                     <div
                       key={wallpaperIndex}
-                      style={{ marginRight: '1.5rem', marginBottom: '0.75rem', height: '100%' }}
+                      style={{ marginRight: '1.5rem', marginBottom: '0.75rem', minWidth: 140, flex: 1 }}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <Heading use="h6">{title}</Heading>
-                        {colorType === 'P3' && (
-                          <Tag palette="primary" variant="tint" marginX="0.15rem">
-                            P3
-                          </Tag>
-                        )}
-                        {hdRes && (
-                          <Tag palette="secondary" variant="tint" marginX="0.15rem">
-                            {hdRes}
-                          </Tag>
-                        )}
-                      </div>
-                      <Container>
-                        <Text fontSize="100">{resolution}</Text>
+                      <Heading use="h6" fontWeight="normal" fontSize="2001">
+                        {groupName}
+                      </Heading>
+                      <Heading use="h7" fontWeight="normal" fontSize="100">{`${colorSpace} Color Space`}</Heading>
+                      <Container marginTop="0.5rem" display="flex" flexWrap="wrap">
+                        {group.wallpapers
+                          .sort((a, b) => {
+                            const aHeight = a.resolution.split('x')[1];
+                            const bHeight = b.resolution.split('x')[1];
+                            return Number(aHeight) - Number(bHeight);
+                          })
+                          .map((w, i) => {
+                            const { resolution, screenType, title } = w;
+                            const downloadUrl = `/downloads/wallpapers/${slug}/${wallpaperSlug}_${screenType}_${colorSpace}_${resolution}.jpg`;
+
+                            if (w.screenType === 'MacBookPro') {
+                              return (
+                                <Tooltip content={`${w.title} - ${w.resolution}`} marginRight="1rem" placement="bottom">
+                                  <Link href={downloadUrl} key={i}>
+                                    <Icon aria-label="macbookPro" icon="macbookPro" fontSize="400" />
+                                  </Link>
+                                </Tooltip>
+                              );
+                            }
+                            if (w.screenType === 'iMacPro') {
+                              return (
+                                <Tooltip content={`${w.title} - ${w.resolution}`} marginRight="1rem" placement="bottom">
+                                  <Link href={downloadUrl} key={i}>
+                                    <Icon aria-label="imacPro" icon="imacPro" fontSize="400" />
+                                  </Link>
+                                </Tooltip>
+                              );
+                            }
+                            if (w.screenType === 'XDR') {
+                              return (
+                                <Tooltip content={`${w.title} - ${w.resolution}`} marginRight="1rem" placement="bottom">
+                                  <Link href={downloadUrl} key={i}>
+                                    <Icon aria-label="xdr" icon="xdr" fontSize="400" />
+                                  </Link>
+                                </Tooltip>
+                              );
+                            }
+                            return (
+                              <Tooltip
+                                content={`${w.title} - ${w.resolution}`}
+                                placement="bottom"
+                                marginRight="0.6rem"
+                                key={i}
+                              >
+                                <Link href={downloadUrl}>{title}</Link>
+                              </Tooltip>
+                            );
+                          })}
                       </Container>
-                      <a href={downloadUrl} {...anchorProps} download>
-                        Download
-                      </a>
                     </div>
                   );
                 })}

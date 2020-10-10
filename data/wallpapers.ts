@@ -1,15 +1,17 @@
 interface Wallpaper {
-  meta: {
-    colorType: 'P3' | 'SRGB';
-    hdRes?: '4K' | '5K' | '6K';
-  };
   title: string;
   resolution: string;
   screenType: 'XDR' | 'iMacPro' | 'MacBookPro' | 'Desktop';
 }
 
-export interface WallpaperGroup {
+interface DeviceGroup {
+  groupName: 'Apple Devices' | 'Other Devices';
+  colorSpace: 'P3' | 'SRGB';
   wallpapers: Wallpaper[];
+}
+
+export interface WallpaperGroup {
+  wallpapers: DeviceGroup[];
   slug: string;
   wallpaperSlug: string;
   title: string;
@@ -24,64 +26,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['spring', 'sky'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
-      },
-      {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -92,55 +76,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['nature', 'flowers', 'spring'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -151,55 +126,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['japan', 'torii', 'shrine', 'sunset'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -210,55 +176,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['china'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -269,55 +226,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['japan', 'castles'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -328,55 +276,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['japan', 'mountains', 'nature'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -387,55 +326,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['japan', 'mountains', 'nature'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -446,55 +376,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['japan', 'jal', 'b787'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
@@ -505,55 +426,46 @@ const wallpapers: WallpaperGroup[] = [
     tags: ['deer', 'nara', 'japan', 'nature', 'animals'],
     wallpapers: [
       {
-        title: 'XDR',
-        meta: {
-          colorType: 'P3',
-          hdRes: '6K',
-        },
-        resolution: '6016x3384',
-        screenType: 'XDR',
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
       },
       {
-        title: 'iMac',
-        meta: {
-          colorType: 'P3',
-          hdRes: '5K',
-        },
-        resolution: '5120x2880',
-        screenType: 'iMacPro',
-      },
-      {
-        title: 'MacBook Pro',
-        meta: {
-          colorType: 'P3',
-        },
-        resolution: '2560x1600',
-        screenType: 'MacBookPro',
-      },
-      {
-        title: '4K Display',
-        meta: {
-          colorType: 'SRGB',
-          hdRes: '4K',
-        },
-        resolution: '3840x2160',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1440p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '2560x1440',
-        screenType: 'Desktop',
-      },
-      {
-        title: '1080p Display',
-        meta: {
-          colorType: 'SRGB',
-        },
-        resolution: '1920x1080',
-        screenType: 'Desktop',
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
       },
     ],
   },
