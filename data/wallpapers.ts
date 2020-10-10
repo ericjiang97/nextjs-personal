@@ -220,6 +220,56 @@ const wallpapers: WallpaperGroup[] = [
     ],
   },
   {
+    title: 'Imperial Guardian Lion',
+    slug: 'guardian-lion-1',
+    wallpaperSlug: 'ImperialGuardianLion',
+    tags: ['china', 'forbidden city'],
+    wallpapers: [
+      {
+        groupName: 'Apple Devices',
+        colorSpace: 'P3',
+        wallpapers: [
+          {
+            title: 'XDR',
+            resolution: '6016x3384',
+            screenType: 'XDR',
+          },
+          {
+            title: 'iMac',
+            resolution: '5120x2880',
+            screenType: 'iMacPro',
+          },
+          {
+            title: 'MacBook Pro',
+            resolution: '2560x1600',
+            screenType: 'MacBookPro',
+          },
+        ],
+      },
+      {
+        groupName: 'Other Devices',
+        colorSpace: 'SRGB',
+        wallpapers: [
+          {
+            title: '4K',
+            resolution: '3840x2160',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1440p',
+            resolution: '2560x1440',
+            screenType: 'Desktop',
+          },
+          {
+            title: '1080p',
+            resolution: '1920x1080',
+            screenType: 'Desktop',
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: 'Himeji Castle',
     slug: 'himeji-castle-1',
     wallpaperSlug: 'HimejiCastle',
