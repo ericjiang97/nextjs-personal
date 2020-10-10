@@ -11,7 +11,7 @@ const Nav = () => {
           <SideBar />
         </TopNav.Item>
         <TopNav.Item href="/" marginLeft="major-2">
-          <Icon aria-label="Calendar" icon="logo" fontSize="900" />
+          <Icon aria-label="logo" icon="logo" fontSize="900" />
         </TopNav.Item>
       </TopNav.Section>
       <TopNav.Section marginRight="major-2"></TopNav.Section>
