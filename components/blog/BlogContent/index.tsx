@@ -1,4 +1,4 @@
-import { Blockquote, Link, List, Paragraph, Table, TableBody, TableCell, TableHead } from 'bumbag';
+import { Blockquote, Heading, Link, List, Paragraph, Table, TableBody, TableCell, TableHead } from 'bumbag';
 import React from 'react';
 import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
@@ -32,6 +32,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
           tableHead: ({ children }) => <TableHead>{children}</TableHead>,
           tableBody: ({ children }) => <TableBody>{children}</TableBody>,
           tableCell: ({ children }) => <TableCell>{children}</TableCell>,
+          heading: ({ level, children }) => <Heading use={`h${level}`}>{children}</Heading>,
         }}
         escapeHtml
       />
