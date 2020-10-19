@@ -63,9 +63,11 @@ export async function getStaticProps() {
     return data;
   })(require.context('../../posts', true, /\.md$/));
 
-  const sortedPosts = posts.sort((a, b) => {
-    return moment(b.frontmatter.date) - moment(a.frontmatter.date);
-  });
+  const sortedPosts = posts
+    .sort((a, b) => {
+      return moment(b.frontmatter.date) - moment(a.frontmatter.date);
+    })
+    .filter((p) => !p.frontmatter.preview);
 
   return {
     props: {

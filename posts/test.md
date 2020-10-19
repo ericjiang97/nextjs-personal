@@ -5,6 +5,7 @@ date: '2016-06-16T16:16:16+1000'
 summary: Aliquam lobortis a quam ut vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, dui in vehicula ullamcorper, augue nisi elementum sapien, at euismod tellus turpis a ligula. Phasellus nec urna velit. Nam vel tempor erat. Proin vel metus mattis tellus vulputate pretium a a sem. Duis at sem aliquam, suscipit lorem ut, venenatis enim. In at dui tempus lacus auctor commodo id id nunc.
 tags: ['test']
 category: 'Test'
+preview: true
 ---
 
 This is a test article.
@@ -31,6 +32,8 @@ _italics_
 
 ## Language Tests
 
+The below are code blocks in the `python`, `typescript` and `markdown` languages.
+
 ```python
 # print Hello World!
 
@@ -38,7 +41,7 @@ if __name__ == "__main__":
   print('Hello World')
 ```
 
-```ts
+```typescript
 // Refer to https://tools.ietf.org/html/rfc6265.html#section-4.1 for grammar
 
 export default class CookieReader {
@@ -55,7 +58,13 @@ export default class CookieReader {
 }
 ```
 
-```md
+```jsx
+<Box>
+  <Text color="primary">Hello world</Text>
+</Box>
+```
+
+```markdown
 ## Hello
 
 ### Markdown

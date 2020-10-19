@@ -13,11 +13,11 @@ As part of my idea of giving back to society apart from volunteering and mentori
 
 The bulk of the donations went to as part of the Black Lives Matter movement, with $100 going to foundations which support the movement in the US and a further $100 going to Indigenous Literacy Foundation here in Australia.
 
-| Date            | Charity                        | Category        | Amount (A\$) |
-| --------------- | ------------------------------ | --------------- | ------------ |
-| 10 October 2019 | Leukemia Foundation            | Health          | \$20.00      |
-| 25 June 2020    | Supporting the Black community | Social Equality | \$100.00     |
-| 25 June 2020    | Indigenous Literacy Foundation | Social Equality | \$100.00     |
+| Date            | Charity                        | Category        | Amount (A$) |
+| --------------- | ------------------------------ | --------------- | ----------- |
+| 10 October 2019 | Leukemia Foundation            | Health          | $20.00      |
+| 25 June 2020    | Supporting the Black community | Social Equality | $100.00     |
+| 25 June 2020    | Indigenous Literacy Foundation | Social Equality | $100.00     |
 
 To track this further I've launched my philantrophy page to help breakdown these numbers over the past few years further you can check this page out at: [https://ericjiang.dev/philanthropy](https://ericjiang.dev/philanthropy).
 

@@ -73,9 +73,11 @@ export default class Rss extends React.Component {
       return data;
     })(require.context('../../posts', true, /\.md$/));
 
-    const sortedPosts = posts.sort((a, b) => {
-      return moment(b.frontmatter.date) - moment(a.frontmatter.date);
-    });
+    const sortedPosts = posts
+      .sort((a, b) => {
+        return moment(b.frontmatter.date) - moment(a.frontmatter.date);
+      })
+      .filter((p) => !p.frontmatter.preview);
 
     res.setHeader('Content-Type', 'text/xml');
     res.write(getRssXml(sortedPosts));

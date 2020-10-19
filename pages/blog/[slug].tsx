@@ -1,53 +1,67 @@
 import matter from 'gray-matter';
 import moment from 'moment';
 import glob from 'glob';
-import { Markdown } from 'bumbag-addon-markdown';
 
+import { Heading, Label, Paragraph, Container, Icon } from 'bumbag';
+
+import HeroBase from '../../components/core/HeroBase';
+import LinkButton from '../../components/buttons/LinkButton';
+import BlogContent from '../../components/blog/BlogContent';
+import { BlogCategoryLink } from '../../components/blog/BlogList';
 import PageLayout from '../../containers/layouts/PageLayout';
+import ShareModal from '../../components/modals/ShareModal';
 
 import { StaticBlogPost } from '../../types/StaticBlogPost';
-import ShareModal from '../../components/modals/ShareModal';
+
 import SITE_CONFIG from '../../config';
-import { Heading, Label, Paragraph, Container, Stack } from 'bumbag';
-import HeroBase from '../../components/core/HeroBase';
-import { BlogCategoryLink } from '../../components/blog/BlogList';
-import LinkButton from '../../components/buttons/LinkButton';
 
 export default function BlogTemplate(props: StaticBlogPost) {
   // Render data from `getStaticProps`
   const { frontmatter, slug } = props;
 
-  const { author, date, title, summary, category, coverImageUrl } = frontmatter;
+  const { author, date, title, summary, category, coverImageUrl, preview } = frontmatter;
   return (
     <PageLayout
       title={`Blog - ${title}`}
       ignoreHorizontalPadding={true}
       banner={
-        <HeroBase backgroundImage={`url(${coverImageUrl})`}>
-          <BlogCategoryLink category={category} />
-          <Heading use="h3">{title}</Heading>
-          <Container marginY="1rem">
-            <Label>By</Label>
-            <Paragraph>{author}</Paragraph>
-            <Label>Published on</Label>
-            <Paragraph>{moment(date).format('ddd Do MMM YYYY')}</Paragraph>
-          </Container>
-        </HeroBase>
+        <>
+          {preview && (
+            <Container
+              backgroundColor="primary"
+              color="white"
+              width="100vw"
+              breakpoint="widescreen"
+              paddingX="1rem"
+              paddingY="1.5rem"
+              display="flex"
+              alignItems="center"
+            >
+              <Icon icon="solid-info-circle" marginRight="1.5rem" />
+              <Paragraph>
+                This is a <strong>preview</strong> article used for testing and sharing purposes, please DO NOT share
+                this article until it has been published.
+              </Paragraph>
+            </Container>
+          )}
+          <HeroBase backgroundImage={`url(${coverImageUrl})`}>
+            <BlogCategoryLink category={category} />
+            <Heading use="h3">{title}</Heading>
+            <Container marginY="1rem">
+              <Label>By</Label>
+              <Paragraph>{author}</Paragraph>
+              <Label>Published on</Label>
+              <Paragraph>{moment(date).format('ddd Do MMM YYYY')}</Paragraph>
+            </Container>
+          </HeroBase>
+        </>
       }
       pageMeta={{
         description: summary,
         endpoint: `/blog/${slug}`,
       }}
     >
-      <Markdown
-        wrap={(children: any) => (
-          <Stack spacing="major-2" maxWidth="100%" width="100%">
-            {children}
-          </Stack>
-        )}
-        content={props.markdownBody}
-        elementProps={{ img: { maxWidth: '100%' }, p: { wordWrap: 'break-word' } }}
-      />
+      <BlogContent content={props.markdownBody} />
       <hr style={{ marginTop: '1rem', marginBottom: '0.75rem' }} />
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={title} slug={`/blog/${slug}`} />
