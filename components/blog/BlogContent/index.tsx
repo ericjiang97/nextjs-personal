@@ -22,7 +22,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
           ),
           blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
           link: ({ children, href }) => (
-            <Link href={href} wordBreak="break-all">
+            <Link href={href} wordBreak="break-word">
               {children}
             </Link>
           ),
@@ -32,7 +32,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
             </List>
           ),
           paragraph: ({ children }) => {
-            return <Paragraph>{children}</Paragraph>;
+            return <Paragraph marginY="1.25rem">{children}</Paragraph>;
           },
           table: ({ children }) => <Table>{children}</Table>,
           tableHead: ({ children }) => <TableHead>{children}</TableHead>,
