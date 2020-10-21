@@ -31,14 +31,14 @@ export default function BlogTemplate(props: StaticBlogPost) {
               backgroundColor="primary"
               color="white"
               width="100vw"
-              breakpoint="widescreen"
+              maxWidth="100vw"
               paddingX="1rem"
               paddingY="1.5rem"
               display="flex"
               alignItems="center"
             >
               <Icon icon="solid-info-circle" marginRight="1.5rem" />
-              <Paragraph>
+              <Paragraph marginTop="0">
                 This is a <strong>preview</strong> article used for testing and sharing purposes, please DO NOT share
                 this article until it has been published.
               </Paragraph>

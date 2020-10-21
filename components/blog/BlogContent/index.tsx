@@ -16,10 +16,11 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
         plugins={[gfm]}
         renderers={{
           code: ({ language, value }) => {
-            console.log({ language, value });
             return <HighlightedCode code={value} language={language} isBlock marginY="1rem" />;
           },
-          inlineCode: ({ language, value }) => <HighlightedCode code={value} language={language} />,
+          inlineCode: ({ language, value }) => (
+            <HighlightedCode code={value} language={language} isBlock={false} display="inline" />
+          ),
           blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
           link: ({ children, href }) => <Link href={href}>{children}</Link>,
           list: ({ ordered, children }) => (
@@ -27,7 +28,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
               {children}
             </List>
           ),
-          paragraph: ({ children }) => <Paragraph>{children}</Paragraph>,
+          paragraph: ({ children }) => {
+            return <Paragraph>{children}</Paragraph>;
+          },
           table: ({ children }) => <Table>{children}</Table>,
           tableHead: ({ children }) => <TableHead>{children}</TableHead>,
           tableBody: ({ children }) => <TableBody>{children}</TableBody>,

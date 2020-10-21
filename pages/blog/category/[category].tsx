@@ -71,9 +71,13 @@ export async function getStaticProps({ ...ctx }) {
     }
   }
 
-  const sortedPosts = filteredPosts.sort((postA, postB) => {
-    return moment(postB.frontmatter.date).isAfter(moment(postA.frontmatter.date)) ? 1 : -1;
-  });
+  const sortedPosts = filteredPosts
+    .sort((postA, postB) => {
+      return moment(postB.frontmatter.date).isAfter(moment(postA.frontmatter.date)) ? 1 : -1;
+    })
+    .filter((p) => {
+      return !p.frontmatter.preview && moment(p.frontmatter.date).isSameOrBefore(moment());
+    });
 
   return {
     props: { category, filteredPosts: sortedPosts },

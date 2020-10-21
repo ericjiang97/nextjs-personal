@@ -77,7 +77,7 @@ export default class Rss extends React.Component {
       .sort((a, b) => {
         return moment(b.frontmatter.date) - moment(a.frontmatter.date);
       })
-      .filter((p) => !p.frontmatter.preview);
+      .filter((p) => !p.frontmatter.preview && moment(p.frontmatter.date).isSameOrBefore(moment()));
 
     res.setHeader('Content-Type', 'text/xml');
     res.write(getRssXml(sortedPosts));
