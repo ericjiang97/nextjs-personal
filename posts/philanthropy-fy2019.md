@@ -7,7 +7,7 @@ tags: ['philanthropy']
 category: 'Philanthropy'
 ---
 
-As part of my idea of giving back to society apart from volunteering and mentoring, I'm starting to kick off some donations and charity work. This past financial year (FY2019-2020), I've donated over A$220 to charities. This is broken down into $200 matched by my employer and \$20 unmatched.
+As part of my idea of giving back to society apart from volunteering and mentoring, I'm starting to kick off some donations and charity work. This past financial year (FY2019-2020), I've donated over A$220 to charities. This is broken down into $200 matched by my employer and $20 unmatched.
 
 ![comparison vs FY2018](/images/blog/philanthropy-fy2019/comparison-vs-prev-fy.png)
 
