@@ -4,23 +4,30 @@ import moment from 'moment';
 import { RichText } from 'prismic-reactjs';
 
 import { Card, Heading, Image, Stack, Paragraph } from 'bumbag';
-import LinkButton from '../../../components/buttons/LinkButton';
-import HeroBase from '../../../components/core/HeroBase';
-import PageLayout from '../../../containers/layouts/PageLayout';
+import LinkButton from '../../components/buttons/LinkButton';
+import HeroBase from '../../components/core/HeroBase';
+import PageLayout from '../../containers/layouts/PageLayout';
 
-import { client } from '../../../config/prismic';
+import { client } from '../../config/prismic';
+
+const subtitle =
+  "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them.";
 
 export default function BlogHome(props: any) {
   return (
     <PageLayout
       title={'Blog'}
       pageMeta={{
-        description: 'Blog',
+        description: subtitle,
         endpoint: '/blog',
       }}
       banner={
         <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
           <Heading use="h3">Blog</Heading>
+          <Paragraph marginY="1rem">{subtitle}</Paragraph>
+          <LinkButton href="/blog/feed" iconBefore="solid-rss">
+            RSS Feed
+          </LinkButton>
         </HeroBase>
       }
     >
@@ -41,7 +48,7 @@ export default function BlogHome(props: any) {
                 <Paragraph>{RichText.asText(summary)}</Paragraph>
               </Card.Content>
               <Card.Footer>
-                <LinkButton href={`/v2/blog/${uid}`}>Read Article</LinkButton>
+                <LinkButton href={`/blog/${uid}`}>Read Article</LinkButton>
               </Card.Footer>
             </Card>
           );

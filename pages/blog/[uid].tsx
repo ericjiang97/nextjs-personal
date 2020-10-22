@@ -5,11 +5,11 @@ import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
 import { Container, Heading, Icon, Label, Paragraph } from 'bumbag';
 
-import HeroBase from '../../../components/core/HeroBase';
-import ShareModal from '../../../components/modals/ShareModal';
-import PageLayout from '../../../containers/layouts/PageLayout';
+import HeroBase from '../../components/core/HeroBase';
+import ShareModal from '../../components/modals/ShareModal';
+import PageLayout from '../../containers/layouts/PageLayout';
 
-import { client } from '../../../config/prismic';
+import { client } from '../../config/prismic';
 
 export default function Post({ data, uid }: { data: any; uid: string }) {
   const { title, author, preview, published_time } = data;

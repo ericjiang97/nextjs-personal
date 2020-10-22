@@ -1,25 +1,32 @@
 import React from 'react';
-import matter from 'gray-matter';
 import moment from 'moment';
+import Prismic from 'prismic-javascript';
 
-const blogPostsRssXml = (blogPosts) => {
+import { RichText } from 'prismic-reactjs';
+
+import { client } from '../../config/prismic';
+
+const blogPostsRssXml = (posts) => {
   let latestPostDate = '';
   let rssItemsXml = '';
-  blogPosts.forEach((post) => {
-    const postDate = Date.parse(post.frontmatter.date);
+  posts.results.forEach((post) => {
+    const { uid, data } = post;
+    const { title, published_time, summary } = data;
+
+    const postDate = Date.parse(published_time);
     if (!latestPostDate || postDate > Date.parse(latestPostDate)) {
-      latestPostDate = post.frontmatter.date;
+      latestPostDate = published_time;
     }
     rssItemsXml += `
       <item>
-        <title>${post.frontmatter.title}</title>
+        <title>${RichText.asText(title)}</title>
         <link>
-          ${`https://ericjiang.dev/blog/${post.slug}`}
+          ${`https://ericjiang.dev/blog/${uid}`}
         </link>
 
-        <pubDate>${moment(post.frontmatter.date).toISOString()}</pubDate>
+        <pubDate>${moment(published_time).toISOString()}</pubDate>
         <description>
-        <![CDATA[${post.frontmatter.summary}]]>
+        <![CDATA[${RichText.asText(summary)}]]>
         </description>
     </item>`;
   });
@@ -50,37 +57,13 @@ export default class Rss extends React.Component {
     if (!res) {
       return;
     }
-    const posts = ((context) => {
-      const keys = context.keys();
-      const values = keys.map(context);
 
-      const data = keys.map((key, index) => {
-        // Create slug from filename
-        const filePath = key.split('/');
-        const slug = filePath[filePath.length - 1].replace('.md', '');
-
-        const value = values[index];
-
-        // Parse yaml metadata & markdownbody in document
-        const document = matter(value.default);
-
-        return {
-          frontmatter: document.data,
-          markdownBody: document.content,
-          slug,
-        };
-      });
-      return data;
-    })(require.context('../../posts', true, /\.md$/));
-
-    const sortedPosts = posts
-      .sort((a, b) => {
-        return moment(b.frontmatter.date) - moment(a.frontmatter.date);
-      })
-      .filter((p) => !p.frontmatter.preview && moment(p.frontmatter.date).isSameOrBefore(moment()));
+    const posts = await client.query(Prismic.Predicates.at('document.type', 'blog-post'), {
+      orderings: '[my.post.date desc]',
+    });
 
     res.setHeader('Content-Type', 'text/xml');
-    res.write(getRssXml(sortedPosts));
+    res.write(getRssXml(posts));
     res.end();
   }
 }
