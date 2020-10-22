@@ -7,7 +7,7 @@ export default function BlogHome(props: any) {
   return (
     <div>
       <ul>
-        {props.posts.results.map((post: { uid: string; post: { data: { title: string } } }) => (
+        {props.posts.results.map((post: { uid: string; data: any }) => (
           <li key={post.uid}>
             <Link href={`/v2/blog/${post.uid}`} as={`/v2/blog/${post.uid}`}>
               <a>{RichText.render(post.data.title)} </a>
