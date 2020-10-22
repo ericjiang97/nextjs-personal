@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
 import { Container, Heading, Icon, Label, Paragraph } from 'bumbag';
@@ -61,26 +60,10 @@ export default function Post({ data, uid }: { data: any; uid: string }) {
   );
 }
 
-export async function getStaticProps({ params }: { params: { uid: string } }) {
+export async function getServerSideProps({ params }: { params: { uid: string } }) {
   const { uid } = params;
   const { data } = await client.getByUID('blog-post', uid, {});
   return {
     props: { data, uid },
-  };
-}
-
-export async function getStaticPaths() {
-  const { results } = await client.query(Prismic.Predicates.at('document.type', 'blog-post'));
-
-  const paths = results.map((post) => {
-    return {
-      params: {
-        uid: post.uid,
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
   };
 }

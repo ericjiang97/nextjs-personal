@@ -58,7 +58,7 @@ export default function BlogHome(props: any) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const posts = await client.query(Prismic.Predicates.at('document.type', 'blog-post'), {
     orderings: '[my.blog-post.published_time desc]',
   });
