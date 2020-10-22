@@ -12,8 +12,9 @@ const Footer = () => {
               Copyright &copy; Eric Jiang 2016 - {new Date().getFullYear()}
             </Paragraph>
             <Paragraph marginTop="0">
-              Powered by <Link href="https://vercel.com/">Vercel</Link>. Built in{' '}
-              <Link href="https://nextjs.org/">NextJS</Link> with <Link href="https://bumbag.style/">Bumbag</Link>
+              Powered by <Link href="https://vercel.com/">Vercel</Link> &amp;{' '}
+              <Link href="https://prismic.io/">Prismic</Link>. Built in <Link href="https://nextjs.org/">NextJS</Link>{' '}
+              with <Link href="https://bumbag.style/">Bumbag</Link>
             </Paragraph>
             <Paragraph marginTop="0.5rem" marginBottom="0">
               Find the code on <Link href="https://github.com/ericjiang97/nextjs-personal">GitHub</Link>

@@ -20,28 +20,7 @@ interface ChildNavItem {
 export const navItems: NavItem[] = [
   {
     label: 'Blog',
-    childNav: [
-      {
-        href: '/blog',
-        label: 'Read All',
-      },
-      {
-        href: '/blog/category/Review',
-        label: 'Review',
-      },
-      {
-        href: '/blog/category/Careers',
-        label: 'Careers',
-      },
-      {
-        href: '/blog/category/Technology',
-        label: 'Technology',
-      },
-      {
-        href: '/blog/category/Development',
-        label: 'Development',
-      },
-    ],
+    href: '/blog',
   },
   {
     label: 'Philanthropy',
