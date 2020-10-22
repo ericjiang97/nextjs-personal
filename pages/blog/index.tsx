@@ -60,7 +60,7 @@ export default function BlogHome(props: any) {
 
 export async function getStaticProps() {
   const posts = await client.query(Prismic.Predicates.at('document.type', 'blog-post'), {
-    orderings: '[my.post.date desc]',
+    orderings: '[my.blog-post.published_time desc]',
   });
   return {
     props: {
