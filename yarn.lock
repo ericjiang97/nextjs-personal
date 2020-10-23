@@ -7135,6 +7135,14 @@ prismic-javascript@^3.0.2:
   dependencies:
     cross-fetch "^3.0.5"
 
+prismic-reactjs-custom@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/prismic-reactjs-custom/-/prismic-reactjs-custom-1.0.2.tgz#968417832a6d772ba1bb6d38cbf969f945078243"
+  integrity sha512-tQGxMVNxi9s3hGYh0mgGWaxZXQnijHvxYndcr1GQR8UQ+gElT6+upwCDewoek0GMjRuuT4RAD8DKlrzvMIRYqA==
+  dependencies:
+    prismic-helpers "^1.0.3"
+    prismic-richtext "^1.0.3"
+
 prismic-reactjs@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/prismic-reactjs/-/prismic-reactjs-1.3.3.tgz#1d49b016a85ac0baca3999e37dff44a7c70a4059"

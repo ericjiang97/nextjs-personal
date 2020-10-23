@@ -2,7 +2,8 @@ import React from 'react';
 import moment from 'moment';
 
 import { RichText } from 'prismic-reactjs';
-import { Container, Heading, Icon, Label, Paragraph } from 'bumbag';
+import { RichText as CustomRichText } from 'prismic-reactjs-custom';
+import { Container, Heading, Icon, Image, Label, Link, Paragraph } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -52,7 +53,20 @@ export default function Post({ data, uid }: { data: any; uid: string }) {
         endpoint: `/blog/${uid}`,
       }}
     >
-      <Container>{RichText.render(data.body)}</Container>
+      <Container maxWidth="100%">
+        <CustomRichText
+          richText={data.body}
+          paragraph={(props: any) => {
+            return <Paragraph marginY="1.25rem" {...props} />;
+          }}
+          image={(props: any) => {
+            return <Image width="100%" {...props} />;
+          }}
+          hyperlink={(props: any) => {
+            return <Link {...props} />;
+          }}
+        />
+      </Container>
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={RichText.asText(title)} slug={`/blog/${uid}`} />
       </Container>

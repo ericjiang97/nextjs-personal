@@ -37,7 +37,7 @@ export default function BlogHome(props: any) {
           const { title, published_time, summary } = data;
           return (
             <Card standalone key={uid}>
-              {data.banner && (
+              {data.banner.url && (
                 <Image src={data.banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
               )}
               <Card.Header flexDirection="column" alignItems="start">
