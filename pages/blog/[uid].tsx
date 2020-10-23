@@ -15,7 +15,7 @@ export default function Post({ data, uid }: { data: any; uid: string }) {
   const { title, author, preview, published_time } = data;
   return (
     <PageLayout
-      title={`Blog - ${title}`}
+      title={`Blog - ${RichText.asText(title)}`}
       ignoreHorizontalPadding={true}
       banner={
         <>
