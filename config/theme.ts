@@ -53,6 +53,7 @@ const IconConfig: IconThemeConfig = {
         faShare,
         faEdit,
         faBookOpen,
+        faInfoCircle,
       ],
       prefix: 'solid-',
       type: 'font-awesome',
