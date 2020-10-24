@@ -28,7 +28,7 @@ export default function Post({
   }
   const { title, author, preview, published_time, category } = data;
 
-  const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.id}` });
+  const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
 
   return (
     <PageLayout
@@ -57,7 +57,7 @@ export default function Post({
           <HeroBase backgroundImage={`url('${data.banner && data.banner.url}')`}>
             <Container>
               <Container marginY="1rem">
-                <Tag use={Link} {...categoryLinkProps}>
+                <Tag use={Link} {...categoryLinkProps} color="white">
                   {category.data.category_name}
                 </Tag>
               </Container>
