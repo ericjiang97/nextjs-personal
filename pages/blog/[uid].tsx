@@ -3,16 +3,33 @@ import moment from 'moment';
 
 import { RichText } from 'prismic-reactjs';
 import { RichText as CustomRichText } from 'prismic-reactjs-custom';
-import { Container, Heading, Icon, Image, Label, Link, Paragraph } from 'bumbag';
+import { Container, Heading, Icon, Image, Label, Link, Paragraph, Tag } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
+
 import PageLayout from '../../containers/layouts/PageLayout';
+import Custom404 from '../404';
 
 import { client } from '../../config/prismic';
+import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 
-export default function Post({ data, uid }: { data: any; uid: string }) {
-  const { title, author, preview, published_time } = data;
+export default function Post({
+  uid,
+  data,
+  error,
+}: {
+  uid: string;
+  data: PrismicBlogPost<PrismicBlogCategory>;
+  error: string;
+}) {
+  if (error) {
+    return <Custom404 />;
+  }
+  const { title, author, preview, published_time, category } = data;
+
+  const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.id}` });
+
   return (
     <PageLayout
       title={`Blog - ${RichText.asText(title)}`}
@@ -37,14 +54,20 @@ export default function Post({ data, uid }: { data: any; uid: string }) {
               </Paragraph>
             </Container>
           )}
-          <HeroBase backgroundImage={`url('${data.banner.url}')`}>
-            <Heading use="h3">{RichText.asText(title)}</Heading>
-            <Container marginY="1rem"></Container>
-            <Container marginY="1rem">
-              <Label>By</Label>
-              <Paragraph>{RichText.asText(author)}</Paragraph>
-              <Label>Published on</Label>
-              <Paragraph>{moment(published_time).format('ddd Do MMM YYYY')}</Paragraph>
+          <HeroBase backgroundImage={`url('${data.banner && data.banner.url}')`}>
+            <Container>
+              <Container marginY="1rem">
+                <Tag use={Link} {...categoryLinkProps}>
+                  {category.data.category_name}
+                </Tag>
+              </Container>
+              <Heading use="h3">{RichText.asText(title)}</Heading>
+              <Container marginY="1.5rem">
+                <Label>By</Label>
+                <Paragraph>{RichText.asText(author)}</Paragraph>
+                <Label>Published on</Label>
+                <Paragraph>{moment(published_time).format('ddd Do MMM YYYY')}</Paragraph>
+              </Container>
             </Container>
           </HeroBase>
         </>
@@ -76,8 +99,17 @@ export default function Post({ data, uid }: { data: any; uid: string }) {
 
 export async function getServerSideProps({ params }: { params: { uid: string } }) {
   const { uid } = params;
-  const { data } = await client.getByUID('blog-post', uid, {});
+  const blogPost = await client.getByUID('blog-post', uid, { fetchLinks: ['category.uid', 'category.category_name'] });
+  if (!blogPost) {
+    return {
+      props: {
+        error: 'Not Found',
+      },
+    };
+  }
+  const data = blogPost.data as PrismicBlogPost<PrismicBlogCategory>;
+
   return {
-    props: { data, uid },
+    props: { uid, data },
   };
 }
