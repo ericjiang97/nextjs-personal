@@ -1,6 +1,9 @@
+import { TopNavProps } from 'bumbag';
+
 export interface PageLayoutProps extends PageInnerProps {
   isExperimental?: boolean;
   ignoreHorizontalPadding?: boolean;
+  navProps?: TopNavProps;
 }
 
 export interface PageMeta {

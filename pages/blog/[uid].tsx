@@ -13,6 +13,7 @@ import Custom404 from '../404';
 
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
+import HighlightedCode from 'bumbag-addon-highlighted-code';
 
 export default function Post({
   uid,
@@ -87,6 +88,9 @@ export default function Post({
           }}
           hyperlink={(props: any) => {
             return <Link {...props} />;
+          }}
+          preformatted={(props: any) => {
+            return <HighlightedCode code={props.children} maxWidth="100%" {...props} />;
           }}
         />
       </Container>

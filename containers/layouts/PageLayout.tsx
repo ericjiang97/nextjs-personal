@@ -49,12 +49,13 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   banner,
   children,
   pageMeta,
+  navProps,
   isChildrenPadded = true,
   ...props
 }) => {
   const titleString = `${title} - Eric Jiang`;
   return (
-    <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true} sticky>
+    <PageWithHeader header={<Nav {...navProps} />} display="flex" flexDirection="column" defaultIsVisible={true} sticky>
       <PageChildren
         title={titleString}
         banner={banner}

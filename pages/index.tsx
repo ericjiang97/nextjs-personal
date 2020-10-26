@@ -33,7 +33,6 @@ class Home extends React.Component<Props> {
         title="Home"
         banner={
           <HeroBase backgroundImage={heroBackground}>
-            {' '}
             <Heading use="h3" shrinkBelow="tablet">
               G'day, I'm Eric.
             </Heading>
