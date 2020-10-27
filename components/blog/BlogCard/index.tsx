@@ -7,12 +7,18 @@ import { Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
 import BlogCardProps from './types';
 import LinkButton from '../../buttons/LinkButton';
 
-const BlogCard: React.FC<BlogCardProps> = ({ blogPostContent: blogContent, uid, cardProps, showSummary = true }) => {
+const BlogCard: React.FC<BlogCardProps> = ({
+  blogPostContent: blogContent,
+  uid,
+  cardProps,
+  showSummary = true,
+  showCoverImage = true,
+}) => {
   const { banner, title, summary, published_time, category } = blogContent;
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
   return (
     <Card {...cardProps} minWidth={280} standalone>
-      {banner && banner.url && (
+      {showCoverImage && banner && banner.url && (
         <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
       )}
       <Card.Header flexDirection="column" alignItems="start">
