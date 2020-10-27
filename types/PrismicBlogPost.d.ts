@@ -5,7 +5,7 @@ export interface PrismicBlogPost<T> {
   author: RichTextBlock[];
   preview: boolean;
   published_time: string;
-  summary: string;
+  summary: RichTextBlock[];
   body: any;
   banner?: {
     dimensions: { width: number; height: number };

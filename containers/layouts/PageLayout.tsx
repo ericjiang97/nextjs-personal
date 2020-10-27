@@ -38,7 +38,13 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
       </Head>
       {banner && banner}
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh', flexWrap: 'wrap' }}>
-        {isChildrenPadded ? <PageContent style={{ flex: 1 }}>{children}</PageContent> : children}
+        {isChildrenPadded ? (
+          <PageContent style={{ flex: 1 }} breakpoint="desktop">
+            {children}
+          </PageContent>
+        ) : (
+          children
+        )}
       </div>
     </>
   );
@@ -49,12 +55,13 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   banner,
   children,
   pageMeta,
+  navProps,
   isChildrenPadded = true,
   ...props
 }) => {
   const titleString = `${title} - Eric Jiang`;
   return (
-    <PageWithHeader header={<Nav />} display="flex" flexDirection="column" defaultIsVisible={true} sticky>
+    <PageWithHeader header={<Nav {...navProps} />} display="flex" flexDirection="column" defaultIsVisible={true} sticky>
       <PageChildren
         title={titleString}
         banner={banner}

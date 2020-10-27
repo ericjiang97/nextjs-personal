@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { TopNav, Icon } from 'bumbag';
+import { TopNav, Icon, TopNavProps } from 'bumbag';
 import SideBar from './SideBar';
 
-const Nav = () => {
+const Nav = ({ navProps }: { navProps?: TopNavProps }) => {
   return (
-    <TopNav>
+    <TopNav {...navProps}>
       <TopNav.Section>
         <TopNav.Item marginLeft="minor-1">
           <SideBar />

@@ -17,6 +17,8 @@ import {
   faExpand,
   faTimes,
   faSearch,
+  faFeatherAlt,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faBootstrap,
@@ -54,6 +56,8 @@ const IconConfig: IconThemeConfig = {
         faEdit,
         faBookOpen,
         faInfoCircle,
+        faFeatherAlt,
+        faPaperPlane,
       ],
       prefix: 'solid-',
       type: 'font-awesome',
