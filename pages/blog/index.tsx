@@ -7,7 +7,7 @@ import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPos
 import BlogCard from '../../components/blog/BlogCard';
 import { getBlogPostContent } from '../../utils/prismic';
 
-const subtitle =
+export const BlogSubtitle =
   "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them.";
 
 export default function BlogHome(props: any) {
@@ -15,13 +15,13 @@ export default function BlogHome(props: any) {
     <PageLayout
       title={'Blog'}
       pageMeta={{
-        description: subtitle,
+        description: BlogSubtitle,
         endpoint: '/blog',
       }}
       banner={
         <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
           <Heading use="h3">Blog</Heading>
-          <Paragraph marginY="1rem">{subtitle}</Paragraph>
+          <Paragraph marginY="1rem">{BlogSubtitle}</Paragraph>
           <LinkButton href="/blog/feed" iconBefore="solid-rss">
             RSS Feed
           </LinkButton>

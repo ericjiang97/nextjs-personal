@@ -1,10 +1,14 @@
 import React from 'react';
 import { NextPageContext } from 'next';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Stack, Card, Set, Heading, Paragraph } from 'bumbag';
+import { Stack, Card, Set, Heading, Paragraph, Container, Icon } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
 import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
+import { getBlogPostContent } from '../utils/prismic';
+import { PrismicBlogCategory, PrismicBlogPost } from '../types/PrismicBlogPost';
+import BlogCard from '../components/blog/BlogCard';
+import { BlogSubtitle } from './blog';
 
 interface Props {
   _userAgent: string;
@@ -19,11 +23,12 @@ class Home extends React.Component<Props> {
     } else {
       userAgent = navigator.userAgent;
     }
-    return { _userAgent: userAgent, browserDetails: getBrowserDetails(userAgent) };
+    const posts = await getBlogPostContent();
+    return { posts, _userAgent: userAgent, browserDetails: getBrowserDetails(userAgent) };
   }
 
   render() {
-    const { browserDetails } = this.props;
+    const { browserDetails, posts } = this.props;
     const heroBackground =
       browserDetails.browser === 'Safari'
         ? 'url(/images/eric-jiang-bitbybit.jpeg)'
@@ -77,6 +82,25 @@ class Home extends React.Component<Props> {
             Warning, there will be many memes inside my talks.
           </Card>
         </Stack>
+        <Container display="flex" flexWrap="wrap" marginTop="1rem">
+          <Container flex="1" paddingX="0.5rem" paddingY="1rem" minWidth={300}>
+            <Heading use="h3">
+              <Icon icon="solid-feather-alt" marginRight="0.5rem" />
+              Latest Posts
+            </Heading>
+            <Paragraph marginTop="1.5rem" marginBottom="1rem">
+              {BlogSubtitle}
+            </Paragraph>
+            <LinkButton href="/blog">Read More</LinkButton>
+          </Container>
+          <Container flex="2" minWidth={300}>
+            {posts.results.slice(0, 3).map((post: { uid: string; data: any }) => {
+              const { uid, data } = post;
+              const blogPostData = data as PrismicBlogPost<PrismicBlogCategory>;
+              return <BlogCard blogPostContent={blogPostData} uid={uid} cardProps={{ marginY: '1rem' }} />;
+            })}
+          </Container>
+        </Container>
       </PageLayout>
     );
   }
