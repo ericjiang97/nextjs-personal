@@ -6,4 +6,5 @@ export default interface BlogCardProps {
   cardProps?: CardProps;
   blogPostContent: PrismicBlogPost<PrismicBlogCategory>;
   showSummary?: boolean;
+  showCoverImage?: boolean;
 }
