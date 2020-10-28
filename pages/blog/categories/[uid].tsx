@@ -29,9 +29,10 @@ export default function BlogHome(props: any) {
         <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
           <Heading use="h3">{title}</Heading>
           <Paragraph marginY="1rem">{subtitle}</Paragraph>
-          <LinkButton href="/blog/feed" iconBefore="solid-rss">
+          <LinkButton href="/blog/feed.xml" iconBefore="solid-rss">
             RSS Feed
           </LinkButton>
+          <LinkButton href="/blog">Back to Blog</LinkButton>
         </HeroBase>
       }
     >
