@@ -40,7 +40,7 @@ export default function BlogHome(props: BlogHomeProps) {
         <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
           <Heading use="h3">Blog</Heading>
           <Paragraph marginY="1rem">{BlogSubtitle}</Paragraph>
-          <LinkButton href="/blog/feed" iconBefore="solid-rss">
+          <LinkButton href="/blog/feed.xml" iconBefore="solid-rss">
             RSS Feed
           </LinkButton>
         </HeroBase>
