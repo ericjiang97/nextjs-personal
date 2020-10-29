@@ -6,7 +6,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import Head from 'next/head';
 import theme from '../config/theme';
 import Footer from '../components/core/layout/Footer';
-import { NextWebVitalsMetrics } from '../types/Next.canary';
 
 const RootComponent: React.FC = ({ children }) => {
   return (
@@ -50,17 +49,6 @@ class MyApp extends App {
       </BumbagProvider>
     );
   }
-}
-
-export function reportWebVitals(metric: NextWebVitalsMetrics) {
-  const { id, name, label, value } = metric;
-  window.gtag('send', 'event', {
-    eventCategory: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
-    eventAction: name,
-    eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
-    eventLabel: id, // id unique to current page load
-    nonInteraction: true, // avoids affecting bounce rate.
-  });
 }
 
 export default MyApp;
