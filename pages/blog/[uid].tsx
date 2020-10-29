@@ -14,6 +14,7 @@ import Custom404 from '../404';
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 import HighlightedCode from 'bumbag-addon-highlighted-code';
+import { getBlogPostContent } from '../../utils/prismic';
 
 export default function Post({
   uid,
@@ -90,7 +91,16 @@ export default function Post({
             return <Link {...props} />;
           }}
           preformatted={(props: any) => {
-            return <HighlightedCode code={props.children} maxWidth="100%" {...props} />;
+            return (
+              <HighlightedCode
+                {...props}
+                style={{
+                  maxWidth: '100%',
+                  overflowY: 'scroll',
+                }}
+                code={props.children}
+              ></HighlightedCode>
+            );
           }}
         />
       </Container>
@@ -101,8 +111,9 @@ export default function Post({
   );
 }
 
-export async function getServerSideProps({ params }: { params: { uid: string } }) {
+export async function getStaticProps({ params }: { params: { uid: string } }) {
   const { uid } = params;
+  console.log(uid);
   const blogPost = await client.getByUID('blog-post', uid, { fetchLinks: ['category.uid', 'category.category_name'] });
   if (!blogPost) {
     return {
@@ -115,5 +126,18 @@ export async function getServerSideProps({ params }: { params: { uid: string } }
 
   return {
     props: { uid, data },
+    revalidate: 1,
+  };
+}
+
+export async function getStaticPaths() {
+  const blogPosts = await getBlogPostContent();
+  const paths = blogPosts.results.map((post) => {
+    return { params: { uid: post.uid } };
+  });
+  console.log(paths);
+  return {
+    paths,
+    fallback: false,
   };
 }
