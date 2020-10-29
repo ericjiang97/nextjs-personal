@@ -15,5 +15,6 @@ export const getBlogPostContent = async (additionalQuery?: string[]) => {
   return await client.query(prismicQuery, {
     fetchLinks: ['category.uid', 'category.category_name'],
     orderings: '[my.blog-post.published_time desc]',
+    pageSize: 100,
   });
 };
