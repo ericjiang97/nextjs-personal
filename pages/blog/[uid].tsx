@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import { RichText } from 'prismic-reactjs';
 import { RichText as CustomRichText } from 'prismic-reactjs-custom';
-import { Container, Heading, Icon, Image, Label, Link, Paragraph, Tag } from 'bumbag';
+import { Container, Heading, Image, Icon, Label, Link, Paragraph, Tag } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -13,7 +13,6 @@ import Custom404 from '../404';
 
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
-import HighlightedCode from 'bumbag-addon-highlighted-code';
 import { getBlogPostContent } from '../../utils/prismic';
 
 export default function Post({
@@ -31,7 +30,6 @@ export default function Post({
   const { title, author, preview, published_time, category } = data;
 
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
-
   return (
     <PageLayout
       title={`Blog - ${RichText.asText(title)}`}
@@ -78,28 +76,28 @@ export default function Post({
         endpoint: `/blog/${uid}`,
       }}
     >
-      <Container maxWidth="100%">
+      <Container maxWidth="80vw">
         <CustomRichText
           richText={data.body}
           paragraph={(props: any) => {
             return <Paragraph marginY="1.25rem" {...props} />;
           }}
           image={(props: any) => {
-            return <Image width="100%" {...props} />;
+            return <Image width="100%" src={props.src} alt={props.alt} {...props} />;
           }}
           hyperlink={(props: any) => {
             return <Link {...props} />;
           }}
           preformatted={(props: any) => {
             return (
-              <HighlightedCode
-                {...props}
+              <pre
                 style={{
-                  maxWidth: '100%',
+                  maxWidth: '80vw',
                   overflowY: 'scroll',
                 }}
-                code={props.children}
-              ></HighlightedCode>
+              >
+                {props.children}
+              </pre>
             );
           }}
         />
@@ -135,7 +133,6 @@ export async function getStaticPaths() {
   const paths = blogPosts.results.map((post) => {
     return { params: { uid: post.uid } };
   });
-  console.log(paths);
   return {
     paths,
     fallback: 'blocking',
