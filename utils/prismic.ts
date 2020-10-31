@@ -4,10 +4,14 @@
 import Prismic from 'prismic-javascript';
 import { client } from '../config/prismic';
 
-export const getBlogPostContent = async (additionalQuery?: string[]) => {
+export const getBlogPostContent = async (
+  additionalQuery?: string[],
+  showPreview: boolean = false,
+  maxResultSize: number = 100,
+) => {
   const prismicQuery = [
     Prismic.Predicates.at('document.type', 'blog-post'),
-    Prismic.Predicates.at('my.blog-post.preview', false),
+    Prismic.Predicates.at('my.blog-post.preview', showPreview),
   ];
   if (additionalQuery) {
     prismicQuery.push(...additionalQuery);
@@ -15,6 +19,6 @@ export const getBlogPostContent = async (additionalQuery?: string[]) => {
   return await client.query(prismicQuery, {
     fetchLinks: ['category.uid', 'category.category_name'],
     orderings: '[my.blog-post.published_time desc]',
-    pageSize: 100,
+    pageSize: maxResultSize,
   });
 };

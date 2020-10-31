@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
+import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
 import { RichText as CustomRichText } from 'prismic-reactjs-custom';
-import { Container, Heading, Image, Icon, Label, Link, Paragraph, Tag } from 'bumbag';
+import { Container, Heading, Image, Icon, Label, Link, Paragraph, Tag, Divider } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -14,15 +15,18 @@ import Custom404 from '../404';
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 import { getBlogPostContent } from '../../utils/prismic';
+import BlogCard from '../../components/blog/BlogCard';
 
 export default function Post({
   uid,
   data,
   error,
+  similarPosts,
 }: {
   uid: string;
   data: PrismicBlogPost<PrismicBlogCategory>;
   error: string;
+  similarPosts: { results: { uid: string; data: PrismicBlogPost<PrismicBlogCategory> }[] };
 }) {
   if (error) {
     return <Custom404 />;
@@ -105,6 +109,13 @@ export default function Post({
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={RichText.asText(title)} slug={`/blog/${uid}`} />
       </Container>
+      <Divider />
+      <Container marginY="1.25rem">
+        <Heading use="h5">Similar Posts</Heading>
+        {similarPosts.results.map((post) => {
+          return <BlogCard blogPostContent={post.data} uid={post.uid} showCoverImage={false} />;
+        })}
+      </Container>
     </PageLayout>
   );
 }
@@ -122,8 +133,13 @@ export async function getStaticProps({ params }: { params: { uid: string } }) {
   }
   const data = blogPost.data as PrismicBlogPost<PrismicBlogCategory>;
 
+  const similarPosts = await getBlogPostContent(
+    [Prismic.Predicates.at('my.blog-post.category', data.category.id)],
+    false,
+    3,
+  );
   return {
-    props: { uid, data },
+    props: { uid, data, similarPosts },
     revalidate: 1,
   };
 }
