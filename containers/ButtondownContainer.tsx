@@ -60,12 +60,12 @@ const ButtondownContainer = () => {
       <Container breakpoint="max-mobile">
         <Container>
           <Heading use="h5">Subscribe to my newsletter</Heading>
-        </Container>
-        <Container marginY="1rem">
-          I also (occassionally) write some newsletters. Subscribe below for my newsletter.
+          <Paragraph marginTop="0.75rem">
+            I also (occassionally) write some newsletters. Subscribe below for my newsletter.
+          </Paragraph>
         </Container>
         {!attemptedSubmit && (
-          <>
+          <Container marginTop="1rem">
             <InputField
               label="Your Email"
               type="email"
@@ -83,7 +83,7 @@ const ButtondownContainer = () => {
                 Powered by Buttondown
               </Link>
             </Container>
-          </>
+          </Container>
         )}
         {isSubmitting && (
           <Container
