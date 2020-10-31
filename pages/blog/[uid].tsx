@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
+import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
 import { RichText as CustomRichText } from 'prismic-reactjs-custom';
-import { Container, Heading, Icon, Image, Label, Link, Paragraph, Tag } from 'bumbag';
+import { Container, Heading, Image, Icon, Label, Link, Paragraph, Tag, Divider } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -13,17 +14,19 @@ import Custom404 from '../404';
 
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
-import HighlightedCode from 'bumbag-addon-highlighted-code';
 import { getBlogPostContent } from '../../utils/prismic';
+import BlogCard from '../../components/blog/BlogCard';
 
 export default function Post({
   uid,
   data,
   error,
+  similarPosts,
 }: {
   uid: string;
   data: PrismicBlogPost<PrismicBlogCategory>;
   error: string;
+  similarPosts: { results: { uid: string; data: PrismicBlogPost<PrismicBlogCategory> }[] };
 }) {
   if (error) {
     return <Custom404 />;
@@ -31,7 +34,6 @@ export default function Post({
   const { title, author, preview, published_time, category } = data;
 
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
-
   return (
     <PageLayout
       title={`Blog - ${RichText.asText(title)}`}
@@ -78,34 +80,41 @@ export default function Post({
         endpoint: `/blog/${uid}`,
       }}
     >
-      <Container maxWidth="100%">
+      <Container maxWidth="80vw">
         <CustomRichText
           richText={data.body}
           paragraph={(props: any) => {
             return <Paragraph marginY="1.25rem" {...props} />;
           }}
           image={(props: any) => {
-            return <Image width="100%" {...props} />;
+            return <Image width="100%" src={props.src} alt={props.alt} {...props} />;
           }}
           hyperlink={(props: any) => {
             return <Link {...props} />;
           }}
           preformatted={(props: any) => {
             return (
-              <HighlightedCode
-                {...props}
+              <pre
                 style={{
-                  maxWidth: '100%',
+                  maxWidth: '80vw',
                   overflowY: 'scroll',
                 }}
-                code={props.children}
-              ></HighlightedCode>
+              >
+                {props.children}
+              </pre>
             );
           }}
         />
       </Container>
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={RichText.asText(title)} slug={`/blog/${uid}`} />
+      </Container>
+      <Divider />
+      <Container marginY="1.25rem">
+        <Heading use="h5">Similar Posts</Heading>
+        {similarPosts.results.map((post) => {
+          return <BlogCard blogPostContent={post.data} uid={post.uid} showCoverImage={false} />;
+        })}
       </Container>
     </PageLayout>
   );
@@ -124,8 +133,13 @@ export async function getStaticProps({ params }: { params: { uid: string } }) {
   }
   const data = blogPost.data as PrismicBlogPost<PrismicBlogCategory>;
 
+  const similarPosts = await getBlogPostContent(
+    [Prismic.Predicates.at('my.blog-post.category', data.category.id)],
+    false,
+    3,
+  );
   return {
-    props: { uid, data },
+    props: { uid, data, similarPosts },
     revalidate: 1,
   };
 }
@@ -135,7 +149,6 @@ export async function getStaticPaths() {
   const paths = blogPosts.results.map((post) => {
     return { params: { uid: post.uid } };
   });
-  console.log(paths);
   return {
     paths,
     fallback: 'blocking',

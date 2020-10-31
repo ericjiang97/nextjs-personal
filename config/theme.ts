@@ -129,11 +129,11 @@ const theme: ThemeConfig = {
     info: '#1e67d5',
     modes: {
       dark: {
-        background: '#0C2D48',
+        background: '#214252',
         text: 'white',
       },
     },
-    primary: '#145DA0',
+    primary: '#30475e',
     success: '#0a7d33',
     text: '#212121',
     warning: '#ed9c22',

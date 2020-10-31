@@ -52,13 +52,12 @@ const ButtondownContainer = () => {
       backgroundColor="primary400"
       color="white"
       minWidth="100%"
-      breakpoint="widescreen"
       display="flex"
       flexDirection="column"
       padding="1rem"
       paddingTop="2rem"
     >
-      <Container>
+      <Container breakpoint="max-mobile">
         <Container>
           <Heading use="h5">Subscribe to my newsletter</Heading>
         </Container>
