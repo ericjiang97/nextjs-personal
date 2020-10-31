@@ -134,7 +134,7 @@ export async function getStaticProps({ params }: { params: { uid: string } }) {
   const data = blogPost.data as PrismicBlogPost<PrismicBlogCategory>;
 
   const similarPosts = await getBlogPostContent(
-    [Prismic.Predicates.at('my.blog-post.category', data.category.id)],
+    [Prismic.Predicates.at('my.blog-post.category', data.category.id), Prismic.Predicates.not('my.blog-post.uid', uid)],
     false,
     3,
   );
