@@ -12,7 +12,6 @@ import {
   styled,
   Image,
 } from 'bumbag';
-import SocialStack from '../components/SocialStack';
 
 const emailRegex = RegExp(
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -140,7 +139,6 @@ const Contact = () => {
               {!isSending && !hasSent && hasErrored && <Paragraph color="danger">An Error Occured</Paragraph>}
             </Card.Footer>
             <hr />
-            <SocialStack />
           </Card>
         </ContactChild>
         <ContactChild
