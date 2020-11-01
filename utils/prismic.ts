@@ -22,3 +22,14 @@ export const getBlogPostContent = async (
     pageSize: maxResultSize,
   });
 };
+
+export const searchPrismic = async (searchString: string, maxResultSize: number = 100) => {
+  const result = await client.query(
+    [Prismic.Predicates.at('document.type', 'blog-post'), Prismic.Predicates.fulltext('document', searchString)],
+    {
+      fetchLinks: ['category.uid', 'category.category_name'],
+      pageSize: maxResultSize,
+    },
+  );
+  return result;
+};

@@ -45,6 +45,7 @@ export default function BlogHome(props: BlogHomeProps) {
           </LinkButton>
         </HeroBase>
       }
+      hideSearch={false}
     >
       <Stack>
         {props.posts.results.map((post) => {

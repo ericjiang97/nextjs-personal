@@ -32,3 +32,13 @@ export interface PrismicBlogCategory {
   id: string;
   category_name: string;
 }
+
+export interface PrismicQueryResults<T> {
+  page: number;
+  results_per_page: number;
+  results_size: number;
+  total_pages: 1;
+  next_page: null;
+  prev_page: null;
+  results: T[];
+}
