@@ -59,7 +59,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
       }}
     >
       <Container maxWidth="80vw">
-        {data.body.map((slice: any, i) => {
+        {data.body.map((slice: any, i: number) => {
           switch (slice.slice_type) {
             case 'title_and_description_':
               return (
@@ -123,7 +123,6 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
                 />
               );
             case 'image_stack':
-              console.log(slice);
               return (
                 <Stack orientation="horizontal" width="100%" key={i}>
                   {slice.items.map((stackedImage: any, key: number) => {
