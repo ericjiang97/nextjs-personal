@@ -1,5 +1,7 @@
 import { RichTextBlock } from 'prismic-reactjs';
 
+export type PrismicDocumentTypes = 'blog-post'
+
 export interface PrismicBlogPost<T> {
   title: RichTextBlock[];
   author: RichTextBlock[];

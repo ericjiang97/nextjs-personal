@@ -23,6 +23,17 @@ export const getBlogPostContent = async (
   });
 };
 
+export const getAlbumContent = async (additionalQuery?: string[], maxResultSize: number = 100) => {
+  const prismicQuery = [Prismic.Predicates.at('document.type', 'album')];
+  if (additionalQuery) {
+    prismicQuery.push(...additionalQuery);
+  }
+  return await client.query(prismicQuery, {
+    orderings: '[my.album.published_time desc]',
+    pageSize: maxResultSize,
+  });
+};
+
 export const searchPrismic = async (searchString: string, maxResultSize: number = 100) => {
   const result = await client.query(
     [Prismic.Predicates.at('document.type', 'blog-post'), Prismic.Predicates.fulltext('document', searchString)],

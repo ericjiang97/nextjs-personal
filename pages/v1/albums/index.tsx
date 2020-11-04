@@ -1,13 +1,13 @@
 import React from 'react';
 import moment from 'moment';
 
-import PageLayout from '../../containers/layouts/PageLayout';
-import SITE_CONFIG from '../../config';
+import PageLayout from '../../../containers/layouts/PageLayout';
+import SITE_CONFIG from '../../../config';
 import { Container, Divider, Heading, Paragraph, Stack, Text } from 'bumbag';
-import LinkButton from '../../components/buttons/LinkButton';
-import HeroBase from '../../components/core/HeroBase';
+import LinkButton from '../../../components/buttons/LinkButton';
+import HeroBase from '../../../components/core/HeroBase';
 import { InferGetStaticPropsType } from 'next';
-import { FrontMatterAlbum } from '../../layouts/album-page';
+import { FrontMatterAlbum } from '../../../layouts/album-page';
 
 export const getStaticProps = async () => {
   // getposts & context from folder
