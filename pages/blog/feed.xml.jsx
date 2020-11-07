@@ -1,10 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
 
-import { client } from '../../config/prismic';
+import { getBlogPostContent } from '../../utils/prismic'
 
 const blogPostsRssXml = (posts) => {
   let latestPostDate = '';
@@ -58,9 +57,7 @@ export default class Rss extends React.Component {
       return;
     }
 
-    const posts = await client.query(Prismic.Predicates.at('document.type', 'blog-post'), {
-      orderings: '[my.post.date desc]',
-    });
+    const posts = await getBlogPostContent()
 
     res.setHeader('Content-Type', 'text/xml');
     res.write(getRssXml(posts));
