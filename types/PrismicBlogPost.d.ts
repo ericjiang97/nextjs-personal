@@ -1,5 +1,7 @@
 import { RichTextBlock } from 'prismic-reactjs';
 
+export type PrismicDocumentTypes = 'blog-post'
+
 export interface PrismicBlogPost<T> {
   title: RichTextBlock[];
   author: RichTextBlock[];
@@ -31,4 +33,14 @@ export interface PrismicBlogPostCategory<T> {
 export interface PrismicBlogCategory {
   id: string;
   category_name: string;
+}
+
+export interface PrismicQueryResults<T> {
+  page: number;
+  results_per_page: number;
+  results_size: number;
+  total_pages: 1;
+  next_page: null;
+  prev_page: null;
+  results: T[];
 }

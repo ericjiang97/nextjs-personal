@@ -4,6 +4,8 @@ export interface PageLayoutProps extends PageInnerProps {
   isExperimental?: boolean;
   ignoreHorizontalPadding?: boolean;
   navProps?: TopNavProps;
+  searchQuery?: string;
+  hideSearch?: boolean;
 }
 
 export interface PageMeta {
