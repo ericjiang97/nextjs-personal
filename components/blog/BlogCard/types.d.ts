@@ -7,4 +7,5 @@ export default interface BlogCardProps {
   blogPostContent: PrismicBlogPost<PrismicBlogCategory>;
   showSummary?: boolean;
   showCoverImage?: boolean;
+  maxWordCount?: number;
 }

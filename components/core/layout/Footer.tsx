@@ -45,7 +45,7 @@ const Footer = () => {
               Submit a bug
             </Link>
           </Paragraph>
-          <Stack width="50%" display="flex" justifyContent="space-evenly" marginTop="1rem">
+          <Stack flex={1} display="flex" justifyContent="space-evenly" marginTop="1rem">
             <Link href={SITE_CONFIG.social.LINKEDIN} color="white">
               <Icon aria-label="LinkedIn" icon="brand-linkedin" fontSize="400" />
             </Link>

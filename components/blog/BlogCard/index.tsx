@@ -13,9 +13,16 @@ const BlogCard: React.FC<BlogCardProps> = ({
   cardProps,
   showSummary = true,
   showCoverImage = true,
+  maxWordCount = undefined,
 }) => {
   const { banner, title, summary, published_time, category } = blogContent;
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
+
+  let displayedSummary = RichText.asText(summary);
+  if (maxWordCount) {
+    displayedSummary = `${RichText.asText(summary).split(' ').splice(0, maxWordCount).join(' ')}...`;
+  }
+
   return (
     <Card {...cardProps} minWidth={280} standalone>
       {showCoverImage && banner && banner.url && (
@@ -29,7 +36,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
       </Card.Header>
       <Card.Content>
         <Heading use="h7">{moment(published_time).format('ddd Do MMM YYYY')}</Heading>
-        {showSummary && <Paragraph>{RichText.asText(summary)}</Paragraph>}
+        {showSummary && <Paragraph>{displayedSummary}</Paragraph>}
       </Card.Content>
       <Card.Footer>
         <LinkButton href={`/blog/${uid}`}>Read Article</LinkButton>

@@ -3,15 +3,16 @@ import { Container, styled } from 'bumbag';
 
 export interface HeroBaseProps {
   backgroundImage?: string;
+  height?: string;
 }
 
-const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage }) => {
+const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage, height = '600px' }) => {
   const bgColor = '#09203399';
 
   const HeroBaseContainer = styled.div`
     width: 100%;
     max-width: 100%;
-    height: 600px;
+    height: ${height};
     background-image: linear-gradient(to top, ${bgColor}, ${bgColor}), ${backgroundImage};
     background-size: cover;
     background-position: center;
