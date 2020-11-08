@@ -1,6 +1,13 @@
 import { RichTextBlock } from 'prismic-reactjs';
 
-export type PrismicDocumentTypes = 'blog-post'
+export type PrismicDocumentTypes = 'blog-post';
+
+export interface PrismicFeaturedImage {
+  dimensions: { width: number; height: number };
+  alt: string;
+  copyright: string;
+  url: string;
+}
 
 export interface PrismicBlogPost<T> {
   title: RichTextBlock[];
@@ -9,12 +16,7 @@ export interface PrismicBlogPost<T> {
   published_time: string;
   summary: RichTextBlock[];
   body: any;
-  banner?: {
-    dimensions: { width: number; height: number };
-    alt: null;
-    copyright: null;
-    url: string;
-  };
+  banner?: PrismicFeaturedImage;
   category: PrismicBlogPostCategory<T>;
 }
 

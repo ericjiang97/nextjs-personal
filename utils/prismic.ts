@@ -29,7 +29,7 @@ export const getAlbumContent = async (additionalQuery?: string[], maxResultSize:
     prismicQuery.push(...additionalQuery);
   }
   return await client.query(prismicQuery, {
-    orderings: '[my.album.published_time desc]',
+    orderings: '[my.album.date_published desc]',
     pageSize: maxResultSize,
   });
 };

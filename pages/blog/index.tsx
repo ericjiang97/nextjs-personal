@@ -10,6 +10,7 @@ import PageLayout from '../../containers/layouts/PageLayout';
 import { getBlogPostContent } from '../../utils/prismic';
 
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
+import routes from '../../config/routes';
 
 export const BlogSubtitle =
   "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them.";
@@ -40,7 +41,7 @@ export default function BlogHome(props: BlogHomeProps) {
         <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
           <Heading use="h3">Blog</Heading>
           <Paragraph marginY="1rem">{BlogSubtitle}</Paragraph>
-          <LinkButton href="/blog/feed.xml" iconBefore="solid-rss">
+          <LinkButton href={routes.RSS_FEED} iconBefore="solid-rss">
             RSS Feed
           </LinkButton>
         </HeroBase>
