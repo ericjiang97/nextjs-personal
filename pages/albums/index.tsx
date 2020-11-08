@@ -33,7 +33,7 @@ export const getStaticProps = async () => {
 export default function AlbumHome(props: AlbumHomeProps) {
   return (
     <PageLayout
-      title={'Blog'}
+      title={'Albums - Home'}
       pageMeta={{
         endpoint: '/albums',
       }}
