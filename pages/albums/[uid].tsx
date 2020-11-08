@@ -29,7 +29,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
   const fullUri = `https://ericjiang.dev/albums/${uid}`;
   return (
     <PageLayout
-      title={`Blog - ${RichText.asText(title)}`}
+      title={`Albums - ${RichText.asText(title)}`}
       ignoreHorizontalPadding={true}
       banner={
         <>
@@ -56,6 +56,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
       }
       pageMeta={{
         endpoint: `/blog/${uid}`,
+        imageUrl: data.featured_image && data.featured_image.url,
       }}
     >
       <Container maxWidth="80vw">

@@ -31,7 +31,7 @@ export default function Post({
   if (error) {
     return <Custom404 />;
   }
-  const { title, author, preview, published_time, category } = data;
+  const { title, author, preview, published_time, category, summary } = data;
 
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
   return (
@@ -78,6 +78,8 @@ export default function Post({
       }
       pageMeta={{
         endpoint: `/blog/${uid}`,
+        description: RichText.asText(summary),
+        imageUrl: data.banner && data.banner.url,
       }}
     >
       <Container maxWidth="80vw">
