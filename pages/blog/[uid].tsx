@@ -3,8 +3,7 @@ import moment from 'moment';
 import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
-import { RichText as CustomRichText } from 'prismic-reactjs-custom';
-import { Container, Heading, Image, Icon, Label, Link, Paragraph, Tag, Divider } from 'bumbag';
+import { Container, Heading, Icon, Label, Link, Paragraph, Tag, Divider } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -16,6 +15,7 @@ import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 import { getBlogPostContent } from '../../utils/prismic';
 import BlogCard from '../../components/blog/BlogCard';
+import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
 
 export default function Post({
   uid,
@@ -83,30 +83,7 @@ export default function Post({
       }}
     >
       <Container maxWidth="80vw">
-        <CustomRichText
-          richText={data.body}
-          paragraph={(props: any) => {
-            return <Paragraph marginY="1.25rem" {...props} />;
-          }}
-          image={(props: any) => {
-            return <Image width="100%" src={props.src} alt={props.alt} {...props} />;
-          }}
-          hyperlink={(props: any) => {
-            return <Link {...props} />;
-          }}
-          preformatted={(props: any) => {
-            return (
-              <pre
-                style={{
-                  maxWidth: '80vw',
-                  overflowY: 'scroll',
-                }}
-              >
-                {props.children}
-              </pre>
-            );
-          }}
-        />
+        <PrismicRichTextWrapper richText={data.body} />
       </Container>
       <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
         <ShareModal title={RichText.asText(title)} slug={`/blog/${uid}`} />
