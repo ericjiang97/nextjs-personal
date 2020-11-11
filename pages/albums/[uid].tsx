@@ -93,7 +93,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
                   source: {
                     regular: image.gallery_image.url,
                   },
-                  caption: image.image_captions && image.image_captions[0] && image.image_captions[0].text,
+                  caption: image.image_captions && image.image_captions[0] ? image.image_captions[0].text : '',
                 };
               });
               return <GalleryModal images={galleryContent} key={i} />;
