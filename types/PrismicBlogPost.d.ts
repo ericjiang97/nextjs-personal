@@ -2,7 +2,7 @@ import { RichTextBlock } from 'prismic-reactjs';
 
 export type PrismicDocumentTypes = 'blog-post';
 
-export interface PrismicFeaturedImage {
+export interface PrismicImage {
   dimensions: { width: number; height: number };
   alt: string;
   copyright: string;
@@ -16,7 +16,7 @@ export interface PrismicBlogPost<T> {
   published_time: string;
   summary: RichTextBlock[];
   body: any;
-  banner?: PrismicFeaturedImage;
+  banner?: PrismicImage;
   category: PrismicBlogPostCategory<T>;
 }
 

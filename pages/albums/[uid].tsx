@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { RichText } from 'prismic-reactjs';
-import { RichText as CustomRichText } from 'prismic-reactjs-custom';
-import { Container, Heading, Image, Icon, Link, Paragraph, styled, Stack } from 'bumbag';
+import { Container, Heading, Icon, Paragraph, styled } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 
@@ -13,6 +12,8 @@ import { client } from '../../config/prismic';
 import { getAlbumContent } from '../../utils/prismic';
 import GalleryModal from '../../components/modals/GalleryModal';
 import LinkButton from '../../components/buttons/LinkButton';
+import StackedImageRow, { StackedImage } from '../../components/StackedImage';
+import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
 
 const HeadingContainer = styled.div`
   flex: 1;
@@ -57,6 +58,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
       pageMeta={{
         endpoint: `/blog/${uid}`,
         imageUrl: data.featured_image && data.featured_image.url,
+        description: data.description && RichText.asText(data.description),
       }}
     >
       <Container maxWidth="80vw">
@@ -86,69 +88,23 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
                 </Container>
               );
             case 'image_gallery':
+              if (slice.items.length === 0) {
+                return null;
+              }
               const galleryContent = slice.items.map((image: any) => {
                 return {
                   source: {
                     regular: image.gallery_image.url,
                   },
-                  caption: image.image_captions[0] && image.image_captions[0].text,
+                  caption:
+                    image.image_captions[0] && image.image_captions[0].text ? image.image_captions[0].text : 'Image',
                 };
               });
               return <GalleryModal images={galleryContent} key={i} />;
             case 'text':
-              return (
-                <CustomRichText
-                  richText={slice.primary.text}
-                  paragraph={(props: any) => {
-                    return <Paragraph marginY="1.25rem" {...props} />;
-                  }}
-                  image={(props: any) => {
-                    return <Image width="100%" src={props.src} alt={props.alt} {...props} />;
-                  }}
-                  hyperlink={(props: any) => {
-                    return <Link {...props} />;
-                  }}
-                  preformatted={(props: any) => {
-                    return (
-                      <pre
-                        style={{
-                          maxWidth: '80vw',
-                          overflowY: 'scroll',
-                        }}
-                      >
-                        {props.children}
-                      </pre>
-                    );
-                  }}
-                  key={i}
-                />
-              );
+              return <PrismicRichTextWrapper richText={slice.primary.text} />;
             case 'image_stack':
-              return (
-                <Stack orientation="horizontal" width="100%" key={i}>
-                  {slice.items.map((stackedImage: any, key: number) => {
-                    console.log(stackedImage);
-                    return (
-                      <Container key={key}>
-                        <Image src={stackedImage.stacked_image.url} width="100%" />
-
-                        <CustomRichText
-                          richText={stackedImage.image_stack_description}
-                          paragraph={(props: any) => {
-                            return <Paragraph marginY="1.25rem" fontSize="0.75rem" color="#777" {...props} />;
-                          }}
-                          image={(props: any) => {
-                            return <Image width="100%" src={props.src} alt={props.alt} {...props} />;
-                          }}
-                          hyperlink={(props: any) => {
-                            return <Link {...props} />;
-                          }}
-                        />
-                      </Container>
-                    );
-                  })}
-                </Stack>
-              );
+              return <StackedImageRow images={slice.items as StackedImage[]} />;
             default:
               return null;
           }
@@ -171,7 +127,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
 
 export async function getStaticProps({ params }: { params: { uid: string } }) {
   const { uid } = params;
-  console.log(uid);
+  console.log(`/albums/${uid}`);
   const document = await client.getByUID('album', uid, {});
   if (!document) {
     return {

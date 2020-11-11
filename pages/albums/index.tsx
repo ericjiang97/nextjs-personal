@@ -7,7 +7,7 @@ import PageLayout from '../../containers/layouts/PageLayout';
 
 import { getAlbumContent } from '../../utils/prismic';
 import { RichText, RichTextBlock } from 'prismic-reactjs';
-import { PrismicFeaturedImage } from '../../types/PrismicBlogPost';
+import { PrismicImage } from '../../types/PrismicBlogPost';
 
 interface AlbumHomeProps {
   posts: ApiSearchResponse;
@@ -17,7 +17,7 @@ interface Album {
   title: RichTextBlock[];
   author: RichTextBlock[];
   description?: RichTextBlock[];
-  featured_image: PrismicFeaturedImage;
+  featured_image: PrismicImage;
 }
 
 export const getStaticProps = async () => {
