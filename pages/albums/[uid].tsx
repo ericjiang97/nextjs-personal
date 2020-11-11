@@ -88,12 +88,16 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
                 </Container>
               );
             case 'image_gallery':
+              if (slice.items.length === 0) {
+                return null;
+              }
               const galleryContent = slice.items.map((image: any) => {
                 return {
                   source: {
                     regular: image.gallery_image.url,
                   },
-                  caption: image.image_captions[0] && image.image_captions[0].text,
+                  caption:
+                    image.image_captions[0] && image.image_captions[0].text ? image.image_captions[0].text : 'Image',
                 };
               });
               return <GalleryModal images={galleryContent} key={i} />;
