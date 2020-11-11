@@ -101,7 +101,7 @@ export default function Post({
 
 export async function getStaticProps({ params }: { params: { uid: string } }) {
   const { uid } = params;
-  console.log(uid);
+  console.log(`/blog/${uid}`);
   const blogPost = await client.getByUID('blog-post', uid, { fetchLinks: ['category.uid', 'category.category_name'] });
   if (!blogPost) {
     return {

@@ -123,7 +123,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
 
 export async function getStaticProps({ params }: { params: { uid: string } }) {
   const { uid } = params;
-  console.log(uid);
+  console.log(`/albums/${uid}`);
   const document = await client.getByUID('album', uid, {});
   if (!document) {
     return {
