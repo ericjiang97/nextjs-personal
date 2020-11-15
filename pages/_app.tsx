@@ -28,6 +28,7 @@ const RootComponent: React.FC = ({ children }) => {
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#145DA0" />
+        <script async defer data-domain="ericjiang.dev" src="https://plausible.nicholas.cloud/js/plausible.js"></script>
       </Head>
       <div>
         <div>{children}</div>
