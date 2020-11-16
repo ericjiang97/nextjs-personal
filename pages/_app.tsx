@@ -28,6 +28,12 @@ const RootComponent: React.FC = ({ children }) => {
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#145DA0" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed for ericjiang.dev blog"
+          href="/blog/feed.xml"
+        />
         <script async defer data-domain="ericjiang.dev" src="https://plausible.ericjiang.dev/js/plausible.js"></script>
       </Head>
       <div>
