@@ -13,7 +13,11 @@ const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({ richTex
     <RichText
       richText={richText}
       paragraph={(props: any) => {
-        return <Paragraph marginY="1.25rem" fontSize="0.75rem" color="#777" {...props} />;
+        return (
+          <Paragraph marginY="1.25rem" color="#777">
+            {props.children}
+          </Paragraph>
+        );
       }}
       image={(props: any) => {
         return <Image width="100%" src={props.src} alt={props.alt} {...props} />;
