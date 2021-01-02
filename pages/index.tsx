@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 
-import { Heading, Paragraph, Container, Icon, PageContent } from 'bumbag';
+import { Heading, Paragraph, Container, Icon, PageContent, Text, Columns, Image } from 'bumbag';
 
 import { BlogSubtitle } from './blog';
 import HeroBase from '../components/core/HeroBase';
@@ -33,15 +33,26 @@ const Home = ({ posts }: HomePageProps) => {
     <PageLayout
       title="Home"
       banner={
-        <HeroBase backgroundImage={'url(/images/eric-jiang-bitbybit.jpeg)'}>
-          <Heading use="h3" shrinkBelow="tablet">
-            G'day, I'm Eric.
-          </Heading>
-          <Heading use="h5">I’m a Test Engineer at Google.</Heading>
-          <Paragraph>
-            In my spare time, I make impact by building awesome software solutions and building the communities around
-            me.
-          </Paragraph>
+        <HeroBase>
+          <PageContent breakpoint="tablet">
+            <Columns>
+              <Columns.Column>
+                <Heading fontSize="600" textAlign="left">
+                  Hello I'm <Text color="info600">Eric Jiang</Text>
+                </Heading>
+                <Heading fontSize="400">
+                  And I’m a <Text color="info600">Test Engineer </Text> at <Text color="info600">Google</Text>.
+                </Heading>
+                <Paragraph marginTop="1.25rem">
+                  In my spare time, I make impact by building awesome software solutions and building the communities
+                  around me.
+                </Paragraph>
+              </Columns.Column>
+              <Columns.Column>
+                <Image src="/images/eric-jiang-bitbybit.jpeg" width="300px" />
+              </Columns.Column>
+            </Columns>
+          </PageContent>
         </HeroBase>
       }
       pageMeta={{
@@ -51,27 +62,31 @@ const Home = ({ posts }: HomePageProps) => {
       }}
       isChildrenPadded={false}
     >
-      <Container style={{ flex: 1 }} breakpoint="desktop" height={300} padding="2rem">
-        <Container>
-          <Heading use="h4">🎤 Projects</Heading>
-          <Paragraph>
-            I also work on alot of cool side projects both currently and in the past many of which still has a lot of
-            users
-          </Paragraph>
-          <LinkButton href="/projects" variant="outlined" palette="primary">
-            View Projects
-          </LinkButton>
+      <PageContent>
+        <Container style={{ flex: 1 }} breakpoint="desktop" height={300} padding="2rem">
+          <Container>
+            <Heading use="h4">🎤 Projects</Heading>
+            <Paragraph>
+              I also work on alot of cool side projects both currently and in the past many of which still has a lot of
+              users
+            </Paragraph>
+            <LinkButton href="/projects" variant="outlined" palette="primary">
+              View Projects
+            </LinkButton>
+          </Container>
         </Container>
-      </Container>
+      </PageContent>
       <HeroBase height="300px" backgroundImage="url(/images/gcp-juniordev-talk.jpg)">
-        <Heading use="h4">🎤 Tech Talks</Heading>
-        <Paragraph>
-          I also do tech talks, whether its about Google Cloud, dev, cloud technologies, mobile, I will do it. Warning,
-          there will be many memes inside my talks.
-        </Paragraph>
-        <LinkButton href="/talks" variant="outlined" palette="primary">
-          View Talks
-        </LinkButton>
+        <PageContent>
+          <Heading use="h4">🎤 Tech Talks</Heading>
+          <Paragraph>
+            I also do tech talks, whether its about Google Cloud, dev, cloud technologies, mobile, I will do it.
+            Warning, there will be many memes inside my talks.
+          </Paragraph>
+          <LinkButton href="/talks" variant="outlined" palette="primary">
+            View Talks
+          </LinkButton>
+        </PageContent>
       </HeroBase>
       <PageContent>
         <Container marginTop="1rem" width="100%">

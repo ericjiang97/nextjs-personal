@@ -4,16 +4,19 @@ import { Container, styled } from 'bumbag';
 export interface HeroBaseProps {
   backgroundImage?: string;
   height?: string;
+  textColor?: string;
 }
 
-const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage, height = '600px' }) => {
+const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage, height = '600px', textColor }) => {
   const bgColor = '#09203399';
+
+  const actualTextColor = backgroundImage ? 'white' : textColor || 'black';
 
   const HeroBaseContainer = styled.div`
     width: 100%;
     max-width: 100%;
     height: ${height};
-    background-image: linear-gradient(to top, ${bgColor}, ${bgColor}), ${backgroundImage};
+    background-image: ${backgroundImage && `linear-gradient(to top, ${bgColor}, ${bgColor}), ${backgroundImage}`};
     background-size: cover;
     background-position: center;
     display: flex;
@@ -21,7 +24,7 @@ const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage, height =
     align-items: center;
     flex-direction: column;
     padding: 2rem;
-    color: white;
+    color: ${actualTextColor};
   `;
 
   return (
