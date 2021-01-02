@@ -45,7 +45,16 @@ const Footer = () => {
               Submit a bug
             </Link>
           </Paragraph>
-          <Stack flex={1} display="flex" justifyContent="space-evenly" marginTop="1rem">
+          <Stack
+            flex={1}
+            display="flex"
+            justifyContent="space-evenly"
+            marginTop="1rem"
+            direction="horizontal"
+            maxWidth="400px"
+            minWidth="280px"
+            width="100%"
+          >
             <Link href={SITE_CONFIG.social.LINKEDIN} color="white">
               <Icon aria-label="LinkedIn" icon="brand-linkedin" fontSize="400" />
             </Link>
@@ -60,9 +69,6 @@ const Footer = () => {
             </Link>
             <Link href={SITE_CONFIG.social.FACEBOOK} color="white">
               <Icon aria-label="Facebook" icon="brand-facebook" fontSize="400" />
-            </Link>
-            <Link href={SITE_CONFIG.social.FLICKR} color="white">
-              <Icon aria-label="Flickr" icon="brand-flickr" fontSize="400" />
             </Link>
             <Link href={SITE_CONFIG.social.INSTAGRAM} color="white">
               <Icon aria-label="Instagram" icon="brand-instagram" fontSize="400" />
