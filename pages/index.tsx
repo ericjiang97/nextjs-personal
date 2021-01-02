@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 
-import { Heading, Paragraph, Container, Icon, PageContent, Text, Columns, Image } from 'bumbag';
+import { Box, Heading, Paragraph, Icon, PageContent, Text, Columns, Image } from 'bumbag';
 
 import { BlogSubtitle } from './blog';
 import HeroBase from '../components/core/HeroBase';
@@ -62,20 +62,25 @@ const Home = ({ posts }: HomePageProps) => {
       }}
       isChildrenPadded={false}
     >
-      <PageContent>
-        <Container style={{ flex: 1 }} breakpoint="desktop" height={300} padding="2rem">
-          <Container>
-            <Heading use="h4">🎤 Projects</Heading>
-            <Paragraph>
-              I also work on alot of cool side projects both currently and in the past many of which still has a lot of
-              users
-            </Paragraph>
-            <LinkButton href="/projects" variant="outlined" palette="primary">
-              View Projects
-            </LinkButton>
-          </Container>
-        </Container>
-      </PageContent>
+      <Box width="100vw" backgroundColor="primary800" color="white">
+        <PageContent>
+          <Columns>
+            <Columns.Column>
+              <Image src="/images/projects/monplan.png" width="100%" />
+            </Columns.Column>
+            <Columns.Column>
+              <Heading use="h4">🎤 Projects</Heading>
+              <Paragraph marginTop="1.5rem">
+                I also work on alot of cool side projects both currently and in the past many of which still has a lot
+                of users
+              </Paragraph>
+              <LinkButton href="/projects" variant="outlined" palette="primary">
+                View Projects
+              </LinkButton>
+            </Columns.Column>
+          </Columns>
+        </PageContent>
+      </Box>
       <HeroBase height="300px" backgroundImage="url(/images/gcp-juniordev-talk.jpg)">
         <PageContent>
           <Heading use="h4">🎤 Tech Talks</Heading>
@@ -89,44 +94,35 @@ const Home = ({ posts }: HomePageProps) => {
         </PageContent>
       </HeroBase>
       <PageContent>
-        <Container marginTop="1rem" width="100%">
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              width: '100%',
-            }}
-          >
-            <div style={{ minWidth: 280, flex: 1, padding: '0.5rem 1rem' }}>
-              <Heading use="h3">
-                <Icon icon="solid-feather-alt" marginRight="0.5rem" />
-                Latest Posts
-              </Heading>
-              <Paragraph marginTop="1.5rem" marginBottom="1rem">
-                {BlogSubtitle}
-              </Paragraph>
-              <LinkButton href="/blog">Read More</LinkButton>
-            </div>
-            <Container flex="2" minWidth={280}>
-              {posts.results.slice(0, 3).map((post) => {
-                const { uid, data } = post;
-                if (uid) {
-                  const blogPostData = data as PrismicBlogPost<PrismicBlogCategory>;
-                  return (
-                    <BlogCard
-                      blogPostContent={blogPostData}
-                      uid={uid}
-                      cardProps={{ marginY: '1rem' }}
-                      showCoverImage={false}
-                      maxWordCount={50}
-                    />
-                  );
-                }
-              })}
-            </Container>
-          </div>
-        </Container>
+        <Columns>
+          <Columns.Column spread={4}>
+            <Heading use="h3">
+              <Icon icon="solid-feather-alt" marginRight="0.5rem" />
+              Latest Posts
+            </Heading>
+            <Paragraph marginTop="1.5rem" marginBottom="1rem">
+              {BlogSubtitle}
+            </Paragraph>
+            <LinkButton href="/blog">Read More</LinkButton>
+          </Columns.Column>
+          <Columns.Column spread={8}>
+            {posts.results.slice(0, 3).map((post) => {
+              const { uid, data } = post;
+              if (uid) {
+                const blogPostData = data as PrismicBlogPost<PrismicBlogCategory>;
+                return (
+                  <BlogCard
+                    blogPostContent={blogPostData}
+                    uid={uid}
+                    cardProps={{ marginBottom: '1rem' }}
+                    showCoverImage={false}
+                    maxWordCount={50}
+                  />
+                );
+              }
+            })}
+          </Columns.Column>
+        </Columns>
       </PageContent>
     </PageLayout>
   );
