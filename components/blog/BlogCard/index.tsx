@@ -29,17 +29,17 @@ const BlogCard: React.FC<BlogCardProps> = ({
         <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
       )}
       <Card.Header flexDirection="column" alignItems="start">
-        <Card.Title fontPalette="primary">{RichText.asText(title)}</Card.Title>
-        <Tag use={Link} {...categoryLinkProps} palette="primary" variant="tint" size="small" marginY="0.5rem">
+        <Tag use={Link} {...categoryLinkProps} palette="primary" variant="outlined" size="small" marginY="0.5rem">
           {category.data.category_name}
         </Tag>
+        <Card.Title fontPalette="primary">{RichText.asText(title)}</Card.Title>
       </Card.Header>
-      <Card.Content>
-        <Heading use="h7">{moment(published_time).format('ddd Do MMM YYYY')}</Heading>
-        {showSummary && <Paragraph>{displayedSummary}</Paragraph>}
-      </Card.Content>
+      <Card.Content>{showSummary && <Paragraph>{displayedSummary}</Paragraph>}</Card.Content>
       <Card.Footer>
         <LinkButton href={`/blog/${uid}`}>Read Article</LinkButton>
+        <Heading fontSize="150" marginTop="1.5rem" color="primary300">
+          {`Published on ${moment(published_time).format('D MMM YYYY')}`}
+        </Heading>
       </Card.Footer>
     </Card>
   );
