@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Heading, Icon, InputField, Link, Paragraph, styled } from 'bumbag';
+import { Button, Container, Heading, Icon, InputField, Link, PageContent, Paragraph, styled } from 'bumbag';
 
 const FloatingIcon = styled(Icon)`
   @keyframes float {
@@ -57,66 +57,68 @@ const ButtondownContainer = () => {
       padding="1rem"
       paddingTop="2rem"
     >
-      <Container breakpoint="max-mobile">
-        <Container>
-          <Heading use="h5">Subscribe to my newsletter</Heading>
-          <Paragraph marginTop="0.75rem">
-            I also (occassionally) write some newsletters. Subscribe below for my newsletter.
-          </Paragraph>
-        </Container>
-        {!attemptedSubmit && (
-          <Container marginTop="1rem">
-            <InputField
-              label="Your Email"
-              type="email"
-              placeholder="demo@acme.xyz"
-              value={email}
-              onChange={(e: any) => {
-                setEmail(e.currentTarget.value);
-              }}
-            />
-            <Button onClick={() => onSubmit()} marginTop="1rem" width="100%">
-              Submit
-            </Button>
-            <Container textAlign="center" marginTop="1rem">
-              <Link href="https://buttondown.email/?utm_source=ericjiang.dev" color="white800">
-                Powered by Buttondown
-              </Link>
-            </Container>
-          </Container>
-        )}
-        {isSubmitting && (
-          <Container
-            paddingTop="3rem"
-            paddingBottom="1rem"
-            flex={1}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-          >
-            <FloatingIcon icon="solid-paper-plane" fontSize="3rem" id="plane" />
-            <Heading use="h6" fontWeight="400" marginTop="1rem">
-              Submitting...
-            </Heading>
-          </Container>
-        )}
-        {attemptedSubmit && !isSubmitting && !hasErrored && (
-          <Container marginY="1rem">
-            <Heading use="h5">Successfully Submitted!</Heading>
-            <Paragraph>Now check your email to confirm your subscription!</Paragraph>
-          </Container>
-        )}
-        {attemptedSubmit && !isSubmitting && hasErrored && (
-          <Container marginY="1rem">
-            <Heading use="h5">Something went wrong?</Heading>
-            <Paragraph>
-              Something went wrong during submission. Please try again later, if the issue persists contact me at{' '}
-              <Link href="mailto:support@ericjiang.dev">support@ericjiang.dev</Link>
+      <PageContent>
+        <Container breakpoint="max-mobile">
+          <Container>
+            <Heading use="h5">Subscribe to my newsletter</Heading>
+            <Paragraph marginTop="0.75rem">
+              I also (occassionally) write some newsletters. Subscribe below for my newsletter.
             </Paragraph>
           </Container>
-        )}
-      </Container>
+          {!attemptedSubmit && (
+            <Container marginTop="1rem">
+              <InputField
+                label="Your Email"
+                type="email"
+                placeholder="demo@acme.xyz"
+                value={email}
+                onChange={(e: any) => {
+                  setEmail(e.currentTarget.value);
+                }}
+              />
+              <Button onClick={() => onSubmit()} marginTop="1rem" width="100%">
+                Submit
+              </Button>
+              <Container textAlign="center" marginTop="1rem">
+                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" color="white800">
+                  Powered by Buttondown
+                </Link>
+              </Container>
+            </Container>
+          )}
+          {isSubmitting && (
+            <Container
+              paddingTop="3rem"
+              paddingBottom="1rem"
+              flex={1}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="column"
+            >
+              <FloatingIcon icon="solid-paper-plane" fontSize="3rem" id="plane" />
+              <Heading use="h6" fontWeight="400" marginTop="1rem">
+                Submitting...
+              </Heading>
+            </Container>
+          )}
+          {attemptedSubmit && !isSubmitting && !hasErrored && (
+            <Container marginY="1rem">
+              <Heading use="h5">Successfully Submitted!</Heading>
+              <Paragraph>Now check your email to confirm your subscription!</Paragraph>
+            </Container>
+          )}
+          {attemptedSubmit && !isSubmitting && hasErrored && (
+            <Container marginY="1rem">
+              <Heading use="h5">Something went wrong?</Heading>
+              <Paragraph>
+                Something went wrong during submission. Please try again later, if the issue persists contact me at{' '}
+                <Link href="mailto:support@ericjiang.dev">support@ericjiang.dev</Link>
+              </Paragraph>
+            </Container>
+          )}
+        </Container>
+      </PageContent>
     </Container>
   );
   {
