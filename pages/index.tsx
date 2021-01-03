@@ -106,7 +106,7 @@ const Home = ({ posts }: HomePageProps) => {
             <LinkButton href="/blog">Read More</LinkButton>
           </Columns.Column>
           <Columns.Column spread={8}>
-            {posts.results.slice(0, 3).map((post) => {
+            {posts.results.slice(0, 3).map((post, i) => {
               const { uid, data } = post;
               if (uid) {
                 const blogPostData = data as PrismicBlogPost<PrismicBlogCategory>;
@@ -117,6 +117,7 @@ const Home = ({ posts }: HomePageProps) => {
                     cardProps={{ marginBottom: '1rem' }}
                     showCoverImage={false}
                     maxWordCount={50}
+                    key={i}
                   />
                 );
               }
