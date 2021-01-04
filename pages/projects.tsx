@@ -1,7 +1,7 @@
 import ProjectCard from '../components/cards/ProjectCard';
 import PageLayout from '../containers/layouts/PageLayout';
 import PROJECTS from '../data/projects';
-import { Heading, Stack, Paragraph } from 'bumbag';
+import { Heading, Stack, Paragraph, Container } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
 
 const Projects = () => (
@@ -19,19 +19,22 @@ const Projects = () => (
       </HeroBase>
     }
   >
-    <Heading use="h3">Current Projects</Heading>
-    <Stack variant="horizontal">
-      {PROJECTS.current.map((project, index) => (
-        <ProjectCard project={project} key={index} />
-      ))}
-    </Stack>
-
-    <Heading use="h3">Previous Projects</Heading>
-    <Stack orientation="horizontal">
-      {PROJECTS.previous.map((project, index) => (
-        <ProjectCard project={project} key={index} />
-      ))}
-    </Stack>
+    <Container>
+      <Heading use="h3">Current Projects</Heading>
+      <Stack orientation="horizontal" verticalBelow="mobile">
+        {PROJECTS.current.map((project, index) => (
+          <ProjectCard project={project} key={index} />
+        ))}
+      </Stack>
+    </Container>
+    <Container marginTop="1.25rem">
+      <Heading use="h3">Previous Projects</Heading>
+      <Stack orientation="horizontal">
+        {PROJECTS.previous.map((project, index) => (
+          <ProjectCard project={project} key={index} />
+        ))}
+      </Stack>
+    </Container>
   </PageLayout>
 );
 

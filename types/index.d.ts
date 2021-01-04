@@ -33,5 +33,4 @@ export interface Project {
   name: string;
   description: string;
   screenshotUrl?: string;
-  technologies?: ProjectTechology[];
 }

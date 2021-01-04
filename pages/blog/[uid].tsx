@@ -3,7 +3,7 @@ import moment from 'moment';
 import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
-import { Container, Heading, Icon, Label, Link, Paragraph, Tag, Divider } from 'bumbag';
+import { Container, Heading, Icon, Label, Link, Paragraph, Tag, Divider, Stack, Columns, useBreakpoint } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -16,6 +16,16 @@ import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPos
 import { getBlogPostContent } from '../../utils/prismic';
 import BlogCard from '../../components/blog/BlogCard';
 import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
+import {
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from 'react-share';
 
 export default function Post({
   uid,
@@ -28,12 +38,18 @@ export default function Post({
   error: string;
   similarPosts: { results: { uid: string; data: PrismicBlogPost<PrismicBlogCategory> }[] };
 }) {
+  const isTabletOrLarger = useBreakpoint('min-tablet');
+
   if (error) {
     return <Custom404 />;
   }
   const { title, author, preview, published_time, category, summary } = data;
 
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
+
+  const endpoint = `/blog/${uid}`;
+  const postUrl = `https://ericjiang.dev${endpoint}`;
+
   return (
     <PageLayout
       title={`Blog - ${RichText.asText(title)}`}
@@ -59,41 +75,72 @@ export default function Post({
             </Container>
           )}
           <HeroBase backgroundImage={`url('${data.banner && data.banner.url}')`}>
-            <Container>
-              <Container marginY="1rem">
-                <Tag use={Link} {...categoryLinkProps} color="white">
-                  {category.data.category_name}
-                </Tag>
-              </Container>
-              <Heading use="h3">{RichText.asText(title)}</Heading>
-              <Container marginY="1.5rem">
-                <Label>By</Label>
-                <Paragraph>{RichText.asText(author)}</Paragraph>
-                <Label>Published on</Label>
-                <Paragraph>{moment(published_time).format('ddd Do MMM YYYY')}</Paragraph>
-              </Container>
-            </Container>
+            <Columns>
+              {isTabletOrLarger && <Columns.Column spread={1} />}
+              <Columns.Column>
+                <Container marginY="1rem">
+                  <Tag use={Link} {...categoryLinkProps} color="white">
+                    {category.data.category_name}
+                  </Tag>
+                </Container>
+                <Heading use="h3">{RichText.asText(title)}</Heading>
+                <Container marginY="1.5rem">
+                  <Label>By</Label>
+                  <Paragraph>{RichText.asText(author)}</Paragraph>
+                  <Label>Published on</Label>
+                  <Paragraph>{moment(published_time).format('ddd Do MMM YYYY')}</Paragraph>
+                </Container>
+              </Columns.Column>
+            </Columns>
           </HeroBase>
         </>
       }
       pageMeta={{
-        endpoint: `/blog/${uid}`,
+        endpoint,
         description: RichText.asText(summary),
         imageUrl: data.banner && data.banner.url,
       }}
     >
       <Container maxWidth="80vw">
-        <PrismicRichTextWrapper richText={data.body} />
+        <Columns>
+          {isTabletOrLarger && (
+            <Columns.Column spread={1}>
+              <Stack orientation="vertical" position="sticky" top="75px">
+                <EmailShareButton url={postUrl}>
+                  <EmailIcon size={48} round={true} />
+                </EmailShareButton>
+                <TwitterShareButton url={postUrl} title={`${title} by Eric Jiang!`}>
+                  <TwitterIcon size={48} round={true} />
+                </TwitterShareButton>
+                <LinkedinShareButton url={postUrl} title={`${title} by Eric Jiang!`} source={'https://ericjiang.dev'}>
+                  <LinkedinIcon size={48} round={true} />
+                </LinkedinShareButton>
+                <FacebookShareButton url={postUrl}>
+                  <FacebookIcon size={48} round={true} />
+                </FacebookShareButton>
+              </Stack>
+            </Columns.Column>
+          )}
+          <Columns.Column>
+            <PrismicRichTextWrapper richText={data.body} />
+          </Columns.Column>
+        </Columns>
       </Container>
-      <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
-        <ShareModal title={RichText.asText(title)} slug={`/blog/${uid}`} />
-      </Container>
+      {!isTabletOrLarger && (
+        <Container marginY="1rem" display="flex" flexWrap="wrap" justifyContent="space-between">
+          <ShareModal title={RichText.asText(title)} slug={`/blog/${uid}`} />
+        </Container>
+      )}
       <Divider />
       <Container marginY="1.25rem">
-        <Heading use="h5">Similar Posts</Heading>
-        {similarPosts.results.map((post) => {
-          return <BlogCard blogPostContent={post.data} uid={post.uid} showCoverImage={false} />;
-        })}
+        <Heading use="h3" fontSize="400">
+          Read similar posts...
+        </Heading>
+        <Stack orientation="vertical" marginTop="0.75rem">
+          {similarPosts.results.map((post) => {
+            return <BlogCard blogPostContent={post.data} uid={post.uid} showCoverImage={false} />;
+          })}
+        </Stack>
       </Container>
     </PageLayout>
   );
