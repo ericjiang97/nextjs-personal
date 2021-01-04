@@ -1,48 +1,34 @@
 import React from 'react';
 import { Project } from '../../types';
-import { Card, Heading, Image, Text, Container, Set } from 'bumbag';
+import { Card, Heading, Image, Text, Box, Link } from 'bumbag';
 import LinkButton from '../buttons/LinkButton';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  const { url, imageUrl, name, description, screenshotUrl, repoUrl, technologies } = project;
+  const { url, imageUrl, name, description, screenshotUrl, repoUrl } = project;
   return (
-    <Card standalone>
-      {screenshotUrl && <Image width="100%" src={screenshotUrl} alt={name} />}
+    <Card standalone maxWidth="300px" display="flex" flexDirection="column">
+      {screenshotUrl && (
+        <Box display="flex" width="100%" justifyContent="center" paddingX="0.5rem">
+          <Image src={screenshotUrl} alt={name} maxHeight="300px" alignSelf="center" />
+        </Box>
+      )}
       <Card.Header justifyContent="unset">
         {imageUrl && <Image src={imageUrl} height="2rem" marginRight="0.5rem" />}
         <Heading use="h4">{name}</Heading>
       </Card.Header>
-      <Card.Content>
+      <Card.Content flex="1">
         <Text>{description}</Text>
-        <Heading use="h5">Technologies Used</Heading>
-        <Container>
-          {technologies && (
-            <Container display="flex">
-              {technologies.map((tech, index) => {
-                const Icon = tech.icon;
-                return (
-                  <a
-                    href={tech.url || undefined}
-                    key={index}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    title={tech.name}
-                    style={{ marginLeft: '0.4rem', marginRight: '0.4rem' }}
-                  >
-                    {tech.icon ? <Icon style={{ height: '1rem' }} alt={tech.name} /> : tech.name}
-                  </a>
-                );
-              })}
-            </Container>
-          )}
-        </Container>
-        <Card.Footer>
-          <Set>
-            <LinkButton href={url}>Product Url</LinkButton>
-            {repoUrl && <LinkButton href={repoUrl}>Source Code</LinkButton>}
-          </Set>
-        </Card.Footer>
       </Card.Content>
+      <Card.Footer>
+        <Box display="flex" flexDirection="column">
+          <LinkButton href={url}>Product Url</LinkButton>
+          {repoUrl && (
+            <Link href={repoUrl} color="primary300">
+              Check out the code
+            </Link>
+          )}
+        </Box>
+      </Card.Footer>
     </Card>
   );
 };
