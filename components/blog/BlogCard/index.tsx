@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import { RichText } from 'prismic-reactjs';
-import { Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
+import { Box, Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
 
 import BlogCardProps from './types';
 import LinkButton from '../../buttons/LinkButton';
@@ -26,7 +26,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
   return (
     <Card {...cardProps} minWidth={280} standalone>
       {showCoverImage && banner && banner.url && (
-        <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
+        <Box display="flex" justifyContent="center">
+          <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} maxHeight="300px" />
+        </Box>
       )}
       <Card.Header flexDirection="column" alignItems="start">
         <Tag use={Link} {...categoryLinkProps} palette="primary" variant="outlined" size="small" marginY="0.5rem">
