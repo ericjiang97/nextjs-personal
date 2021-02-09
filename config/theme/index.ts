@@ -12,7 +12,12 @@ const palette: PaletteThemeConfig = {
   secondary: '#E9D758',
   success: '#0a7d33',
   text: '#212121',
-  warning: '#ed9c22',
+  warning: '#FF8552',
+
+  // Custom Colors
+  coral: '#FF8552',
+  onyx: '#39393A',
+  platinum: '#E6E6E6',
 };
 
 const theme: ThemeConfig = {

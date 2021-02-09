@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 
-import { Box, Heading, Paragraph, Icon, PageContent, Text, Columns, Image } from 'bumbag';
+import { Link, Heading, Paragraph, Icon, PageContent, Text, Columns, Image } from 'bumbag';
 
 import { BlogSubtitle } from './blog';
 import HeroBase from '../components/core/HeroBase';
@@ -65,25 +65,32 @@ const Home = ({ posts }: HomePageProps) => {
       }}
       isChildrenPadded={false}
     >
-      <Box width="100vw" backgroundColor="green700" color="white">
+      <HeroBase backgroundVariant="color" backgroundColor="onyx" height="auto" textColor="platinum">
         <PageContent>
           <Columns>
             <Columns.Column>
               <Image src="/images/projects/monplan.png" width="100%" />
+              <Text fontSize="100">
+                Image: A Course Plan in MonPlan, thanks{' '}
+                <Link href="https://nicholas.cloud" color="white">
+                  Nick
+                </Link>{' '}
+                for the screenshot.
+              </Text>
             </Columns.Column>
-            <Columns.Column>
-              <Heading use="h4">🎤 Projects</Heading>
+            <Columns.Column marginLeft="1rem">
+              <Heading use="h3">I build awesome products</Heading>
               <Paragraph marginTop="1.5rem">
-                I also work on alot of cool side projects both currently and in the past many of which still has a lot
-                of users
+                Whether its a side project, or a product I'm working on at work, I bring my knowledge and energy to help
+                build the most awesome, delightful, secure products for everyone.
               </Paragraph>
-              <LinkButton href="/projects" variant="outlined" palette="primary">
+              <LinkButton href="/projects" palette="secondary" marginTop="2rem">
                 View Projects
               </LinkButton>
             </Columns.Column>
           </Columns>
         </PageContent>
-      </Box>
+      </HeroBase>
       <HeroBase backgroundVariant="image" height="300px" backgroundImageUri="/images/gcp-juniordev-talk.jpg">
         <PageContent>
           <Heading use="h4">🎤 Tech Talks</Heading>
