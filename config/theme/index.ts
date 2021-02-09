@@ -1,7 +1,22 @@
-import { ThemeConfig } from 'bumbag';
+import { PaletteThemeConfig, ThemeConfig } from 'bumbag';
 import IconConfig from './icons';
 
+/**
+ * Color Palette
+ * https://coolors.co/e9d758-297373-ff8552-e6e6e6-39393a
+ */
+const palette: PaletteThemeConfig = {
+  danger: '#da1717',
+  info: '#1e67d5',
+  primary: '#297373',
+  secondary: '#E9D758',
+  success: '#0a7d33',
+  text: '#212121',
+  warning: '#ed9c22',
+};
+
 const theme: ThemeConfig = {
+  palette,
   Icon: IconConfig,
   Paragraph: {
     styles: {
@@ -9,20 +24,6 @@ const theme: ThemeConfig = {
         marginTop: '0.75rem',
       },
     },
-  },
-  palette: {
-    danger: '#da1717',
-    info: '#1e67d5',
-    modes: {
-      dark: {
-        background: '#214252',
-        text: 'white',
-      },
-    },
-    primary: '#30475e',
-    success: '#0a7d33',
-    text: '#212121',
-    warning: '#ed9c22',
   },
   fontMetrics: {
     default: {

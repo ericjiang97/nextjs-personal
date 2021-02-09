@@ -1,16 +1,36 @@
 import React from 'react';
 import { Container, styled } from 'bumbag';
 
-export interface HeroBaseProps {
-  backgroundImage?: string;
-  height?: string;
-  textColor?: string;
-}
+import { HeroBaseProps } from './HeroBaseTypes';
 
-const HeroBase: React.FC<HeroBaseProps> = ({ children, backgroundImage, height = '600px', textColor }) => {
+const HeroBase: React.FC<HeroBaseProps> = ({
+  children,
+  backgroundImage,
+  height = '600px',
+  textColor,
+  backgroundColor,
+  backgroundVariant = 'image',
+}) => {
   const bgColor = '#09203399';
 
   const actualTextColor = backgroundImage ? 'white' : textColor || 'black';
+
+  if (backgroundVariant === 'color') {
+    return (
+      <Container
+        minWidth="100%"
+        maxWidth="100%"
+        height={height}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor={backgroundColor}
+        color={textColor}
+      >
+        {children}
+      </Container>
+    );
+  }
 
   const HeroBaseContainer = styled.div`
     width: 100%;

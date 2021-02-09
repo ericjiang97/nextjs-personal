@@ -33,17 +33,17 @@ const Home = ({ posts }: HomePageProps) => {
     <PageLayout
       title="Home"
       banner={
-        <HeroBase>
-          <PageContent breakpoint="tablet">
+        <HeroBase backgroundVariant="color" backgroundColor="primary600" textColor="white">
+          <PageContent breakpoint="tablet" margin="auto">
             <Columns>
               <Columns.Column>
                 <Heading fontSize="600" textAlign="left">
-                  Hello I'm <Text color="info600">Eric Jiang</Text>
+                  G'day I'm <Text color="secondary">Eric</Text> &amp;
                 </Heading>
-                <Heading fontSize="400">
-                  And I’m a <Text color="info600">Test Engineer </Text> at <Text color="info600">Google</Text>.
+                <Heading fontSize="400" marginTop="1.25rem">
+                  I’m a <Text color="secondary">Test Engineer </Text> at <Text color="secondary">Google</Text>.
                 </Heading>
-                <Paragraph marginTop="1.25rem">
+                <Paragraph marginTop="2rem">
                   In my spare time, I make impact by building awesome software solutions and building the communities
                   around me.
                 </Paragraph>
@@ -62,7 +62,7 @@ const Home = ({ posts }: HomePageProps) => {
       }}
       isChildrenPadded={false}
     >
-      <Box width="100vw" backgroundColor="primary800" color="white">
+      <Box width="100vw" backgroundColor="green700" color="white">
         <PageContent>
           <Columns>
             <Columns.Column>
