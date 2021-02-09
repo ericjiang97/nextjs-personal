@@ -38,7 +38,10 @@ export default function AlbumHome(props: AlbumHomeProps) {
         endpoint: '/albums',
       }}
       banner={
-        <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
+        <HeroBase
+          backgroundVariant="image"
+          backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)"
+        >
           <Heading use="h3">Albums</Heading>
         </HeroBase>
       }

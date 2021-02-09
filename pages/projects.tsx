@@ -12,7 +12,7 @@ const Projects = () => (
       endpoint: '/projects',
     }}
     banner={
-      <HeroBase backgroundImage="url(/images/monplan-futureyou.webp)">
+      <HeroBase backgroundVariant="image" backgroundImage="url(/images/monplan-futureyou.webp)">
         <Heading>Projects</Heading>
         <Paragraph>These are some of the current and past software projects that I have worked on</Paragraph>
         <Paragraph fontSize="0.75rem">Background Image: MonPlan and FutureYou team</Paragraph>

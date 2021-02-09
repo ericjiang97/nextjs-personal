@@ -54,7 +54,7 @@ class TechTalks extends React.Component<Props> {
       <PageLayout
         title="Tech Talks"
         banner={
-          <HeroBase backgroundImage={heroBackground}>
+          <HeroBase backgroundVariant="image" backgroundImage={heroBackground}>
             <Heading use="h3">Tech Talks</Heading>
             <Paragraph>
               I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up if

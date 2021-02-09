@@ -39,7 +39,7 @@ const DocsPage: React.FC<FrontMatterAlbumProps> = ({ children, frontMatter }) =>
         endpoint,
         description: frontMatter.description,
       }}
-      banner={<HeroBase backgroundImage={`url(${frontMatter.albumImage})`}></HeroBase>}
+      banner={<HeroBase backgroundVariant="image" backgroundImage={`url(${frontMatter.albumImage})`}></HeroBase>}
     >
       <Container display="flex" flexWrap="wrap">
         <HeadingContainer>

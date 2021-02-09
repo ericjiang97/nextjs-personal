@@ -117,7 +117,7 @@ const Music: React.FC = () => {
       title="Music"
       pageMeta={{ endpoint: '/music', description: "Here's the music I'm listening to" }}
       banner={
-        <HeroBase backgroundImage="url('/images/juja-han-HU-uL54pfQI-unsplash.jpg')">
+        <HeroBase backgroundVariant="image" backgroundImage="url('/images/juja-han-HU-uL54pfQI-unsplash.jpg')">
           <Heading>Music</Heading>
           <Heading use="h3">Here's the music I'm currently listening to</Heading>
           <Paragraph>Powered by last.fm</Paragraph>

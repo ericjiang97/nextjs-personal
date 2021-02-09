@@ -81,7 +81,7 @@ const Home = ({ posts }: HomePageProps) => {
           </Columns>
         </PageContent>
       </Box>
-      <HeroBase height="300px" backgroundImage="url(/images/gcp-juniordev-talk.jpg)">
+      <HeroBase backgroundVariant="image" height="300px" backgroundImage="url(/images/gcp-juniordev-talk.jpg)">
         <PageContent>
           <Heading use="h4">🎤 Tech Talks</Heading>
           <Paragraph>

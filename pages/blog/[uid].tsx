@@ -74,7 +74,7 @@ export default function Post({
               </Paragraph>
             </Container>
           )}
-          <HeroBase backgroundImage={`url('${data.banner && data.banner.url}')`}>
+          <HeroBase backgroundVariant="image" backgroundImage={`url('${data.banner && data.banner.url}')`}>
             <Columns>
               {isTabletOrLarger && <Columns.Column spread={1} />}
               <Columns.Column>

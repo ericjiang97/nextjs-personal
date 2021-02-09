@@ -52,7 +52,10 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
               </Paragraph>
             </Container>
           )}
-          <HeroBase backgroundImage={`url('${data.featured_image && data.featured_image.url}')`}></HeroBase>
+          <HeroBase
+            backgroundVariant="image"
+            backgroundImage={`url('${data.featured_image && data.featured_image.url}')`}
+          ></HeroBase>
         </>
       }
       pageMeta={{

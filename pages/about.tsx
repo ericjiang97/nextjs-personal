@@ -39,7 +39,7 @@ class AboutMe extends React.Component<Props> {
           endpoint: '/about',
         }}
         banner={
-          <HeroBase backgroundImage={heroBackground}>
+          <HeroBase backgroundVariant="image" backgroundImage={heroBackground}>
             <Heading use="h3">About Me</Heading>
             <Paragraph>
               Hi, I’m Eric. Technology has been rapidly growing and is at the forefront of bringing change. I've always

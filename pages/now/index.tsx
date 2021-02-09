@@ -13,7 +13,7 @@ const NowPage: React.FC = () => {
         description: 'Now Page! :)',
       }}
       banner={
-        <HeroBase backgroundImage={'url()'}>
+        <HeroBase backgroundVariant="image" backgroundImage={'url()'}>
           <Heading use="h3">Now</Heading>
           <Heading use="h6" fontWeight="400" marginY="1.25rem">
             Last Updated: 8th October 2020

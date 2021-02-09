@@ -26,7 +26,10 @@ const SearchPage: React.FC<SearchPageProps> = ({ results, searchQuery }) => {
         endpoint: '/blog',
       }}
       banner={
-        <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
+        <HeroBase
+          backgroundVariant="image"
+          backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)"
+        >
           <Heading use="h3">Blog</Heading>
           <Paragraph marginY="1rem">{BlogSubtitle}</Paragraph>
         </HeroBase>
