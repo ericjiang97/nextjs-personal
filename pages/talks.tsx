@@ -47,14 +47,12 @@ class TechTalks extends React.Component<Props> {
   render() {
     const { browserDetails } = this.props;
     const heroBackground =
-      browserDetails.browser === 'Safari'
-        ? 'url(/images/gcp-juniordev-talk.jpeg)'
-        : 'url(/images/gcp-juniordev-talk.webp)';
+      browserDetails.browser === 'Safari' ? '/images/gcp-juniordev-talk.jpeg' : '/images/gcp-juniordev-talk.webp';
     return (
       <PageLayout
         title="Tech Talks"
         banner={
-          <HeroBase backgroundVariant="image" backgroundImage={heroBackground}>
+          <HeroBase backgroundVariant="image" backgroundImageUri={heroBackground}>
             <Heading use="h3">Tech Talks</Heading>
             <Paragraph>
               I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up if

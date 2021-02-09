@@ -28,8 +28,8 @@ class AboutMe extends React.Component<Props> {
     const { browserDetails } = this.props;
     const heroBackground =
       browserDetails.browser === 'Safari'
-        ? 'url(/images/itnews-2019benchmarkmain.jpg)'
-        : 'url(/images/itnews-2019benchmarkmain.webp)';
+        ? '/images/itnews-2019benchmarkmain.jpg'
+        : '/images/itnews-2019benchmarkmain.webp';
     return (
       <PageLayout
         title="About Me"
@@ -39,7 +39,7 @@ class AboutMe extends React.Component<Props> {
           endpoint: '/about',
         }}
         banner={
-          <HeroBase backgroundVariant="image" backgroundImage={heroBackground}>
+          <HeroBase backgroundVariant="image" backgroundImageUri={heroBackground}>
             <Heading use="h3">About Me</Heading>
             <Paragraph>
               Hi, I’m Eric. Technology has been rapidly growing and is at the forefront of bringing change. I've always

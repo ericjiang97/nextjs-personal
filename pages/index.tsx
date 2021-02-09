@@ -52,6 +52,9 @@ const Home = ({ posts }: HomePageProps) => {
                 <Image src="/images/eric-jiang-bitbybit.jpeg" width="300px" />
               </Columns.Column>
             </Columns>
+            <LinkButton palette="secondary" href="/about">
+              About me
+            </LinkButton>
           </PageContent>
         </HeroBase>
       }
@@ -81,7 +84,7 @@ const Home = ({ posts }: HomePageProps) => {
           </Columns>
         </PageContent>
       </Box>
-      <HeroBase backgroundVariant="image" height="300px" backgroundImage="url(/images/gcp-juniordev-talk.jpg)">
+      <HeroBase backgroundVariant="image" height="300px" backgroundImageUri="/images/gcp-juniordev-talk.jpg">
         <PageContent>
           <Heading use="h4">🎤 Tech Talks</Heading>
           <Paragraph>

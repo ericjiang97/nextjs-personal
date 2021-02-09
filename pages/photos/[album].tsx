@@ -35,7 +35,7 @@ export default function AlbumTemplate(props: InferGetStaticPropsType<typeof getS
         imageUrl: meta.imgUrl,
       }}
       banner={
-        <HeroBase backgroundVariant="image" backgroundImage={`url(${meta.imgUrl})`}>
+        <HeroBase backgroundVariant="image" backgroundImageUri={meta.imgUrl}>
           <Heading use="h3">{albumInfo.photoset.title._content}</Heading>
           <Paragraph>{albumInfo.photoset.description._content}</Paragraph>
           <Stack orientation="horizontal">

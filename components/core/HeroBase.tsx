@@ -3,7 +3,7 @@ import { Container, styled } from 'bumbag';
 
 import { HeroBaseProps } from './HeroBaseTypes';
 
-const HeroBase: React.FC<HeroBaseProps> = ({ children, height = '600px', textColor, ...props }) => {
+const HeroBase: React.FC<HeroBaseProps> = ({ children, height = '600px', textColor = 'white', ...props }) => {
   const bgColor = '#09203399';
 
   if (props.backgroundVariant === 'color') {
@@ -15,6 +15,7 @@ const HeroBase: React.FC<HeroBaseProps> = ({ children, height = '600px', textCol
         display="flex"
         justifyContent="center"
         alignItems="center"
+        flexDirection="column"
         backgroundColor={props.backgroundColor}
         color={textColor}
       >
@@ -22,14 +23,14 @@ const HeroBase: React.FC<HeroBaseProps> = ({ children, height = '600px', textCol
       </Container>
     );
   }
-  const actualTextColor = props.backgroundImage ? 'white' : textColor || 'black';
+  const actualTextColor = props.backgroundImageUri ? 'white' : textColor || 'black';
 
   const HeroBaseContainer = styled.div`
     width: 100%;
     max-width: 100%;
     height: ${height};
-    background-image: ${props.backgroundImage &&
-    `linear-gradient(to top, ${bgColor}, ${bgColor}), ${props.backgroundImage}`};
+    background-image: ${props.backgroundImageUri &&
+    `linear-gradient(to top, ${bgColor}, ${bgColor}), url('${props.backgroundImageUri}')`};
     background-size: cover;
     background-position: center;
     display: flex;

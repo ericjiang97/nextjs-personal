@@ -54,7 +54,7 @@ export default function Post({ uid, data, error }: { uid: string; data: any; err
           )}
           <HeroBase
             backgroundVariant="image"
-            backgroundImage={`url('${data.featured_image && data.featured_image.url}')`}
+            backgroundImageUri={`${data.featured_image && data.featured_image.url}`}
           ></HeroBase>
         </>
       }

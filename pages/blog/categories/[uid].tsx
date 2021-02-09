@@ -28,7 +28,7 @@ export default function BlogHome(props: any) {
       banner={
         <HeroBase
           backgroundVariant="image"
-          backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)"
+          backgroundImageUri="https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg"
         >
           <Heading use="h3">{title}</Heading>
           <Paragraph marginY="1rem">{subtitle}</Paragraph>

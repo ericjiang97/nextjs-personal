@@ -7,7 +7,7 @@ export type HeroBaseProps = HeroBaseDefaultProps &
   (
     | {
         backgroundVariant: 'image';
-        backgroundImage: string;
+        backgroundImageUri: string;
       }
     | {
         backgroundVariant: 'color';

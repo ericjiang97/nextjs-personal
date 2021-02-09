@@ -15,6 +15,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, pal
       iconBefore={iconBefore}
       variant={variant}
       aria-label={`link button to ${href}`}
+      borderRadius="2"
       {...linkProps}
     >
       {children}
