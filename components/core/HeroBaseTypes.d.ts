@@ -3,14 +3,14 @@ interface HeroBaseDefaultProps {
   textColor?: string;
 }
 
-interface HeroBackgroundImage extends HeroBaseDefaultProps {
-  backgroundVariant: 'image';
-  backgroundImage: string;
-}
-
-interface HeroBackgroundColor extends HeroBaseDefaultProps {
-  backgroundVariant: 'color';
-  backgroundColor: string;
-}
-
-export type HeroBaseProps = HeroBackgroundImage | HeroBackgroundColor;
+export type HeroBaseProps = HeroBaseDefaultProps &
+  (
+    | {
+        backgroundVariant: 'image';
+        backgroundImage: string;
+      }
+    | {
+        backgroundVariant: 'color';
+        backgroundColor: string;
+      }
+  );
