@@ -61,12 +61,12 @@ const ButtondownContainer = () => {
         <Container breakpoint="max-mobile">
           <Container>
             <Heading use="h5">Subscribe to my newsletter</Heading>
-            <Paragraph marginTop="0.75rem">
+            <Paragraph marginTop="1rem">
               I also (occassionally) write some newsletters. Subscribe below for my newsletter.
             </Paragraph>
           </Container>
           {!attemptedSubmit && (
-            <Container marginTop="1rem">
+            <Container marginTop="1.5rem">
               <InputField
                 label="Your Email"
                 type="email"
@@ -76,12 +76,13 @@ const ButtondownContainer = () => {
                   setEmail(e.currentTarget.value);
                 }}
               />
-              <Button onClick={() => onSubmit()} marginTop="1rem" width="100%">
+              <Button onClick={() => onSubmit()} marginTop="1rem" width="100%" palette="coral">
                 Submit
               </Button>
               <Container textAlign="center" marginTop="1rem">
-                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" color="white800">
-                  Powered by Buttondown
+                Powered by{' '}
+                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" color="secondary">
+                  Buttondown
                 </Link>
               </Container>
             </Container>

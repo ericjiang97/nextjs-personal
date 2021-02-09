@@ -18,6 +18,7 @@ const palette: PaletteThemeConfig = {
   coral: '#FF8552',
   onyx: '#39393A',
   platinum: '#E6E6E6',
+  oxfordBlue: '#001B2E',
 };
 
 const theme: ThemeConfig = {
