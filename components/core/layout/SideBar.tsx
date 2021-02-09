@@ -12,7 +12,7 @@ const SideBar: React.FC = () => {
   return (
     <>
       <Drawer.Disclosure {...drawer} marginLeft="1rem">
-        <Icon aria-label="toggle sidebar" icon="solid-bars" color="primary" />
+        <Icon aria-label="toggle sidebar" icon="solid-bars" color="white" />
       </Drawer.Disclosure>
       <Drawer {...drawer} fade slide overflowY="scroll">
         <Menu marginTop="2rem">
