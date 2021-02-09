@@ -44,8 +44,8 @@ const Home = ({ posts }: HomePageProps) => {
                   I’m a <Text color="secondary">Test Engineer </Text> at <Text color="secondary">Google</Text>.
                 </Heading>
                 <Paragraph marginTop="2rem">
-                  In my spare time, I make impact by building awesome software solutions and building the communities
-                  around me.
+                  Technology has been rapidly growing and is at the forefront of bringing change. I've always wanted to
+                  build awesome &amp; secure products which delight users and impact their lives.
                 </Paragraph>
               </Columns.Column>
               <Columns.Column>
