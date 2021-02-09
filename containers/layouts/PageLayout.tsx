@@ -64,7 +64,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   const titleString = `${title} - Eric Jiang`;
   return (
     <PageWithHeader
-      header={<Nav {...navProps} hideSearch={hideSearch} searchValue={searchQuery} />}
+      header={<Nav {...navProps} searchValue={searchQuery} />}
       display="flex"
       flexDirection="column"
       defaultIsVisible={true}
