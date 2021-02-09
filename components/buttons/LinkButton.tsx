@@ -5,7 +5,14 @@ interface LinkButtonProps extends ButtonProps {
   href: string;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, palette = 'primary', variant }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({
+  children,
+  href,
+  iconBefore,
+  palette = 'primary',
+  variant,
+  ...otherProps
+}) => {
   const linkProps = Link.useProps({ href: `${href}` });
   return (
     <Button
@@ -16,6 +23,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, pal
       variant={variant}
       aria-label={`link button to ${href}`}
       borderRadius="2"
+      {...otherProps}
       {...linkProps}
     >
       {children}
