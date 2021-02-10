@@ -14,7 +14,7 @@ const SideBar: React.FC = () => {
       <Drawer.Disclosure {...drawer} marginLeft="1rem">
         <Icon aria-label="toggle sidebar" icon="solid-bars" color="white" />
       </Drawer.Disclosure>
-      <Drawer {...drawer} fade slide overflowY="scroll">
+      <Drawer {...drawer} fade slide overflowY="scroll" maxWidth="280px">
         <Menu marginTop="2rem">
           <Menu.Item paddingY="1rem">
             <Icon aria-label="Calendar" icon="logo" fontSize="100px" />

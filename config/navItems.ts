@@ -30,10 +30,6 @@ export const navItems: NavItem[] = [
     label: 'Media',
     childNav: [
       {
-        label: 'Photos',
-        href: '/photos',
-      },
-      {
         href: '/talks',
         label: 'Tech Talks',
       },

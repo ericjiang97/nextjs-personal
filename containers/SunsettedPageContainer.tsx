@@ -34,7 +34,7 @@ const SunsetttedPage: React.FC<SunsetttedPageProps> = ({ currentEndpoint, curren
                 {newUrl}
               </Link>
             </Paragraph>
-            <Image src="/images/eric-shrug.png" />
+            <Image src="/images/eric-shrug.png" width="100%" />
           </Container>
         </HeroBase>
       }
