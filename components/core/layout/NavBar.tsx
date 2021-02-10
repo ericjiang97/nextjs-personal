@@ -38,12 +38,11 @@ const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: 
           </TopNav.Item>
         </TopNav.Section>
         {!isMobile && (
-          <TopNav.Section marginY="major-2" display="flex" flex="1" justifyContent="flex-end" maxWidth="300px">
+          <TopNav.Section marginY="major-2" display="flex" flex="1" justifyContent="flex-end">
             <Input
               placeholder="Search for something"
               defaultValue={searchValue}
               width={displaySearch ? '100%' : '0px'}
-              display={displaySearch ? 'inherit' : 'none'}
               transition="width 0.3s"
               minWidth="0px"
               onKeyDown={(e) => {

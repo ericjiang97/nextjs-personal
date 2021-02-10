@@ -2,7 +2,7 @@ import React from 'react';
 import experience from '../data/experience';
 import { Experience } from '../types';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Link, Container, Card, Stack, Label, List } from 'bumbag';
+import { Heading, Paragraph, Link, Container, Card, Stack, Label, List, Columns, Image } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
 import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
@@ -34,36 +34,48 @@ class AboutMe extends React.Component<Props> {
       <PageLayout
         title="About Me"
         pageMeta={{
-          description: `Hi, I’m Eric. I recently finished my course in Bachelor of Information Technology at Monash University in
+          description: `I recently finished my course in Bachelor of Information Technology at Monash University in
         Melbourne, Australia where I majored in Computer networks and security.`,
           endpoint: '/about',
         }}
         banner={
-          <HeroBase backgroundVariant="image" backgroundImageUri={heroBackground}>
-            <Heading use="h3">About Me</Heading>
-            <Paragraph>
-              Hi, I’m Eric. Technology has been rapidly growing and is at the forefront of bringing change. I've always
-              wanted to build products for everyone which are delightful, stable and secure.
-            </Paragraph>
+          <HeroBase backgroundVariant="color" backgroundColor="primary">
+            <Columns>
+              <Columns.Column>
+                <Heading use="h3" color="secondary">
+                  About Me
+                </Heading>
+                <Paragraph marginTop="1.5rem">
+                  Technology has been rapidly growing and is at the forefront of bringing change. I've always wanted to
+                  build products for everyone which are delightful, stable and secure.
+                </Paragraph>
+              </Columns.Column>
+              <Columns.Column>
+                <Image src={heroBackground} width="75%" />
+              </Columns.Column>
+            </Columns>
           </HeroBase>
         }
       >
         <Container>
-          <Paragraph>
-            As a Test Engineer on the Script Automation Team within the Pixel Software Product Area at{' '}
+          <Paragraph marginY="1rem">
+            As a Test Engineer on the Pixel Software Security Team within the Pixel Software Product Area at{' '}
             <Link href="https://about.google">Google</Link> I work on building and maintaining test automation tools, as
             well as shaping better processes to enable software and hardware teams to build the best products possible.
           </Paragraph>
-          <Paragraph>
+          <Paragraph marginY="1rem">
             I'd like to bring my passion for programming to building software and mechanisms to keep user data safe and
-            ensuring that end users have the best user experience when using software. If you are a recruiter, I am best
-            contacted via email at <Link href="mailto:recruiting@ericjiang.dev">recruiting@ericjiang.dev</Link>
+            ensuring that end users have the best user experience when using software.
+          </Paragraph>
+          <Paragraph marginY="1rem">
+            If you are a recruiter, I am best contacted via email at{' '}
+            <Link href="mailto:recruiting@ericjiang.dev">recruiting@ericjiang.dev</Link>
           </Paragraph>
           <LinkButton palette="primary" href="https://resume.ericjiang.dev">
             Download my resume
           </LinkButton>
         </Container>
-        <Container>
+        <Container marginTop="2rem">
           <Heading use="h4">Experience</Heading>
           <Stack>
             {experience.map((experience: Experience, index) => {
