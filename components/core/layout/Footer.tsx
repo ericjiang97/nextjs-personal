@@ -12,7 +12,7 @@ const Footer = () => {
       <ButtondownContainer />
       <Container backgroundColor="oxfordBlue" color="white" minWidth="100%" breakpoint="widescreen">
         <Container
-          padding="3rem 2rem"
+          paddingY="3rem"
           breakpoint="widescreen"
           display="flex"
           alignItems="center"

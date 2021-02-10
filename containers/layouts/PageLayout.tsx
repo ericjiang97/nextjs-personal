@@ -37,14 +37,14 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
         <meta name="twitter:description" content={siteDescription} />
       </Head>
       {banner && banner}
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh', flexWrap: 'wrap' }}>
-        {isChildrenPadded ? (
-          <PageContent style={{ flex: 1 }} breakpoint="desktop">
-            {children}
-          </PageContent>
-        ) : (
-          children
-        )}
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, flexWrap: 'wrap' }}>
+        {isChildrenPadded
+          ? children && (
+              <PageContent style={{ flex: 1 }} breakpoint="desktop">
+                {children}
+              </PageContent>
+            )
+          : children}
       </div>
     </>
   );
@@ -69,6 +69,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       flexDirection="column"
       defaultIsVisible={true}
       sticky
+      minHeight="50vh"
     >
       <PageChildren
         title={titleString}
