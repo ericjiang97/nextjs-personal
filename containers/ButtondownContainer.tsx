@@ -60,9 +60,9 @@ const ButtondownContainer = () => {
       <PageContent>
         <Container breakpoint="max-mobile">
           <Container>
-            <Heading use="h5">Subscribe to my newsletter</Heading>
+            <Heading use="h5">Like what you read? You may want to subscribe to my newsletter</Heading>
             <Paragraph marginTop="1rem">
-              I also (occassionally) write some newsletters. Subscribe below for my newsletter.
+              I also occassionally write on my newsletter, so please subscribe below.
             </Paragraph>
           </Container>
           {!attemptedSubmit && (
@@ -81,7 +81,7 @@ const ButtondownContainer = () => {
               </Button>
               <Container textAlign="center" marginTop="1rem">
                 Powered by{' '}
-                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" color="secondary">
+                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" fontPalette="secondary">
                   Buttondown
                 </Link>
               </Container>

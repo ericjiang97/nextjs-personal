@@ -26,32 +26,32 @@ const Footer = () => {
             </Heading>
             <Heading use="h6" marginY="0.75rem">
               Powered by{' '}
-              <Link href="https://vercel.com/" color="white">
+              <Link href="https://vercel.com/" color="secondary">
                 Vercel
               </Link>{' '}
               &amp;{' '}
-              <Link href="https://prismic.io/" color="white">
+              <Link href="https://prismic.io/" color="secondary">
                 Prismic
               </Link>
               . Built in{' '}
-              <Link href="https://nextjs.org/" color="white">
+              <Link href="https://nextjs.org/" color="secondary">
                 NextJS
               </Link>{' '}
               with{' '}
-              <Link href="https://bumbag.style/" color="white">
+              <Link href="https://bumbag.style/" color="secondary">
                 Bumbag
               </Link>
             </Heading>
             <Paragraph marginY="0.75rem" marginBottom="0">
               Find the code on{' '}
-              <Link href="https://github.com/ericjiang97/nextjs-personal" color="white">
+              <Link href="https://github.com/ericjiang97/nextjs-personal" color="secondary">
                 GitHub
               </Link>
             </Paragraph>
             <Paragraph marginTop="0.5rem" marginBottom="0">
               Encoutering issues?{' '}
-              <Link href="https://github.com/ericjiang97/nextjs-personal/issues" color="white">
-                Submit a bug
+              <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new" color="secondary">
+                Submit an issue
               </Link>
             </Paragraph>
           </Container>
