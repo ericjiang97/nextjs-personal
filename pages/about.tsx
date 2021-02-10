@@ -2,7 +2,7 @@ import React from 'react';
 import experience from '../data/experience';
 import { Experience } from '../types';
 import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Link, Container, Card, Stack, Label, List, Columns, Image } from 'bumbag';
+import { Heading, Paragraph, Link, Container, Stack, Label, List, Columns, Image } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
 import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
@@ -39,7 +39,7 @@ class AboutMe extends React.Component<Props> {
           endpoint: '/about',
         }}
         banner={
-          <HeroBase backgroundVariant="color" backgroundColor="primary">
+          <HeroBase backgroundVariant="color" backgroundColor="primary600">
             <Columns>
               <Columns.Column>
                 <Heading use="h3" color="secondary">
@@ -51,7 +51,7 @@ class AboutMe extends React.Component<Props> {
                 </Paragraph>
               </Columns.Column>
               <Columns.Column>
-                <Image src={heroBackground} width="75%" />
+                <Image src={heroBackground} width="100%" />
               </Columns.Column>
             </Columns>
           </HeroBase>
@@ -77,29 +77,33 @@ class AboutMe extends React.Component<Props> {
         </Container>
         <Container marginTop="2rem">
           <Heading use="h4">Experience</Heading>
-          <Stack>
+          <Stack marginTop="1.25rem">
             {experience.map((experience: Experience, index) => {
               return (
-                <Card variant="outlined" standalone key={index}>
-                  <Card.Title>
-                    <Heading use="h5">{experience.company}</Heading>
-                    {experience.positions.map((position, posIndex) => (
-                      <Container marginY="0.5rem" key={posIndex}>
-                        <Label fontSize="0.75rem">{position.dates}</Label>
-                        <Heading use="h6">{position.title}</Heading>
-                      </Container>
-                    ))}
-                  </Card.Title>
-                  <Card.Content>
-                    <Container>
+                <Container paddingX="0.75rem" key={index}>
+                  <Columns>
+                    <Columns.Column spread={4}>
+                      <Heading use="h5" marginBottom="1rem">
+                        {experience.company}
+                      </Heading>
+                      {experience.positions.map((position, posIndex) => (
+                        <Container marginY="0.75rem" key={posIndex}>
+                          <Label fontSize="0.75rem" marginBottom="0.25rem">
+                            {position.dates}
+                          </Label>
+                          <Heading use="h6">{position.title}</Heading>
+                        </Container>
+                      ))}
+                    </Columns.Column>
+                    <Columns.Column spread={8}>
                       <List listStyleType="disc" listStylePosition="outside">
                         {experience.description.map((descrip, descipIndex) => (
                           <List.Item key={descipIndex}>{descrip}</List.Item>
                         ))}
                       </List>
-                    </Container>
-                  </Card.Content>
-                </Card>
+                    </Columns.Column>
+                  </Columns>
+                </Container>
               );
             })}
           </Stack>

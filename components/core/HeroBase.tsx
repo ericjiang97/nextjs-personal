@@ -19,7 +19,9 @@ const HeroBase: React.FC<HeroBaseProps> = ({ children, height = '600px', textCol
         backgroundColor={props.backgroundColor}
         color={textColor}
       >
-        <Container breakpoint="desktop">{children}</Container>
+        <Container breakpoint="desktop" paddingX="1.5rem">
+          {children}
+        </Container>
       </Container>
     );
   }

@@ -42,7 +42,7 @@ const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: 
             <Input
               placeholder="Search for something"
               defaultValue={searchValue}
-              width={displaySearch ? '100%' : '0px'}
+              width={displaySearch ? '100%' : '-100px'}
               transition="width 0.3s"
               minWidth="0px"
               onKeyDown={(e) => {
@@ -53,7 +53,7 @@ const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: 
               }}
             />
             <TopNav.Item palette="secondary" color="white" onClick={() => setDisplaySearch(!displaySearch)}>
-              Search
+              <Icon icon="search" />
             </TopNav.Item>
             {topNavItems.map((item) => {
               return (
