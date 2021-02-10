@@ -81,7 +81,7 @@ const ButtondownContainer = () => {
               </Button>
               <Container textAlign="center" marginTop="1rem">
                 Powered by{' '}
-                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" fontPalette="secondary">
+                <Link href="https://buttondown.email/?utm_source=ericjiang.dev" color="secondary">
                   Buttondown
                 </Link>
               </Container>
