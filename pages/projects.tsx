@@ -1,7 +1,7 @@
 import ProjectCard from '../components/cards/ProjectCard';
 import PageLayout from '../containers/layouts/PageLayout';
 import PROJECTS from '../data/projects';
-import { Heading, Stack, Paragraph, Container } from 'bumbag';
+import { Heading, Stack, Paragraph, Container, Columns, Image } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
 
 const Projects = () => (
@@ -12,10 +12,22 @@ const Projects = () => (
       endpoint: '/projects',
     }}
     banner={
-      <HeroBase backgroundVariant="image" backgroundImageUri="/images/monplan-futureyou.webp">
-        <Heading>Projects</Heading>
-        <Paragraph>These are some of the current and past software projects that I have worked on</Paragraph>
-        <Paragraph fontSize="0.75rem">Background Image: MonPlan and FutureYou team</Paragraph>
+      <HeroBase backgroundVariant="color" backgroundColor="primary600">
+        <Columns>
+          <Columns.Column>
+            <Heading use="h2" color="secondary">
+              Projects
+            </Heading>
+            <Paragraph marginTop="2rem">
+              Whether its a side project, or a product I'm working on at work, I bring my knowledge and energy to help
+              build the most awesome, delightful, secure products for everyone.
+            </Paragraph>
+          </Columns.Column>
+          <Columns.Column>
+            <Image src="/images/monplan-futureyou.webp" width="100%" />
+            <Paragraph fontSize="0.75rem">Image: MonPlan and FutureYou team</Paragraph>
+          </Columns.Column>
+        </Columns>
       </HeroBase>
     }
   >

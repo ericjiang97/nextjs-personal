@@ -3,7 +3,7 @@ import moment from 'moment';
 import Prismic from 'prismic-javascript';
 
 import { RichText } from 'prismic-reactjs';
-import { Container, Heading, Icon, Label, Link, Paragraph, Tag, Divider, Stack, Columns, useBreakpoint } from 'bumbag';
+import { Container, Heading, Icon, Link, Paragraph, Tag, Divider, Stack, Columns, useBreakpoint, Image } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -74,24 +74,24 @@ export default function Post({
               </Paragraph>
             </Container>
           )}
-          <HeroBase backgroundVariant="image" backgroundImageUri={`${data.banner && data.banner.url}`}>
-            <Columns>
-              {isTabletOrLarger && <Columns.Column spread={1} />}
-              <Columns.Column>
-                <Container marginY="1rem">
-                  <Tag use={Link} {...categoryLinkProps} color="white">
-                    {category.data.category_name}
-                  </Tag>
-                </Container>
-                <Heading use="h3">{RichText.asText(title)}</Heading>
-                <Container marginY="1.5rem">
-                  <Label>By</Label>
-                  <Paragraph>{RichText.asText(author)}</Paragraph>
-                  <Label>Published on</Label>
-                  <Paragraph>{moment(published_time).format('ddd Do MMM YYYY')}</Paragraph>
-                </Container>
-              </Columns.Column>
-            </Columns>
+          <HeroBase backgroundVariant="color" backgroundColor="white" textColor="textPrimary">
+            {data.banner && (
+              <Container paddingX="0.75rem" paddingY="0.5rem">
+                <Image src={data.banner.url} width="100%" />
+              </Container>
+            )}
+            <Container marginY="1rem" display="flex" alignItems="center" justifyContent="center">
+              <Tag use={Link} {...categoryLinkProps} color="white" palette="primary">
+                {category.data.category_name}
+              </Tag>
+              <Paragraph marginTop="0px" marginLeft="1rem">
+                {moment(published_time).format('DDDo MMM YYYY')}
+              </Paragraph>
+            </Container>
+            <Container marginY="1.5rem" display="flex" flexDirection="column" alignItems="center">
+              <Heading use="h3">{RichText.asText(title)}</Heading>
+              <Paragraph>by {RichText.asText(author)}</Paragraph>
+            </Container>
           </HeroBase>
         </>
       }

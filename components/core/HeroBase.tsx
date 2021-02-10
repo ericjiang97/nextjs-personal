@@ -11,7 +11,7 @@ const HeroBase: React.FC<HeroBaseProps> = ({ children, height = '600px', textCol
       <Container
         minWidth="100%"
         maxWidth="100%"
-        height={height}
+        minHeight={height}
         display="flex"
         justifyContent="center"
         alignItems="center"
