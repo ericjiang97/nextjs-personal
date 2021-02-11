@@ -1,6 +1,7 @@
 import { Container, Heading, Icon, Image, Input, Link, Paragraph, Tag, Tooltip } from 'bumbag';
 import React, { useState } from 'react';
 import LinkButton from '../components/buttons/LinkButton';
+import HeroBase from '../components/core/HeroBase';
 import PageLayout from '../containers/layouts/PageLayout';
 import _wallpapers, { WallpaperGroup } from '../data/wallpapers';
 import { wallpaperSearch } from '../utils/search';
@@ -15,26 +16,31 @@ export default function Wallpapers() {
         description:
           'Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for 4K, 5K & 6K displays, in addition to P3 color profiles for more vibrant colors.',
       }}
+      banner={
+        <HeroBase backgroundVariant="color" backgroundColor="primary600">
+          <Heading use="h3">Wallpapers</Heading>
+          <Paragraph marginY="1.25rem">
+            Here are some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. I've
+            included support for{' '}
+            <Tag palette="secondary" variant="tint" marginX="0.15rem">
+              4K, 5K & 6K
+            </Tag>
+            displays, in addition to{' '}
+            <Tag palette="primary" variant="tint" marginX="0.15rem">
+              P3
+            </Tag>{' '}
+            color profiles for more vibrant colors.
+          </Paragraph>
+          <Paragraph marginY="1.25rem">
+            Like the wallpapers? Please consider donating to help compensate for my time and also that I can continue
+            making these awesome wallpapers.
+          </Paragraph>
+          <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal" palette="secondary">
+            Donate via Paypal
+          </LinkButton>
+        </HeroBase>
+      }
     >
-      <Heading use="h3">Wallpapers</Heading>
-      <Paragraph marginY="1.25rem">
-        Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for{' '}
-        <Tag palette="secondary" variant="tint" marginX="0.15rem">
-          4K, 5K & 6K
-        </Tag>
-        displays, in addition to{' '}
-        <Tag palette="primary" variant="tint" marginX="0.15rem">
-          P3
-        </Tag>{' '}
-        color profiles for more vibrant colors.
-      </Paragraph>
-      <Paragraph marginY="1.25rem">
-        Like the wallpapers? Please consider donating to help compensate for my time and also that I can continue making
-        these awesome wallpapers.
-      </Paragraph>
-      <LinkButton href="paypal.me/lorderikir" iconBefore="brand-paypal">
-        Donate via Paypal
-      </LinkButton>
       <Container marginY="0.75rem">
         <Input
           placeholder="Search for a wallpaper"
