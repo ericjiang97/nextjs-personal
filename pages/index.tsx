@@ -1,14 +1,14 @@
-import React from 'react';
 import { GetStaticProps } from 'next';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
+import React from 'react';
 
-import { Link, Heading, Paragraph, PageContent, Text, Columns, Image } from 'bumbag';
+import { Columns, Heading, Image, Link, PageContent, Paragraph, Text } from 'bumbag';
 
-import { BlogSubtitle } from './blog';
-import HeroBase from '../components/core/HeroBase';
 import BlogCard from '../components/blog/BlogCard';
 import LinkButton from '../components/buttons/LinkButton';
+import HeroBase from '../components/core/HeroBase';
 import PageLayout from '../containers/layouts/PageLayout';
+import { BlogSubtitle } from './blog';
 
 import { getBlogPostContent } from '../utils/prismic';
 

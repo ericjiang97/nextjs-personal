@@ -1,6 +1,6 @@
-import React from 'react';
-import Head from 'next/head';
 import { PageContent, PageWithHeader } from 'bumbag';
+import Head from 'next/head';
+import React from 'react';
 import Nav from '../../components/core/layout/NavBar';
 import SITE_CONFIG from '../../config';
 

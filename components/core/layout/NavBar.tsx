@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { TopNav, Icon, TopNavProps, Input, useBreakpoint, Container } from 'bumbag';
-import SideBar from './SideBar';
+import { Container, Icon, Input, TopNav, TopNavProps, useBreakpoint } from 'bumbag';
 import { useRouter } from 'next/dist/client/router';
+import SideBar from './SideBar';
 
 const topNavItems: { title: string; url: string }[] = [
   {

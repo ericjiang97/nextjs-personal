@@ -1,12 +1,12 @@
+import { Columns, Container, Heading, Image, Label, Link, List, Paragraph, Stack } from 'bumbag';
+import { NextPageContext } from 'next';
 import React from 'react';
+import LinkButton from '../components/buttons/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
 import experience from '../data/experience';
 import { Experience } from '../types';
-import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Link, Container, Stack, Label, List, Columns, Image } from 'bumbag';
-import HeroBase from '../components/core/HeroBase';
-import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
-import { NextPageContext } from 'next';
 
 interface Props {
   _userAgent: string;

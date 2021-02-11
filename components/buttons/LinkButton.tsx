@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, ButtonProps, Link } from 'bumbag';
+import React from 'react';
 
 interface LinkButtonProps extends ButtonProps {
   href: string;

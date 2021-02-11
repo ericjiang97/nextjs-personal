@@ -1,7 +1,7 @@
-import React from 'react';
 import moment from 'moment';
+import React from 'react';
 
-import { Heading, Link, Button, Paragraph } from 'bumbag';
+import { Button, Heading, Link, Paragraph } from 'bumbag';
 import { FlickrPhoto } from '../../types/FlickrApi';
 
 interface PhotoCardProps {

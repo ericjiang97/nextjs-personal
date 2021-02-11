@@ -1,8 +1,8 @@
+import { Container, Heading, Icon, Image, Input, Link, Paragraph, Tag, Tooltip } from 'bumbag';
 import React, { useState } from 'react';
-import PageLayout from '../containers/layouts/PageLayout';
-import { Image, Heading, Paragraph, Container, Tag, Link, Input, Icon, Tooltip } from 'bumbag';
-import _wallpapers, { WallpaperGroup } from '../data/wallpapers';
 import LinkButton from '../components/buttons/LinkButton';
+import PageLayout from '../containers/layouts/PageLayout';
+import _wallpapers, { WallpaperGroup } from '../data/wallpapers';
 import { wallpaperSearch } from '../utils/search';
 
 export default function Wallpapers() {

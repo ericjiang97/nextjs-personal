@@ -1,17 +1,17 @@
-import React from 'react';
 import { NextPageContext } from 'next';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
+import React from 'react';
 
-import { Heading, Stack, Paragraph, Container } from 'bumbag';
+import { Container, Heading, Paragraph, Stack } from 'bumbag';
 
-import HeroBase from '../components/core/HeroBase';
 import BlogCard from '../components/blog/BlogCard';
+import HeroBase from '../components/core/HeroBase';
 import PageLayout from '../containers/layouts/PageLayout';
 
 import { searchPrismic } from '../utils/prismic';
 
-import { BlogSubtitle } from './blog';
 import { PrismicBlogCategory, PrismicBlogPost } from '../types/PrismicBlogPost';
+import { BlogSubtitle } from './blog';
 
 interface SearchPageProps {
   results: ApiSearchResponse;

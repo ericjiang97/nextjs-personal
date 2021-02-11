@@ -1,8 +1,8 @@
+import { Columns, Container, Heading, Image, Paragraph, Stack } from 'bumbag';
 import ProjectCard from '../components/cards/ProjectCard';
+import HeroBase from '../components/core/HeroBase';
 import PageLayout from '../containers/layouts/PageLayout';
 import PROJECTS from '../data/projects';
-import { Heading, Stack, Paragraph, Container, Columns, Image } from 'bumbag';
-import HeroBase from '../components/core/HeroBase';
 
 const Projects = () => (
   <PageLayout

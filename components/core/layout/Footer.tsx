@@ -1,10 +1,10 @@
+import { Container, Heading, Icon, Link, Paragraph, Stack } from 'bumbag';
 import React from 'react';
-import { Container, Paragraph, Link, Icon, Stack, Heading } from 'bumbag';
 
 import ButtondownContainer from '../../../containers/ButtondownContainer';
 
-import routes from '../../../config/routes';
 import SITE_CONFIG from '../../../config';
+import routes from '../../../config/routes';
 
 const Footer = () => {
   return (

@@ -1,7 +1,7 @@
+import { Container, Heading, Image, Paragraph, Text } from 'bumbag';
 import React from 'react';
-import PageLayout from '../containers/layouts/PageLayout';
-import { Image, Heading, Paragraph, Text, Container } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
 
 const Strike: React.FC<{ children: string }> = ({ children }) => {
   return <Text style={{ textDecoration: 'line-through' }}>{children}</Text>;

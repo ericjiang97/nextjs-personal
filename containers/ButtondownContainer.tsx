@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Container, Heading, Icon, InputField, Link, PageContent, Paragraph, styled } from 'bumbag';
+import React from 'react';
 
 const FloatingIcon = styled(Icon)`
   @keyframes float {

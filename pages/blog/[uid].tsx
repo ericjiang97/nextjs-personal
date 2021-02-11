@@ -1,9 +1,9 @@
-import React from 'react';
 import moment from 'moment';
 import Prismic from 'prismic-javascript';
+import React from 'react';
 
+import { Columns, Container, Divider, Heading, Icon, Image, Link, Paragraph, Stack, Tag, useBreakpoint } from 'bumbag';
 import { RichText } from 'prismic-reactjs';
-import { Container, Heading, Icon, Link, Paragraph, Tag, Divider, Stack, Columns, useBreakpoint, Image } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -11,21 +11,21 @@ import ShareModal from '../../components/modals/ShareModal';
 import PageLayout from '../../containers/layouts/PageLayout';
 import Custom404 from '../404';
 
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from 'react-share';
+import BlogCard from '../../components/blog/BlogCard';
+import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 import { getBlogPostContent } from '../../utils/prismic';
-import BlogCard from '../../components/blog/BlogCard';
-import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
-import {
-  EmailShareButton,
-  EmailIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from 'react-share';
 
 export default function Post({
   uid,

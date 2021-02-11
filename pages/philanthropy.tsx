@@ -1,10 +1,10 @@
 import moment, { Moment } from 'moment';
 
-import PageLayout from '../containers/layouts/PageLayout';
+import { Card, CardContent, Columns, Container, Heading, Image, Label, Paragraph, Stack, Tag, Text } from 'bumbag';
 import { InferGetServerSidePropsType } from 'next';
 import { Chart } from 'react-google-charts';
-import { Heading, Paragraph, Text, Label, Container, Image, Stack, Tag, Card, CardContent, Columns } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
 
 interface Donation {
   Date: string;

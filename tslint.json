@@ -3,6 +3,7 @@
   "rules": {
     "no-unused-variable": true,
     "react-hooks-nesting": true,
+    "ordered-imports": true,
     "import-name": false,
     "align": false,
     "semicolon": [true, "always", "ignore-bound-class-methods"],
@@ -23,7 +24,7 @@
       }
     ],
     "variable-name": {
-      "options": ["ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
+      "options": ["tsban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
     }
   }
 }

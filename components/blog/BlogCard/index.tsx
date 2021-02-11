@@ -1,11 +1,11 @@
-import React from 'react';
 import moment from 'moment';
+import React from 'react';
 
-import { RichText } from 'prismic-reactjs';
 import { Card, Container, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
+import { RichText } from 'prismic-reactjs';
 
-import BlogCardProps from './types';
 import LinkButton from '../../buttons/LinkButton';
+import BlogCardProps from './types';
 
 const BlogCard: React.FC<BlogCardProps> = ({
   blogPostContent: blogContent,

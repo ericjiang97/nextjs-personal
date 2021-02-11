@@ -1,5 +1,5 @@
-import React from 'react';
 import { Container, styled } from 'bumbag';
+import React from 'react';
 
 import { HeroBaseProps } from './HeroBaseTypes';
 

@@ -1,16 +1,16 @@
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 
-import { Heading, Stack, Paragraph } from 'bumbag';
+import { Heading, Paragraph, Stack } from 'bumbag';
 
-import LinkButton from '../../components/buttons/LinkButton';
 import BlogCard from '../../components/blog/BlogCard';
+import LinkButton from '../../components/buttons/LinkButton';
 import HeroBase from '../../components/core/HeroBase';
 import PageLayout from '../../containers/layouts/PageLayout';
 
 import { getBlogPostContent } from '../../utils/prismic';
 
-import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 import routes from '../../config/routes';
+import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 
 export const BlogSubtitle =
   "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them.";

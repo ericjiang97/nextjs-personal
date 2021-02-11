@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Drawer, Menu, Icon, Link, Switch, useColorMode, Divider } from 'bumbag';
+import { Divider, Drawer, Icon, Link, Menu, Switch, useColorMode } from 'bumbag';
 import { navItems } from '../../../config/navItems';
 
 const SideBar: React.FC = () => {

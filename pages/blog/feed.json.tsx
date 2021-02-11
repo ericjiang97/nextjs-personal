@@ -1,13 +1,13 @@
-import React from 'react';
 import moment from 'moment';
+import React from 'react';
 
 import { RichText } from 'prismic-reactjs';
 
-import { getBlogPostContent } from '../../utils/prismic';
-import JsonFeed, { JsonFeedItem } from '../../types/JsonFeed';
-import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import { NextPageContext } from 'next';
+import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import SITE_CONFIG from '../../config';
+import JsonFeed, { JsonFeedItem } from '../../types/JsonFeed';
+import { getBlogPostContent } from '../../utils/prismic';
 
 const getJsonFeed = async (blogPosts: ApiSearchResponse) => {
   const posts = await blogPosts;

@@ -1,7 +1,7 @@
-import React from 'react';
-import PageLayout from '../../containers/layouts/PageLayout';
 import { Container, Heading, Link, List, ListItem, Paragraph } from 'bumbag';
+import React from 'react';
 import HeroBase from '../../components/core/HeroBase';
+import PageLayout from '../../containers/layouts/PageLayout';
 
 // This function must be named otherwise it disables Fast Refresh.
 const NowPage: React.FC = () => {

@@ -4,8 +4,8 @@ import { Container, Heading, Image, Link, Paragraph } from 'bumbag';
 
 import HeroBase from '../components/core/HeroBase';
 
-import PageLayout from './layouts/PageLayout';
 import { useRouter } from 'next/dist/client/router';
+import PageLayout from './layouts/PageLayout';
 
 interface SunsetttedPageProps {
   currentPageName: string;
