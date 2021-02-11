@@ -36,7 +36,14 @@ const BlogCard: React.FC<BlogCardProps> = ({
       standalone
     >
       {showCoverImage && banner && banner.url && (
-        <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
+        <Image
+          src={banner.url}
+          alt={`cover image for ${RichText.asText(title)}`}
+          width="100%"
+          maxHeight="300px"
+          objectFit="cover"
+          objectPosition="center"
+        />
       )}
       <Container>
         <Tag use={Link} {...categoryLinkProps} palette="coral" size="medium" marginY="0.5rem" color="textPrimary">

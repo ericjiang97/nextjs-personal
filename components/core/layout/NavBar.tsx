@@ -26,6 +26,7 @@ const topNavItems: { title: string; url: string }[] = [
 const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: string }) => {
   const router = useRouter();
   const [displaySearch, setDisplaySearch] = useState(false);
+  const [search, setSearchText] = useState('');
   const isMobile = useBreakpoint('max-mobile');
 
   return (
@@ -42,17 +43,24 @@ const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: 
           </TopNav.Item>
         </TopNav.Section>
         {!isMobile && (
-          <TopNav.Section marginY="major-2" display="flex" flex="1" justifyContent="flex-end">
+          <TopNav.Section marginY="major-2" display="flex" flex="2" justifyContent="flex-end">
             <Input
-              placeholder="Search for something"
+              placeholder="Search blog..."
               defaultValue={searchValue}
-              width={displaySearch ? '100%' : '-100px'}
+              value={search}
+              width={displaySearch ? '100%' : '0%'}
+              visibility={displaySearch ? 'visible' : 'hidden'}
               transition="width 0.3s"
               minWidth="0px"
+              onChange={(e) => {
+                setSearchText(e.currentTarget.value);
+              }}
               onKeyDown={(e) => {
                 if (e.keyCode === 13) {
-                  const searchTarget = e.currentTarget.value;
-                  router.push(`/search?q=${searchTarget}`);
+                  router.push(`/search?q=${search}`);
+                  setSearchText('');
+                } else if (e.keyCode === 27) {
+                  setDisplaySearch(!displaySearch);
                 }
               }}
             />

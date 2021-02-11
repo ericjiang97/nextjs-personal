@@ -38,7 +38,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ results, searchQuery }) => {
       searchQuery={searchQuery}
     >
       <Container>
-        <Heading use="h5">{`${results.results_size} results for searching: ${searchQuery}`}</Heading>
+        <Heading use="h5">{`${results.results_size} results for query: ${searchQuery}`}</Heading>
         <Stack>
           {results.results.map((post: any) => {
             const { uid, data } = post;
