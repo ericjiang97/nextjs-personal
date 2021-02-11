@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import { RichText } from 'prismic-reactjs';
-import { Box, Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
+import { Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
 
 import BlogCardProps from './types';
 import LinkButton from '../../buttons/LinkButton';
@@ -26,16 +26,14 @@ const BlogCard: React.FC<BlogCardProps> = ({
   }
 
   return (
-    <Card {...cardProps} minWidth={280} borderRadius="1" standalone>
+    <Card {...cardProps} minWidth={280} maxWidth={500} borderRadius="1" standalone>
       {showCoverImage && banner && banner.url && (
-        <Box display="flex" justifyContent="center">
-          <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} maxHeight="300px" />
-        </Box>
+        <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
       )}
+      <Tag use={Link} {...categoryLinkProps} palette="coral" size="medium" marginY="0.5rem" color="textPrimary">
+        {category.data.category_name}
+      </Tag>
       <Card.Header flexDirection="column" alignItems="start">
-        <Tag use={Link} {...categoryLinkProps} palette="coral" size="small" marginY="0.5rem" color="textPrimary">
-          {category.data.category_name}
-        </Tag>
         <Card.Title fontPalette="primary">{RichText.asText(title)}</Card.Title>
       </Card.Header>
       <Card.Content>{showSummary && displayedSummary && <Paragraph>{displayedSummary}</Paragraph>}</Card.Content>

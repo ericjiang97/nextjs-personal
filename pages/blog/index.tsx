@@ -56,7 +56,7 @@ export default function BlogHome(props: BlogHomeProps) {
           const { uid, data } = post;
           if (uid) {
             const blogPostData = data as PrismicBlogPost<PrismicBlogCategory>;
-            return <BlogCard blogPostContent={blogPostData} uid={uid} showCoverImage={false} key={uid} />;
+            return <BlogCard blogPostContent={blogPostData} uid={uid} showCoverImage={true} key={uid} />;
           }
         })}
       </Stack>
