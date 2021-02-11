@@ -1,28 +1,10 @@
-import { PaletteThemeConfig, ThemeConfig } from 'bumbag';
+import { ThemeConfig } from 'bumbag';
+
 import IconConfig from './icons';
-
-/**
- * Color Palette
- * https://coolors.co/e9d758-297373-ff8552-e6e6e6-39393a
- */
-const palette: PaletteThemeConfig = {
-  danger: '#da1717',
-  info: '#1e67d5',
-  primary: '#297373',
-  secondary: '#E9D758',
-  success: '#0a7d33',
-  text: '#212121',
-  warning: '#FF8552',
-
-  // Custom Colors
-  coral: '#FF8552',
-  onyx: '#39393A',
-  platinum: '#E6E6E6',
-  oxfordBlue: '#001B2E',
-};
+import PaletteConfig from './palette';
 
 const theme: ThemeConfig = {
-  palette,
+  palette: PaletteConfig,
   Icon: IconConfig,
   Paragraph: {
     styles: {

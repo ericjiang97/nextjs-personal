@@ -14,6 +14,10 @@ const topNavItems: { title: string; url: string }[] = [
     url: '/projects',
   },
   {
+    title: 'Philanthropy',
+    url: '/philanthropy',
+  },
+  {
     title: 'About',
     url: '/about',
   },
