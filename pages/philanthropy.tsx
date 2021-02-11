@@ -76,25 +76,31 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
       title="Philanthropy"
       banner={
         <HeroBase backgroundVariant="color" backgroundColor="primary600">
-          <Container>
-            <Heading use="h3">Philanthropy</Heading>
-            <Paragraph marginTop="1.5rem">
-              As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some
-              donations and charity work.
-            </Paragraph>
-            <Text fontSize="0.75rem">
-              Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
-            </Text>
-            <Card marginTop="1rem" variant="bordered" backgroundColor="transparent" standalone>
-              <CardContent>
-                <Label fontSize="0.8rem">{`Total commited this year (FY${currentFinancialYear})`}</Label>
-                <Heading use="h3" fontWeight="500" marginBottom="0">{`$${totalThisFY}`}</Heading>
-                <Text marginTop="0" fontSize="0.75rem" color={diff < 0 ? 'danger' : 'success'}>
-                  {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
-                </Text>
-              </CardContent>
-            </Card>
-          </Container>
+          <Columns>
+            <Columns.Column>
+              <Heading use="h3">Philanthropy</Heading>
+              <Paragraph marginTop="1.5rem">
+                As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some
+                donations and charity work.
+              </Paragraph>
+              <Text fontSize="0.75rem">
+                Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
+              </Text>
+            </Columns.Column>
+            <Columns.Column>
+              <Container paddingX="1rem">
+                <Card marginTop="1rem" variant="bordered" backgroundColor="transparent" standalone>
+                  <CardContent>
+                    <Label fontSize="0.8rem">{`Total commited this year (FY${currentFinancialYear})`}</Label>
+                    <Heading use="h3" fontWeight="500" marginBottom="0">{`$${totalThisFY}`}</Heading>
+                    <Text marginTop="0" fontSize="0.75rem" color={diff < 0 ? 'danger' : 'success'}>
+                      {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
+                    </Text>
+                  </CardContent>
+                </Card>
+              </Container>
+            </Columns.Column>
+          </Columns>
         </HeroBase>
       }
       pageMeta={{
