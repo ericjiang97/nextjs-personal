@@ -1,4 +1,4 @@
-import { Container, Heading, Image } from 'bumbag';
+import { Container, Heading } from 'bumbag';
 import HeroBase from '../components/core/HeroBase';
 import PageLayout from '../containers/layouts/PageLayout';
 
@@ -10,10 +10,14 @@ const Wilson = () => {
         <HeroBase backgroundVariant="color" backgroundColor="primary600">
           <Container breakpoint="desktop">
             <Heading>Hello Wilson</Heading>
-            <Image
+            <iframe
               width="100%"
-              src="https://media-exp1.licdn.com/dms/image/C5603AQHbiO77Tv-JVQ/profile-displayphoto-shrink_200_200/0/1598670201624?e=1617840000&v=beta&t=3bK_Lh6oDa7Zvd9NB6-jrHUmA6q8SKFMmZK3Dum38fw"
-            />
+              height="600"
+              src="https://www.youtube.com/embed/XUYdGEb1C1M?autoplay=1"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </Container>
         </HeroBase>
       }
