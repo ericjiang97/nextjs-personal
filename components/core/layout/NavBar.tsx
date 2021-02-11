@@ -10,6 +10,10 @@ const topNavItems: { title: string; url: string }[] = [
     url: '/blog',
   },
   {
+    title: 'Media',
+    url: '/media',
+  },
+  {
     title: 'Projects',
     url: '/projects',
   },
