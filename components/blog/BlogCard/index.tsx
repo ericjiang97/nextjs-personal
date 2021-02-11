@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import { RichText } from 'prismic-reactjs';
-import { Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
+import { Card, Container, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
 
 import BlogCardProps from './types';
 import LinkButton from '../../buttons/LinkButton';
@@ -26,17 +26,29 @@ const BlogCard: React.FC<BlogCardProps> = ({
   }
 
   return (
-    <Card {...cardProps} minWidth={280} maxWidth={500} borderRadius="1" standalone>
+    <Card
+      {...cardProps}
+      minWidth={280}
+      maxWidth={500}
+      borderRadius="1"
+      display="flex"
+      flexDirection="column"
+      standalone
+    >
       {showCoverImage && banner && banner.url && (
         <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} width="100%" />
       )}
-      <Tag use={Link} {...categoryLinkProps} palette="coral" size="medium" marginY="0.5rem" color="textPrimary">
-        {category.data.category_name}
-      </Tag>
+      <Container>
+        <Tag use={Link} {...categoryLinkProps} palette="coral" size="medium" marginY="0.5rem" color="textPrimary">
+          {category.data.category_name}
+        </Tag>
+      </Container>
       <Card.Header flexDirection="column" alignItems="start">
         <Card.Title fontPalette="primary">{RichText.asText(title)}</Card.Title>
       </Card.Header>
-      <Card.Content>{showSummary && displayedSummary && <Paragraph>{displayedSummary}</Paragraph>}</Card.Content>
+      <Card.Content flex="1">
+        {showSummary && displayedSummary && <Paragraph>{displayedSummary}</Paragraph>}
+      </Card.Content>
       <Card.Footer>
         <LinkButton href={`/blog/${uid}`}>Read Article</LinkButton>
         <Heading fontSize="150" marginTop="1.5rem" color="primary300">
