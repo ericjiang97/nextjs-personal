@@ -30,7 +30,12 @@ const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: 
   const isMobile = useBreakpoint('max-mobile');
 
   return (
-    <TopNav {...navProps} backgroundColor="primary600" justifyContent="space-around">
+    <TopNav
+      {...navProps}
+      backgroundColor="primary600"
+      justifyContent="space-around"
+      selectedId={router.pathname.split('/')[1]}
+    >
       <Container breakpoint="desktop" display="flex" alignItems="center">
         <TopNav.Section display="flex" alignItems="center" flex="1">
           {isMobile && (
@@ -69,7 +74,13 @@ const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: 
             </TopNav.Item>
             {topNavItems.map((item) => {
               return (
-                <TopNav.Item href={item.url} key={item.url} palette="secondary" color="white">
+                <TopNav.Item
+                  href={item.url}
+                  key={item.url}
+                  palette="secondary"
+                  color="white"
+                  navId={item.url.replace('/', '')}
+                >
                   {item.title}
                 </TopNav.Item>
               );
