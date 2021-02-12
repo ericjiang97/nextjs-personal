@@ -1,14 +1,18 @@
+import { Button, ButtonProps, Link } from 'bumbag';
 import React from 'react';
-import { Button, Link } from 'bumbag';
 
-interface LinkButtonProps {
+interface LinkButtonProps extends ButtonProps {
   href: string;
-  iconBefore?: string;
-  palette?: 'primary' | 'secondary';
-  variant?: 'outlined' | 'ghost' | 'link';
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, palette = 'primary', variant }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({
+  children,
+  href,
+  iconBefore,
+  palette = 'primary',
+  variant,
+  ...otherProps
+}) => {
   const linkProps = Link.useProps({ href: `${href}` });
   return (
     <Button
@@ -18,6 +22,8 @@ const LinkButton: React.FC<LinkButtonProps> = ({ children, href, iconBefore, pal
       iconBefore={iconBefore}
       variant={variant}
       aria-label={`link button to ${href}`}
+      borderRadius="2"
+      {...otherProps}
       {...linkProps}
     >
       {children}

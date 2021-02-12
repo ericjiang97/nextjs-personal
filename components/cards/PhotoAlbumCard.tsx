@@ -1,5 +1,5 @@
+import { Card, Heading, Image, Paragraph, Text } from 'bumbag';
 import React from 'react';
-import { Card, Heading, Text, Paragraph, Image } from 'bumbag';
 import LinkButton from '../buttons/LinkButton';
 
 export interface PhotoAlbumCardItem {

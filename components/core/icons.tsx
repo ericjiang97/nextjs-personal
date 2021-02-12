@@ -1,5 +1,5 @@
-import React from 'react';
 import { Icon, IconProps as BumbagIconProps } from 'bumbag';
+import React from 'react';
 
 interface IconProps {
   className?: string;

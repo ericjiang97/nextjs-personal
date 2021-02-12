@@ -1,7 +1,7 @@
-import React from 'react';
-import PageLayout from '../../containers/layouts/PageLayout';
 import { Container, Heading, Link, List, ListItem, Paragraph } from 'bumbag';
+import React from 'react';
 import HeroBase from '../../components/core/HeroBase';
+import PageLayout from '../../containers/layouts/PageLayout';
 
 // This function must be named otherwise it disables Fast Refresh.
 const NowPage: React.FC = () => {
@@ -13,7 +13,7 @@ const NowPage: React.FC = () => {
         description: 'Now Page! :)',
       }}
       banner={
-        <HeroBase backgroundImage={'url()'}>
+        <HeroBase backgroundVariant="color" backgroundColor="primary">
           <Heading use="h3">Now</Heading>
           <Heading use="h6" fontWeight="400" marginY="1.25rem">
             Last Updated: 8th October 2020

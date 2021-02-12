@@ -1,11 +1,11 @@
-import React from 'react';
-import App from 'next/app';
 import { Provider as BumbagProvider, ToastManager } from 'bumbag';
+import App from 'next/app';
+import React from 'react';
 
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import Head from 'next/head';
-import theme from '../config/theme';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import Footer from '../components/core/layout/Footer';
+import theme from '../config/theme';
 
 const RootComponent: React.FC = ({ children }) => {
   return (

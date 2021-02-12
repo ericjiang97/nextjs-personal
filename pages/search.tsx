@@ -1,17 +1,17 @@
-import React from 'react';
 import { NextPageContext } from 'next';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
+import React from 'react';
 
-import { Heading, Stack, Paragraph, Container } from 'bumbag';
+import { Container, Heading, Paragraph, Stack } from 'bumbag';
 
-import HeroBase from '../components/core/HeroBase';
 import BlogCard from '../components/blog/BlogCard';
+import HeroBase from '../components/core/HeroBase';
 import PageLayout from '../containers/layouts/PageLayout';
 
 import { searchPrismic } from '../utils/prismic';
 
-import { BlogSubtitle } from './blog';
 import { PrismicBlogCategory, PrismicBlogPost } from '../types/PrismicBlogPost';
+import { BlogSubtitle } from './blog';
 
 interface SearchPageProps {
   results: ApiSearchResponse;
@@ -26,7 +26,10 @@ const SearchPage: React.FC<SearchPageProps> = ({ results, searchQuery }) => {
         endpoint: '/blog',
       }}
       banner={
-        <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
+        <HeroBase
+          backgroundVariant="image"
+          backgroundImageUri="https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg"
+        >
           <Heading use="h3">Blog</Heading>
           <Paragraph marginY="1rem">{BlogSubtitle}</Paragraph>
         </HeroBase>
@@ -35,7 +38,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ results, searchQuery }) => {
       searchQuery={searchQuery}
     >
       <Container>
-        <Heading use="h5">{`${results.results_size} results for searching: ${searchQuery}`}</Heading>
+        <Heading use="h5">{`${results.results_size} results for query: ${searchQuery}`}</Heading>
         <Stack>
           {results.results.map((post: any) => {
             const { uid, data } = post;
