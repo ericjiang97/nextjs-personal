@@ -1,14 +1,14 @@
 import Prismic from 'prismic-javascript';
 
-import { Heading, Stack, Paragraph } from 'bumbag';
+import { Heading, Paragraph, Stack } from 'bumbag';
 import LinkButton from '../../../components/buttons/LinkButton';
 import HeroBase from '../../../components/core/HeroBase';
 
 import PageLayout from '../../../containers/layouts/PageLayout';
 import Custom404 from '../../404';
 
-import { client } from '../../../config/prismic';
 import BlogCard from '../../../components/blog/BlogCard';
+import { client } from '../../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../../types/PrismicBlogPost';
 import { getBlogPostContent } from '../../../utils/prismic';
 
@@ -26,7 +26,10 @@ export default function BlogHome(props: any) {
         endpoint: '/blog',
       }}
       banner={
-        <HeroBase backgroundImage="url(https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg)">
+        <HeroBase
+          backgroundVariant="image"
+          backgroundImageUri="https://live.staticflickr.com/65535/49836502853_dd2b878f7b_b.jpg"
+        >
           <Heading use="h3">{title}</Heading>
           <Paragraph marginY="1rem">{subtitle}</Paragraph>
           <LinkButton href="/blog/feed.xml" iconBefore="solid-rss">

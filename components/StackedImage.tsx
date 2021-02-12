@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Button, Card, Container, Image, Modal, Stack } from 'bumbag';
 
-import { PrismicImage } from '../types/PrismicBlogPost';
 import { PrismicRichText } from 'prismic-reactjs-custom/dist/es/RichText.model';
+import { PrismicImage } from '../types/PrismicBlogPost';
 import PrismicRichTextWrapper from './PrismicRichTextWrapper';
 
 export interface StackedImage {

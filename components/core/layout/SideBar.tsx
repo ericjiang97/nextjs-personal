@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Drawer, Menu, Icon, Link, Switch, useColorMode, Divider } from 'bumbag';
+import { Divider, Drawer, Icon, Link, Menu, Switch, useColorMode } from 'bumbag';
 import { navItems } from '../../../config/navItems';
 
 const SideBar: React.FC = () => {
@@ -12,9 +12,9 @@ const SideBar: React.FC = () => {
   return (
     <>
       <Drawer.Disclosure {...drawer} marginLeft="1rem">
-        <Icon aria-label="toggle sidebar" icon="solid-bars" color="primary" />
+        <Icon aria-label="toggle sidebar" icon="solid-bars" color="white" />
       </Drawer.Disclosure>
-      <Drawer {...drawer} fade slide overflowY="scroll">
+      <Drawer {...drawer} fade slide overflowY="scroll" maxWidth="280px">
         <Menu marginTop="2rem">
           <Menu.Item paddingY="1rem">
             <Icon aria-label="Calendar" icon="logo" fontSize="100px" />

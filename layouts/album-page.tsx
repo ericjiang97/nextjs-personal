@@ -1,8 +1,8 @@
+import { Container, Heading, Paragraph, styled } from 'bumbag';
 import React from 'react';
-import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Container, styled } from 'bumbag';
-import HeroBase from '../components/core/HeroBase';
 import LinkButton from '../components/buttons/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
 
 export interface FrontMatterAlbum {
   title: string;
@@ -39,7 +39,7 @@ const DocsPage: React.FC<FrontMatterAlbumProps> = ({ children, frontMatter }) =>
         endpoint,
         description: frontMatter.description,
       }}
-      banner={<HeroBase backgroundImage={`url(${frontMatter.albumImage})`}></HeroBase>}
+      banner={<HeroBase backgroundVariant="image" backgroundImageUri={frontMatter.albumImage}></HeroBase>}
     >
       <Container display="flex" flexWrap="wrap">
         <HeadingContainer>

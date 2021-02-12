@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 import {
-  EmailShareButton,
   EmailIcon,
-  FacebookShareButton,
+  EmailShareButton,
   FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LinkedinShareButton,
+  FacebookShareButton,
   LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
 } from 'react-share';
 
-import { Modal, Button, Card, Heading, Container, Icon, Group, Input, useToasts } from 'bumbag';
+import { Button, Card, Container, Group, Heading, Icon, Input, Modal, useToasts } from 'bumbag';
 
 interface SharePostModal {
   slug: string;

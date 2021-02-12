@@ -1,49 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { TopNav, Icon, TopNavProps, Input } from 'bumbag';
-import SideBar from './SideBar';
+import { Container, Icon, Input, TopNav, TopNavProps, useBreakpoint } from 'bumbag';
 import { useRouter } from 'next/dist/client/router';
+import SideBar from './SideBar';
 
-const Nav = ({
-  navProps,
-  searchValue,
-  hideSearch = false,
-}: {
-  navProps?: TopNavProps;
-  searchValue?: string;
-  hideSearch?: boolean;
-}) => {
+const topNavItems: { title: string; url: string }[] = [
+  {
+    title: 'Blog',
+    url: '/blog',
+  },
+  {
+    title: 'Media',
+    url: '/media',
+  },
+  {
+    title: 'Projects',
+    url: '/projects',
+  },
+  {
+    title: 'Philanthropy',
+    url: '/philanthropy',
+  },
+  {
+    title: 'About',
+    url: '/about',
+  },
+];
+
+const Nav = ({ navProps, searchValue }: { navProps?: TopNavProps; searchValue?: string }) => {
   const router = useRouter();
+  const [displaySearch, setDisplaySearch] = useState(false);
+  const [search, setSearchText] = useState('');
+  const isMobile = useBreakpoint('max-mobile');
+
   return (
-    <TopNav {...navProps} display="flex" alignItems="center">
-      <TopNav.Section display="flex" alignItems="center">
-        <TopNav.Item marginLeft="minor-1">
-          <SideBar />
-        </TopNav.Item>
-        <TopNav.Item href="/" marginLeft="major-2">
-          <Icon aria-label="logo" icon="logo" fontSize="900" />
-        </TopNav.Item>
-      </TopNav.Section>
-      {!hideSearch && (
-        <>
-          <TopNav.Section marginY="major-2" display="flex" alignItems="center" flex="1" justifyContent="space-around">
+    <TopNav
+      {...navProps}
+      backgroundColor="primary600"
+      justifyContent="space-around"
+      selectedId={router.pathname.split('/')[1]}
+    >
+      <Container breakpoint="desktop" display="flex" alignItems="center">
+        <TopNav.Section display="flex" alignItems="center" flex="1">
+          {isMobile && (
+            <TopNav.Item marginLeft="minor-1">
+              <SideBar />
+            </TopNav.Item>
+          )}
+          <TopNav.Item href="/" marginLeft="major-2">
+            <Icon aria-label="logo" icon="logo" fontSize="900" color="white" />
+          </TopNav.Item>
+        </TopNav.Section>
+        {!isMobile && (
+          <TopNav.Section marginY="major-2" display="flex" flex="2" justifyContent="flex-end">
             <Input
-              before={<Input.Icon icon="solid-search" />}
-              placeholder="Search for something"
-              flex="1"
-              maxWidth="700"
+              placeholder="Search blog..."
               defaultValue={searchValue}
+              value={search}
+              width={displaySearch ? '100%' : '0%'}
+              visibility={displaySearch ? 'visible' : 'hidden'}
+              transition="width 0.3s"
+              minWidth="0px"
+              onChange={(e) => {
+                setSearchText(e.currentTarget.value);
+              }}
               onKeyDown={(e) => {
                 if (e.keyCode === 13) {
-                  const searchTarget = e.currentTarget.value;
-                  router.push(`/search?q=${searchTarget}`);
+                  router.push(`/search?q=${search}`);
+                  setSearchText('');
+                } else if (e.keyCode === 27) {
+                  setDisplaySearch(!displaySearch);
                 }
               }}
             />
+            <TopNav.Item palette="secondary" color="white" onClick={() => setDisplaySearch(!displaySearch)}>
+              <Icon icon="search" />
+            </TopNav.Item>
+            {topNavItems.map((item) => {
+              return (
+                <TopNav.Item
+                  href={item.url}
+                  key={item.url}
+                  palette="secondary"
+                  color="white"
+                  navId={item.url.replace('/', '')}
+                >
+                  {item.title}
+                </TopNav.Item>
+              );
+            })}
           </TopNav.Section>
-          <TopNav.Section marginLeft="major-2" display="flex" alignItems="center" />
-        </>
-      )}
+        )}
+      </Container>
     </TopNav>
   );
 };

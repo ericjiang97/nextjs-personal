@@ -1,13 +1,13 @@
 import React from 'react';
 
+import { Card, Columns, Container, Heading, Image, Label, Paragraph } from 'bumbag';
+import { NextPageContext } from 'next';
+import LinkButton from '../components/buttons/LinkButton';
+import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
 import talks from '../data/talks';
 import { Talk } from '../types/talks';
-import PageLayout from '../containers/layouts/PageLayout';
-import { Heading, Paragraph, Stack, Container, Card, Label } from 'bumbag';
-import HeroBase from '../components/core/HeroBase';
-import LinkButton from '../components/buttons/LinkButton';
 import getBrowserDetails, { BrowserDetails } from '../utils/browser';
-import { NextPageContext } from 'next';
 
 const TalkCard: React.FC<Talk> = (talk) => {
   return (
@@ -47,20 +47,25 @@ class TechTalks extends React.Component<Props> {
   render() {
     const { browserDetails } = this.props;
     const heroBackground =
-      browserDetails.browser === 'Safari'
-        ? 'url(/images/gcp-juniordev-talk.jpeg)'
-        : 'url(/images/gcp-juniordev-talk.webp)';
+      browserDetails.browser === 'Safari' ? '/images/gcp-juniordev-talk.jpeg' : '/images/gcp-juniordev-talk.webp';
     return (
       <PageLayout
         title="Tech Talks"
         banner={
-          <HeroBase backgroundImage={heroBackground}>
-            <Heading use="h3">Tech Talks</Heading>
-            <Paragraph>
-              I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up if
-              you are interested in letting me do a talk on Google Cloud, Frontend/Backend Development or my Career
-              Journey
-            </Paragraph>
+          <HeroBase backgroundVariant="color" backgroundColor="primary600">
+            <Columns>
+              <Columns.Column>
+                <Heading use="h3">Tech Talks</Heading>
+                <Paragraph marginTop="1.5rem">
+                  I put the tech in my talks… And also memes), just kidding. I actually love doing tech talks, hit me up
+                  if you are interested in letting me do a talk on Google Cloud, Frontend/Backend Development or my
+                  Career Journey
+                </Paragraph>
+              </Columns.Column>
+              <Columns.Column>
+                <Image src={heroBackground} width="100%" />
+              </Columns.Column>
+            </Columns>
           </HeroBase>
         }
         pageMeta={{
@@ -71,18 +76,30 @@ class TechTalks extends React.Component<Props> {
         }}
       >
         <Container>
-          <Heading use="h4">Upcoming Talks</Heading>
-          {talks.upcoming.length === 0 && <Paragraph>No talks upcoming... Hit me up!</Paragraph>}
-          {talks.upcoming.map((talk: Talk, i) => {
-            return <TalkCard {...talk} key={i} />;
-          })}
+          <Columns>
+            <Columns.Column spread={3}>
+              <Heading use="h4">Upcoming Talks</Heading>
+            </Columns.Column>
+            <Columns.Column>
+              {talks.upcoming.length === 0 && <Paragraph>No talks upcoming... Hit me up!</Paragraph>}
+              {talks.upcoming.map((talk: Talk, i) => {
+                return <TalkCard {...talk} key={i} />;
+              })}
+            </Columns.Column>
+          </Columns>
+
           <hr />
           <Heading use="h4">Past talks</Heading>
-          <Stack>
-            {talks.past.map((talk: Talk, i) => {
-              return <TalkCard {...talk} key={i} />;
-            })}
-          </Stack>
+          {talks.past.map((talk: Talk, i) => {
+            return (
+              <Columns key={i}>
+                <Columns.Column spread={3}>{talk.date}</Columns.Column>
+                <Columns.Column key={i}>
+                  <TalkCard {...talk} key={i} />
+                </Columns.Column>
+              </Columns>
+            );
+          })}
         </Container>
       </PageLayout>
     );

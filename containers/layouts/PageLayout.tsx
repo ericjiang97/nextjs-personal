@@ -1,6 +1,6 @@
-import React from 'react';
-import Head from 'next/head';
 import { PageContent, PageWithHeader } from 'bumbag';
+import Head from 'next/head';
+import React from 'react';
 import Nav from '../../components/core/layout/NavBar';
 import SITE_CONFIG from '../../config';
 
@@ -37,14 +37,14 @@ const PageChildren: React.FC<PageInnerProps> = ({ title, banner, children, pageM
         <meta name="twitter:description" content={siteDescription} />
       </Head>
       {banner && banner}
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '90vh', flexWrap: 'wrap' }}>
-        {isChildrenPadded ? (
-          <PageContent style={{ flex: 1 }} breakpoint="desktop">
-            {children}
-          </PageContent>
-        ) : (
-          children
-        )}
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, flexWrap: 'wrap' }}>
+        {isChildrenPadded
+          ? children && (
+              <PageContent style={{ flex: 1 }} breakpoint="desktop">
+                {children}
+              </PageContent>
+            )
+          : children}
       </div>
     </>
   );
@@ -64,11 +64,12 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   const titleString = `${title} - Eric Jiang`;
   return (
     <PageWithHeader
-      header={<Nav {...navProps} hideSearch={hideSearch} searchValue={searchQuery} />}
+      header={<Nav {...navProps} searchValue={searchQuery} />}
       display="flex"
       flexDirection="column"
       defaultIsVisible={true}
       sticky
+      minHeight="50vh"
     >
       <PageChildren
         title={titleString}

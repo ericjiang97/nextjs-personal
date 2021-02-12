@@ -1,9 +1,9 @@
-import React from 'react';
 import moment from 'moment';
 import Prismic from 'prismic-javascript';
+import React from 'react';
 
+import { Columns, Container, Divider, Heading, Icon, Image, Link, Paragraph, Stack, Tag, useBreakpoint } from 'bumbag';
 import { RichText } from 'prismic-reactjs';
-import { Container, Heading, Icon, Label, Link, Paragraph, Tag, Divider, Stack, Columns, useBreakpoint } from 'bumbag';
 
 import HeroBase from '../../components/core/HeroBase';
 import ShareModal from '../../components/modals/ShareModal';
@@ -11,21 +11,21 @@ import ShareModal from '../../components/modals/ShareModal';
 import PageLayout from '../../containers/layouts/PageLayout';
 import Custom404 from '../404';
 
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from 'react-share';
+import BlogCard from '../../components/blog/BlogCard';
+import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
 import { client } from '../../config/prismic';
 import { PrismicBlogCategory, PrismicBlogPost } from '../../types/PrismicBlogPost';
 import { getBlogPostContent } from '../../utils/prismic';
-import BlogCard from '../../components/blog/BlogCard';
-import PrismicRichTextWrapper from '../../components/PrismicRichTextWrapper';
-import {
-  EmailShareButton,
-  EmailIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from 'react-share';
 
 export default function Post({
   uid,
@@ -74,24 +74,28 @@ export default function Post({
               </Paragraph>
             </Container>
           )}
-          <HeroBase backgroundImage={`url('${data.banner && data.banner.url}')`}>
-            <Columns>
-              {isTabletOrLarger && <Columns.Column spread={1} />}
-              <Columns.Column>
-                <Container marginY="1rem">
-                  <Tag use={Link} {...categoryLinkProps} color="white">
-                    {category.data.category_name}
-                  </Tag>
-                </Container>
-                <Heading use="h3">{RichText.asText(title)}</Heading>
-                <Container marginY="1.5rem">
-                  <Label>By</Label>
-                  <Paragraph>{RichText.asText(author)}</Paragraph>
-                  <Label>Published on</Label>
-                  <Paragraph>{moment(published_time).format('ddd Do MMM YYYY')}</Paragraph>
-                </Container>
-              </Columns.Column>
-            </Columns>
+          <HeroBase
+            backgroundVariant="color"
+            backgroundColor={data.banner && data.banner.url ? 'white' : 'primary600'}
+            textColor={data.banner && data.banner.url ? 'textPrimary' : 'white'}
+          >
+            {data.banner && (
+              <Container paddingX="0.75rem" paddingY="0.5rem">
+                <Image src={data.banner.url} width="100%" maxHeight={300} objectPosition="center" objectFit="cover" />
+              </Container>
+            )}
+            <Container marginY="1rem" display="flex" alignItems="center" justifyContent="center">
+              <Tag use={Link} {...categoryLinkProps} color="white" palette="primary">
+                {category.data.category_name}
+              </Tag>
+              <Paragraph marginTop="0px" marginLeft="1rem">
+                {moment(published_time).format('Do MMM YYYY')}
+              </Paragraph>
+            </Container>
+            <Container marginY="1.5rem" display="flex" flexDirection="column" alignItems="center">
+              <Heading use="h3">{RichText.asText(title)}</Heading>
+              <Paragraph>by {RichText.asText(author)}</Paragraph>
+            </Container>
           </HeroBase>
         </>
       }
@@ -132,15 +136,19 @@ export default function Post({
         </Container>
       )}
       <Divider />
-      <Container marginY="1.25rem">
+      <Container marginY="1.25rem" padding="1rem">
         <Heading use="h3" fontSize="400">
-          Read similar posts...
+          Enjoyed the post? You might want to read similar posts:
         </Heading>
-        <Stack orientation="vertical" marginTop="0.75rem">
+        <Columns marginTop="1rem">
           {similarPosts.results.map((post) => {
-            return <BlogCard blogPostContent={post.data} uid={post.uid} showCoverImage={false} />;
+            return (
+              <Columns.Column key={post.uid} display="flex" spread={4}>
+                <BlogCard blogPostContent={post.data} uid={post.uid} showCoverImage={false} flex={1} />
+              </Columns.Column>
+            );
           })}
-        </Stack>
+        </Columns>
       </Container>
     </PageLayout>
   );

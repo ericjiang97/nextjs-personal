@@ -1,9 +1,30 @@
+import { Container, Heading } from 'bumbag';
+import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
+
 const Wilson = () => {
   return (
-    <div>
-      Hello Wilson
-      <img src="https://media-exp1.licdn.com/dms/image/C5603AQFCqARWQfNFjg/profile-displayphoto-shrink_800_800/0?e=1591833600&v=beta&t=tDE7jehEfLHHXDVXvxfauaLuw6zJSRNbgM4liBGr7ao" />
-    </div>
+    <PageLayout
+      title="Hello Wilson"
+      banner={
+        <HeroBase backgroundVariant="color" backgroundColor="primary600">
+          <Container breakpoint="desktop">
+            <Heading>Hello Wilson</Heading>
+            <iframe
+              width="100%"
+              height="600"
+              src="https://www.youtube.com/embed/XUYdGEb1C1M?autoplay=1"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </Container>
+        </HeroBase>
+      }
+      pageMeta={{
+        endpoint: '/wilson',
+      }}
+    ></PageLayout>
   );
 };
 

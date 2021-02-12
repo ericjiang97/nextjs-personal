@@ -1,17 +1,17 @@
+import {
+  Button,
+  Card,
+  FieldStack,
+  FieldWrapper,
+  Heading,
+  Image,
+  Input,
+  Paragraph,
+  styled,
+  TextareaField,
+} from 'bumbag';
 import React, { useState } from 'react';
 import PageLayout from '../containers/layouts/PageLayout';
-import {
-  Heading,
-  FieldWrapper,
-  Input,
-  TextareaField,
-  FieldStack,
-  Button,
-  Paragraph,
-  Card,
-  styled,
-  Image,
-} from 'bumbag';
 
 const emailRegex = RegExp(
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,

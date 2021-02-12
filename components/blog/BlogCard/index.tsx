@@ -1,11 +1,11 @@
-import React from 'react';
 import moment from 'moment';
+import React from 'react';
 
+import { Card, Container, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
 import { RichText } from 'prismic-reactjs';
-import { Box, Card, Heading, Image, Link, Paragraph, Tag } from 'bumbag';
 
-import BlogCardProps from './types';
 import LinkButton from '../../buttons/LinkButton';
+import BlogCardProps from './types';
 
 const BlogCard: React.FC<BlogCardProps> = ({
   blogPostContent: blogContent,
@@ -15,28 +15,47 @@ const BlogCard: React.FC<BlogCardProps> = ({
   showCoverImage = true,
   maxWordCount = undefined,
 }) => {
-  const { banner, title, summary, published_time, category } = blogContent;
+  const { banner, title, summary, published_time, category, body } = blogContent;
   const categoryLinkProps = Link.useProps({ href: `/blog/categories/${category.uid}` });
 
   let displayedSummary = RichText.asText(summary);
   if (maxWordCount) {
-    displayedSummary = `${RichText.asText(summary).split(' ').splice(0, maxWordCount).join(' ')}...`;
+    displayedSummary = displayedSummary
+      ? `${displayedSummary.split(' ').splice(0, maxWordCount).join(' ')}...`
+      : `${RichText.asText(body).split(' ').splice(0, maxWordCount).join(' ')}...`;
   }
 
   return (
-    <Card {...cardProps} minWidth={280} standalone>
+    <Card
+      {...cardProps}
+      minWidth={280}
+      maxWidth={500}
+      borderRadius="1"
+      display="flex"
+      flexDirection="column"
+      standalone
+    >
       {showCoverImage && banner && banner.url && (
-        <Box display="flex" justifyContent="center">
-          <Image src={banner.url} alt={`cover image for ${RichText.asText(title)}`} maxHeight="300px" />
-        </Box>
+        <Image
+          src={banner.url}
+          alt={`cover image for ${RichText.asText(title)}`}
+          width="100%"
+          maxHeight="300px"
+          objectFit="cover"
+          objectPosition="center"
+        />
       )}
-      <Card.Header flexDirection="column" alignItems="start">
-        <Tag use={Link} {...categoryLinkProps} palette="primary" variant="outlined" size="small" marginY="0.5rem">
+      <Container>
+        <Tag use={Link} {...categoryLinkProps} palette="coral" size="medium" marginY="0.5rem" color="textPrimary">
           {category.data.category_name}
         </Tag>
+      </Container>
+      <Card.Header flexDirection="column" alignItems="start">
         <Card.Title fontPalette="primary">{RichText.asText(title)}</Card.Title>
       </Card.Header>
-      <Card.Content>{showSummary && <Paragraph>{displayedSummary}</Paragraph>}</Card.Content>
+      <Card.Content flex="1">
+        {showSummary && displayedSummary && <Paragraph>{displayedSummary}</Paragraph>}
+      </Card.Content>
       <Card.Footer>
         <LinkButton href={`/blog/${uid}`}>Read Article</LinkButton>
         <Heading fontSize="150" marginTop="1.5rem" color="primary300">

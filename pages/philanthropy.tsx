@@ -1,9 +1,10 @@
 import moment, { Moment } from 'moment';
 
-import PageLayout from '../containers/layouts/PageLayout';
+import { Card, CardContent, Columns, Container, Heading, Image, Label, Paragraph, Stack, Tag, Text } from 'bumbag';
 import { InferGetServerSidePropsType } from 'next';
 import { Chart } from 'react-google-charts';
-import { Heading, Paragraph, Text, Label, Container, Image, Stack, Tag } from 'bumbag';
+import HeroBase from '../components/core/HeroBase';
+import PageLayout from '../containers/layouts/PageLayout';
 
 interface Donation {
   Date: string;
@@ -66,9 +67,42 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
     return [`FY${key}`, fyData.unmatched, fyData.matched, fyData.commited];
   });
 
+  const donationsThisMonth = donation[currentFinancialYear].filter((val) => {
+    const date = moment(val.Date);
+    return date.month() === moment().month();
+  });
   return (
     <PageLayout
       title="Philanthropy"
+      banner={
+        <HeroBase backgroundVariant="color" backgroundColor="primary600">
+          <Columns>
+            <Columns.Column>
+              <Heading use="h3">Philanthropy</Heading>
+              <Paragraph marginTop="1.5rem">
+                As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some
+                donations and charity work.
+              </Paragraph>
+              <Text fontSize="0.75rem">
+                Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
+              </Text>
+            </Columns.Column>
+            <Columns.Column>
+              <Container paddingX="1rem">
+                <Card marginTop="1rem" variant="bordered" backgroundColor="transparent" standalone>
+                  <CardContent>
+                    <Label fontSize="0.8rem">{`Total commited this year (FY${currentFinancialYear})`}</Label>
+                    <Heading use="h3" fontWeight="500" marginBottom="0">{`$${totalThisFY}`}</Heading>
+                    <Text marginTop="0" fontSize="0.75rem" color={diff < 0 ? 'danger' : 'success'}>
+                      {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
+                    </Text>
+                  </CardContent>
+                </Card>
+              </Container>
+            </Columns.Column>
+          </Columns>
+        </HeroBase>
+      }
       pageMeta={{
         description: `As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some
         donations and charity work.`,
@@ -76,31 +110,11 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
         imageUrl: '/images/eric-jiang-bitbybit.jpeg',
       }}
     >
-      <Heading use="h3">Philanthropy</Heading>
-      <Paragraph>
-        As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some donations
-        and charity work.
-      </Paragraph>
-      <Text fontSize="0.75rem">
-        Note: Financial Years are Australia Financial Years which is between 1st July and 30th June every year.
-      </Text>
-      <hr style={{ marginTop: '0.75rem', marginBottom: '0.5rem' }} />
-      <div>
-        <Label fontSize="0.8rem">{`Total commited this year (FY${currentFinancialYear})`}</Label>
-        <Heading use="h3" fontWeight="500" marginBottom="0">{`$${totalThisFY}`}</Heading>
-        <Text marginTop="0" fontSize="0.75rem" color={diff < 0 ? 'red' : 'green'}>
-          {`${diff < 0 ? '↓ -' : '↑ '}$${Math.abs(diff)} vs FY${currentFinancialYear - 1}`}
-        </Text>
-      </div>
       <Container overflowX="scroll">
         <Container marginTop="0.75rem">
-          <Heading use="h4">Donations committed this month</Heading>
-          {donation[currentFinancialYear]
-            .filter((val) => {
-              const date = moment(val.Date);
-              return date.month() === moment().month();
-            })
-            .map((d, index) => {
+          <Heading use="h4">Donations this month</Heading>
+          {donationsThisMonth.length > 0 ? (
+            donationsThisMonth.map((d, index) => {
               return (
                 <div
                   style={{
@@ -123,45 +137,55 @@ const Philanthropy = ({ donation, donationByCategoryMap }: InferGetServerSidePro
                   </div>
                 </div>
               );
-            })}
+            })
+          ) : (
+            <Container>
+              <Text>
+                {`
+                  No donations have been committed for this month (${moment().format('MMM YYYY')})`}
+              </Text>
+            </Container>
+          )}
         </Container>
+        <Columns marginTop="0.75rem">
+          <Columns.Column>
+            <Heading use="h4">Donations over Time</Heading>
+            <Chart
+              chartType="BarChart"
+              width="100%"
+              height="30vh"
+              loader={<div>Loading...</div>}
+              data={[['Date', 'Unmatched', 'Employer Matched', 'Committed'], ...chartData]}
+              options={{
+                chartArea: { width: '50%' },
+                hAxis: {
+                  title: 'Total Donated (A$)',
+                },
+                isStacked: true,
+                title: 'Donations by FY',
+                vAxis: {
+                  title: 'Financial Year',
+                },
+              }}
+            />
+          </Columns.Column>
+          <Columns.Column>
+            <Heading use="h4">Donation by Category (this Financial Year)</Heading>
+            <Chart
+              chartType="PieChart"
+              width="100%"
+              height="30vh"
+              loader={<div>Loading...</div>}
+              data={[['Category', 'Amount'], ...donationsByCategory]}
+              options={{
+                chartArea: { width: '50%' },
+                title: 'Donations by Category this FY',
+              }}
+            />
+          </Columns.Column>
+        </Columns>
         <Container marginTop="0.75rem">
-          <Heading use="h4">Donations over Time</Heading>
-          <Chart
-            chartType="BarChart"
-            width="100%"
-            height="30vh"
-            loader={<div>Loading...</div>}
-            data={[['Date', 'Unmatched', 'Employer Matched', 'Committed'], ...chartData]}
-            options={{
-              chartArea: { width: '50%' },
-              hAxis: {
-                title: 'Total Donated (A$)',
-              },
-              isStacked: true,
-              title: 'Donations by FY',
-              vAxis: {
-                title: 'Financial Year',
-              },
-            }}
-          />
-        </Container>
-        <Container marginTop="0.75rem">
-          <Heading use="h4">Donation by Category (this Financial Year)</Heading>
-          <Chart
-            chartType="PieChart"
-            width="100%"
-            height="30vh"
-            loader={<div>Loading...</div>}
-            data={[['Category', 'Amount'], ...donationsByCategory]}
-            options={{
-              chartArea: { width: '50%' },
-              title: 'Donations by Category this FY',
-            }}
-          />
-        </Container>
-        <Container marginTop="0.75rem">
-          <Heading use="h4">All Transactions</Heading>
+          <Heading use="h4">All Donations</Heading>
           <iframe
             className="airtable-embed"
             src="https://airtable.com/embed/shrk5nvmKvWV8ZeOi?backgroundColor=gray&viewControls=on"

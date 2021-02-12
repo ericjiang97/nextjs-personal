@@ -1,6 +1,6 @@
+import { Box, Card, Heading, Image, Link, Text } from 'bumbag';
 import React from 'react';
 import { Project } from '../../types';
-import { Card, Heading, Image, Text, Box, Link } from 'bumbag';
 import LinkButton from '../buttons/LinkButton';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
