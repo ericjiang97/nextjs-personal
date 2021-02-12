@@ -37,6 +37,51 @@ export default function Media() {
               </Text>
             </Container>
           </BackgroundLinkCard>
+          <BackgroundLinkCard
+            imageUrl="https://photos.ericjiang.dev/uploads/medium/fe93e95c350eeafae2017a1857521d7d.jpg"
+            href="https://photos.ericjiang.dev"
+          >
+            <Container
+              border="1px solid white"
+              width="75%"
+              height="50%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text fontSize="400" fontWeight="semibold">
+                Photos
+              </Text>
+            </Container>
+          </BackgroundLinkCard>
+          <BackgroundLinkCard imageUrl="/images/gcp-juniordev-talk.webp" href="/talks">
+            <Container
+              border="1px solid white"
+              width="75%"
+              height="50%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text fontSize="400" fontWeight="semibold">
+                Tech Talks
+              </Text>
+            </Container>
+          </BackgroundLinkCard>
+          <BackgroundLinkCard href="https://linktr.ee/ericjiang97">
+            <Container
+              border="1px solid white"
+              width="75%"
+              height="50%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text fontSize="400" fontWeight="semibold">
+                Linktree
+              </Text>
+            </Container>
+          </BackgroundLinkCard>
         </Columns.Column>
       </Columns>
     </PageLayout>
