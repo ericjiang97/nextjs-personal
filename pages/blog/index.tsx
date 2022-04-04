@@ -21,7 +21,7 @@ function BlogPage(props: BlogPageProps) {
       customHero={
         <SmallHeroBanner
           title="Blog"
-          description="I occassionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
+          description="I occasionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
         />
       }
     >
@@ -54,7 +54,7 @@ function BlogPage(props: BlogPageProps) {
                         ?.toLocaleString()}
                     </time>
                   </p>
-                  <a href="#" className="mt-2 block">
+                  <a href={`/blog/${post.uid}`} className="mt-2 block">
                     <p className="text-xl font-semibold text-gray-900">
                       <PrismicText field={post.data.title} />
                     </p>
