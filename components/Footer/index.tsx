@@ -81,8 +81,12 @@ export default function Footer() {
         <div className="mt-8 flex justify-center space-x-6">
           {navigation.socials.map((item) => (
             <div className="text-gray-400 hover:text-gray-500" key={item.href}>
-              <Link key={item.name} href={item.href}>
-                <span className="sr-only">{item.name}</span>
+              <span className="sr-only">
+                <Link key={item.name} href={item.href} passHref>
+                  {item.name}
+                </Link>
+              </span>
+              <Link key={item.name} href={item.href} passHref>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </Link>
             </div>
@@ -92,29 +96,28 @@ export default function Footer() {
           Copyright &copy;{` 2016 - ${todaysYear} Eric J.`}
         </p>
         <div className="mt-2 text-center text-semibold text-gray-400">
-          Powered
-          {" by "}
-          <div className="underline">
+          Powered by{" "}
+          <span className="underline">
             <Link href="https://vercel.com">Vercel</Link>
-          </div>
+          </span>
           {" & "}
-          <div className="underline">
+          <span className="underline">
             <Link href="https://prismic.io/">Prismic</Link>
-          </div>
+          </span>
           . Built in{" "}
-          <div className="underline">
+          <span className="underline">
             <Link href="https://nextjs.org/">NextJS</Link>
-          </div>
+          </span>
           {" with "}{" "}
-          <div className="underline">
-            <Link href="https://tailwindcss.com/docs/guides/nextjs">
+          <span className="underline">
+            <Link href="https://tailwindcss.com">
               Tailwind
             </Link>
-          </div>
+          </span>
           . Profile Picture by{" "}
-          <div className="underline">
+          <span className="underline">
             <Link href="https://twitter.com/sushisamaou">sushisamaou</Link>
-          </div>
+          </span>
           .
         </div>
       </div>
