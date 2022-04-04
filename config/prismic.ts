@@ -1,11 +1,34 @@
 import * as prismic from '@prismicio/client'
-import config from '.'
+import { enableAutoPreviews } from '@prismicio/next'
+import { } from '@prismicio/types'
+import sm from '../sm.json'
 
-// Fill in your repository name
-export const repositoryName = config.PRISMIC.repo as string
-const endpoint = prismic.getEndpoint(repositoryName)
+export const endpoint = sm.apiEndpoint
+export const repositoryName = prismic.getRepositoryName(endpoint)
 
-export const client = prismic.createClient(endpoint, {
-  // If your repo is private, add an access token
-  accessToken: config.PRISMIC.token as string,
-})
+// Update the Link Resolver to match your project's route structure
+export function linkResolver(doc : any) {
+  switch (doc.type) {
+    case 'homepage':
+      return '/'
+    case 'page':
+      return `/${doc.uid}`
+    default:
+      return null
+  }
+}
+
+// This factory function allows smooth preview setup
+export function createClient(config: any = {}) {
+  const client = prismic.createClient(endpoint, {
+    ...config,
+  })
+
+  enableAutoPreviews({
+    client,
+    previewData: config.previewData,
+    req: config.req,
+  })
+
+  return client
+}
