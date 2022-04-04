@@ -110,13 +110,20 @@ export default function Footer() {
           </span>
           {" with "}{" "}
           <span className="underline">
-            <Link href="https://tailwindcss.com">
-              Tailwind
-            </Link>
+            <Link href="https://tailwindcss.com">Tailwind</Link>
           </span>
           . Profile Picture by{" "}
           <span className="underline">
             <Link href="https://twitter.com/sushisamaou">sushisamaou</Link>
+          </span>
+          .
+        </div>
+        <div className="mt-2 text-center text-semibold text-gray-400">
+          Encoutering issues?{" "}
+          <span className="underline">
+            <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new">
+              Submit an issue.
+            </Link>
           </span>
           .
         </div>
