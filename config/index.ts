@@ -1,6 +1,6 @@
 const config = {
     PRISMIC: {
-        url: process.env.PIRSMIC_URL,
+        repo: process.env.PRISMIC_REPONAME,
         token: process.env.PRISMIC_TOKEN
     }
 }

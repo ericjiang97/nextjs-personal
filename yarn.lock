@@ -172,7 +172,7 @@
 
 "@prismicio/client@^6.4.2":
   version "6.4.2"
-  resolved "https://registry.npmjs.org/@prismicio/client/-/client-6.4.2.tgz"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.4.2.tgz#9a226c466acb55d2db22350e8850ebfb4fb35378"
   integrity sha512-2WIqKEuusPXdEY36PfhXQDfniGT1Gp+ORMkvJEz9cjxMscQQDcxaQjMqZHlYArLMKn/NyhqE3hlxeJ/QasUPgA==
   dependencies:
     "@prismicio/helpers" "^2.2.1"
@@ -187,6 +187,14 @@
     "@prismicio/types" "^0.1.27"
     escape-html "^1.0.3"
     imgix-url-builder "^0.0.3"
+
+"@prismicio/react@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-2.2.0.tgz#908f78086da89a5c5480ad2f5b261d9695d81871"
+  integrity sha512-HTBhhtS5MvhmSmkV/GRUEFdFZ/0PhKNIFXMPOuNTWcnWi9Nlw3Co+jurIYUdI+mGt/nfyr4Wnj5XwO+94sBPRA==
+  dependencies:
+    "@prismicio/helpers" "^2.2.1"
+    "@prismicio/richtext" "^2.0.1"
 
 "@prismicio/richtext@^2.0.1":
   version "2.0.1"
