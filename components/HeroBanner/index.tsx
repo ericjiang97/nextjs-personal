@@ -6,8 +6,8 @@ export default function Hero() {
                     <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
                         <div className="lg:py-24">
                             <h1 className="mt-4 text-lg tracking-tight font-extrabold text-blue-400 sm:mt-5 sm:text-2xl lg:mt-6 xl:text-4xl">
-                                <span className="block">G'day I'm [name]</span>
-                                <span className="block text-indigo-600">& I'm a [blah] at [company]</span>
+                                <span className="block">G'day I'm Eric</span>
+                                <span className="block text-indigo-600">& I'm a Test Engineer at Google</span>
                             </h1>
                             <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-lg">
                                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt
@@ -20,7 +20,7 @@ export default function Hero() {
                             {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
                             <img
                                 className="w-1/2 lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                                src="/images/trasnparent-profile-eric.png"
+                                src="/images/transparent-eric-profile.png"
                                 alt=""
                             />
                         </div>
