@@ -35,7 +35,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <NavBar />
         {showHero && <HeroBanner />}
         {customHero ? customHero : null}
-        <div className="container mx-auto flex flex-1 flex-col self-center py-12 px-4">
+        <div className="container mx-auto flex max-w-7xl flex-1 flex-col self-center py-12 px-4">
           {children}
         </div>
 
