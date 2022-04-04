@@ -16,6 +16,14 @@ const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
     <PrismicRichText
       field={page.data.body}
       components={{
+        hyperlink: ({ children, node }) => (
+          <a
+            href={node.data.url}
+            className="font-semibold text-maroon underline"
+          >
+            {children}
+          </a>
+        ),
         heading1: ({ children }) => (
           <h1 className="text-3xl font-semibold">{children}</h1>
         ),
