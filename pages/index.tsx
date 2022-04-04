@@ -6,7 +6,6 @@ import React from 'react'
 import HeroBanner from '../components/HeroBanner'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
-import { createClient } from '../config/prismicio'
 
 const Home: NextPage = () => {
   return (
