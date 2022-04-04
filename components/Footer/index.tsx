@@ -64,8 +64,8 @@ export default function Footer() {
   const todaysYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="bg-white">
-      <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <footer className="bg-gray-100">
+      <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"
           aria-label="Footer"
@@ -95,7 +95,7 @@ export default function Footer() {
         <p className="mt-8 text-center text-base text-gray-400">
           Copyright &copy;{` 2016 - ${todaysYear} Eric J.`}
         </p>
-        <div className="mt-2 text-center text-semibold text-gray-400">
+        <div className="text-semibold mt-2 text-center text-gray-400">
           Powered by{" "}
           <span className="underline">
             <Link href="https://vercel.com">Vercel</Link>
@@ -118,7 +118,7 @@ export default function Footer() {
           </span>
           .
         </div>
-        <div className="mt-2 text-center text-semibold text-gray-400">
+        <div className="text-semibold mt-2 text-center text-gray-400">
           Encoutering issues?{" "}
           <span className="underline">
             <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new">

@@ -29,7 +29,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       <main className="container flex flex-1 flex-col">
         <NavBar />
         {showHero && <HeroBanner />}
-        <div className="flex-1">{children}</div>
+        <div className="flex flex-1 flex-col">{children}</div>
 
         <Footer />
       </main>
