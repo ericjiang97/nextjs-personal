@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["spellcheck"],
+  "rules": {
+    "spellcheck/spell-checker": [
+      1,
+      {
+        "comments": true,
+        "strings": false,
+        "identifiers": false,
+        "templates": true,
+        "lang": "en_AU",
+        "skipIfMatch": ["className=\".*\""]
+      }
+    ]
+  }
 }

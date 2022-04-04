@@ -119,7 +119,7 @@ export default function Footer() {
           .
         </div>
         <div className="text-semibold mt-2 text-center text-gray-400">
-          Encoutering issues?{" "}
+          Encountering issues?{" "}
           <span className="underline">
             <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new">
               Submit an issue.
