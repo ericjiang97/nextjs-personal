@@ -6,10 +6,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Logo from '../Logo'
 
 const navigation = [
-    { name: 'Blog', href: '#' },
-    { name: 'Team', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Calendar', href: '#' },
+    { name: 'Blog', href: '/blog' },
 ]
 
 function classNames(...classes: string[]) {
@@ -21,7 +18,7 @@ export default function NavBar() {
     const currentPath = router.pathname
 
     return (
-        <Disclosure as="nav" className="bg-special-blue">
+        <Disclosure as="nav" className="bg-light-cyan">
             {({ open }) => (
                 <>
                     <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
