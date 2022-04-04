@@ -32,15 +32,4 @@ const Home: NextPage = () => {
   )
 }
 
-export async function getServerSideProps({ previewData = {} }) {
-  const client = createClient({ previewData })
-
-  console.log('DATA!!')
-
-  const posts = await client.getAllByType('blog-posts')
-  console.log(posts)
-
-  return { props: {} }
-}
-
 export default Home
