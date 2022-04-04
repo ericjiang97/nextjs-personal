@@ -22,6 +22,7 @@ export default function Hero() {
                             <img
                                 className="w-1/2 lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                                 src="/images/transparent-eric-profile.png"
+
                                 alt=""
                             />
                         </div>

@@ -82,6 +82,13 @@ export default function Footer() {
                     ))}
                 </div>
                 <p className="mt-8 text-center text-base text-gray-400">Copyright &copy;{` 2016 - ${todaysYear} Eric J.`}</p>
+                <div className="mt-2 text-center text-semibold text-gray-400">Powered
+                    {' by '}<a href="https://vercel.com" className="underline">Vercel</a>
+                    {' & '}<a href="https://prismic.io/" className="underline">Prismic</a>.
+                    Built in <a href="https://nextjs.org/" className="underline">NextJS</a>
+                    {' with '} <a href="https://tailwindcss.com/docs/guides/nextjs" className="underline">Tailwind</a>.
+                    Profile Picture by <a href="https://twitter.com/sushisamaou" className="underline">sushisamaou</a>.
+                </div>
             </div>
         </footer>
     )

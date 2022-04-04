@@ -1,12 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import React from 'react'
 
 
 import HeroBanner from '../components/HeroBanner'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
+import { createClient } from '../config/prismicio'
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +31,17 @@ const Home: NextPage = () => {
       <Footer />
     </div>
   )
+}
+
+export async function getServerSideProps({ previewData = {} }) {
+  const client = createClient({ previewData })
+
+  console.log('DATA!!')
+
+  const posts = await client.getAllByType('blog-posts')
+  console.log(posts)
+
+  return { props: {} }
 }
 
 export default Home
