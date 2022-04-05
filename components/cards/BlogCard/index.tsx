@@ -11,10 +11,14 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+  console.log(post);
   return (
     <div>
       <div>
-        <a href={post.data.category.uid} className="inline-block">
+        <a
+          href={`/blog/categories/${post.data.category.uid}`}
+          className="inline-block"
+        >
           <span
             className={classNames(
               "bg-indigo-100 text-indigo-800",
