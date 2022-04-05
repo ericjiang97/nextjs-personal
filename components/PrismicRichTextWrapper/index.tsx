@@ -59,7 +59,6 @@ const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
           );
         },
         embed: (props) => {
-          console.log(props);
           if (props.node.oembed.provider_name === "YouTube") {
             return <YoutubeEmbed youtubeUrl={props.node.oembed.embed_url} />;
           }

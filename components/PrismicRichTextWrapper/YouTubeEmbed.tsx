@@ -8,7 +8,6 @@ const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({ youtubeUrl }) => {
   let youtubeUrlComponents = youtubeUrl.split("/");
 
   const youtubeId = youtubeUrlComponents[youtubeUrlComponents.length - 1];
-  console.log(youtubeUrlComponents, youtubeId);
 
   return (
     <iframe
