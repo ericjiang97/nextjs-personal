@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        "disc-spin": "spin 3s linear infinite",
+      },
       colors: {
         "light-cyan": {
           50: "#FAFFFF",
