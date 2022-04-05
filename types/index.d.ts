@@ -1,4 +1,5 @@
 
+type Nullable<T> = T | null
 export interface Project {
     url: string;
     imageUrl?: string;
