@@ -15,7 +15,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
       <div className="relative mx-auto max-w-7xl">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            From the blog
+            From my blog
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
             I occassionally write on my blog about tech, projects, reviews (and
@@ -25,7 +25,6 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
         </div>
         <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
           {posts.slice(0, 3).map((post) => {
-            console.log(post);
             const postLength = (prismicH.asText(post.data.body) || "").split(
               " "
             ).length;

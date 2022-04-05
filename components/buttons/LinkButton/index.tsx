@@ -11,7 +11,6 @@ const LinkButton: React.FC<LinkButtonProps> = ({
   background = "white",
   children,
 }) => {
-  console.log(background);
   return (
     <Link href={href} passHref>
       <div
