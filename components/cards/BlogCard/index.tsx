@@ -11,7 +11,6 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
-  console.log(post);
   return (
     <div>
       <div>
