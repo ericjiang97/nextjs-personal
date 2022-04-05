@@ -137,7 +137,7 @@ const LiveMusicPage: NextPage = () => {
                     Currently Not Playing Anything
                   </h3>
                   <p className="text-sm font-semibold text-gray-800">
-                    So what? I don't listen to music 24/7
+                    So what? I don&apos;t listen to music 24/7
                   </p>
                 </div>
                 <PreviousPlayerContainer
