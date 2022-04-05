@@ -93,7 +93,7 @@ const DonationsByMonthChart: React.FC<DonationsByMonthChartProps> = ({
     ) / 10;
 
   return (
-    <div className="mx-auto mt-2     grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+    <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
       <div className="w-full px-2">
         <div className="mb-4 rounded-lg shadow-sm">
           <div className="relative overflow-hidden rounded-lg bg-white shadow-lg md:shadow-xl">
