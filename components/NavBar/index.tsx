@@ -11,6 +11,7 @@ import { Navigation } from "../../types/Navigation";
 const navigation: Navigation[] = [
   { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
+  { name: "About", href: "/about" },
 ];
 
 function classNames(...classes: string[]) {
@@ -20,6 +21,8 @@ function classNames(...classes: string[]) {
 export default function NavBar() {
   const router = useRouter();
   const currentPath = router.pathname;
+
+  const parentPath = router.pathname.split("/")[1];
 
   return (
     <Disclosure as="nav" className="bg-light-cyan-500">
@@ -45,7 +48,8 @@ export default function NavBar() {
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">
                   <div className="flex space-x-4">
                     {navigation.map((item) => {
-                      const isCurrent = currentPath === item.href;
+                      const isCurrent =
+                        parentPath === item.href.replace("/", "");
                       return (
                         <div
                           key={item.href}

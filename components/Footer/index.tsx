@@ -64,7 +64,7 @@ export default function Footer() {
   const todaysYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="bg-gray-100">
+    <footer className="bg-gradient-to-t from-light-cyan-300 to-light-cyan-50">
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"

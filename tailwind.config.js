@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         "light-cyan": {
+          50: "#FAFFFF",
           100: "#F6FEFF",
           200: "#EDFDFF",
           300: "#E3FCFF",

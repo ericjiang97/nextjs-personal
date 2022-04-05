@@ -14,7 +14,7 @@ interface HomePageProps {
 const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
     <MainLayout showHero={true} pageTitle="Home">
-      <div className="pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-0">
+      <div className="container flex flex-1 flex-col">
         <BlogHero posts={posts} />
       </div>
     </MainLayout>

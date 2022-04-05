@@ -1,12 +1,32 @@
+import { Moment } from "moment";
 
-type Nullable<T> = T | null
+type Nullable<T> = T | null;
 export interface Project {
-    url: string;
-    imageUrl?: string;
-    repoUrl?: string;
-    name: string;
-    description: string;
-    screenshotUrl?: string;
-  }
+  url: string;
+  imageUrl?: string;
+  repoUrl?: string;
+  name: string;
+  description: string;
+  screenshotUrl?: string;
+}
 
-export type IPrismicDocumentRecord = PrismicDocument<Record<string, any>, string, string>;
+export interface ExperiencePosition {
+  title: string;
+  dates: {
+    startDate: Moment;
+    endDate?: Moment;
+  };
+  description?: string[];
+}
+
+export interface Experience {
+  company: string;
+  companyUrl: string;
+  positions: ExperiencePosition[];
+}
+
+export type IPrismicDocumentRecord = PrismicDocument<
+  Record<string, any>,
+  string,
+  string
+>;

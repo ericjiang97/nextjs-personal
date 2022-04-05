@@ -25,7 +25,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
   );
 
   return (
-    <MainLayout>
+    <MainLayout pageTitle={`Blog - ${prismicH.asText(post.data.title)}`}>
       <div className="relative overflow-hidden bg-white py-16">
         <div className="relative flex flex-col items-center px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-prose grid-cols-1 divide-y-2 divide-gray-400 text-lg">
