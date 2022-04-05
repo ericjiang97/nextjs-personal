@@ -74,7 +74,6 @@ export const getStaticProps: GetStaticProps = async ({
       direction: "desc",
     },
   });
-  console.log(posts);
 
   return {
     props: { posts, category }, // Will be passed to the page component as props
