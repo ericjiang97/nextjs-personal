@@ -8,14 +8,14 @@ const experience: Experience[] = [
     positions: [
       {
         dates: {
-          startDate: moment("2021/1/1"),
+          startDate: moment("1 Jan 2021 00:00 +0800"),
         },
         title: "Test Engineer, Pixel Software Security",
       },
       {
         dates: {
-          startDate: moment("2020/4/20"),
-          endDate: moment("2020/12/31"),
+          startDate: moment("20 Apr 2020 00:00 +1000"),
+          endDate: moment("1 Jan 2021 00:00 +0800"),
         },
         title: "Test Engineer, Script Automation",
       },
@@ -27,15 +27,15 @@ const experience: Experience[] = [
     positions: [
       {
         dates: {
-          startDate: moment("2019/4/1"),
-          endDate: moment("2019/11/1"),
+          startDate: moment("1 Apr 2019 00:00 +1000"),
+          endDate: moment("5 Nov 2019 00:00 +1000"),
         },
         title: "Software Engineer - Google Cloud",
       },
       {
         dates: {
-          startDate: moment("2016/12/15"),
-          endDate: moment("2019/3/31"),
+          startDate: moment("5 Dec 2016 00:00 +1000"),
+          endDate: moment("31 Mar 2019 00:00 +1000"),
         },
         title: "Junior Software Engineer – MonPlan Founder and Tech Lead",
         description: [
@@ -70,8 +70,8 @@ const experience: Experience[] = [
     positions: [
       {
         dates: {
-          startDate: moment("2017/12/5"),
-          endDate: moment("31 Feb 2018"),
+          startDate: moment("5 Dec 2017 00:00 +1000"),
+          endDate: moment("28 Feb 2018 00:00 +1000"),
         },
         title: "Intern Software Engineer",
         description: [
