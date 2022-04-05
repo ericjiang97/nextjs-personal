@@ -1,9 +1,8 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
-import LinkButton from "../components/buttons/LinkButton";
 
-import { BriefcaseIcon } from "@heroicons/react/solid";
+import { BriefcaseIcon, DocumentDownloadIcon } from "@heroicons/react/solid";
 
 import SmallHeroBanner from "../components/SmallHeroBanner";
 import MainLayout from "../containers/MainLayout";
@@ -42,19 +41,8 @@ const AboutPage: NextPage = () => {
             href="https://resume.ericjiang.dev"
             className="inline-flex items-center rounded-lg border border-gray-200 bg-white py-2 px-4 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-600 dark:focus:ring-gray-700"
           >
-            <svg
-              className="mr-2 h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>{" "}
-            Download Resume
+            <DocumentDownloadIcon className="mr-2 h-4 w-4" />
+            <span>Download Resume</span>
           </a>
         </div>
       </div>
@@ -64,9 +52,9 @@ const AboutPage: NextPage = () => {
         </div>
         <div className="mt-8">
           <ol className="relative border-l border-gray-200 dark:border-gray-700">
-            {experience.map((exp) => {
+            {experience.map((exp, index) => {
               return (
-                <li className="mb-10 ml-10">
+                <li className="mb-10 ml-10" key={index}>
                   <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-900 ring-8 ring-white ring-gray-900">
                     <BriefcaseIcon className="h-3 w-3 text-blue-400" />
                   </span>
@@ -75,11 +63,11 @@ const AboutPage: NextPage = () => {
                       {exp.company}
                     </h3>
                   </Link>
-                  {exp.positions.map((pos) => {
+                  {exp.positions.map((pos, j) => {
                     const { title, description, dates } = pos;
                     const { startDate, endDate } = dates;
                     return (
-                      <div className="mb-8">
+                      <div className="mb-8" key={j}>
                         <h4 className="text-md font-semibold text-gray-900">
                           {title}
                         </h4>

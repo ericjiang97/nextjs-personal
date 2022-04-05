@@ -19,8 +19,8 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
             I occassionally write on my blog about tech, projects, reviews (and
-            will add photography and travel in the future)... so here's some of
-            them.
+            will add photography and travel in the future)... so here&apos;s
+            some of them.
           </p>
         </div>
         <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
