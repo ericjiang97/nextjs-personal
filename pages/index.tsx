@@ -1,19 +1,39 @@
 import React from "react";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 
 import MainLayout from "../containers/MainLayout";
+import BlogHero from "../components/BlogHero";
 
-const Home: NextPage = () => {
+import { createClient } from "../config/prismic";
+import { IPrismicDocumentRecord } from "../types";
+
+interface HomePageProps {
+  posts: IPrismicDocumentRecord[];
+}
+
+const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
     <MainLayout showHero={true} pageTitle="Home">
-    <div className="pt-10 sm:pt-16 lg:pt-8 lg:pb-0 lg:overflow-hidden">
-      <div className="mx-auto max-w-7xl lg:px-8">
-        <h1 className="text-3xl font-bold">Deez nuts</h1>
+      <div className="pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-0">
+        <BlogHero posts={posts} />
       </div>
-    </div>
-
     </MainLayout>
   );
 };
 
+export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData });
+
+  const posts = await client.getAllByType("blog-post", {
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
+    pageSize: 3,
+  });
+
+  return {
+    props: { posts }, // Will be passed to the page component as props
+  };
+};
 export default Home;

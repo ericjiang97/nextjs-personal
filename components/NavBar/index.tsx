@@ -22,7 +22,7 @@ export default function NavBar() {
   const currentPath = router.pathname;
 
   return (
-    <Disclosure as="nav" className="bg-light-cyan">
+    <Disclosure as="nav" className="bg-light-cyan-500">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

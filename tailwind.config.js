@@ -6,7 +6,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "light-cyan": "#D1FAFF",
+        "light-cyan": {
+          100: "#F6FEFF",
+          200: "#EDFDFF",
+          300: "#E3FCFF",
+          400: "#DAFBFF",
+          500: "#D1FAFF",
+          600: "#A7C8CC",
+          700: "#7D9699",
+          800: "#546466",
+          900: "#2A3233",
+        },
         independence: "#4B4A67",
         rosewood: "#570000",
         "rich-black": "#023C40",
