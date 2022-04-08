@@ -1,9 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import { NextPage } from "next";
+import Link from "next/link";
+
 import MainLayout from "../containers/MainLayout";
 
-const NotFoundPage = () => {
+interface NotFoundPageProps {
+  reason?: string;
+}
+const NotFoundPage: NextPage<NotFoundPageProps> = ({ reason }) => {
   return (
     <MainLayout pageTitle="404: Page Not Found" showHero={false}>
       <div className="flex flex-1 flex-col items-center justify-center">
@@ -14,6 +18,14 @@ const NotFoundPage = () => {
             <Link href="/">Home</Link>
           </span>
         </h3>
+        {reason && (
+          <div className="mt-2">
+            <h4 className="text-xl font-semibold text-gray-500">
+              Error message:
+            </h4>
+            <p className="mt-1 font-semibold text-gray-500">{reason}</p>
+          </div>
+        )}
         <img src="/images/ericshrug.png" className="block h-1/2 w-1/2" />
       </div>
     </MainLayout>
