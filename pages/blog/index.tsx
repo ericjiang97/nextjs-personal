@@ -25,6 +25,11 @@ function BlogPage(props: BlogPageProps) {
           description="I occasionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
         />
       }
+      pageMeta={{
+        description:
+          "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them",
+        endpoint: "/blog",
+      }}
     >
       <div className="bg-white px-4 pt-0 pb-20 sm:px-6 lg:px-4 lg:pt-0 lg:pb-28">
         <div className="relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">

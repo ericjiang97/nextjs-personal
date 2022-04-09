@@ -18,6 +18,11 @@ const AboutPage: NextPage = () => {
           description="I bring my passion for technology to build awesome, delightful &amp; secure software for everyone."
         />
       }
+      pageMeta={{
+        description: `I recently finished my course in Bachelor of Information Technology at Monash University in
+      Melbourne, Australia where I majored in Computer networks and security.`,
+        endpoint: "/about",
+      }}
     >
       <div className="container flex flex-1 flex-col">
         <p className="my-1">

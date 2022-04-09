@@ -104,6 +104,10 @@ const LiveMusicPage: NextPage = () => {
           description="Here's the music I'm currently listening to, feel free to listen along with me!"
         />
       }
+      pageMeta={{
+        endpoint: "/music",
+        description: "Here's the music I'm listening to",
+      }}
     >
       <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
         <div className="relative mx-auto max-w-4xl">

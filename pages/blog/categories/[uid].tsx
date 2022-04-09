@@ -24,6 +24,9 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, category, error }) => {
   if (error) {
     return <NotFoundPage reason={error} />;
   }
+
+  const title = `Blog - Category: ${category.data.category_name}`;
+
   return (
     <MainLayout
       pageTitle="Blog"
@@ -33,6 +36,10 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, category, error }) => {
           description="I occasionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
         />
       }
+      pageMeta={{
+        description: title,
+        endpoint: `/posts/categories/${category.uid}`,
+      }}
     >
       <div className="bg-white px-4 pt-0 pb-20 sm:px-6 lg:px-4 lg:pt-0 lg:pb-28">
         <div className="relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">

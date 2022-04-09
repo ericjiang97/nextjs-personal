@@ -27,6 +27,11 @@ const PhilanthropyPage: NextPage<PhilanthropyPageProps> = ({
           description="As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some donations and charity work."
         />
       }
+      pageMeta={{
+        description: `As part of my way of giving back to society apart from volunteering and mentoring, I'm also doing some
+        donations and charity work.`,
+        endpoint: "/",
+      }}
     >
       <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
         <div className="relative mx-auto max-w-7xl">

@@ -16,6 +16,11 @@ function ProjectsPage() {
           description="Whether its a side project, or a product I'm working on at work, I bring my knowledge and energy to help build the most awesome, delightful, secure products for everyone."
         />
       }
+      pageMeta={{
+        description:
+          "These are some of the current and past software projects that I have worked on",
+        endpoint: "/projects",
+      }}
     >
       <div className="container flex flex-1 flex-col">
         <h3 className="text-2xl font-semibold">Current Projects</h3>

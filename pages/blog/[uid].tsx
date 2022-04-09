@@ -24,8 +24,18 @@ const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
     prismicH.asDate(post.data.published_time)?.toISOString()
   );
 
+  const endpoint = `/blog/${post.uid}`;
+  const postUrl = `https://ericjiang.dev${endpoint}`;
+
   return (
-    <MainLayout pageTitle={`Blog - ${prismicH.asText(post.data.title)}`}>
+    <MainLayout
+      pageTitle={`Blog - ${prismicH.asText(post.data.title)}`}
+      pageMeta={{
+        endpoint,
+        description: prismicH.asText(post.data.summary) || "",
+        imageUrl: post.data.banner && post.data.banner.url,
+      }}
+    >
       <div className="relative overflow-hidden bg-white py-16">
         <div className="relative flex flex-col items-center px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-prose grid-cols-1 divide-y-2 divide-gray-400 text-lg">

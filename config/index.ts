@@ -13,4 +13,14 @@ const config = {
   },
 };
 
+export const SITE_CONFIG = {
+  description: `
+  I’m a Test Engineer at Google. \n
+In my spare time, I make impact by building awesome software solutions and building the communities around me.
+  `,
+  title: "Eric Jiang",
+  urls: {
+    BASE_URL: "https://ericjiang.dev",
+  },
+};
 export default config;

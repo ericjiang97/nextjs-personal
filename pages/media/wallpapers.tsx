@@ -26,6 +26,11 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
           description="Here are some of my photos edited and optimised as wallpapers. Feel free to download thse images and use it as your desktop wallpapers!"
         />
       }
+      pageMeta={{
+        description:
+          "Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for 4K, 5K & 6K displays, in addition to P3 color profiles for more vibrant colors.",
+        endpoint: "/media/wallpapers",
+      }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
         <ul

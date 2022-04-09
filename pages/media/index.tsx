@@ -49,6 +49,10 @@ const MediaPage: NextPage = () => {
           description="Check out these media and other works I do"
         />
       }
+      pageMeta={{
+        description: "Check out these media and other works I do",
+        endpoint: "/media",
+      }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
         <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">

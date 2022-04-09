@@ -13,7 +13,15 @@ interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
-    <MainLayout showHero={true} pageTitle="Home">
+    <MainLayout
+      showHero={true}
+      pageTitle="Home"
+      pageMeta={{
+        description: "G'day, I'm Eric. I’m a Test Engineer at Google.",
+        endpoint: "/",
+        imageUrl: "/images/eric-jiang-bitbybit.jpeg",
+      }}
+    >
       <div className="container flex flex-1 flex-col">
         <BlogHero posts={posts} />
       </div>
