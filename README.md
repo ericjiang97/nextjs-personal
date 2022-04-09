@@ -1,4 +1,4 @@
-# NextJS + Bumbag
+# Eric's Personal Website
 
 This is my new site, you can find this at [https://www.ericjiang.dev](https://www.ericjiang.dev).
 
