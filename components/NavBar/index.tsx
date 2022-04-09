@@ -6,6 +6,8 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 import Logo from "../Logo";
 
+import classNames from "../../utils/classNames";
+
 import { Navigation } from "../../types/Navigation";
 
 const navigation: Navigation[] = [
@@ -14,11 +16,6 @@ const navigation: Navigation[] = [
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
 ];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function NavBar() {
   const router = useRouter();
   const currentPath = router.pathname;
@@ -43,7 +40,7 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 cursor-pointer items-center">
                   <Logo />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">

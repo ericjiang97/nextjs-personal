@@ -3,17 +3,15 @@ import React from "react";
 
 const Logo: React.FC = () => {
   return (
-    <div className="flex items-center">
-      <Link href="/">
+    <Link href="/">
+      <div className="flex items-center">
         <img
           src="/images/transparent-eric-profile.png"
           className="h-12 w-12 rounded-full"
         />
-      </Link>
-      <Link href="/">
-        <div className="hidden sm:block ml-2 text-lg font-bold">Eric Jiang</div>
-      </Link>
-    </div>
+        <div className="ml-2 hidden text-lg font-bold sm:block">Eric Jiang</div>
+      </div>
+    </Link>
   );
 };
 
