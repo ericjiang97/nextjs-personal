@@ -10,7 +10,6 @@ import SmallHeroBanner from "../../components/SmallHeroBanner";
 interface WallpapersADT extends Wallpapers {
   previewUri?: string;
   uri?: string;
-  fileSize: number;
 }
 
 interface WallpapersPageProps {
@@ -69,9 +68,6 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
               <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">
                 {wallpaper.title}
               </p>
-              <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                {wallpaper.fileSize}MB
-              </p>
             </li>
           ))}
         </ul>
@@ -90,13 +86,7 @@ export async function getServerSideProps() {
     const previewUri = `${publicRootDir}/${slug}/preview.webp`;
     const uri = `${publicRootDir}/${slug}/${slug}.jpg`;
 
-    const stats = fs.statSync(path.join(process.cwd(), "public", uri));
-    const fileSizeInBytes = stats["size"];
-    const _fileSize = fileSizeInBytes / 1000000.0;
-
-    const fileSize = Math.round(_fileSize * 10) / 10;
-
-    return { ...wallpaper, previewUri, uri, fileSize };
+    return { ...wallpaper, previewUri, uri };
   });
   return {
     props: { data }, // will be passed to the page component as props
