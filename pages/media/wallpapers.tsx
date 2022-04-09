@@ -82,7 +82,7 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
 
 export default WallpapersPage;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data: WallpapersADT[] = wallpapers.map((wallpaper) => {
     const { slug } = wallpaper;
     const publicRootDir = "/downloads/wallpapers/";
