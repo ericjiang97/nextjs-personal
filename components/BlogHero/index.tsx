@@ -29,6 +29,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
               " "
             ).length;
             const readingTime = Math.floor(postLength / 200);
+
             return (
               <div
                 key={post.uid}
@@ -61,7 +62,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
                         {post.data.category.slug}
                       </a>
                     </p>
-                    <a href={post.href} className="mt-2 block">
+                    <a href={`/blog/${post.uid}`} className="mt-2 block">
                       <p className="text-xl font-semibold text-gray-900">
                         {prismicH.asText(post.data.title)}
                       </p>
