@@ -34,13 +34,29 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
               {talk.title}
             </span>
             <span>{talk.url}</span>
-            <Document
-              file={talk.url}
-              onLoadSuccess={onLoadSuccess}
-              onLoadError={(err) => console.error(err)}
-            >
-              <Page pageNumber={pageNumber} />
-            </Document>
+            <div className="w-auto">
+              <Document
+                file={talk.url}
+                onLoadSuccess={onLoadSuccess}
+                onLoadError={(err) => console.error(err)}
+              >
+                <button
+                  onClick={() => {
+                    setPageNumber(pageNumber - 1);
+                  }}
+                >
+                  Prev page
+                </button>
+                <Page pageNumber={pageNumber} renderTextLayer={false} />
+                <button
+                  onClick={() => {
+                    setPageNumber(pageNumber + 1);
+                  }}
+                >
+                  Next page
+                </button>
+              </Document>
+            </div>
           </div>
         </div>
       </div>
