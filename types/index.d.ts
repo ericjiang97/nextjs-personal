@@ -1,4 +1,4 @@
-import { Moment } from "moment";
+import moment, { Moment } from "moment";
 
 type Nullable<T> = T | null;
 export interface Project {
@@ -30,3 +30,10 @@ export type IPrismicDocumentRecord = PrismicDocument<
   string,
   string
 >;
+
+export interface Talk {
+  date: Moment;
+  org: Nullable<string>;
+  title?: Nullable<string>;
+  url?: Nullable<string>;
+}

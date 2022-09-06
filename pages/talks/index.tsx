@@ -1,9 +1,22 @@
-import { NextPage } from "next";
-import SmallHeroBanner from "../components/SmallHeroBanner";
-import MainLayout from "../containers/MainLayout";
-import talks from "../data/talks";
+import { PrismicRichText } from "@prismicio/react";
+import moment from "moment";
+import { GetStaticProps, NextPage } from "next";
+import SmallHeroBanner from "../../components/SmallHeroBanner";
+import { createClient } from "../../config/prismic";
+import MainLayout from "../../containers/MainLayout";
+import talks from "../../data/talks";
+import { IPrismicDocumentRecord, Talk } from "../../types";
+import * as prismicH from "@prismicio/helpers";
 
-const TalksPage: NextPage = () => {
+interface PageProps {
+  result: Talk[];
+}
+
+interface NextPageProps {
+  props: PageProps;
+}
+
+const TalksPage: NextPage<NextPageProps> = ({ page }) => {
   return (
     <MainLayout
       pageTitle="Tech Talks"
@@ -20,6 +33,7 @@ const TalksPage: NextPage = () => {
         imageUrl: "/images/gcp-juniordev-talk.webp",
       }}
     >
+      <pre>{JSON.stringify(page, null, 2)}</pre>
       <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
         <div className="relative mx-auto max-w-7xl">
           <h2 className="text-2xl font-semibold">Previous Talks</h2>
@@ -53,6 +67,38 @@ const TalksPage: NextPage = () => {
       </div>
     </MainLayout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData });
+
+  const page = await client.getAllByType("tech-talk", {
+    orderings: {
+      field: "document.date",
+      direction: "desc",
+    },
+  });
+
+  console.log(page);
+
+  const result: Talk[] = page.map((page, i) => {
+    console.log(page.data);
+    const { data } = page;
+
+    const isLinkValid =
+      data.link.kind === "document" && document.nodeName.endsWith(".pdf");
+
+    return {
+      date: moment(data.date),
+      org: prismicH.asText(data.org),
+      url: isLinkValid ? prismicH.asText(page.data.link.url) : null,
+      title: prismicH.asText(data.title),
+    };
+  });
+
+  return {
+    props: { result },
+  };
 };
 
 export default TalksPage;
