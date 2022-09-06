@@ -11,14 +11,15 @@ import talks from "../../data/talks";
 import { Talk } from "../../types";
 
 interface PageProps {
-  result: Talk[];
+  talks: Talk[];
 }
 
 interface NextPageProps {
   props: PageProps;
 }
 
-const TalksPage: NextPage<NextPageProps> = ({ page }) => {
+const TalksPage: NextPage<PageProps> = ({ talks }) => {
+  console.log(talks);
   return (
     <MainLayout
       pageTitle="Tech Talks"
@@ -35,12 +36,13 @@ const TalksPage: NextPage<NextPageProps> = ({ page }) => {
         imageUrl: "/images/gcp-juniordev-talk.webp",
       }}
     >
-      <pre>{JSON.stringify(page, null, 2)}</pre>
       <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
         <div className="relative mx-auto max-w-7xl">
-          <h2 className="text-2xl font-semibold">Previous Talks</h2>
           <div className="mx-auto mt-3 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-            {talks.past.map((talk, index) => {
+            {talks.map((talk, index) => {
+              if (talk.slug == null) {
+                return null;
+              }
               return (
                 <div
                   key={index}
@@ -49,9 +51,9 @@ const TalksPage: NextPage<NextPageProps> = ({ page }) => {
                   <div className="flex flex-1 flex-col justify-between bg-white p-6">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-indigo-600">
-                        {talk.date}
+                        {moment(talk.date).format("Do MMM YYYY")}
                       </p>
-                      <a href={talk.url} className="mt-2 block">
+                      <a href={`/talks/${talk.slug}`} className="mt-2 block">
                         <p className="text-xl font-semibold text-gray-900">
                           {talk.title}
                         </p>
@@ -81,25 +83,23 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
     },
   });
 
-  console.log(page);
-
-  const result: Talk[] = page.map((page, i) => {
-    console.log(page.data);
-    const { data } = page;
-
+  const talks: Talk[] = page.map((page) => {
+    console.log(page);
+    const { data, uid } = page;
     const isLinkValid =
-      data.link.kind === "document" && document.nodeName.endsWith(".pdf");
+      data.link.kind === "document" && data.link.name.endsWith(".pdf");
 
     return {
-      date: moment(data.date),
+      slug: uid,
+      date: data.date,
       org: prismicH.asText(data.org),
-      url: isLinkValid ? prismicH.asText(page.data.link.url) : null,
+      url: isLinkValid ? page.data.link.url : null,
       title: prismicH.asText(data.title),
     };
   });
 
   return {
-    props: { result },
+    props: { talks },
   };
 };
 

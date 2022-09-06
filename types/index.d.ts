@@ -32,7 +32,8 @@ export type IPrismicDocumentRecord = PrismicDocument<
 >;
 
 export interface Talk {
-  date: Moment;
+  slug: Nullable<string>;
+  date: string;
   org: Nullable<string>;
   title?: Nullable<string>;
   url?: Nullable<string>;
