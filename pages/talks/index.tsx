@@ -1,12 +1,14 @@
-import { PrismicRichText } from "@prismicio/react";
 import moment from "moment";
 import { GetStaticProps, NextPage } from "next";
-import SmallHeroBanner from "../../components/SmallHeroBanner";
-import { createClient } from "../../config/prismic";
-import MainLayout from "../../containers/MainLayout";
-import talks from "../../data/talks";
-import { IPrismicDocumentRecord, Talk } from "../../types";
+
 import * as prismicH from "@prismicio/helpers";
+
+import SmallHeroBanner from "../../components/SmallHeroBanner";
+import MainLayout from "../../containers/MainLayout";
+
+import { createClient } from "../../config/prismic";
+import talks from "../../data/talks";
+import { Talk } from "../../types";
 
 interface PageProps {
   result: Talk[];
