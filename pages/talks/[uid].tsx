@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import { createClient } from "../../config/prismic";
 import { Talk } from "../../types";
-import { Document, Page } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 import * as prismicH from "@prismicio/helpers";
 import MainLayout from "../../containers/MainLayout";
@@ -38,7 +39,7 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
               onLoadSuccess={onLoadSuccess}
               onLoadError={(err) => console.error(err)}
             >
-              <Page />
+              <Page pageNumber={pageNumber} />
             </Document>
           </div>
         </div>
