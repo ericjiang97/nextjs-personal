@@ -14,12 +14,7 @@ interface PageProps {
   talks: Talk[];
 }
 
-interface NextPageProps {
-  props: PageProps;
-}
-
 const TalksPage: NextPage<PageProps> = ({ talks }) => {
-  console.log(talks);
   return (
     <MainLayout
       pageTitle="Tech Talks"
