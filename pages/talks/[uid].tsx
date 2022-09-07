@@ -1,24 +1,21 @@
 import { GetStaticProps, NextPage } from "next";
 import { createClient } from "../../config/prismic";
 import { Talk } from "../../types";
-import { Document, Page, pdfjs } from "react-pdf";
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 import * as prismicH from "@prismicio/helpers";
 import MainLayout from "../../containers/MainLayout";
 import { useState } from "react";
+import SlidesViewer from "../../components/PdfViewer/SlidesViewer";
+
 interface TechTalksPageProps {
   talk: Talk;
 }
 
 const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
-  const [numPages, setNumPages] = useState(null);
+  const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState(1);
   const endpoint = `/talks/${talk.slug}`;
 
-  const onLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
   return (
     <MainLayout
       pageTitle={`Tech Talk - ${talk.title}`}
@@ -34,29 +31,7 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
               {talk.title}
             </span>
             <span>{talk.url}</span>
-            <div className="w-auto">
-              <Document
-                file={talk.url}
-                onLoadSuccess={onLoadSuccess}
-                onLoadError={(err) => console.error(err)}
-              >
-                <button
-                  onClick={() => {
-                    setPageNumber(pageNumber - 1);
-                  }}
-                >
-                  Prev page
-                </button>
-                <Page pageNumber={pageNumber} renderTextLayer={false} />
-                <button
-                  onClick={() => {
-                    setPageNumber(pageNumber + 1);
-                  }}
-                >
-                  Next page
-                </button>
-              </Document>
-            </div>
+            {talk.url && <SlidesViewer fileUrl={talk.url} />}
           </div>
         </div>
       </div>

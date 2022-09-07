@@ -14,10 +14,14 @@ import Link from "next/link";
 import { PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
 import { linkResolver, repositoryName } from "../config/prismic";
+import { Worker } from "@react-pdf-viewer/core";
 
 import type { AppProps } from "next/app";
 import React from "react";
 import Head from "next/head";
+
+import packageJson from "../package.json";
+const pdfjsVersion = packageJson.dependencies["pdfjs-dist"];
 
 ChartJS.register(
   PointElement,
@@ -127,20 +131,24 @@ const RootComponent: React.FC = ({ children }) => {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PrismicProvider
-      linkResolver={linkResolver}
-      internalLinkComponent={({ href, children, ...props }) => (
-        <Link href={href}>
-          <a {...props}>{children}</a>
-        </Link>
-      )}
+    <Worker
+      workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}
     >
-      <PrismicPreview repositoryName={repositoryName}>
-        <RootComponent>
-          <Component {...pageProps} />
-        </RootComponent>
-      </PrismicPreview>
-    </PrismicProvider>
+      <PrismicProvider
+        linkResolver={linkResolver}
+        internalLinkComponent={({ href, children, ...props }) => (
+          <Link href={href}>
+            <a {...props}>{children}</a>
+          </Link>
+        )}
+      >
+        <PrismicPreview repositoryName={repositoryName}>
+          <RootComponent>
+            <Component {...pageProps} />
+          </RootComponent>
+        </PrismicPreview>
+      </PrismicProvider>
+    </Worker>
   );
 }
 
