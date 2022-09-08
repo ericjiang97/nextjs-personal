@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
+
 import {
   Icon,
   MinimalButton,
@@ -27,7 +29,13 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
 
   const { GoToNextPage, GoToPreviousPage } = pageNavigationPluginInstance;
   return (
-    <div className="rpv-core__viewer">
+    <div
+      className="rpv-core__viewer"
+      style={{
+        height: "400px",
+        position: "relative",
+      }}
+    >
       <div
         style={{
           left: 0,
@@ -43,9 +51,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
               position={Position.BottomCenter}
               target={
                 <MinimalButton onClick={props.onClick}>
-                  <Icon size={16}>
-                    <path d="M18.4.5,5.825,11.626a.5.5,0,0,0,0,.748L18.4,23.5" />
-                  </Icon>
+                  <ChevronLeftIcon className="h-5 w-5 text-gray-100" />
                 </MinimalButton>
               }
               content={() => "Previous page"}
@@ -70,9 +76,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
               position={Position.BottomCenter}
               target={
                 <MinimalButton onClick={props.onClick}>
-                  <Icon size={16}>
-                    <path d="M5.651,23.5,18.227,12.374a.5.5,0,0,0,0-.748L5.651.5" />
-                  </Icon>
+                  <ChevronRightIcon className="h-5 w-5 text-gray-100" />
                 </MinimalButton>
               }
               content={() => "Next page"}
@@ -85,7 +89,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
       <Viewer
         fileUrl={fileUrl}
         plugins={[pageNavigationPluginInstance, disableScrollPluginInstance]}
-        defaultScale={SpecialZoomLevel.ActualSize}
+        defaultScale={SpecialZoomLevel.PageFit}
       />
     </div>
   );
