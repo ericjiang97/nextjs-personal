@@ -51,7 +51,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
               position={Position.BottomCenter}
               target={
                 <MinimalButton onClick={props.onClick}>
-                  <ChevronLeftIcon className="h-5 w-5 text-gray-100" />
+                  <ChevronLeftIcon className="h-5 w-5 text-gray-400" />
                 </MinimalButton>
               }
               content={() => "Previous page"}
@@ -76,7 +76,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
               position={Position.BottomCenter}
               target={
                 <MinimalButton onClick={props.onClick}>
-                  <ChevronRightIcon className="h-5 w-5 text-gray-100" />
+                  <ChevronRightIcon className="h-5 w-5 text-gray-400" />
                 </MinimalButton>
               }
               content={() => "Next page"}
