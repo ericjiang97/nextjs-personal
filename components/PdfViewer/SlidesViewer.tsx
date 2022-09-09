@@ -33,7 +33,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const disableScrollPluginInstance = disableScrollPlugin();
 
-  const { GoToNextPage, GoToPreviousPage, CurrentPageLabel } =
+  const { GoToNextPage, GoToPreviousPage, CurrentPageLabel, jumpToPage } =
     pageNavigationPluginInstance;
   return (
     <div className="rpv-core__viewer">
@@ -85,8 +85,22 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
         <CurrentPageLabel>
           {(props: RenderCurrentPageLabelProps) => {
             return (
-              <div className="flex flex-1 justify-center text-white">
-                <div>{`${props.currentPage} / ${props.numberOfPages}`}</div>
+              <div className="flex flex-1 justify-center">
+                <input
+                  id="pageNumber"
+                  className="block w-12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  value={props.currentPage}
+                  onKeyDown={(e) => {
+                    const { key } = e;
+                    if (key === "Enter") {
+                      jumpToPage(e.currentTarget.value);
+                    }
+                  }}
+                />
+                <span className="ml-1 text-white">
+                  {" / "}
+                  {props.numberOfPages}
+                </span>
               </div>
             );
           }}
