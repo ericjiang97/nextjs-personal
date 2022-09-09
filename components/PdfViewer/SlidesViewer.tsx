@@ -29,47 +29,36 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
 
   const { GoToNextPage, GoToPreviousPage } = pageNavigationPluginInstance;
   return (
-    <div
-      className="rpv-core__viewer"
-      style={{
-        height: "400px",
-        position: "relative",
-      }}
-    >
+    <div className="rpv-core__viewer">
       <div
         style={{
-          left: 0,
-          position: "absolute",
-          top: "50%",
-          transform: "translate(24px, -50%)",
-          zIndex: 1,
+          height: "400px",
+          position: "relative",
         }}
       >
-        <GoToPreviousPage>
-          {(props: RenderGoToPageProps) => (
-            <Tooltip
-              position={Position.BottomCenter}
-              target={
-                <MinimalButton onClick={props.onClick}>
-                  <ChevronLeftIcon className="h-5 w-5 text-gray-400" />
-                </MinimalButton>
-              }
-              content={() => "Previous page"}
-              offset={{ left: 0, top: 8 }}
-            />
-          )}
-        </GoToPreviousPage>
+        <Viewer
+          fileUrl={fileUrl}
+          plugins={[pageNavigationPluginInstance, disableScrollPluginInstance]}
+          defaultScale={SpecialZoomLevel.PageFit}
+        />
       </div>
-
-      <div
-        style={{
-          position: "absolute",
-          right: 0,
-          top: "50%",
-          transform: "translate(-24px, -50%)",
-          zIndex: 1,
-        }}
-      >
+      <div className="mt-2 flex w-full flex-row bg-gray-900">
+        <div>
+          <GoToPreviousPage>
+            {(props: RenderGoToPageProps) => (
+              <Tooltip
+                position={Position.BottomCenter}
+                target={
+                  <MinimalButton onClick={props.onClick}>
+                    <ChevronLeftIcon className="h-5 w-5 text-gray-400" />
+                  </MinimalButton>
+                }
+                content={() => "Previous page"}
+                offset={{ left: 0, top: 8 }}
+              />
+            )}
+          </GoToPreviousPage>
+        </div>
         <GoToNextPage>
           {(props: RenderGoToPageProps) => (
             <Tooltip
@@ -85,12 +74,6 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
           )}
         </GoToNextPage>
       </div>
-
-      <Viewer
-        fileUrl={fileUrl}
-        plugins={[pageNavigationPluginInstance, disableScrollPluginInstance]}
-        defaultScale={SpecialZoomLevel.PageFit}
-      />
     </div>
   );
 };
