@@ -33,7 +33,7 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const disableScrollPluginInstance = disableScrollPlugin();
 
-  const { GoToNextPage, GoToPreviousPage, NumberOfPages, CurrentPageLabel } =
+  const { GoToNextPage, GoToPreviousPage, CurrentPageLabel } =
     pageNavigationPluginInstance;
   return (
     <div className="rpv-core__viewer">
