@@ -7,13 +7,23 @@ import MainLayout from "../../containers/MainLayout";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../config/prismic";
-import { Talk } from "../../types";
+import { IPrismicDocumentRecord, Talk } from "../../types";
+import NotFoundPage from "../404";
 
-interface TechTalksPageProps {
-  talk: Talk;
-}
+type TechTalksPageProps =
+  | {
+      talk: Talk;
+      err: null;
+    }
+  | {
+      talk: null;
+      err: string;
+    };
 
-const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
+const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
+  if (err) {
+    return <NotFoundPage />;
+  }
   const endpoint = `/talks/${talk.slug}`;
 
   return (
@@ -78,23 +88,30 @@ export const getStaticProps: GetStaticProps = async ({
 
   const uid = params?.uid as string;
 
-  const blogPost = await client.getByUID("tech-talk", uid);
+  const [err, blogPost] = await client
+    .getByUID("tech-talk", uid)
+    .then((data: IPrismicDocumentRecord) => [null, data])
+    .catch((err: Error) => [err, null]);
 
-  const { data } = blogPost;
+  if (!err) {
+    const { data } = blogPost;
+    const isLinkValid =
+      data.link.kind === "document" && data.link.name.endsWith(".pdf");
 
-  const isLinkValid =
-    data.link.kind === "document" && data.link.name.endsWith(".pdf");
-
-  const talk: Talk = {
-    slug: uid,
-    date: data.date,
-    org: prismicH.asText(data.org),
-    url: isLinkValid ? data.link.url : null,
-    title: prismicH.asText(data.title),
-  };
+    const talk: Talk = {
+      slug: uid,
+      date: data.date,
+      org: prismicH.asText(data.org),
+      url: isLinkValid ? data.link.url : null,
+      title: prismicH.asText(data.title),
+    };
+    return {
+      props: { talk },
+    };
+  }
 
   return {
-    props: { talk }, // Will be passed to the page component as props
+    props: { err: err.message }, // Will be passed to the page component as props
   };
 };
 
