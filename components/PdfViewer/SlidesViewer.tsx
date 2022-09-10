@@ -68,7 +68,6 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl, talkName }) => {
             />
           )}
         </GoToPreviousPage>
-<<<<<<< HEAD
         <GoToNextPage>
           {({ onClick, isDisabled }: RenderGoToPageProps) => (
             <Tooltip
@@ -77,34 +76,12 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl, talkName }) => {
                 <button onClick={onClick} disabled={isDisabled}>
                   <ChevronRightIcon className="h-5 w-5 text-gray-400" />
                 </button>
-=======
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          right: 0,
-          top: "50%",
-          transform: "translate(-24px, -50%)",
-          zIndex: 1,
-        }}
-      >
-        <GoToNextPage>
-          {(props: RenderGoToPageProps) => (
-            <Tooltip
-              position={Position.BottomCenter}
-              target={
-                <MinimalButton onClick={props.onClick}>
-                  <ChevronRightIcon className="h-5 w-5 text-gray-400" />
-                </MinimalButton>
->>>>>>> main
               }
               content={() => "Next page"}
               offset={{ left: 0, top: 8 }}
             />
           )}
         </GoToNextPage>
-<<<<<<< HEAD
         <div className="flex flex-1 justify-center">
           <CurrentPageLabel>
             {(props: RenderCurrentPageLabelProps) => (
@@ -124,15 +101,6 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl, talkName }) => {
           Download
         </button>
       </div>
-=======
-      </div>
-
-      <Viewer
-        fileUrl={fileUrl}
-        plugins={[pageNavigationPluginInstance, disableScrollPluginInstance]}
-        defaultScale={SpecialZoomLevel.PageFit}
-      />
->>>>>>> main
     </div>
   );
 };
