@@ -7,13 +7,23 @@ import MainLayout from "../../containers/MainLayout";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../config/prismic";
-import { Talk } from "../../types";
+import { IPrismicDocumentRecord, Talk } from "../../types";
+import NotFoundPage from "../404";
 
-interface TechTalksPageProps {
-  talk: Talk;
-}
+type TechTalksPageProps =
+  | {
+      talk: Talk;
+      err: null;
+    }
+  | {
+      talk: null;
+      err: string;
+    };
 
-const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
+const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
+  if (err || talk === null) {
+    return <NotFoundPage />;
+  }
   const endpoint = `/talks/${talk.slug}`;
 
   return (
@@ -24,14 +34,19 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk }) => {
         description: talk.title || "",
       }}
     >
-      <div className="relative overflow-hidden bg-white py-16">
+      <div className="bg-wht -ite relative overflow-hidden py-16">
         <div className="relative flex flex-col items-center px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid w-full max-w-prose grid-cols-1 divide-y-2 divide-gray-400 text-lg">
             <span className="mt-2 block text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
               {talk.title}
             </span>
             <div className="mt-8 w-full">
-              {talk.url && <SlidesViewer fileUrl={talk.url} />}
+              {talk.url && (
+                <SlidesViewer
+                  fileUrl={talk.url}
+                  talkName={talk.title || "eric-talk"}
+                />
+              )}
             </div>
             <div className="mt-4 overflow-hidden bg-white shadow sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
@@ -78,23 +93,30 @@ export const getStaticProps: GetStaticProps = async ({
 
   const uid = params?.uid as string;
 
-  const blogPost = await client.getByUID("tech-talk", uid);
+  const [err, blogPost] = await client
+    .getByUID("tech-talk", uid)
+    .then((data: IPrismicDocumentRecord) => [null, data])
+    .catch((err: Error) => [err, null]);
 
-  const { data } = blogPost;
+  if (!err) {
+    const { data } = blogPost;
+    const isLinkValid =
+      data.link.kind === "document" && data.link.name.endsWith(".pdf");
 
-  const isLinkValid =
-    data.link.kind === "document" && data.link.name.endsWith(".pdf");
-
-  const talk: Talk = {
-    slug: uid,
-    date: data.date,
-    org: prismicH.asText(data.org),
-    url: isLinkValid ? data.link.url : null,
-    title: prismicH.asText(data.title),
-  };
+    const talk: Talk = {
+      slug: uid,
+      date: data.date,
+      org: prismicH.asText(data.org),
+      url: isLinkValid ? data.link.url : null,
+      title: prismicH.asText(data.title),
+    };
+    return {
+      props: { talk },
+    };
+  }
 
   return {
-    props: { talk }, // Will be passed to the page component as props
+    props: { err: err.message }, // Will be passed to the page component as props
   };
 };
 

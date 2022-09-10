@@ -1,10 +1,12 @@
 import React from "react";
 
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
+import {
+  ChevronRightIcon,
+  ChevronLeftIcon,
+  DownloadIcon,
+} from "@heroicons/react/solid";
 
 import {
-  Icon,
-  MinimalButton,
   Position,
   SpecialZoomLevel,
   Tooltip,
@@ -12,85 +14,93 @@ import {
 } from "@react-pdf-viewer/core";
 import {
   pageNavigationPlugin,
+  RenderCurrentPageLabelProps,
   RenderGoToPageProps,
 } from "@react-pdf-viewer/page-navigation";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/page-navigation/lib/styles/index.css";
 import disableScrollPlugin from "./plugins/disableScrollPlugin";
+import { downloadFile } from "../../utils/downloadFile";
 
 interface SlidesViewerProps {
   fileUrl: string;
+  talkName: string;
 }
 
-const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
+const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl, talkName }) => {
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const disableScrollPluginInstance = disableScrollPlugin();
 
-  const { GoToNextPage, GoToPreviousPage } = pageNavigationPluginInstance;
+  const { GoToNextPage, GoToPreviousPage, CurrentPageLabel } =
+    pageNavigationPluginInstance;
+
   return (
-    <div
-      className="rpv-core__viewer"
-      style={{
-        height: "400px",
-        position: "relative",
-      }}
-    >
+    <div className="rpv-core__viewer">
       <div
         style={{
-          left: 0,
-          position: "absolute",
-          top: "50%",
-          transform: "translate(24px, -50%)",
-          zIndex: 1,
+          height: "400px",
+          position: "relative",
         }}
       >
+        <Viewer
+          fileUrl={fileUrl}
+          plugins={[pageNavigationPluginInstance, disableScrollPluginInstance]}
+          defaultScale={SpecialZoomLevel.PageFit}
+        />
+      </div>
+      <div className="mt-2 flex w-full flex-row items-center bg-gray-900 px-4 py-2">
         <GoToPreviousPage>
-          {(props: RenderGoToPageProps) => (
+          {({ onClick, isDisabled }: RenderGoToPageProps) => (
             <Tooltip
               position={Position.BottomCenter}
               target={
-                <MinimalButton onClick={props.onClick}>
+                <button
+                  onClick={onClick}
+                  disabled={isDisabled}
+                  className="mx-2 text-gray-100 disabled:text-gray-400"
+                >
                   <ChevronLeftIcon className="h-5 w-5 text-gray-400" />
-                </MinimalButton>
+                </button>
               }
               content={() => "Previous page"}
               offset={{ left: 0, top: 8 }}
             />
           )}
         </GoToPreviousPage>
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          right: 0,
-          top: "50%",
-          transform: "translate(-24px, -50%)",
-          zIndex: 1,
-        }}
-      >
         <GoToNextPage>
-          {(props: RenderGoToPageProps) => (
+          {({ onClick, isDisabled }: RenderGoToPageProps) => (
             <Tooltip
               position={Position.BottomCenter}
               target={
-                <MinimalButton onClick={props.onClick}>
+                <button onClick={onClick} disabled={isDisabled}>
                   <ChevronRightIcon className="h-5 w-5 text-gray-400" />
-                </MinimalButton>
+                </button>
               }
               content={() => "Next page"}
               offset={{ left: 0, top: 8 }}
             />
           )}
         </GoToNextPage>
+        <div className="flex flex-1 justify-center">
+          <CurrentPageLabel>
+            {(props: RenderCurrentPageLabelProps) => (
+              <span className="ml-1 text-white">
+                {`${props.currentPage + 1} / ${props.numberOfPages}`}
+              </span>
+            )}
+          </CurrentPageLabel>
+        </div>
+        <button
+          onClick={() => {
+            downloadFile(fileUrl, `${talkName}.pdf`);
+          }}
+          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          <DownloadIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+          Download
+        </button>
       </div>
-
-      <Viewer
-        fileUrl={fileUrl}
-        plugins={[pageNavigationPluginInstance, disableScrollPluginInstance]}
-        defaultScale={SpecialZoomLevel.PageFit}
-      />
     </div>
   );
 };

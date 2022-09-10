@@ -40,7 +40,7 @@ const TalksPage: NextPage<PageProps> = ({ talks }) => {
               }
               return (
                 <div
-                  key={index}
+                  key={talk.slug}
                   className="flex flex-col overflow-hidden rounded-lg shadow-lg"
                 >
                   <div className="flex flex-1 flex-col justify-between bg-white p-6">
@@ -78,20 +78,22 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
     },
   });
 
-  const talks: Talk[] = page.map((page) => {
-    console.log(page);
-    const { data, uid } = page;
-    const isLinkValid =
-      data.link.kind === "document" && data.link.name.endsWith(".pdf");
+  const talks: Talk[] = page
+    .map((page) => {
+      console.log(page);
+      const { data, uid } = page;
+      const isLinkValid =
+        data.link.kind === "document" && data.link.name.endsWith(".pdf");
 
-    return {
-      slug: uid,
-      date: data.date,
-      org: prismicH.asText(data.org),
-      url: isLinkValid ? page.data.link.url : null,
-      title: prismicH.asText(data.title),
-    };
-  });
+      return {
+        slug: uid,
+        date: data.date,
+        org: prismicH.asText(data.org),
+        url: isLinkValid ? page.data.link.url : null,
+        title: prismicH.asText(data.title),
+      };
+    })
+    .sort((a, b) => (moment(a.date).isAfter(moment(b.date)) ? -1 : 1));
 
   return {
     props: { talks },
