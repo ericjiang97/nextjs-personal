@@ -21,7 +21,7 @@ type TechTalksPageProps =
     };
 
 const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
-  if (err === null) {
+  if (err || talk === null) {
     return <NotFoundPage />;
   }
   const endpoint = `/talks/${talk.slug}`;
@@ -41,7 +41,12 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
               {talk.title}
             </span>
             <div className="mt-8 w-full">
-              {talk.url && <SlidesViewer fileUrl={talk.url} />}
+              {talk.url && (
+                <SlidesViewer
+                  fileUrl={talk.url}
+                  talkName={talk.title || "eric-talk"}
+                />
+              )}
             </div>
             <div className="mt-4 overflow-hidden bg-white shadow sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">

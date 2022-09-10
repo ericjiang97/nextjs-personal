@@ -21,12 +21,14 @@ import {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/page-navigation/lib/styles/index.css";
 import disableScrollPlugin from "./plugins/disableScrollPlugin";
+import { downloadFile } from "../../utils/downloadFile";
 
 interface SlidesViewerProps {
   fileUrl: string;
+  talkName: string;
 }
 
-const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
+const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl, talkName }) => {
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const disableScrollPluginInstance = disableScrollPlugin();
 
@@ -89,14 +91,15 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
             )}
           </CurrentPageLabel>
         </div>
-        <a
-          type="button"
-          href={fileUrl}
+        <button
+          onClick={() => {
+            downloadFile(fileUrl, `${talkName}.pdf`);
+          }}
           className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           <DownloadIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
           Download
-        </a>
+        </button>
       </div>
     </div>
   );
