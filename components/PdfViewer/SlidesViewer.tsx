@@ -7,14 +7,12 @@ import {
 } from "@heroicons/react/solid";
 
 import {
-  Button,
   Position,
   SpecialZoomLevel,
   Tooltip,
   Viewer,
 } from "@react-pdf-viewer/core";
 import {
-  CurrentPageLabelProps,
   pageNavigationPlugin,
   RenderCurrentPageLabelProps,
   RenderGoToPageProps,
