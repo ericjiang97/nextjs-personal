@@ -34,7 +34,7 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
         description: talk.title || "",
       }}
     >
-      <div className="relative overflow-hidden bg-white py-16">
+      <div className="bg-wht -ite relative overflow-hidden py-16">
         <div className="relative flex flex-col items-center px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid w-full max-w-prose grid-cols-1 divide-y-2 divide-gray-400 text-lg">
             <span className="mt-2 block text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
