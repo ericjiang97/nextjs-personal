@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
 
   const page = await client.getAllByType("tech-talk", {
     orderings: {
-      field: "document.data.date",
+      field: "document.date",
       direction: "desc",
     },
   });
