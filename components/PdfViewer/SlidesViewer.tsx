@@ -14,11 +14,10 @@ import {
   Viewer,
 } from "@react-pdf-viewer/core";
 import {
-  NumberOfPagesProps,
+  CurrentPageLabelProps,
   pageNavigationPlugin,
   RenderCurrentPageLabelProps,
   RenderGoToPageProps,
-  RenderNumberOfPagesProps,
 } from "@react-pdf-viewer/page-navigation";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
@@ -33,8 +32,9 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const disableScrollPluginInstance = disableScrollPlugin();
 
-  const { GoToNextPage, GoToPreviousPage, CurrentPageLabel, jumpToPage } =
+  const { GoToNextPage, GoToPreviousPage, CurrentPageLabel } =
     pageNavigationPluginInstance;
+
   return (
     <div className="rpv-core__viewer">
       <div
@@ -82,29 +82,15 @@ const SlidesViewer: React.FC<SlidesViewerProps> = ({ fileUrl }) => {
             />
           )}
         </GoToNextPage>
-        <CurrentPageLabel>
-          {(props: RenderCurrentPageLabelProps) => {
-            return (
-              <div className="flex flex-1 justify-center">
-                <input
-                  id="pageNumber"
-                  className="block w-12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  value={props.currentPage}
-                  onKeyDown={(e) => {
-                    const { key } = e;
-                    if (key === "Enter") {
-                      jumpToPage(e.currentTarget.value);
-                    }
-                  }}
-                />
-                <span className="ml-1 text-white">
-                  {" / "}
-                  {props.numberOfPages}
-                </span>
-              </div>
-            );
-          }}
-        </CurrentPageLabel>
+        <div className="flex flex-1 justify-center">
+          <CurrentPageLabel>
+            {(props: RenderCurrentPageLabelProps) => (
+              <span className="ml-1 text-white">
+                {`${props.currentPage + 1} / ${props.numberOfPages}`}
+              </span>
+            )}
+          </CurrentPageLabel>
+        </div>
         <a
           type="button"
           href={fileUrl}

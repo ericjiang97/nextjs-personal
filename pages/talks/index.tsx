@@ -40,7 +40,7 @@ const TalksPage: NextPage<PageProps> = ({ talks }) => {
               }
               return (
                 <div
-                  key={index}
+                  key={talk.slug}
                   className="flex flex-col overflow-hidden rounded-lg shadow-lg"
                 >
                   <div className="flex flex-1 flex-col justify-between bg-white p-6">

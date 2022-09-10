@@ -21,7 +21,7 @@ type TechTalksPageProps =
     };
 
 const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
-  if (err || !talk) {
+  if (err === null) {
     return <NotFoundPage />;
   }
   const endpoint = `/talks/${talk.slug}`;
