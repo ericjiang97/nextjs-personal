@@ -1,34 +1,31 @@
-import * as prismic from '@prismicio/client'
-import { enableAutoPreviews } from '@prismicio/next'
-import { } from '@prismicio/types'
-import sm from '../sm.json'
+import * as prismic from "@prismicio/client";
+import { enableAutoPreviews } from "@prismicio/next";
+import sm from "../sm.json";
 
-export const endpoint = sm.apiEndpoint
-export const repositoryName = prismic.getRepositoryName(endpoint)
+export const endpoint = sm.apiEndpoint;
+export const repositoryName = prismic.getRepositoryName(endpoint);
 
 // Update the Link Resolver to match your project's route structure
-export function linkResolver(doc : any) {
+export function linkResolver(doc: any) {
   switch (doc.type) {
-    case 'homepage':
-      return '/'
-    case 'page':
-      return `/${doc.uid}`
+    case "homepage":
+      return "/";
+    case "page":
+      return `/${doc.uid}`;
     default:
-      return null
+      return null;
   }
 }
 
 // This factory function allows smooth preview setup
 export function createClient(config: any = {}) {
-  const client = prismic.createClient(endpoint, {
-    ...config,
-  })
+  const _client = prismic.createClient(endpoint, config);
 
   enableAutoPreviews({
-    client,
+    client: _client,
     previewData: config.previewData,
     req: config.req,
-  })
+  });
 
-  return client
+  return _client;
 }
