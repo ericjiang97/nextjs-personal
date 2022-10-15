@@ -33,7 +33,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
       pageMeta={{
         endpoint,
         description: prismicH.asText(post.data.summary) || "",
-        imageUrl: post.data.banner && post.data.banner.url,
+        imageUrl: `/api/static?blog=${post.uid}`,
       }}
     >
       <div className="relative overflow-hidden bg-white py-16">
