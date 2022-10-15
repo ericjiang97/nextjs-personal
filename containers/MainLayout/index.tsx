@@ -46,10 +46,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({
           </>
         ) : (
           <>
-            <meta name="og:image" content={`/api/static?title=${endpoint}`} />
+            <meta
+              name="og:image"
+              content={`https://ericjiang.dev/api/static?title=${_pageTitle}`}
+            />
             <meta
               name="twitter:image"
-              content={`/api/static?title=${endpoint}`}
+              content={`https://ericjiang.dev/api/static?title=${_pageTitle}`}
             ></meta>
           </>
         )}
