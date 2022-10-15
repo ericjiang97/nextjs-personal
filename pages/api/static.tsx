@@ -14,14 +14,14 @@ export const OpenGraphPage = async (req: any) => {
 
   const blogPost = searchParams.get("blog");
 
-  const searchParamHideWebsite = searchParams.get("hideWebsite");
+  const searchParamShouldHideLogo = searchParams.get("hideLogo");
   const searchParamTitle = searchParams.get("title");
   const searchParamSubHeading = searchParams.get("subheading");
 
   let imageTitle = searchParamTitle || "EricJiang.dev";
   let subHeading = searchParamSubHeading || null;
 
-  let shouldHideLogo = Boolean(searchParamHideWebsite) || false;
+  let shouldHideLogo = Boolean(searchParamShouldHideLogo) || false;
 
   if (blogPost) {
     const client = createClient({});
@@ -62,6 +62,14 @@ export const OpenGraphPage = async (req: any) => {
               alignItems: "center",
             }}
           >
+            <img
+              src="https://ericjiang.dev/icons/android-icon-96x96.png"
+              width="1.25rem"
+              height="1.25rem"
+              style={{
+                borderRadius: "100%",
+              }}
+            />
             <span tw="ml-2 text-base font-semibold">ericjiang.dev</span>
           </div>
         )}
