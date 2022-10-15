@@ -1,4 +1,5 @@
 import { ImageResponse } from "@vercel/og";
+import moment from "moment";
 
 import { createClient } from "../../config/prismic";
 import * as prismicH from "@prismicio/helpers";
@@ -21,6 +22,8 @@ export const OpenGraphPage = async (req: any) => {
   let imageTitle = searchParamTitle || "EricJiang.dev";
   let subHeading = searchParamSubHeading || null;
 
+  let description = null;
+
   let shouldHideLogo = Boolean(searchParamShouldHideLogo) || false;
 
   if (blogPost) {
@@ -31,8 +34,14 @@ export const OpenGraphPage = async (req: any) => {
     if (post) {
       const { title } = post.data;
       if (title) {
-        subHeading = "Blog Post";
+        subHeading = "📝 Blog Post";
         imageTitle = prismicH.asText(title) || imageTitle;
+
+        const postedDate = moment(
+          prismicH.asDate(post.data.published_time)?.toISOString()
+        );
+
+        description = `Published on ${postedDate.format("Do MMM YYYY")}`;
       }
     }
   }
@@ -73,11 +82,16 @@ export const OpenGraphPage = async (req: any) => {
             <span tw="ml-2 text-base font-semibold">ericjiang.dev</span>
           </div>
         )}
-        <div tw="flex flex-1 items-center justify-center flex-col">
+        <div tw="flex items-center justify-center flex-col px-2 py-2 bg-gray-100 bg-opacity-50">
           {subHeading && (
-            <div tw="text-xl font-semibold text-grey-500">{subHeading}</div>
+            <div tw="text-2xl font-semibold text-gray-400">{subHeading}</div>
           )}
-          <div tw="text-4xl font-bold">{imageTitle}</div>
+          <div tw="text-6xl font-extrabold">{imageTitle}</div>
+          {description && (
+            <div tw="text-lg mt-2 font-semibold text-gray-900">
+              {description}
+            </div>
+          )}
         </div>
       </div>
     ),
