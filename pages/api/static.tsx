@@ -37,11 +37,15 @@ export const OpenGraphPage = async (req: any) => {
         subHeading = "📝 Blog Post";
         imageTitle = prismicH.asText(title) || imageTitle;
 
-        const postedDate = moment(
-          prismicH.asDate(post.data.published_time)?.toISOString()
-        );
+        const postedDate = prismicH
+          .asDate(post.data.published_time)
+          ?.toLocaleDateString("en-AU", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
 
-        description = `Published on ${postedDate.format("Do MMM YYYY")}`;
+        description = `Published on ${postedDate}`;
       }
     }
   }
