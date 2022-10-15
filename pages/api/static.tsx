@@ -1,5 +1,4 @@
 import { ImageResponse } from "@vercel/og";
-import { NextRequest } from "next/server";
 
 import { createClient } from "../../config/prismic";
 import * as prismicH from "@prismicio/helpers";
@@ -10,7 +9,7 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-export const OpenGraphPage = async (req: NextRequest) => {
+export const OpenGraphPage = async (req: any) => {
   const { searchParams } = req.nextUrl;
 
   const blogPost = searchParams.get("blog");
