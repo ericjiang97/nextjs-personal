@@ -32,7 +32,7 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
       pageMeta={{
         endpoint,
         description: talk.title || "",
-        imageUrl: `https://ericjiang.dev/api/static?talk=${talk.uid}`,
+        imageUrl: `https://ericjiang.dev/api/static?talk=${talk.slug}`,
       }}
     >
       <div className="bg-wht -ite relative overflow-hidden py-16">
