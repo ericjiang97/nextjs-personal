@@ -25,7 +25,7 @@ const ImageGroup: SliceComponentType = ({ slice }) => {
         </div>
       )}
       <div className="container mx-auto">
-        <div className="grid-cols-2 space-y-1 p-20 lg:grid lg:grid-rows-3 lg:gap-1 lg:space-y-0">
+        <div className="grid-cols-2 space-y-1 p-20 lg:grid lg:gap-1 lg:space-y-0">
           {slice.items.map((item: { image: ImageField }, i: number) => {
             let span = "";
             if ((i + 1) % 3 == 0) {
