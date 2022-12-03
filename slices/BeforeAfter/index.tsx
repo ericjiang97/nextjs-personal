@@ -27,7 +27,7 @@ const BeforeAfter: React.FC<BeforeAfterSlice> = ({ slice }) => {
     <div className="mt-2">
       {title && (
         <div className="mt-1">
-          <h2 className="text-2xl font-semibold text-maroon">{title}</h2>
+          <h2 className="text-2xl font-semibold text-lime-500">{title}</h2>
         </div>
       )}
       <div className="mt-2 w-full">

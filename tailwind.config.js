@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -28,6 +30,8 @@ module.exports = {
         "space-cadet": "#2B2D42",
         "imperial-red": "#EF233C",
         crimson: "#D80032",
+        sky: colors.sky,
+        ...colors,
       },
     },
   },
