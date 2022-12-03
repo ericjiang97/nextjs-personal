@@ -1,0 +1,9 @@
+{
+  "slices": {
+    "BeforeAfter": {
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}
