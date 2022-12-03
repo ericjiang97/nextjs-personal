@@ -55,7 +55,7 @@ const AlbumPage: NextPage<AlbumPageProps> = ({ album, ...props }) => {
           </div>
         </div>
       </div>
-      <ImagePreviewDialog open={true} />
+      <ImagePreviewDialog />
     </MainLayout>
   );
 };
