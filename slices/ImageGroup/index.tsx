@@ -3,8 +3,8 @@ import { PrismicRichText, SliceComponentType } from "@prismicio/react";
 
 import { ImageField } from "@prismicio/types";
 import {
+  showModal,
   useImagePreviewDispatch,
-  usePreviewModal,
 } from "../../contexts/ImagePreviewContext";
 
 /**
@@ -39,7 +39,7 @@ const ImageGroup: SliceComponentType = ({ slice }) => {
                 className={`w-full ${span} rounded`}
                 key={i}
                 onClick={() => {
-                  usePreviewModal(dispatch, item.image);
+                  showModal(dispatch, item.image);
                 }}
               >
                 <img src={item.image.url} />

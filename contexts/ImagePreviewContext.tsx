@@ -82,22 +82,17 @@ function useImagePreviewDispatch() {
   return context;
 }
 
-async function usePreviewModal(dispatch: Dispatch, image: ImageField) {
+async function showModal(dispatch: Dispatch, image: ImageField) {
   dispatch({
     type: "@@IMAGE_PREVIEW_DISPATCH/SHOW_IMAGE",
     image: image,
   });
 }
 
-function useHideModal(dispatch: Dispatch) {
+function hideModal(dispatch: Dispatch) {
   dispatch({
     type: "@@IMAGE_PREVIEW_DISPATCH/DISMISS_PREVIEW",
   });
 }
 
-export {
-  useImagePreviewState,
-  useImagePreviewDispatch,
-  usePreviewModal,
-  useHideModal,
-};
+export { useImagePreviewState, useImagePreviewDispatch, showModal, hideModal };

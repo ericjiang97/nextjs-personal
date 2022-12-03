@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import DownloadImageButton from "../../buttons/DownloadImageButton";
 
 import {
-  useHideModal,
+  hideModal,
   useImagePreviewDispatch,
   useImagePreviewState,
 } from "../../../contexts/ImagePreviewContext";
@@ -19,7 +19,7 @@ const ImagePreviewDialog: React.FC = () => {
         as="div"
         className="relative z-10"
         onClose={() => {
-          useHideModal(dispatch);
+          hideModal(dispatch);
         }}
       >
         <Transition.Child
@@ -75,7 +75,7 @@ const ImagePreviewDialog: React.FC = () => {
                     type="button"
                     className="inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
                     onClick={() => {
-                      useHideModal(dispatch);
+                      hideModal(dispatch);
                     }}
                   >
                     Hide Preview
