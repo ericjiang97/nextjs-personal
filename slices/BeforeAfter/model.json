@@ -11,6 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "BeforeAfter",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
         "before_image": {
           "type": "Image",
           "config": {

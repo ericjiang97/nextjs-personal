@@ -4,6 +4,18 @@
       "default": {
         "primary": {}
       }
+    },
+    "RichText": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "STORY",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   }
 }

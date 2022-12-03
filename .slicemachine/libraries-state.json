@@ -19,6 +19,13 @@
               "version": "sktwi1xtmkfgx8626",
               "description": "BeforeAfter",
               "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "title",
+                    "placeholder": ""
+                  }
+                },
                 "before_image": {
                   "type": "Image",
                   "config": {
@@ -49,6 +56,7 @@
               {}
             ],
             "primary": {
+              "title": "handle",
               "before_image": {
                 "dimensions": {
                   "width": 900,
@@ -56,7 +64,7 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f"
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8"
               },
               "after_image": {
                 "dimensions": {
@@ -65,10 +73,83 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1"
+                "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
               }
             },
             "slice_type": "before_after"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "tsx"
+        },
+        "screenshotPaths": {}
+      },
+      "rich_text": {
+        "library": "slices",
+        "id": "rich_text",
+        "name": "RichText",
+        "description": "RichText",
+        "model": {
+          "id": "rich_text",
+          "type": "SharedSlice",
+          "name": "RichText",
+          "description": "RichText",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "RichText",
+              "primary": {
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "richtext",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "text": [
+                {
+                  "type": "heading1",
+                  "text": "Chapter",
+                  "spans": []
+                },
+                {
+                  "type": "image",
+                  "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+                  "alt": null,
+                  "copyright": null,
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  }
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Velit cillum cillum Lorem ad nisi.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "rich_text"
           }
         },
         "meta": {
