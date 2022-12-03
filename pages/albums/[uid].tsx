@@ -11,6 +11,8 @@ import MainLayout from "../../containers/MainLayout";
 
 import { IPrismicDocumentRecord } from "../../types";
 
+import ImagePreviewDialog from "../../components/dialogs/ImagePreviewDialog";
+
 interface AlbumPageProps {
   album: IPrismicDocumentRecord;
 }
@@ -53,6 +55,7 @@ const AlbumPage: NextPage<AlbumPageProps> = ({ album, ...props }) => {
           </div>
         </div>
       </div>
+      <ImagePreviewDialog open={true} />
     </MainLayout>
   );
 };

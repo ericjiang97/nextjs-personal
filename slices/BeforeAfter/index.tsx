@@ -6,6 +6,7 @@ import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
 
 import { ImageField, KeyTextField } from "@prismicio/types";
+import DownloadImageButton from "../../components/buttons/DownloadImageButton";
 
 interface BeforeAfterSlice {
   slice: {
@@ -47,15 +48,7 @@ const BeforeAfter: React.FC<BeforeAfterSlice> = ({ slice }) => {
       </div>
       {after_image.url && (
         <div className="mt-1 flex w-full justify-end">
-          <a
-            href={after_image.url}
-            target="_blank"
-            type="button"
-            className="inline-flex items-center rounded-md border border-transparent bg-sky-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
-            <DownloadIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-            Download Image
-          </a>
+          <DownloadImageButton image={after_image} />
         </div>
       )}
     </div>

@@ -2,6 +2,10 @@ import React from "react";
 import { PrismicRichText, SliceComponentType } from "@prismicio/react";
 
 import { ImageField } from "@prismicio/types";
+import {
+  useImagePreviewDispatch,
+  usePreviewModal,
+} from "../../contexts/ImagePreviewContext";
 
 /**
  * @typedef {import("@prismicio/client").Content.ImageGroupSlice} ImageGroupSlice
@@ -9,7 +13,10 @@ import { ImageField } from "@prismicio/types";
  * @param { ImageGroupProps }
  */
 const ImageGroup: SliceComponentType = ({ slice }) => {
+  const dispatch = useImagePreviewDispatch();
+
   const { title } = slice.primary;
+
   return (
     <div className="my-3">
       {title && (
@@ -21,14 +28,20 @@ const ImageGroup: SliceComponentType = ({ slice }) => {
         <div className="grid-cols-2 space-y-1 p-20 lg:grid lg:grid-rows-3 lg:gap-1 lg:space-y-0">
           {slice.items.map((item: { image: ImageField }, i: number) => {
             let span = "";
-            if ((i + 1) % 2 == 0 && (i + 1) % 4 != 0) {
+            if ((i + 1) % 3 == 0) {
               span = "col-span-2 row-span-2";
             }
             if (!item.image.url) {
               return null;
             }
             return (
-              <div className={`w-full ${span} rounded`} key={i}>
+              <div
+                className={`w-full ${span} rounded`}
+                key={i}
+                onClick={() => {
+                  usePreviewModal(dispatch, item.image);
+                }}
+              >
                 <img src={item.image.url} />
               </div>
             );
