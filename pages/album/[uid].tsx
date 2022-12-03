@@ -16,8 +16,6 @@ interface AlbumPageProps {
 }
 
 const AlbumPage: NextPage<AlbumPageProps> = ({ album, ...props }) => {
-  console.log(album);
-  console.log(props);
   const endpoint = `/album/${album.uid}`;
   const firstPosted = moment(
     prismicH.asDate(album.first_publication_date)?.toISOString()
@@ -50,7 +48,7 @@ const AlbumPage: NextPage<AlbumPageProps> = ({ album, ...props }) => {
             </h1>
           </div>
 
-          <div className="mx-auto mt-4 flex w-full max-w-prose flex-col">
+          <div className="mx-auto mt-4 flex w-full max-w-4xl flex-col">
             <SliceZone components={components} slices={album.data.body} />
           </div>
         </div>
@@ -76,7 +74,7 @@ export const getStaticProps: GetStaticProps = async ({
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const client = createClient();
 
   const albumPages = await client.getAllByType("album", {

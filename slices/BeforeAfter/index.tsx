@@ -24,10 +24,10 @@ interface BeforeAfterSlice {
 const BeforeAfter: React.FC<BeforeAfterSlice> = ({ slice }) => {
   const { before_image, after_image, title } = slice.primary;
   return (
-    <div className="mt-2">
+    <div className="my-3">
       {title && (
         <div className="mt-1">
-          <h2 className="text-2xl font-semibold text-lime-500">{title}</h2>
+          <h2 className="text-lg font-semibold text-blue-700">{title}</h2>
         </div>
       )}
       <div className="mt-2 w-full">
@@ -51,7 +51,7 @@ const BeforeAfter: React.FC<BeforeAfterSlice> = ({ slice }) => {
             href={after_image.url}
             target="_blank"
             type="button"
-            className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="inline-flex items-center rounded-md border border-transparent bg-sky-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             <DownloadIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
             Download Image

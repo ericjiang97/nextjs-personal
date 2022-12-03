@@ -16,6 +16,11 @@
           }
         }
       }
+    },
+    "ImageGroup": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }
