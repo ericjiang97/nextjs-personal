@@ -1,4 +1,11 @@
-import "../styles/globals.css";
+import React from "react";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+
+import Link from "next/link";
+import { PrismicProvider } from "@prismicio/react";
+import { PrismicPreview } from "@prismicio/next";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,17 +17,15 @@ import {
   PointElement,
   LineElement,
 } from "chart.js";
-import Link from "next/link";
-import { PrismicProvider } from "@prismicio/react";
-import { PrismicPreview } from "@prismicio/next";
-import { linkResolver, repositoryName } from "../config/prismic";
 import { Worker } from "@react-pdf-viewer/core";
 
-import type { AppProps } from "next/app";
-import React from "react";
-import Head from "next/head";
+import { linkResolver, repositoryName } from "../config/prismic";
 
+import { ImagePreviewContextProvider } from "../contexts/ImagePreviewContext";
+
+import "../styles/globals.css";
 import packageJson from "../package.json";
+
 const pdfjsVersion = packageJson.dependencies["pdfjs-dist"];
 
 ChartJS.register(
@@ -134,20 +139,22 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Worker
       workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}
     >
-      <PrismicProvider
-        linkResolver={linkResolver}
-        internalLinkComponent={({ href, children, ...props }) => (
-          <Link href={href}>
-            <a {...props}>{children}</a>
-          </Link>
-        )}
-      >
-        <PrismicPreview repositoryName={repositoryName}>
-          <RootComponent>
-            <Component {...pageProps} />
-          </RootComponent>
-        </PrismicPreview>
-      </PrismicProvider>
+      <ImagePreviewContextProvider>
+        <PrismicProvider
+          linkResolver={linkResolver}
+          internalLinkComponent={({ href, children, ...props }) => (
+            <Link href={href}>
+              <a {...props}>{children}</a>
+            </Link>
+          )}
+        >
+          <PrismicPreview repositoryName={repositoryName}>
+            <RootComponent>
+              <Component {...pageProps} />
+            </RootComponent>
+          </PrismicPreview>
+        </PrismicProvider>
+      </ImagePreviewContextProvider>
     </Worker>
   );
 }

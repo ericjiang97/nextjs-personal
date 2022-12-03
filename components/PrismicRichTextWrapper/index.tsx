@@ -3,18 +3,21 @@ import { PrismicRichText } from "@prismicio/react";
 
 import YoutubeEmbed from "./YouTubeEmbed";
 
-import { PrismicDocument } from "@prismicio/types";
+import { PrismicDocument, RichTextField } from "@prismicio/types";
 
 interface PrismicRichTextWrapperProps {
-  page: PrismicDocument<Record<string, any>, string, string>;
+  page?: PrismicDocument<Record<string, any>, string, string>;
+  data?: RichTextField;
 }
 
 const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
   page,
+  data,
 }) => {
+  let _field = data || (page && page.data.body);
   return (
     <PrismicRichText
-      field={page.data.body}
+      field={_field}
       components={{
         hyperlink: ({ children, node }) => (
           <a
@@ -50,13 +53,8 @@ const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
         ),
         listItem: ({ children }) => <li className="mt-1/2">{children}</li>,
         image: ({ node }) => {
-          return (
-            <img
-              src={node.url}
-              alt={node.alt || ""}
-              className="mt-2 self-center"
-            />
-          );
+          const { url, alt } = node;
+          return <img src={url} alt={alt || ""} className="mt-2 self-center" />;
         },
         embed: (props) => {
           if (props.node.oembed.provider_name === "YouTube") {

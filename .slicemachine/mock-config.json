@@ -1,0 +1,26 @@
+{
+  "slices": {
+    "BeforeAfter": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "RichText": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "STORY",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "ImageGroup": {
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}
