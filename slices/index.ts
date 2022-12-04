@@ -2,12 +2,14 @@
 
 import BeforeAfter from './BeforeAfter';
 import ImageGroup from './ImageGroup';
+import ImageWithTextonOneSide from './ImageWithTextonOneSide';
 import RichText from './RichText';
 import SingleImage from './SingleImage';
 
 export {
 	BeforeAfter,
 	ImageGroup,
+	ImageWithTextonOneSide,
 	RichText,
 	SingleImage,
 };
@@ -15,6 +17,7 @@ export {
 export const components = {
 	before_after: BeforeAfter,
 	image_group: ImageGroup,
+	image_left: ImageWithTextonOneSide,
 	rich_text: RichText,
 	single_image: SingleImage,
 };

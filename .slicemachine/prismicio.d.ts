@@ -121,6 +121,66 @@ type ImageGroupSliceVariation = ImageGroupSliceDefault;
  */
 export type ImageGroupSlice = prismicT.SharedSlice<"image_group", ImageGroupSliceVariation>;
 /**
+ * Primary content in ImageWithTextonOneSide → Primary
+ *
+ */
+interface ImageLeftSliceDefaultPrimary {
+    /**
+     * text field in *ImageWithTextonOneSide → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: image_left.primary.text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    text: prismicT.RichTextField;
+    /**
+     * image field in *ImageWithTextonOneSide → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: image_left.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * position field in *ImageWithTextonOneSide → Primary*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **Default Value**: left
+     * - **API ID Path**: image_left.primary.position
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    position: prismicT.SelectField<"left" | "right", "filled">;
+}
+/**
+ * Default variation for ImageWithTextonOneSide Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ImageLeft`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageLeftSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ImageLeftSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *ImageWithTextonOneSide*
+ *
+ */
+type ImageLeftSliceVariation = ImageLeftSliceDefault;
+/**
+ * ImageWithTextonOneSide Shared Slice
+ *
+ * - **API ID**: `image_left`
+ * - **Description**: `ImageLeft`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageLeftSlice = prismicT.SharedSlice<"image_left", ImageLeftSliceVariation>;
+/**
  * Primary content in RichText → Primary
  *
  */
@@ -213,6 +273,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client;
     }
     namespace Content {
-        export type { BeforeAfterSliceDefaultPrimary, BeforeAfterSliceDefault, BeforeAfterSliceVariation, BeforeAfterSlice, ImageGroupSliceDefaultPrimary, ImageGroupSliceDefaultItem, ImageGroupSliceDefault, ImageGroupSliceVariation, ImageGroupSlice, RichTextSliceDefaultPrimary, RichTextSliceDefault, RichTextSliceVariation, RichTextSlice, SingleImageSliceDefaultPrimary, SingleImageSliceDefault, SingleImageSliceVariation, SingleImageSlice };
+        export type { BeforeAfterSliceDefaultPrimary, BeforeAfterSliceDefault, BeforeAfterSliceVariation, BeforeAfterSlice, ImageGroupSliceDefaultPrimary, ImageGroupSliceDefaultItem, ImageGroupSliceDefault, ImageGroupSliceVariation, ImageGroupSlice, ImageLeftSliceDefaultPrimary, ImageLeftSliceDefault, ImageLeftSliceVariation, ImageLeftSlice, RichTextSliceDefaultPrimary, RichTextSliceDefault, RichTextSliceVariation, RichTextSlice, SingleImageSliceDefaultPrimary, SingleImageSliceDefault, SingleImageSliceVariation, SingleImageSlice };
     }
 }
