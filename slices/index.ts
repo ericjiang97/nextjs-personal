@@ -3,15 +3,18 @@
 import BeforeAfter from './BeforeAfter';
 import ImageGroup from './ImageGroup';
 import RichText from './RichText';
+import SingleImage from './SingleImage';
 
 export {
 	BeforeAfter,
 	ImageGroup,
 	RichText,
+	SingleImage,
 };
 
 export const components = {
 	before_after: BeforeAfter,
 	image_group: ImageGroup,
 	rich_text: RichText,
+	single_image: SingleImage,
 };

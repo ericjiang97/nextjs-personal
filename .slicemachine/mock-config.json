@@ -21,6 +21,11 @@
       "default": {
         "primary": {}
       }
+    },
+    "SingleImage": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }

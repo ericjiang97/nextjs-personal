@@ -159,11 +159,60 @@ type RichTextSliceVariation = RichTextSliceDefault;
  *
  */
 export type RichTextSlice = prismicT.SharedSlice<"rich_text", RichTextSliceVariation>;
+/**
+ * Primary content in SingleImage → Primary
+ *
+ */
+interface SingleImageSliceDefaultPrimary {
+    /**
+     * image field in *SingleImage → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: single_image.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * description field in *SingleImage → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: single_image.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+}
+/**
+ * Default variation for SingleImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `SingleImage`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SingleImageSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<SingleImageSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *SingleImage*
+ *
+ */
+type SingleImageSliceVariation = SingleImageSliceDefault;
+/**
+ * SingleImage Shared Slice
+ *
+ * - **API ID**: `single_image`
+ * - **Description**: `SingleImage`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SingleImageSlice = prismicT.SharedSlice<"single_image", SingleImageSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client;
     }
     namespace Content {
-        export type { BeforeAfterSliceDefaultPrimary, BeforeAfterSliceDefault, BeforeAfterSliceVariation, BeforeAfterSlice, ImageGroupSliceDefaultPrimary, ImageGroupSliceDefaultItem, ImageGroupSliceDefault, ImageGroupSliceVariation, ImageGroupSlice, RichTextSliceDefaultPrimary, RichTextSliceDefault, RichTextSliceVariation, RichTextSlice };
+        export type { BeforeAfterSliceDefaultPrimary, BeforeAfterSliceDefault, BeforeAfterSliceVariation, BeforeAfterSlice, ImageGroupSliceDefaultPrimary, ImageGroupSliceDefaultItem, ImageGroupSliceDefault, ImageGroupSliceVariation, ImageGroupSlice, RichTextSliceDefaultPrimary, RichTextSliceDefault, RichTextSliceVariation, RichTextSlice, SingleImageSliceDefaultPrimary, SingleImageSliceDefault, SingleImageSliceVariation, SingleImageSlice };
     }
 }
