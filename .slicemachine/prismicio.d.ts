@@ -219,6 +219,7 @@ type RichTextSliceVariation = RichTextSliceDefault;
  *
  */
 export type RichTextSlice = prismicT.SharedSlice<"rich_text", RichTextSliceVariation>;
+
 /**
  * Primary content in SingleImage → Primary
  *
@@ -274,5 +275,6 @@ declare module "@prismicio/client" {
     }
     namespace Content {
         export type { BeforeAfterSliceDefaultPrimary, BeforeAfterSliceDefault, BeforeAfterSliceVariation, BeforeAfterSlice, ImageGroupSliceDefaultPrimary, ImageGroupSliceDefaultItem, ImageGroupSliceDefault, ImageGroupSliceVariation, ImageGroupSlice, ImageLeftSliceDefaultPrimary, ImageLeftSliceDefault, ImageLeftSliceVariation, ImageLeftSlice, RichTextSliceDefaultPrimary, RichTextSliceDefault, RichTextSliceVariation, RichTextSlice, SingleImageSliceDefaultPrimary, SingleImageSliceDefault, SingleImageSliceVariation, SingleImageSlice };
+
     }
 }
