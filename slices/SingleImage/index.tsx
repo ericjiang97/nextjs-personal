@@ -3,6 +3,10 @@ import { PrismicText } from "@prismicio/react";
 
 import { ImageField, KeyTextField } from "@prismicio/types";
 import DownloadImageButton from "../../components/buttons/DownloadImageButton";
+import {
+  showModal,
+  useImagePreviewDispatch,
+} from "../../contexts/ImagePreviewContext";
 
 interface SingleImageProps {
   slice: {
@@ -18,11 +22,19 @@ interface SingleImageProps {
  * @param { SingleImageProps }
  */
 const SingleImage: React.FC<SingleImageProps> = ({ slice }) => {
+  const dispatch = useImagePreviewDispatch();
+
   const { image, description } = slice.primary;
   return (
     <div className="my-3">
       {image && image.url && (
-        <img src={image.url} alt={image.alt || description || ""} />
+        <img
+          src={image.url}
+          alt={image.alt || description || ""}
+          onClick={() => {
+            showModal(dispatch, image);
+          }}
+        />
       )}
       <div className="mt-2 flex items-center">
         {description && (

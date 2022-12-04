@@ -298,7 +298,13 @@
           "fileName": "index",
           "extension": "tsx"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/eric/nextjs-personal/slices/SingleImage/default/preview.png",
+            "width": 913,
+            "height": 662
+          }
+        }
       }
     }
   }
