@@ -7,7 +7,6 @@ import SmallHeroBanner from "../../components/SmallHeroBanner";
 import MainLayout from "../../containers/MainLayout";
 
 import { createClient } from "../../config/prismic";
-import talks from "../../data/talks";
 import { Talk } from "../../types";
 
 interface PageProps {

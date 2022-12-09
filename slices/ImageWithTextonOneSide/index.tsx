@@ -31,7 +31,7 @@ const ImageWithTextOnOneSide: React.FC<ImageWithTextOnOneSideProps> = ({
           <img src={image.url} alt={image.alt || ""} />
         </div>
       )}
-      <div className="min-w-[300px] flex-1 py-2 px-1">
+      <div className="min-w-[300px] flex-1 py-2 px-2">
         <PrismicRichTextWrapper data={text} />
       </div>
       {position === "right" && image.url && (
