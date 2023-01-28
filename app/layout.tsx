@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/globals.css";
 
 export default function RootLayout({
   // Layouts must accept a children prop.
