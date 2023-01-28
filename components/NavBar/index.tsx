@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+"use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import { Disclosure } from "@headlessui/react";
@@ -18,10 +19,8 @@ const navigation: Navigation[] = [
   { name: "About", href: "/about" },
 ];
 export default function NavBar() {
-  const router = useRouter();
-  const currentPath = router.pathname;
-
-  const parentPath = router.pathname.split("/")[1];
+  const currentPath = usePathname();
+  const parentPath = currentPath ? currentPath.split("/")[1] : "";
 
   return (
     <Disclosure as="nav" className="bg-light-cyan-500">
