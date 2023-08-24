@@ -9,15 +9,14 @@ export default function Hero() {
                 <h1 className="mt-4 text-lg font-extrabold tracking-tight text-maroon sm:mt-5 sm:text-2xl lg:mt-6 xl:text-4xl">
                   <span className="block">G&apos;day I&apos;m Eric</span>
                   <span className="block text-rich-black">
-                    & I&apos;m a Test Engineer at Google
+                    & I&apos;m a Software Engineer at Google
                   </span>
                 </h1>
                 <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-lg">
                   Technology has been rapidly growing and is at the forefront of
                   bringing change. I&apos;ve always wanted to build awesome &
                   secure products which delight users and impact their lives. I
-                  currently build tools for our Pixel Security QA team at
-                  Google!
+                  currently build delightful & beautiful tools to make Pixel devices more secure! 
                 </p>
               </div>
             </div>

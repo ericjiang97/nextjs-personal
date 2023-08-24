@@ -17,7 +17,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       showHero={true}
       pageTitle="Home"
       pageMeta={{
-        description: "G'day, I'm Eric. I’m a Test Engineer at Google.",
+        description: "G'day, I'm Eric. I’m a Software Engineer at Google.",
         endpoint: "/",
         imageUrl: "/images/eric-jiang-bitbybit.jpeg",
       }}

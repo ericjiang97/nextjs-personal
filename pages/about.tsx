@@ -26,7 +26,7 @@ const AboutPage: NextPage = () => {
     >
       <div className="container flex flex-1 flex-col">
         <p className="my-1">
-          As a Test Engineer on the Pixel Software Security Team within the
+          As a Software Engineer on the Pixel Software Security Team within the
           Pixel Software Product Area at{" "}
           <Link href="https://about.google">
             <span className="underline">Google</span>
