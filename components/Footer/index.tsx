@@ -121,7 +121,7 @@ export default function Footer() {
         </div>
         
         <div className="text-semibold mt-2 text-center text-gray-400 text-xs">
-          This version: {runTimeConfig.version} | Commit Version: {process.env.VERCEL_GITHUB_COMMIT_SHA ?? "N/A"}
+          This version: {runTimeConfig.version} | Commit Version: {process.env.NEXT_PUBLIC_VERCEL_GITHUB_COMMIT_SHA ?? "N/A"}
         </div>
       </div>
     </footer>
