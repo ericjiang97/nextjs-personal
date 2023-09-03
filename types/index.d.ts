@@ -38,3 +38,8 @@ export interface Talk {
   title?: Nullable<string>;
   url?: Nullable<string>;
 }
+
+
+export interface CustomRuntimeConfig {
+  version: string;
+}
