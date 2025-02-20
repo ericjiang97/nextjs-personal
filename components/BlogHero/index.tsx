@@ -44,7 +44,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
                     />
                   </div>
                 ) : (
-                  <div className="shrink-0 bg-light-cyan-300">
+                  <div className="shrink-0 bg-cyan-100">
                     <img
                       className="h-48 w-full object-cover"
                       src="/images/content_creation_flag.png"
