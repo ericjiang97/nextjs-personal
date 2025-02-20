@@ -14,7 +14,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({
   return (
     <Link href={href} passHref>
       <div
-        className={`inline-flex items-center rounded-md border border-gray-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-900 shadow-sm hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
+        className={`inline-flex items-center rounded-md border border-gray-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-900 shadow-xs hover:bg-blue-100 focus:outline-hiddenfocus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
       >
         {children}
       </div>

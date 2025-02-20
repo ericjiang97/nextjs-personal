@@ -49,7 +49,7 @@ const TechTalk: NextPage<TechTalksPageProps> = ({ talk, err }) => {
                 />
               )}
             </div>
-            <div className="mt-4 overflow-hidden bg-white shadow sm:rounded-lg">
+            <div className="mt-4 overflow-hidden bg-white shadow-sm sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
                   Presentation Information
