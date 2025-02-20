@@ -43,7 +43,7 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
                 <div className="my-2">
                   {wallpaper.tags.map((tag, index) => (
                     <span
-                      className="mr-1 inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800"
+                      className="mr-1 inline-block shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800"
                       key={index}
                     >
                       {tag}
