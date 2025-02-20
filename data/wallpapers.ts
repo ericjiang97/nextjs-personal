@@ -5,7 +5,7 @@ export interface Wallpapers {
   tags?: string[];
 }
 
-const wallpapers: Wallpapers[] = [
+const wallpapers2020: Wallpapers[] = [
   {
     title: "Spring Skies",
     slug: "spring-skies",
@@ -68,4 +68,6 @@ const wallpapers: Wallpapers[] = [
   },
 ];
 
-export default wallpapers;
+export {wallpapers2020};
+
+export default wallpapers2020;
