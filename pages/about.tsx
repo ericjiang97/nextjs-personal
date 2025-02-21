@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 
-import { BriefcaseIcon, DocumentDownloadIcon } from "@heroicons/react/solid";
+import { BriefcaseIcon, ArrowDownTrayIcon as DocumentDownloadIcon } from "@heroicons/react/24/outline";
 
 import SmallHeroBanner from "../components/SmallHeroBanner";
 import MainLayout from "../containers/MainLayout";

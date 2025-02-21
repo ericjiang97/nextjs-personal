@@ -1,10 +1,6 @@
 import { NextPage } from "next";
 
-import {
-  MicrophoneIcon,
-  PhotographIcon,
-  CameraIcon,
-} from "@heroicons/react/outline";
+import { MicrophoneIcon, PhotoIcon, CameraIcon } from "@heroicons/react/24/outline";
 
 import SmallHeroBanner from "../../components/SmallHeroBanner";
 import MainLayout from "../../containers/MainLayout";
@@ -23,7 +19,7 @@ const actions = [
   {
     title: "Wallpapers",
     href: "/media/wallpapers",
-    icon: PhotographIcon,
+    icon: PhotoIcon,
     iconForeground: "text-purple-700",
     iconBackground: "bg-purple-50",
     description:
