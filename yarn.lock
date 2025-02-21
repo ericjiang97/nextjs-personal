@@ -452,7 +452,7 @@
   resolved "https://registry.npmjs.org/@react-pdf-viewer/core/-/core-3.7.0.tgz"
   integrity sha512-mMuG+bBNG+XdhK5QfdiC7h0wkXlleKCkGUmz53QIw/56ppmwTTqvK5u5JeAo/Tr7vS7wHpAgp26qCxL6NUHa4Q==
 
-"@react-pdf-viewer/page-navigation@^3.7.0":
+"@react-pdf-viewer/page-navigation@^3.12.0":
   version "3.12.0"
   resolved "https://registry.npmjs.org/@react-pdf-viewer/page-navigation/-/page-navigation-3.12.0.tgz"
   integrity sha512-tVEJ48Dd5kajV1nKkrPWijglJRNBiKBTyYDKVexhiRdTHUP1f6QQXiSyDgCUb0IGSZeJzOJb1h7ApKHe8OTtuw==
