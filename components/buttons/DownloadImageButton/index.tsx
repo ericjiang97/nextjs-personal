@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DownloadIcon } from "@heroicons/react/solid";
+import { ArrowDownTrayIcon as DownloadIcon } from "@heroicons/react/24/solid";
 
 import { ImageField } from "@prismicio/types";
 
