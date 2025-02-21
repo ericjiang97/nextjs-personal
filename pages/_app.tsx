@@ -4,7 +4,6 @@ import Head from "next/head";
 
 import Link from "next/link";
 import { PrismicProvider } from "@prismicio/react";
-import { PrismicPreview } from "@prismicio/next";
 
 import {
   Chart as ChartJS,
@@ -148,11 +147,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             </Link>
           )}
         >
-          <PrismicPreview repositoryName={repositoryName}>
-            <RootComponent>
-              <Component {...pageProps} />
-            </RootComponent>
-          </PrismicPreview>
+          <RootComponent>
+            <Component {...pageProps} />
+          </RootComponent>
         </PrismicProvider>
       </ImagePreviewContextProvider>
     </Worker>
