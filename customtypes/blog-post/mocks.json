@@ -1,0 +1,158 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "finally"
+    },
+    "title": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "heading1",
+          "content": {
+            "text": "Level"
+          }
+        }
+      ]
+    },
+    "author": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "heading2",
+          "content": {
+            "text": "Thrown"
+          }
+        }
+      ]
+    },
+    "published_time": {
+      "__TYPE__": "FieldContent",
+      "type": "Timestamp",
+      "value": "2018-11-02T16:23:34Z"
+    },
+    "preview": {
+      "__TYPE__": "BooleanContent",
+      "value": false
+    },
+    "category": {
+      "__TYPE__": "LinkContent",
+      "key": "dcf0debb-270a-424e-b5a8-df42e3d85ac7",
+      "value": {
+        "__TYPE__": "DocumentLink",
+        "id": "mock_document_id"
+      }
+    },
+    "summary": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Aliquip velit nisi culpa laborum magna culpa consectetur occaecat sint anim dolore."
+          }
+        }
+      ]
+    },
+    "banner": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+        "width": 4172,
+        "height": 4000
+      },
+      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+      "width": 4172,
+      "height": 4000,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 0
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    },
+    "body": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Minim ex reprehenderit consectetur nostrud eiusmod quis sit laborum incididunt cupidatat culpa pariatur nisi duis."
+          }
+        }
+      ]
+    },
+    "body1": {
+      "__TYPE__": "SliceContentType",
+      "value": [
+        {
+          "key": "before_after$14bdfa93-0d30-45ca-874c-d08f30f867e9",
+          "name": "before_after",
+          "widget": {
+            "__TYPE__": "SharedSliceContent",
+            "variation": "default",
+            "primary": {
+              "title": {
+                "__TYPE__": "FieldContent",
+                "value": "hide",
+                "type": "Text"
+              },
+              "before_image": {
+                "__TYPE__": "ImageContent",
+                "origin": {
+                  "id": "main",
+                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+                  "width": 4010,
+                  "height": 4010
+                },
+                "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+                "width": 4010,
+                "height": 4010,
+                "edit": {
+                  "zoom": 1,
+                  "crop": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "background": "transparent"
+                },
+                "thumbnails": {}
+              },
+              "after_image": {
+                "__TYPE__": "ImageContent",
+                "origin": {
+                  "id": "main",
+                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                  "width": 3277,
+                  "height": 4092
+                },
+                "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                "width": 3277,
+                "height": 4092,
+                "edit": {
+                  "zoom": 1,
+                  "crop": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "background": "transparent"
+                },
+                "thumbnails": {}
+              }
+            },
+            "items": [
+              {
+                "__TYPE__": "GroupItemContent",
+                "value": []
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

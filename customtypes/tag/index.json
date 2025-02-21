@@ -1,0 +1,23 @@
+{
+  "id": "tag",
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "tag_id"
+        }
+      },
+      "tag": {
+        "type": "Text",
+        "config": {
+          "label": "tag"
+        }
+      }
+    }
+  },
+  "label": "tag",
+  "repeatable": true,
+  "status": false,
+  "format": "custom"
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "snow"
+    },
+    "category_name": {
+      "__TYPE__": "FieldContent",
+      "value": "involved",
+      "type": "Text"
+    }
+  }
+]

@@ -48,7 +48,6 @@ export default function HomePage({ posts }: HomePageProps){
   );
 };
 
-
 // export const getStaticProps: GetStaticProps = async ({ previewData }) => {
 //   const client = createClient({ previewData });
 

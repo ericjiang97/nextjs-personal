@@ -1,0 +1,47 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "score"
+    },
+    "title": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "heading2",
+          "content": {
+            "text": "Particular"
+          }
+        }
+      ]
+    },
+    "link": {
+      "__TYPE__": "LinkContent",
+      "key": "9caed710-55fb-436c-bcf2-dfab4b08da99",
+      "value": {
+        "__TYPE__": "FileLink",
+        "id": "mock_Media_link",
+        "kind": "file",
+        "name": "mock_name",
+        "url": "https://source.unsplash.com/daily",
+        "size": "0"
+      }
+    },
+    "date": {
+      "__TYPE__": "FieldContent",
+      "type": "Date",
+      "value": "2016-11-30"
+    },
+    "org": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "heading2",
+          "content": {
+            "text": "Greatly"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "id": "album",
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "album-uid"
+        }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "title"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "Description"
+        }
+      },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "featured image"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {
+            "title_and_description_": [
+              {
+                "name": "title",
+                "display": "title"
+              },
+              {
+                "name": "description",
+                "display": "description"
+              }
+            ],
+            "image_stack": []
+          },
+          "choices": {
+            "before_after": {
+              "type": "SharedSlice"
+            },
+            "rich_text": {
+              "type": "SharedSlice"
+            },
+            "image_group": {
+              "type": "SharedSlice"
+            },
+            "single_image": {
+              "type": "SharedSlice"
+            },
+            "image_left": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  },
+  "label": "album",
+  "repeatable": true,
+  "status": true,
+  "format": "custom"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "homepage",
+  "json": {
+    "Main": {}
+  },
+  "label": "Homepage",
+  "repeatable": false,
+  "status": false,
+  "format": "custom"
+}
