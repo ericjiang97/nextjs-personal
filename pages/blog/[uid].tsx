@@ -72,8 +72,6 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID("blog-post", uid);
 
-  console.log(post)
-
   return {
     props: { post }, // Will be passed to the page component as props
   };
