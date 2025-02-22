@@ -17,7 +17,7 @@ interface BlogPostProps {
   post: IPrismicDocumentRecord;
 }
 
-const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
+const BlogPost: NextPage<BlogPostProps> = ({ post }) => {
   const postedDate = moment(
     prismicH.asDate(post.data.published_time)?.toISOString()
   );
