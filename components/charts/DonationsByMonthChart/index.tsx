@@ -95,7 +95,7 @@ const DonationsByMonthChart: React.FC<DonationsByMonthChartProps> = ({
   return (
     <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
       <div className="w-full px-2">
-        <div className="mb-4 rounded-lg shadow-sm">
+        <div className="mb-4 rounded-lg shadow-xs">
           <div className="relative overflow-hidden rounded-lg bg-white shadow-lg md:shadow-xl">
             <div className="relative z-10 px-3 pt-8 pb-20 text-center">
               <h4 className="text-sm uppercase leading-tight text-gray-500">
@@ -128,7 +128,7 @@ const DonationsByMonthChart: React.FC<DonationsByMonthChartProps> = ({
         </div>
       </div>
       <div className="w-full px-2">
-        <div className="mb-4 rounded-lg shadow-sm">
+        <div className="mb-4 rounded-lg shadow-xs">
           <div className="relative overflow-hidden rounded-lg bg-white shadow-lg md:shadow-xl">
             <div className="relative z-10 px-3 pb-20 pt-8 text-center">
               <h4 className="text-sm uppercase leading-tight text-gray-500">

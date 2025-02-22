@@ -1,6 +1,6 @@
 import * as prismic from "@prismicio/client";
 import { enableAutoPreviews } from "@prismicio/next";
-import sm from "../sm.json";
+import sm from "../slicemachine.config.json";
 
 export const endpoint = sm.apiEndpoint;
 export const repositoryName = prismic.getRepositoryName(endpoint);

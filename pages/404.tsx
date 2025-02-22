@@ -12,7 +12,7 @@ const NotFoundPage: NextPage<NotFoundPageProps> = ({ reason }) => {
     <MainLayout pageTitle="404: Page Not Found" showHero={false} pageMeta={{
       description: "Page Cannot be Found"
     }}>
-      <div className="flex flex-1 flex-col items-center justify-center">
+      <div className="flex flex-1 flex-col items-center justify-center text-white">
         <h2 className="text-4xl font-bold">Page Not found</h2>
         <h3 className="mt-3 flex text-2xl font-semibold text-gray-500">
           perhaps its been deleted. Go back{" "}

@@ -108,7 +108,7 @@ export const OpenGraphPage = async (req: any) => {
             <span tw="ml-2 text-xl font-semibold">ericjiang.dev</span>
           </div>
         )}
-        <div tw="flex items-center justify-center flex-col px-2 py-2 bg-gray-100 bg-opacity-50 max-w-screen-md">
+        <div tw="flex items-center justify-center flex-col px-2 py-2 bg-gray-100 bg-black/50 max-w-screen-md">
           {subHeading && (
             <div tw="text-2xl font-semibold text-gray-400">{subHeading}</div>
           )}

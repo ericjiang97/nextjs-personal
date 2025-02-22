@@ -36,7 +36,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
                 className="flex flex-col overflow-hidden rounded-lg shadow-lg"
               >
                 {post.data.banner.url ? (
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <img
                       className="h-48 w-full object-cover"
                       src={post.data.banner.url}
@@ -44,7 +44,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
                     />
                   </div>
                 ) : (
-                  <div className="flex-shrink-0 bg-light-cyan-300">
+                  <div className="shrink-0 bg-cyan-100">
                     <img
                       className="h-48 w-full object-cover"
                       src="/images/content_creation_flag.png"

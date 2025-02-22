@@ -11,7 +11,7 @@ interface HomePageProps {
   posts: IPrismicDocumentRecord[];
 }
 
-const Home: NextPage<HomePageProps> = ({ posts }) => {
+export default function HomePage({ posts }: HomePageProps){
   return (
     <MainLayout
       showHero={true}
@@ -23,7 +23,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       }}
     >
       <div className="container flex flex-1 flex-col">
-        <BlogHero posts={posts} />
+        {/* <BlogHero posts={posts} /> */}
 
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
           <div className="relative mx-auto max-w-7xl">
@@ -48,19 +48,18 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ previewData }) => {
-  const client = createClient({ previewData });
+// export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+//   const client = createClient({ previewData });
 
-  const posts = await client.getAllByType("blog-post", {
-    orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
-    },
-    pageSize: 3,
-  });
+//   const posts = await client.getAllByType("blog-post", {
+//     orderings: {
+//       field: "document.last_publication_date",
+//       direction: "desc",
+//     },
+//     pageSize: 3,
+//   });
 
-  return {
-    props: { posts }, // Will be passed to the page component as props
-  };
-};
-export default Home;
+//   return {
+//     props: { posts }, // Will be passed to the page component as props
+//   };
+// };

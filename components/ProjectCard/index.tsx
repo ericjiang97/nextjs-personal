@@ -15,7 +15,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       className="flex flex-col overflow-hidden rounded-lg shadow-lg"
     >
       {screenshotUrl && (
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <img
             className="h-48 w-full object-cover"
             src={screenshotUrl}

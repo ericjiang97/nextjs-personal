@@ -1,10 +1,6 @@
 import { NextPage } from "next";
 
-import {
-  MicrophoneIcon,
-  PhotographIcon,
-  CameraIcon,
-} from "@heroicons/react/outline";
+import { MicrophoneIcon, PhotoIcon, CameraIcon } from "@heroicons/react/24/outline";
 
 import SmallHeroBanner from "../../components/SmallHeroBanner";
 import MainLayout from "../../containers/MainLayout";
@@ -23,7 +19,7 @@ const actions = [
   {
     title: "Wallpapers",
     href: "/media/wallpapers",
-    icon: PhotographIcon,
+    icon: PhotoIcon,
     iconForeground: "text-purple-700",
     iconBackground: "bg-purple-50",
     description:
@@ -55,7 +51,7 @@ const MediaPage: NextPage = () => {
       }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
-        <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+        <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
           {actions.map((action, actionIdx) => (
             <div
               key={action.title}

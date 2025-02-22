@@ -1,3 +1,4 @@
+"use client"
 import { GetStaticProps, NextPage } from "next";
 import { PrismicText } from "@prismicio/react";
 
@@ -7,19 +8,16 @@ import PrismicRichTextWrapper from "../../components/PrismicRichTextWrapper";
 import MainLayout from "../../containers/MainLayout";
 
 import moment from "moment";
-import { predicate } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 
-import { PrismicDocument } from "@prismicio/types";
 import { IPrismicDocumentRecord } from "../../types";
 import BlogCard from "../../components/cards/BlogCard";
 
 interface BlogPostProps {
   post: IPrismicDocumentRecord;
-  similarPosts: IPrismicDocumentRecord[];
 }
 
-const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
+const BlogPost: NextPage<BlogPostProps> = ({ post }) => {
   const postedDate = moment(
     prismicH.asDate(post.data.published_time)?.toISOString()
   );
@@ -58,18 +56,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
           <div className="mx-auto mt-4 flex w-full max-w-prose flex-col">
             <PrismicRichTextWrapper page={post} />
           </div>
-          {similarPosts.length > 0 && (
-            <div className="mx-auto mt-12 flex w-full max-w-prose flex-col">
-              <h3 className="text-2xl font-semibold text-crimson">
-                Similar Posts
-              </h3>
-              <div className="mt-2 grid gap-16 pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-                {similarPosts.slice(0, 2).map((post) => {
-                  return <BlogCard post={post} key={post.uid} />;
-                })}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </MainLayout>
@@ -86,20 +72,8 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID("blog-post", uid);
 
-  const categoryId = post.data.category.id;
-  const similarPosts = await client.getAllByType("blog-post", {
-    predicates: [
-      predicate.at("my.blog-post.category", categoryId),
-      predicate.not("my.blog-post.uid", uid),
-    ],
-    orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
-    },
-  });
-
   return {
-    props: { post, similarPosts }, // Will be passed to the page component as props
+    props: { post }, // Will be passed to the page component as props
   };
 };
 
