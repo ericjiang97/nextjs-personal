@@ -56,7 +56,7 @@ export default function Footer() {
   const todaysYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="bg-gray-950">
+    <footer className="bg-linear-to-b from-cyan-950 to-cyan-750">
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"
@@ -84,10 +84,10 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <p className="mt-8 text-center text-base text-cyan-300">
+        <p className="mt-8 text-center text-base text-cyan-950">
           Copyright &copy;{` 2016 - ${todaysYear} Eric J.`}
         </p>
-        <div className="text-semibold mt-2 text-center text-cyan-300">
+        <div className="text-semibold mt-2 text-center text-cyan-950">
           Powered by{" "}
           <span className="underline">
             <Link href="https://vercel.com">Vercel</Link>
@@ -110,7 +110,7 @@ export default function Footer() {
           </span>
           .
         </div>
-        <div className="text-semibold mt-2 text-center text-cyan-100">
+        <div className="text-semibold mt-2 text-center text-cyan-950">
           Encountering issues?{" "}
           <span className="underline">
             <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new">
@@ -120,7 +120,7 @@ export default function Footer() {
           .
         </div>
         
-        <div className="text-semibold mt-2 text-center text-cyan-200 text-xs">
+        <div className="text-semibold mt-2 text-center text-cyan-950 text-xs">
           This version: {runTimeConfig.version} | Commit Version: {process.env.NEXT_PUBLIC_VERCEL_GITHUB_COMMIT_SHA ?? "N/A"}
         </div>
       </div>
