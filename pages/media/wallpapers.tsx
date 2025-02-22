@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import MainLayout from "../../containers/MainLayout";
-import { wallpapers, Wallpapers, NewWallpapers, newWallpapers } from "../../data/wallpapers";
+import { wallpapers, Wallpapers } from "../../data/wallpapers";
 
 import fs from "fs";
 import path from "path";
