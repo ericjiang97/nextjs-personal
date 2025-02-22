@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID("blog-post", uid);
 
-  const categoryId = post.data.category.id;
+  const categoryId = post.data.category;
   const similarPosts = await client.getAllByType("blog-post", {
     predicates: [
       predicate.at("my.blog-post.category", categoryId),
