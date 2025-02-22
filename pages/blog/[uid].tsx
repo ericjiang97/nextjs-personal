@@ -56,18 +56,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
           <div className="mx-auto mt-4 flex w-full max-w-prose flex-col">
             <PrismicRichTextWrapper page={post} />
           </div>
-          {similarPosts.length > 0 && (
-            <div className="mx-auto mt-12 flex w-full max-w-prose flex-col">
-              <h3 className="text-2xl font-semibold text-crimson">
-                Similar Posts
-              </h3>
-              <div className="mt-2 grid gap-16 pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-                {similarPosts.slice(0, 2).map((post) => {
-                  return <BlogCard post={post} key={post.uid} />;
-                })}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </MainLayout>
