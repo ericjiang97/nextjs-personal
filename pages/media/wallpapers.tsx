@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import MainLayout from "../../containers/MainLayout";
-import wallpapers, { Wallpapers } from "../../data/wallpapers";
+import { wallpapers, Wallpapers, NewWallpapers, newWallpapers } from "../../data/wallpapers";
 
 import fs from "fs";
 import path from "path";
@@ -35,13 +35,13 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
       <div className="container flex max-w-7xl flex-1 flex-col">
         <ul
           role="list"
-          className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+          className="grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-2 xl:gap-x-8"
         >
           {data.map((wallpaper) => (
             <li key={wallpaper.slug} className="relative">
               {wallpaper.tags && (
                 <div className="my-2">
-                  {wallpaper.tags.map((tag, index) => (
+                  {wallpaper.tags.map((tag: string, index) => (
                     <span
                       className="mr-1 inline-block shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800"
                       key={index}
@@ -58,7 +58,7 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
                   className="pointer-events-none object-cover group-hover:opacity-75"
                 />
                 <Link
-                  href={`/downloads/wallpapers/${wallpaper.slug}/${wallpaper.slug}.jpg`}
+                  href={`/downloads/wallpapers/${wallpaper.slug}/${wallpaper.slug}.${wallpaper.extension ?? "jpg"}`}
                 >
                   <button
                     type="button"
@@ -70,7 +70,7 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
                   </button>
                 </Link>
               </div>
-              <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">
+              <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-white">
                 {wallpaper.title}
               </p>
             </li>
@@ -87,12 +87,14 @@ export async function getServerSideProps() {
   const data: WallpapersADT[] = wallpapers.map((wallpaper) => {
     const { slug } = wallpaper;
     const publicRootDir = "/downloads/wallpapers/";
+    const previewUri = `${publicRootDir}/${slug}/${wallpaper.previewFileName ?? "preview.webp"}`;
 
-    const previewUri = `${publicRootDir}/${slug}/preview.webp`;
     const uri = `${publicRootDir}/${slug}/${slug}.jpg`;
 
     return { ...wallpaper, previewUri, uri };
   });
+
+
   return {
     props: { data }, // will be passed to the page component as props
   };

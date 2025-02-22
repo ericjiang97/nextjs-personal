@@ -69,7 +69,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <NavBar />
         {showHero && <HeroBanner />}
         {customHero ? customHero : null}
-        <div class="bg-gradient-to-b from-gray-950 to-cyan-950">
+        <div className="bg-gradient-to-b from-gray-950 to-cyan-950">
           <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
             {children}
           </div>
