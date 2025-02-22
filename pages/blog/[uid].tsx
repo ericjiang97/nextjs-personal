@@ -1,3 +1,4 @@
+"use client"
 import { GetStaticProps, NextPage } from "next";
 import { PrismicText } from "@prismicio/react";
 
@@ -7,16 +8,13 @@ import PrismicRichTextWrapper from "../../components/PrismicRichTextWrapper";
 import MainLayout from "../../containers/MainLayout";
 
 import moment from "moment";
-import { predicate } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 
-import { PrismicDocument } from "@prismicio/types";
 import { IPrismicDocumentRecord } from "../../types";
 import BlogCard from "../../components/cards/BlogCard";
 
 interface BlogPostProps {
   post: IPrismicDocumentRecord;
-  similarPosts: IPrismicDocumentRecord[];
 }
 
 const BlogPost: NextPage<BlogPostProps> = ({ post, similarPosts }) => {
@@ -86,20 +84,10 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID("blog-post", uid);
 
-  const categoryId = post.data.category;
-  const similarPosts = await client.getAllByType("blog-post", {
-    predicates: [
-      predicate.at("my.blog-post.category", categoryId),
-      predicate.not("my.blog-post.uid", uid),
-    ],
-    orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
-    },
-  });
+  console.log(post)
 
   return {
-    props: { post, similarPosts }, // Will be passed to the page component as props
+    props: { post }, // Will be passed to the page component as props
   };
 };
 
