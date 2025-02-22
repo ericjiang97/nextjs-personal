@@ -21,6 +21,15 @@ const wallpapers: Wallpapers[] = [
     previewFileName: "preview.png"
   },
   {
+    title: "Kiyomizu-Dera Tower",
+    slug: "kiyomizudera-1",
+    wallpaperSlug: "kiyomizudera-1",
+    tags: ["kiyomizudera", "mobile", "kyoto", "japan", "tower"],
+    type: "mobile",
+    extension: "jpg",
+    previewFileName: "preview.png"
+  },
+  {
     title: "Spring Skies",
     slug: "spring-skies",
     wallpaperSlug: "SpringSkies",

@@ -51,11 +51,11 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
                   ))}
                 </div>
               )}
-              <div className="aspect-w-10 aspect-h-7 group block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+              <div className="aspect-w-10 aspect-h-7 max-h-100 group block w-full bg-transparent overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                 <img
                   src={wallpaper.previewUri}
                   alt={wallpaper.title}
-                  className="pointer-events-none object-cover group-hover:opacity-75"
+                  className="pointer-events-none object-cover group-hover:opacity-75 h-100"
                 />
                 <Link
                   href={`/downloads/wallpapers/${wallpaper.slug}/${wallpaper.slug}.${wallpaper.extension ?? "jpg"}`}
