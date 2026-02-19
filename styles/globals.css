@@ -1,1 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Google+SansT:ital,wght@0,400;0,700;1,400&display=swap");
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+
+
+@theme {
+    /* This creates a new utility class: .font-roboto */
+    --font-satoshi: Satoshi-Variable, sans-serif;
+
+    --font-old-standard: "Old Standard TT", serif;
+
+    --font-google-sans: "Google Sans", sans-serif;
+
+    /* Or redefine the default --font-sans globally */
+    --font-sans: Satoshi-Variable, sans-serif;
+
+    --spacing: 5px;
+}

@@ -28,7 +28,7 @@ const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
           </a>
         ),
         heading1: ({ children }) => (
-          <h1 className="text-3xl font-semibold">{children}</h1>
+          <h1 className="mt-2 text-3xl font-semibold">{children}</h1>
         ),
         heading2: ({ children }) => (
           <h2 className="mt-2 text-2xl font-semibold text-maroon">
@@ -36,13 +36,13 @@ const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
           </h2>
         ),
         heading3: ({ children }) => (
-          <h3 className="mt-2 text-xl font-semibold text-maroon">{children}</h3>
+          <h3 className="mt-3 text-xl font-semibold text-maroon">{children}</h3>
         ),
         heading4: ({ children }) => (
-          <h4 className="mt-2 text-lg font-semibold text-maroon">{children}</h4>
+          <h4 className="mt-3 text-lg font-semibold text-maroon">{children}</h4>
         ),
         paragraph: ({ children }) => (
-          <p className="mt-2 font-sans text-base">{children}</p>
+          <p className="mt-3 font-sans text-base">{children}</p>
         ),
         strong: ({ children }) => (
           <strong className="font-semibold">{children}</strong>

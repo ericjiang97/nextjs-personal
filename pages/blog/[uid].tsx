@@ -1,60 +1,83 @@
 "use client"
-import { GetStaticProps, NextPage } from "next";
-import { PrismicText } from "@prismicio/react";
-
-import { createClient } from "../../config/prismic";
-
-import PrismicRichTextWrapper from "../../components/PrismicRichTextWrapper";
-import MainLayout from "../../containers/MainLayout";
-
-import moment from "moment";
 import * as prismicH from "@prismicio/helpers";
-
-import { IPrismicDocumentRecord } from "../../types";
+import { PrismicText } from "@prismicio/react";
+import moment from "moment";
+import { GetStaticProps, NextPage } from "next";
+import getReadingTime from "reading-time";
 import BlogCard from "../../components/cards/BlogCard";
+import PrismicRichTextWrapper from "../../components/PrismicRichTextWrapper";
+import { createClient } from "../../config/prismic";
+import MainLayout from "../../containers/MainLayout";
+import { IPrismicDocumentRecord } from "../../types";
+import classNames from "../../utils/classNames";
 
 interface BlogPostProps {
   post: IPrismicDocumentRecord;
 }
 
+const extractTextFromRichText = (richText: any[]): string => {
+  console.log(richText);
+
+  return richText?.filter((node) => node.type === "paragraph" || node.type === "heading2")
+    .map((node) => node.text)
+    .join(" ") || "";
+};
+
 const BlogPost: NextPage<BlogPostProps> = ({ post }) => {
+  console.log(post);
+
+  const { body, published_time, summary, title, banner, category } = post.data;
+
   const postedDate = moment(
-    prismicH.asDate(post.data.published_time)?.toISOString()
+    prismicH.asDate(published_time)?.toISOString()
   );
 
   const endpoint = `/blog/${post.uid}`;
   const postUrl = `https://ericjiang.dev${endpoint}`;
 
+  const hasBanner = !!banner.url;
+
+  const readingTime = extractTextFromRichText(body)
+
   return (
     <MainLayout
-      pageTitle={`Blog - ${prismicH.asText(post.data.title)}`}
+      pageTitle={`Blog - ${prismicH.asText(title)}`}
       pageMeta={{
         endpoint,
-        description: prismicH.asText(post.data.summary) || "",
+        description: prismicH.asText(summary) || "",
         imageUrl: `https://ericjiang.dev/api/static?blog=${post.uid}`,
       }}
     >
-      <div className="relative overflow-hidden bg-white py-16">
-        <div className="relative flex flex-col items-center px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-prose grid-cols-1 divide-y-2 divide-gray-400 text-lg">
+      <div className="py-16">
+        <div className="flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8">
+          <div className="md:sticky top-20 text-lg flex flex-col max-w-md">
+            <span className="block text-start max-w-md text-base font-semibold uppercase tracking-wide text-gray-500">
+              {`Posted on: ${postedDate.format("DD MMMM YYYY")}`}
+            </span>
             <h1>
-              <span className="block text-center text-base font-semibold uppercase tracking-wide text-gray-500">
-                {`Posted on: ${postedDate.format("DD MMMM YYYY")}`}
-              </span>
-              <span className="mt-2 block text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+              <span className="mt-2 block text-start text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
                 <PrismicText field={post.data.title} />
               </span>
             </h1>
+            <span className="mt-2">
+              <b>Est Reading Time:</b> {getReadingTime(readingTime).text}
+            </span>
           </div>
-          <div className="mx-auto my-8 max-w-prose text-lg">
-            <img
-              src={post.data.banner.url}
-              alt={post.data.banner.alt}
-              className=""
-            />
-          </div>
-          <div className="mx-auto mt-4 flex w-full max-w-prose flex-col">
-            <PrismicRichTextWrapper page={post} />
+
+
+          <div className="mx-auto mt-10 md:mt-0 flex flex-1 max-w-prose flex-col">
+            {
+              hasBanner && <div className="mx-auto max-w-prose text-lg">
+                <img
+                  src={post.data.banner.url}
+                  alt={post.data.banner.alt}
+                  className=""
+                />
+              </div>
+            }
+            <div className={classNames(hasBanner ? "mt-10" : "", "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard")}>
+              <PrismicRichTextWrapper page={post} />
+            </div>
           </div>
         </div>
       </div>

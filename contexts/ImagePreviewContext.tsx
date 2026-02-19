@@ -5,16 +5,16 @@ import { Nullable } from "../types";
 
 type Action =
   | {
-      type: "@@IMAGE_PREVIEW_DISPATCH/SHOW_IMAGE";
-      image: ImageField;
-    }
+    type: "@@IMAGE_PREVIEW_DISPATCH/SHOW_IMAGE";
+    image: ImageField;
+  }
   | {
-      type: "@@IMAGE_PREVIEW_DISPATCH/DISMISS_PREVIEW";
-    };
+    type: "@@IMAGE_PREVIEW_DISPATCH/DISMISS_PREVIEW";
+  };
 
 type Dispatch = (action: Action) => void;
 
-export interface ImagePreviewContextState {
+export declare interface ImagePreviewContextState {
   image: Nullable<ImageField>;
   showModal: boolean;
 }

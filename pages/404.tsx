@@ -9,7 +9,7 @@ interface NotFoundPageProps {
 }
 const NotFoundPage: NextPage<NotFoundPageProps> = ({ reason }) => {
   return (
-    <MainLayout pageTitle="404: Page Not Found" showHero={false} pageMeta={{
+    <MainLayout pageTitle="404: Page Not Found" pageMeta={{
       description: "Page Cannot be Found"
     }}>
       <div className="flex flex-1 flex-col items-center justify-center text-white">

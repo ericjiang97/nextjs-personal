@@ -11,10 +11,9 @@ interface HomePageProps {
   posts: IPrismicDocumentRecord[];
 }
 
-export default function HomePage({ posts }: HomePageProps){
+export default function HomePage({ posts }: HomePageProps) {
   return (
     <MainLayout
-      showHero={true}
       pageTitle="Home"
       pageMeta={{
         description: "G'day, I'm Eric. I’m a Software Engineer at Google.",
@@ -22,44 +21,29 @@ export default function HomePage({ posts }: HomePageProps){
         imageUrl: "/images/eric-jiang-bitbybit.jpeg",
       }}
     >
-      <div className="container flex flex-1 flex-col">
-        {/* <BlogHero posts={posts} /> */}
-
-        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
-          <div className="relative mx-auto max-w-7xl">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Awards
-              </h2>
-            </div>
-            <div className="mt-3">
-              <a href="https://holopin.io/@ericjiang97">
-                <img
-                  src="https://holopin.io/api/user/board?user=ericjiang97"
-                  width="100%"
-                  alt="@ericjiang97's holopin"
-                />
-              </a>
+      <main>
+        <div className="pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-0">
+          <div className="mx-auto lg:px-8">
+            <div className="flex flex-row flex-wrap mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
+              <div className="lg:py-24">
+                <h1 className="mt-4 text-7xl font-extrabold tracking-tight sm:mt-5 ">
+                  <span className="block">G&apos;day I&apos;m <span className="italic underline">Eric</span></span>
+                  <span className="block text-rich-black">
+                    & I&apos;m a Software Engineer at Google
+                  </span>
+                </h1>
+              </div>
+              <p className="mt-3 text-gray-600 text-xl">
+                Technology has been rapidly growing and is at the forefront of
+                bringing change. I&apos;ve always wanted to build awesome &
+                secure products which delight users and impact their lives. I
+                currently build delightful & beautiful tools to make Pixel devices more secure!
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </MainLayout>
   );
 };
 
-// export const getStaticProps: GetStaticProps = async ({ previewData }) => {
-//   const client = createClient({ previewData });
-
-//   const posts = await client.getAllByType("blog-post", {
-//     orderings: {
-//       field: "document.last_publication_date",
-//       direction: "desc",
-//     },
-//     pageSize: 3,
-//   });
-
-//   return {
-//     props: { posts }, // Will be passed to the page component as props
-//   };
-// };

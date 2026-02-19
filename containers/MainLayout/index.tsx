@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 
-import HeroBanner from "../../components/HeroBanner";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
@@ -10,7 +9,6 @@ import { SITE_CONFIG } from "../../config";
 
 const MainLayout: React.FC<MainLayoutProps> = ({
   pageTitle = "",
-  showHero = false,
   customHero,
   children,
   pageMeta,
@@ -67,13 +65,18 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
       <main className="flex flex-1 flex-col">
         <NavBar />
-        {showHero && <HeroBanner />}
-        {customHero ? customHero : null}
-        <div className="bg-gradient-to-b from-gray-950 to-cyan-950">
-          <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
-            {children}
+        <div className={customHero && "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"}>
+
+          {customHero ? <div className="md:sticky top-20 text-lg flex flex-col max-w-md">{customHero}
+          </div> : null}
+
+          <div>
+            <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
+              {children}
+            </div>
           </div>
         </div>
+
         <Footer />
       </main>
     </div>
