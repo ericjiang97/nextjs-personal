@@ -7,6 +7,9 @@ interface Projects {
 
 const projects: Projects = {
   current: [
+
+  ],
+  previous: [
     {
       description:
         'MARIE.js is a very simple and intuitive Assembly Language Simulator. It is a web-based version of the MARIE simulator.',
@@ -16,8 +19,6 @@ const projects: Projects = {
       screenshotUrl: '/images/projects/mariejs.png',
       url: 'https://marie.js.org',
     },
-  ],
-  previous: [
     {
       description:
         '🐸 Gecko Download Manager is a Chrome Extension that improves downloading lectures 💾 from the Echo360 System.',

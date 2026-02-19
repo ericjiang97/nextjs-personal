@@ -37,7 +37,8 @@ export default function HomePage({ posts }: HomePageProps) {
                 Technology has been rapidly growing and is at the forefront of
                 bringing change. I&apos;ve always wanted to build awesome &
                 secure products which delight users and impact their lives. I
-                currently build delightful & beautiful tools to make Pixel devices more secure!
+                currently build engineering tools to help make Android & Pixel
+                devices more helpful & delightful for everyone!
               </p>
             </div>
           </div>

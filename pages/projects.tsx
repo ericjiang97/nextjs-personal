@@ -4,8 +4,14 @@ import ProjectCard from "../components/ProjectCard";
 import MainLayout from "../containers/MainLayout";
 
 import projects from "../data/projects";
+import classNames from "../utils/classNames";
 
 function ProjectsPage() {
+  const { current, previous } = projects;
+
+  const hasCurrentProjects = current.length > 0;
+  const hasPreviousProjects = previous.length > 0;
+
   return (
     <MainLayout
       pageTitle="Projects"
@@ -23,20 +29,22 @@ function ProjectsPage() {
     >
       <div className="mt-6 relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">
         <div className="container flex flex-1 flex-col">
-          <h3 className="text-2xl font-semibold">Current Projects</h3>
-          <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-            {projects.current.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
-          </div>
-          <div className="mt-12">
+          {hasCurrentProjects &&
+            <>
+              <h3 className="text-2xl font-semibold">Current Projects</h3>
+              <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+                {current.map((project) => (
+                  <ProjectCard key={project.name} project={project} />
+                ))}
+              </div></>}
+          {hasPreviousProjects && <div className={classNames(hasCurrentProjects ? 'mt-12' : 'mt-8')}>
             <h3 className="text-2xl font-semibold">Previous Projects</h3>
             <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-              {projects.previous.map((project) => (
+              {previous.map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </MainLayout>
