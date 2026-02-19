@@ -21,7 +21,7 @@ const AlbumHomePage: NextPage<AlbumHomePageProps> = ({ albums }) => {
       />
     }
     pageTitle="Albums" pageMeta={{ description: 'Photography Albums', endpoint: '/albums' }}>
-    <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
+    <div className="relative px-4 sm:px-6 lg:px-8 mt-8">
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto mt-3 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-2">
           {
