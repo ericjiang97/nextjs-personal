@@ -23,8 +23,6 @@ export default function HomePage({ posts }: HomePageProps) {
       }}
     >
       <div className="container flex flex-1 flex-col">
-        {/* <BlogHero posts={posts} /> */}
-
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
           <div className="relative mx-auto max-w-7xl">
             <div className="text-center">
