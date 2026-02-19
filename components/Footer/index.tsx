@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { SVGProps } from "react";
 import getConfig from 'next/config';
-import {CustomRuntimeConfig} from '../../types';
+import { CustomRuntimeConfig } from '../../types';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -56,7 +56,7 @@ export default function Footer() {
   const todaysYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="bg-linear-to-b from-cyan-950 to-cyan-750">
+    <footer>
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"
@@ -64,7 +64,7 @@ export default function Footer() {
         >
           {navigation.main.map((item) => (
             <div key={item.name} className="px-5 py-2">
-              <div className="text-base text-cyan-300 hover:text-cyan-600">
+              <div className="text-base">
                 <Link href={item.href}>{item.name}</Link>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function Footer() {
         </nav>
         <div className="mt-8 flex justify-center space-x-6">
           {navigation.socials.map((item) => (
-            <div className="text-cyan-300 hover:text-cyan-600" key={item.href}>
+            <div key={item.href}>
               <span className="sr-only">
                 <Link key={item.name} href={item.href} passHref>
                   {item.name}
@@ -119,7 +119,7 @@ export default function Footer() {
           </span>
           .
         </div>
-        
+
         <div className="text-semibold mt-2 text-center text-cyan-950 text-xs">
           This version: {runTimeConfig.version} | Commit Version: {process.env.NEXT_PUBLIC_VERCEL_GITHUB_COMMIT_SHA ?? "N/A"}
         </div>
