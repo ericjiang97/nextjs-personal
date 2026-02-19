@@ -1,7 +1,8 @@
 import moment, { Moment } from "moment";
 
 type Nullable<T> = T | null;
-export interface Project {
+
+export declare interface Project {
   url: string;
   imageUrl?: string;
   repoUrl?: string;
@@ -10,7 +11,7 @@ export interface Project {
   screenshotUrl?: string;
 }
 
-export interface ExperiencePosition {
+export declare interface ExperiencePosition {
   title: string;
   dates: {
     startDate: Moment;
@@ -19,7 +20,7 @@ export interface ExperiencePosition {
   description?: string[];
 }
 
-export interface Experience {
+export declare interface Experience {
   company: string;
   companyUrl: string;
   positions: ExperiencePosition[];
@@ -31,7 +32,7 @@ export type IPrismicDocumentRecord = PrismicDocument<
   string
 >;
 
-export interface Talk {
+export declare interface Talk {
   slug: Nullable<string>;
   date: string;
   org: Nullable<string>;
@@ -40,6 +41,6 @@ export interface Talk {
 }
 
 
-export interface CustomRuntimeConfig {
+export declare interface CustomRuntimeConfig {
   version: string;
 }
