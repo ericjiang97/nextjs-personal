@@ -56,7 +56,7 @@ export default function NavBar() {
                             isCurrent
                               ? "bg-gray-900 text-white"
                               : "",
-                            "rounded-md px-3 py-2 text-sm font-medium"
+                            "rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white"
                           )}
                         >
                           <Link

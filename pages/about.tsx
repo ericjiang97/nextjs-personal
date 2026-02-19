@@ -7,6 +7,7 @@ import { BriefcaseIcon, ArrowDownTrayIcon as DocumentDownloadIcon } from "@heroi
 import SmallHeroBanner from "../components/SmallHeroBanner";
 import MainLayout from "../containers/MainLayout";
 import experience from "../data/experience";
+import classNames from "../utils/classNames";
 
 const AboutPage: NextPage = () => {
   return (
@@ -28,7 +29,7 @@ const AboutPage: NextPage = () => {
         <p className="my-1 first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard">
           As a Software Engineer on the Pixel Software Security Team within the
           Pixel Software Product Area at{" "}
-          <Link href="https://about.google">
+          <Link href="https://about.google" target="_blank" rel="noopener noreferrer">
             <span className="underline">Google</span>
           </Link>
           {". "}I work on building and maintaining test automation tools, as
@@ -44,10 +45,10 @@ const AboutPage: NextPage = () => {
         <div className="mt-2">
           <a
             href="https://resume.ericjiang.dev"
-            className="inline-flex items-center rounded-lg border border-gray-200 bg-white py-2 px-4 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 focus:outline-hiddenfocus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-600 dark:focus:ring-gray-700"
+            className="inline-flex items-center rounded-lg border border-gray-400 bg-white py-2 px-4 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700 focus:z-10 focus:text-blue-700 focus:outline-hiddenfocus:ring-4 focus:ring-gray-200"
           >
             <DocumentDownloadIcon className="mr-2 h-4 w-4" />
-            <span>Download Resume</span>
+            <span>View Resume</span>
           </a>
         </div>
       </div>
@@ -58,13 +59,15 @@ const AboutPage: NextPage = () => {
         <div className="mt-8">
           <ol className="relative border-l border-gray-200 dark:border-gray-700">
             {experience.map((exp, index) => {
+              const isCompanyGoogle = exp.company === "Google"
+
               return (
                 <li className="mb-10 ml-10" key={index}>
-                  <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-900 ring-8 ring-white ring-gray-900">
-                    <BriefcaseIcon className="h-3 w-3 text-blue-400" />
+                  <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-white ring-2 ring-blue-800">
+                    <BriefcaseIcon className="h-3 w-3 text-blue-800" />
                   </span>
-                  <Link href={exp.companyUrl}>
-                    <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-gray-600">
+                  <Link href={exp.companyUrl} target="_blank" rel="noopener noreferrer">
+                    <h3 className={classNames("mb-1 text-lg font-semibold text-gray-900 dark:text-gray-600", isCompanyGoogle ? "font-google-sans" : "")}>
                       {exp.company}
                     </h3>
                   </Link>
