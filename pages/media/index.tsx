@@ -25,14 +25,6 @@ const actions = [
     description:
       "Some of my photos that I take are edited and optimised as wallpapers.",
   },
-  {
-    title: "Tech Talks",
-    href: "/talks",
-    icon: MicrophoneIcon,
-    iconForeground: "text-sky-700",
-    iconBackground: "bg-sky-50",
-    description: "I also give tech-talks, check out my previous tech talks.",
-  },
 ];
 
 const MediaPage: NextPage = () => {
