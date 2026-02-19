@@ -9,7 +9,6 @@ function ProjectsPage() {
   return (
     <MainLayout
       pageTitle="Projects"
-      showHero={false}
       customHero={
         <SmallHeroBanner
           title="Projects"
