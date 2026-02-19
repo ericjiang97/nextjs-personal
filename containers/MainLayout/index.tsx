@@ -67,7 +67,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
       <main className="flex flex-1 flex-col">
         <NavBar />
-        {showHero && <HeroBanner />}
         {customHero ? customHero : null}
         <div>
           <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">

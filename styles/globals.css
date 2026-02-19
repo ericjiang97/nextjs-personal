@@ -1,1 +1,19 @@
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+}
+
 @import "tailwindcss";
+
+@theme {
+    /* This creates a new utility class: .font-roboto */
+    --font-satoshi: Satoshi-Variable, sans-serif;
+
+    /* Or redefine the default --font-sans globally */
+    --font-sans: Satoshi-Variable, sans-serif;
+
+    --spacing: 5px;
+}
