@@ -11,7 +11,7 @@ interface HomePageProps {
   posts: IPrismicDocumentRecord[];
 }
 
-export default function HomePage({ posts }: HomePageProps){
+export default function HomePage({ posts }: HomePageProps) {
   return (
     <MainLayout
       showHero={true}
@@ -48,18 +48,3 @@ export default function HomePage({ posts }: HomePageProps){
   );
 };
 
-// export const getStaticProps: GetStaticProps = async ({ previewData }) => {
-//   const client = createClient({ previewData });
-
-//   const posts = await client.getAllByType("blog-post", {
-//     orderings: {
-//       field: "document.last_publication_date",
-//       direction: "desc",
-//     },
-//     pageSize: 3,
-//   });
-
-//   return {
-//     props: { posts }, // Will be passed to the page component as props
-//   };
-// };
