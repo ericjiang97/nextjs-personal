@@ -1,12 +1,8 @@
 import Link from "next/link";
 import React, { SVGProps } from "react";
-import getConfig from 'next/config';
-import { CustomRuntimeConfig } from '../../types';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
-
-const runTimeConfig: CustomRuntimeConfig = getConfig().publicRuntimeConfig;
 
 const navigation = {
   main: [
@@ -118,10 +114,6 @@ export default function Footer() {
             </Link>
           </span>
           .
-        </div>
-
-        <div className="text-semibold mt-2 text-center text-cyan-950 text-xs">
-          This version: {runTimeConfig.version} | Commit Version: {process.env.NEXT_PUBLIC_VERCEL_GITHUB_COMMIT_SHA ?? "N/A"}
         </div>
       </div>
     </footer>
