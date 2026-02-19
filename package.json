@@ -30,7 +30,7 @@
     "chartjs": "^0.3.24",
     "feed": "^4.2.2",
     "moment": "^2.29.4",
-    "next": "^15.1.7",
+    "next": "15.1.11",
     "pdfjs-dist": "^2.15.349",
     "prismic-ts-codegen": "^0.1.25",
     "react": "^19.0.0",
