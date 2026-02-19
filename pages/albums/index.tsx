@@ -38,9 +38,9 @@ const AlbumHomePage: NextPage<AlbumHomePageProps> = ({ albums }) => {
 
               return <div
                 key={i}
-                className="flex flex-col overflow-hidden rounded-lg shadow-lg"
+                className="flex flex-col overflow-hidden rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
               >
-                <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                <div className="flex flex-1 flex-col justify-between p-6">
                   <div className="flex-1">
                     {album.data.featured_image && <div>
                       <img src={album.data.featured_image.url} alt={album.data.featured_image.alt} />
