@@ -27,12 +27,12 @@ const AboutPage: NextPage = () => {
     >
       <div className="mt-6 relative mx-auto max-w-lg lg:max-w-7xl">
         <p className="my-1 first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard">
-          As a Software Engineer on the Pixel Software Security Team within the
-          Pixel Software Product Area at{" "}
+          As a Software Engineer on the Android SDLC BizTools Team within the
+          Android Software Development Lifecycle team at{" "}
           <Link href="https://about.google" target="_blank" rel="noopener noreferrer">
             <span className="underline">Google</span>
           </Link>
-          {". "}I work on building and maintaining test automation tools, as
+          {". "}I work on building and maintaining business tools such as test infrastructure, as
           well as shaping better processes to enable software and hardware teams
           to build the best products possible.
         </p>
