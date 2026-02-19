@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 
-import HeroBanner from "../../components/HeroBanner";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
@@ -10,7 +9,6 @@ import { SITE_CONFIG } from "../../config";
 
 const MainLayout: React.FC<MainLayoutProps> = ({
   pageTitle = "",
-  showHero = false,
   customHero,
   children,
   pageMeta,
