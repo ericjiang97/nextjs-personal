@@ -6,11 +6,15 @@
     font-style: normal;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
+
 @import "tailwindcss";
 
 @theme {
     /* This creates a new utility class: .font-roboto */
     --font-satoshi: Satoshi-Variable, sans-serif;
+
+    --font-old-standard: "Old Standard TT", serif;
 
     /* Or redefine the default --font-sans globally */
     --font-sans: Satoshi-Variable, sans-serif;

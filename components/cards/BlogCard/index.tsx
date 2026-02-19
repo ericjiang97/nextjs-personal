@@ -5,17 +5,26 @@ import classNames from "../../../utils/classNames";
 
 import { IPrismicDocumentRecord } from "../../../types";
 import { PrismicText } from "@prismicio/react";
+import moment from "moment";
 
 interface BlogCardProps {
   post: IPrismicDocumentRecord;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+  const postedDate = moment(
+    prismicH.asDate(post.data.published_time)?.toISOString()
+  );
+
+  const { summary, category, title } = post.data;
+
+  const hasSummary = summary.length > 0
+
   return (
-    <div>
+    <div className="flex flex-col hover:bg-gray-50 p-4 rounded-lg">
       <div>
         <a
-          href={`/blog/categories/${post.data.category.uid}`}
+          href={`/blog/categories/${category.uid}`}
           className="inline-block"
         >
           <span
@@ -24,33 +33,22 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
               "inline-flex items-center rounded-full px-3 py-0.5 text-sm font-medium"
             )}
           >
-            {post.data.category.slug}
+            {category.slug}
           </span>
         </a>
       </div>
-      <p className="mt-2 text-sm text-gray-500">
-        <time
-          dateTime={prismicH.asDate(post.data.published_time)?.toISOString()}
-        >
-          {prismicH.asDate(post.data.published_time)?.toLocaleString()}
-        </time>
-      </p>
+
       <a href={`/blog/${post.uid}`} className="mt-2 block">
         <p className="text-xl font-semibold text-gray-900">
-          <PrismicText field={post.data.title} />
+          <PrismicText field={title} />
         </p>
-        <p className="mt-3 text-base text-gray-500">
-          <PrismicText field={post.data.summary} />
-        </p>
+        {hasSummary && <p className="mt-3 text-base text-gray-500">
+          <PrismicText field={summary} />
+        </p>}
       </a>
-      <div className="mt-3">
-        <a
-          href={`/blog/${post.uid}`}
-          className="text-base font-semibold text-indigo-600 hover:text-indigo-500"
-        >
-          Read full story
-        </a>
-      </div>
+      <p className={classNames("text-sm text-gray-500", hasSummary ? "mt-3" : 'mt-2')}>
+        {postedDate.format("DD MMMM YYYY")}
+      </p>
     </div>
   );
 };

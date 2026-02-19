@@ -24,8 +24,8 @@ const AboutPage: NextPage = () => {
         endpoint: "/about",
       }}
     >
-      <div className="container flex flex-1 flex-col">
-        <p className="my-1">
+      <div className="mt-6 relative mx-auto max-w-lg lg:max-w-7xl">
+        <p className="my-1 first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard">
           As a Software Engineer on the Pixel Software Security Team within the
           Pixel Software Product Area at{" "}
           <Link href="https://about.google">
@@ -77,9 +77,8 @@ const AboutPage: NextPage = () => {
                           {title}
                         </h4>
                         <span className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                          {`${startDate.format("MMM YYYY")} - ${
-                            endDate ? endDate.format("MMM YYYY") : "Present"
-                          }`}
+                          {`${startDate.format("MMM YYYY")} - ${endDate ? endDate.format("MMM YYYY") : "Present"
+                            }`}
                         </span>
                         {description && (
                           <ul className="ml-4 max-w-prose list-disc text-gray-600">
