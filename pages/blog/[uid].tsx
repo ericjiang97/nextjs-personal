@@ -4,11 +4,11 @@ import { PrismicText } from "@prismicio/react";
 import moment from "moment";
 import { GetStaticProps, NextPage } from "next";
 import getReadingTime from "reading-time";
-import BlogCard from "../../components/cards/BlogCard";
 import PrismicRichTextWrapper from "../../components/PrismicRichTextWrapper";
 import { createClient } from "../../config/prismic";
 import MainLayout from "../../containers/MainLayout";
 import { IPrismicDocumentRecord } from "../../types";
+import { BarsArrowUpIcon } from "@heroicons/react/24/outline";
 import classNames from "../../utils/classNames";
 
 interface BlogPostProps {
@@ -81,6 +81,9 @@ const BlogPost: NextPage<BlogPostProps> = ({ post }) => {
           </div>
         </div>
       </div>
+      <button className="fixed bottom-4 right-4 border border-gray-200 p-2 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <BarsArrowUpIcon className="h-6 w-6" aria-hidden="true" />
+      </button>
     </MainLayout>
   );
 };
