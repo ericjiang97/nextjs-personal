@@ -14,7 +14,6 @@ interface HomePageProps {
 export default function HomePage({ posts }: HomePageProps) {
   return (
     <MainLayout
-      showHero={true}
       pageTitle="Home"
       pageMeta={{
         description: "G'day, I'm Eric. I’m a Software Engineer at Google.",
