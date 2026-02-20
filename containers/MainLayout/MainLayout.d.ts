@@ -9,4 +9,6 @@ declare interface MainLayoutProps {
   pageTitle?: string;
   customHero?: React.ReactElement;
   pageMeta: PageMeta;
+  showProgress?: boolean;
+  progress?: number;
 }

@@ -5,7 +5,7 @@ import { PrismicDocument } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicText } from "@prismicio/react";
 import moment from "moment";
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import getReadingTime from "reading-time";
 import PrismicRichTextWrapper from "../../../components/PrismicRichTextWrapper";
 import MainLayout from "../../../containers/MainLayout";
@@ -42,7 +42,21 @@ export default function BlogContent({ content }: { content: Promise<PrismicDocum
 
     const hasBanner = !!banner.url;
 
-    const readingTime = extractTextFromRichText(body)
+    const readingTime = extractTextFromRichText(body);
+
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const percentage = (scrollTop / totalHeight) * 100;
+            setProgress(percentage);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
 
     return <MainLayout
@@ -52,8 +66,9 @@ export default function BlogContent({ content }: { content: Promise<PrismicDocum
             description: prismicH.asText(summary) || "",
             imageUrl: `https://ericjiang.dev/api/static?blog=${uid}`,
         }}
+        showProgress={true}
+        progress={progress}
     >
-
         <div className="py-16">
             <div className="flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8">
                 <div className="md:sticky top-20 text-lg flex flex-col max-w-md">

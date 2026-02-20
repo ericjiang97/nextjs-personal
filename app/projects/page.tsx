@@ -1,10 +1,8 @@
-import SmallHeroBanner from "../components/SmallHeroBanner";
-import ProjectCard from "../components/ProjectCard";
-
-import MainLayout from "../containers/MainLayout";
-
-import projects from "../data/projects";
-import classNames from "../utils/classNames";
+import SmallHeroBanner from "../../components/SmallHeroBanner";
+import ProjectCard from "../../components/ProjectCard";
+import MainLayout from "../../containers/MainLayout";
+import projects from "../../data/projects";
+import classNames from "../../utils/classNames";
 
 function ProjectsPage() {
   const { current, previous } = projects;

@@ -1,13 +1,11 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
-
 import { BriefcaseIcon, ArrowDownTrayIcon as DocumentDownloadIcon } from "@heroicons/react/24/outline";
-
-import SmallHeroBanner from "../components/SmallHeroBanner";
-import MainLayout from "../containers/MainLayout";
-import experience from "../data/experience";
-import classNames from "../utils/classNames";
+import MainLayout from "../../containers/MainLayout";
+import experience from "../../data/experience";
+import classNames from "../../utils/classNames";
+import SmallHeroBanner from "../../components/SmallHeroBanner";
 
 const AboutPage: NextPage = () => {
   return (
