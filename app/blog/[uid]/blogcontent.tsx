@@ -14,8 +14,6 @@ import NotFoundPage from "../../not-found";
 
 
 const extractTextFromRichText = (richText: any[]): string => {
-    console.log(richText);
-
     return richText?.filter((node) => node.type === "paragraph" || node.type === "heading2")
         .map((node) => node.text)
         .join(" ") || "";
@@ -23,8 +21,6 @@ const extractTextFromRichText = (richText: any[]): string => {
 
 export default function BlogContent({ content }: { content: Promise<PrismicDocument> }) {
     const post = use(content);
-    console.log('BlogContent!')
-    console.log(post)
 
     const { uid, data } = post;
 
