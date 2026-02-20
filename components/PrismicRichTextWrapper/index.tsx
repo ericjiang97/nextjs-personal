@@ -53,6 +53,7 @@ const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicR
           const { url, alt } = node;
           return <img src={url} alt={alt || ""} className="mt-2 self-center" />;
         },
+        preformatted: ({ children }) => <pre className="mt-2 whitespace-pre-wrap break-words">{children}</pre>,
         embed: (props) => {
           if (props.node.oembed.provider_name === "YouTube") {
             return <YoutubeEmbed youtubeUrl={props.node.oembed.embed_url} />;
