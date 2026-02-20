@@ -74,13 +74,13 @@ const MainLayout = ({
         <div className={customHero && "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"}>
 
           {customHero ?
-            <div className="sticky top-20 text-lg flex flex-col max-w-md">
+            <div className="2xl:sticky top-20 text-lg flex flex-col max-w-md">
               {customHero}
             </div> :
             null}
 
           <div>
-            <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
+            <div className="max-w-5xl container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
               {children}
             </div>
           </div>
