@@ -1,5 +1,6 @@
-import React, { useReducer } from "react";
+'use client';
 
+import React, { useReducer } from "react";
 import { ImageField } from "@prismicio/types";
 import { Nullable } from "../types";
 
