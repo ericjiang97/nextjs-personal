@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
+'use client';
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -16,12 +16,12 @@ const navigation: Navigation[] = [
   { name: "Albums", href: "/albums" },
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
-];
+]
 export default function NavBar() {
-  const router = useRouter();
-  const currentPath = router.pathname;
+  const path = usePathname();
 
-  const parentPath = router.pathname.split("/")[1];
+  const currentPath = path;
+  const parentPath = path.split("/")[1];
 
   return (
     <Disclosure as="nav">

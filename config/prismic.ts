@@ -18,13 +18,11 @@ export function linkResolver(doc: any) {
 }
 
 // This factory function allows smooth preview setup
-export function createClient(config: any = {}) {
+export function createClient(config: prismic.ClientConfig = {}) {
   const _client = prismic.createClient(endpoint, config);
 
   enableAutoPreviews({
     client: _client,
-    previewData: config.previewData,
-    req: config.req,
   });
 
   return _client;

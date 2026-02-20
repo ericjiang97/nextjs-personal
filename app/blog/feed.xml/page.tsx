@@ -1,8 +1,9 @@
-import React from "react";
+'use client'
 
+import React from "react";
 import { NextPageContext } from "next";
-import { createClient } from "../../config/prismic";
-import { generateFeed } from "../../utils/feed";
+import { createClient } from "../../../config/prismic";
+import { generateFeed } from "../../../utils/feed";
 
 export default class BlogFeedRss extends React.Component {
   static async getInitialProps({ res }: NextPageContext) {

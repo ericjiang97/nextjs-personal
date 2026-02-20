@@ -67,8 +67,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <NavBar />
         <div className={customHero && "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"}>
 
-          {customHero ? <div className="md:sticky top-20 text-lg flex flex-col max-w-md">{customHero}
-          </div> : null}
+          {customHero ?
+            <div className="md:sticky top-20 text-lg flex flex-col max-w-md">
+              {customHero}
+            </div> :
+            null}
 
           <div>
             <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">

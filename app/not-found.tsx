@@ -1,23 +1,24 @@
 import React from "react";
-import { NextPage } from "next";
 import Link from "next/link";
 
 import MainLayout from "../containers/MainLayout";
 
 interface NotFoundPageProps {
   reason?: string;
+  children?: React.ReactNode;
 }
-const NotFoundPage: NextPage<NotFoundPageProps> = ({ reason }) => {
+
+const NotFoundPage: React.FC<NotFoundPageProps> = ({ reason, children }) => {
   return (
     <MainLayout pageTitle="404: Page Not Found" pageMeta={{
       description: "Page Cannot be Found"
     }}>
-      <div className="flex flex-1 flex-col items-center justify-center text-white">
+      <div className="flex flex-1 flex-col items-center justify-center">
         <h2 className="text-4xl font-bold">Page Not found</h2>
         <h3 className="mt-3 flex text-2xl font-semibold text-gray-500">
           perhaps its been deleted. Go back{" "}
           <span className="ml-2 text-maroon underline">
-            <Link href="/">Home</Link>
+            {children ? children : <Link href="/">Home</Link>}
           </span>
         </h3>
         {reason && (

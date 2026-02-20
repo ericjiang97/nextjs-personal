@@ -1,22 +1,27 @@
-import { NextPage } from "next";
-import MainLayout from "../../containers/MainLayout";
-import { wallpapers, Wallpapers } from "../../data/wallpapers";
+'use client'
 
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
-import SmallHeroBanner from "../../components/SmallHeroBanner";
+import SmallHeroBanner from "../../../components/SmallHeroBanner";
+import MainLayout from "../../../containers/MainLayout";
+import { wallpapers, Wallpapers } from "../../../data/wallpapers";
 
 interface WallpapersADT extends Wallpapers {
   previewUri?: string;
   uri?: string;
 }
 
-interface WallpapersPageProps {
-  data: WallpapersADT[];
-}
+const WallpapersPage = () => {
+  const data: WallpapersADT[] = wallpapers.map((wallpaper) => {
+    const { slug } = wallpaper;
+    const publicRootDir = "/downloads/wallpapers/";
+    const previewUri = `${publicRootDir}/${slug}/${wallpaper.previewFileName ?? "preview.webp"}`;
 
-const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
+    const uri = `${publicRootDir}/${slug}/${slug}.jpg`;
+
+    return { ...wallpaper, previewUri, uri };
+  });
+
+
   return (
     <MainLayout
       pageTitle="Media - Wallpapers"
@@ -82,20 +87,3 @@ const WallpapersPage: NextPage<WallpapersPageProps> = ({ data }) => {
 };
 
 export default WallpapersPage;
-
-export async function getServerSideProps() {
-  const data: WallpapersADT[] = wallpapers.map((wallpaper) => {
-    const { slug } = wallpaper;
-    const publicRootDir = "/downloads/wallpapers/";
-    const previewUri = `${publicRootDir}/${slug}/${wallpaper.previewFileName ?? "preview.webp"}`;
-
-    const uri = `${publicRootDir}/${slug}/${slug}.jpg`;
-
-    return { ...wallpaper, previewUri, uri };
-  });
-
-
-  return {
-    props: { data }, // will be passed to the page component as props
-  };
-}

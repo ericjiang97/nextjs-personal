@@ -1,18 +1,11 @@
-import { PrismicText } from "@prismicio/react";
-
-import SmallHeroBanner from "../../../components/SmallHeroBanner";
-
-import MainLayout from "../../../containers/MainLayout";
-
-import * as prismicH from "@prismicio/helpers";
-import { createClient } from "../../../config/prismic";
-import classNames from "../../../utils/classNames";
-
-import { GetStaticProps, NextPage } from "next";
-import { IPrismicDocumentRecord } from "../../../types";
-import BlogCard from "../../../components/cards/BlogCard";
 import { predicate } from "@prismicio/client";
-import NotFoundPage from "../../404";
+import { GetStaticProps, NextPage } from "next";
+import BlogCard from "../../../components/cards/BlogCard";
+import SmallHeroBanner from "../../../components/SmallHeroBanner";
+import { createClient } from "../../../config/prismic";
+import MainLayout from "../../../containers/MainLayout";
+import { IPrismicDocumentRecord } from "../../../types";
+import NotFoundPage from "../../not-found";
 
 interface BlogPageProps {
   posts: IPrismicDocumentRecord[];
@@ -54,7 +47,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, category, error }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({
+export const generateStaticParams: GetStaticProps = async ({
   previewData,
   params,
 }) => {

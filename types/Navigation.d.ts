@@ -1,4 +1,4 @@
-export type Navigation = {
-    name: string,
-    href: string
+export declare interface Navigation {
+    name: string;
+    href: string;
 }

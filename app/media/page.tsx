@@ -72,7 +72,7 @@ const MediaPage: NextPage = () => {
               </div>
               <div className="mt-8">
                 <h3 className="text-lg font-medium">
-                  <a href={action.href} className="focus:outline-none">
+                  <a href={action.href} className="focus:outline-none" target="_blank" rel="noopener noreferrer">
                     {/* Extend touch target to entire panel */}
                     <span className="absolute inset-0" aria-hidden="true" />
                     {action.title}
