@@ -39,7 +39,7 @@ export default async function BlogPage({ params }: { params: Promise<{ uid: stri
 export const generateStaticParams = async () => {
   const client = createClient();
 
-  const blogPosts = await client.getAllByType("blog-post", {
+  const blogPosts = await client.getAllByType("category", {
     orderings: {
       field: "document.last_publication_date",
       direction: "desc",
