@@ -6,6 +6,7 @@ import classNames from "../../../utils/classNames";
 import { IPrismicDocumentRecord } from "../../../types";
 import { PrismicText } from "@prismicio/react";
 import moment from "moment";
+import CategoryChip from "../../chips/CategoryChip/CategoryChip";
 
 interface BlogCardProps {
   post: IPrismicDocumentRecord;
@@ -23,19 +24,7 @@ const BlogCard = ({ post }: React.PropsWithChildren<BlogCardProps>) => {
   return (
     <div className="flex flex-col hover:bg-gray-50 p-4 rounded-lg dark:hover:bg-gray-800">
       <div>
-        <a
-          href={`/blog/categories/${category.uid}`}
-          className="inline-block"
-        >
-          <span
-            className={classNames(
-              "bg-indigo-100 text-indigo-800",
-              "inline-flex items-center rounded-full px-3 py-0.5 text-sm font-medium"
-            )}
-          >
-            {category.slug}
-          </span>
-        </a>
+        <CategoryChip category={category} />
       </div>
 
       <a href={`/blog/${post.uid}`} className="mt-2 block">

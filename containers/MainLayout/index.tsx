@@ -69,18 +69,18 @@ const MainLayout = ({
         <NavBar />
 
         {showProgress && <div className="sticky top-16 w-full bg-white dark:bg-gray-900 z-50">
-          <div className="h-1 bg-blue-500 transition-[width] duration-100" style={{ width: `${progress}%` }}></div>
+          <div className="h-1 bg-rose-400 transition-[width] duration-100 rounded-r-full" style={{ width: `${progress}%` }}></div>
         </div>}
         <div className={customHero && "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"}>
 
           {customHero ?
-            <div className="sticky top-20 text-lg flex flex-col max-w-md">
+            <div className="2xl:sticky top-20 text-lg flex flex-col max-w-md">
               {customHero}
             </div> :
             null}
 
           <div>
-            <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
+            <div className="max-w-5xl container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">
               {children}
             </div>
           </div>

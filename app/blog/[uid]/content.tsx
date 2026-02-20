@@ -25,10 +25,22 @@ export default function Content() {
                 description: "",
                 imageUrl: `https://ericjiang.dev/api/static?blog=${uid}`,
             }}
-            customHero={<SmallHeroBanner
-                title="Blog"
-                description="I occasionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
-            />}
+            customHero={<div className="mt-24 flex flex-col gap-2">
+                <span className="block text-start max-w-md text-base font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    {`Posted on: Loading...`}
+                </span>
+                <h1>
+                    <span className="mt-2 block text-start text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                        Loading...
+                    </span>
+                </h1>
+                <span className="mt-2 dark:text-gray-300">
+                    <b>Est Reading Time:</b> Loading...
+                </span>
+                <div>
+                    Loading...
+                </div>
+            </div>}
         ><div>Loading...</div>
         </MainLayout>}>
             <BlogContent content={post} />
