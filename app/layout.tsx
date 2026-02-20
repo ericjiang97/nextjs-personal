@@ -101,7 +101,7 @@ function HeadComponent({ children }: React.PropsWithChildren<{}>) {
 
 function MyApp({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <HeadComponent />
       <body>
         <ThemeProvider
