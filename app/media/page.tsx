@@ -43,7 +43,7 @@ const MediaPage: NextPage = () => {
       }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
-        <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+        <div className="divide-y divide-gray-200 dark:divide-gray-800 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-800 shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
           {actions.map((action, actionIdx) => (
             <div
               key={action.title}
@@ -56,7 +56,7 @@ const MediaPage: NextPage = () => {
                 actionIdx === actions.length - 1
                   ? "rounded-bl-lg rounded-br-lg sm:rounded-bl-none"
                   : "",
-                "group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
+                "group relative bg-white dark:bg-gray-900 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
               )}
             >
               <div>
@@ -64,26 +64,26 @@ const MediaPage: NextPage = () => {
                   className={classNames(
                     action.iconBackground,
                     action.iconForeground,
-                    "inline-flex rounded-lg p-3 ring-4 ring-white"
+                    "inline-flex rounded-lg p-3 ring-4 ring-white dark:ring-gray-900"
                   )}
                 >
                   <action.icon className="h-6 w-6" aria-hidden="true" />
                 </span>
               </div>
               <div className="mt-8">
-                <h3 className="text-lg font-medium">
+                <h3 className="text-lg font-medium dark:text-white">
                   <a href={action.href} className="focus:outline-none" target="_blank" rel="noopener noreferrer">
                     {/* Extend touch target to entire panel */}
                     <span className="absolute inset-0" aria-hidden="true" />
                     {action.title}
                   </a>
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   {action.description}
                 </p>
               </div>
               <span
-                className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+                className="pointer-events-none absolute top-6 right-6 text-gray-300 dark:text-gray-600 group-hover:text-gray-400 dark:group-hover:text-gray-500"
                 aria-hidden="true"
               >
                 <svg

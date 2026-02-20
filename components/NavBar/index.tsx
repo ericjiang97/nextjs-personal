@@ -5,6 +5,7 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import Logo from "../Logo";
+import { ThemeToggle } from "../ThemeToggle";
 
 import classNames from "../../utils/classNames";
 
@@ -45,7 +46,7 @@ export default function NavBar() {
                   <Logo />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 items-center">
                     {navigation.map((item) => {
                       const isCurrent =
                         parentPath === item.href.replace("/", "");
@@ -56,7 +57,7 @@ export default function NavBar() {
                             isCurrent
                               ? "bg-gray-900 text-white"
                               : "",
-                            "rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white"
+                            "rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white dark:text-gray-300 dark:hover:text-white"
                           )}
                         >
                           <Link
@@ -69,6 +70,7 @@ export default function NavBar() {
                         </div>
                       );
                     })}
+                    <ThemeToggle />
                   </div>
                 </div>
               </div>

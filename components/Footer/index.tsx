@@ -74,7 +74,7 @@ export default function Footer() {
         >
           {navigation.main.map((item) => (
             <div key={item.name} className="px-5 py-2">
-              <div className="text-base">
+              <div className="text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                 <Link href={item.href}>{item.name}</Link>
               </div>
             </div>
@@ -89,40 +89,40 @@ export default function Footer() {
                 </Link>
               </span>
               <Link key={item.name} href={item.href} passHref target="_blank" rel="noopener noreferrer">
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="h-6 w-6 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" aria-hidden="true" />
               </Link>
             </div>
           ))}
         </div>
-        <p className="mt-8 text-center text-base text-cyan-950">
+        <p className="mt-8 text-center text-base text-gray-600 dark:text-gray-400">
           Copyright &copy;{` 2016 - ${todaysYear} Eric J.`}
         </p>
-        <div className="text-semibold mt-2 text-center text-cyan-950">
+        <div className="text-semibold mt-2 text-center text-gray-600 dark:text-gray-400">
           Powered by{" "}
-          <span className="underline">
+          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
             <Link href="https://vercel.com">Vercel</Link>
           </span>
           {" & "}
-          <span className="underline">
+          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
             <Link href="https://prismic.io/">Prismic</Link>
           </span>
           . Built in{" "}
-          <span className="underline">
+          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
             <Link href="https://nextjs.org/">NextJS</Link>
           </span>
           {" with "}{" "}
-          <span className="underline">
+          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
             <Link href="https://tailwindcss.com">Tailwind</Link>
           </span>
           . Profile Picture by{" "}
-          <span className="underline">
+          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
             <Link href="https://twitter.com/sushisamaou">sushisamaou</Link>
           </span>
           .
         </div>
-        <div className="text-semibold mt-2 text-center text-cyan-950">
+        <div className="text-semibold mt-2 text-center text-gray-600 dark:text-gray-400">
           Encountering issues?{" "}
-          <span className="underline">
+          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
             <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new">
               Submit an issue.
             </Link>

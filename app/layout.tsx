@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import "../styles/globals.css";
 import packageJson from "../package.json";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 
 function HeadComponent({ children }: React.PropsWithChildren<{}>) {
@@ -100,10 +101,17 @@ function HeadComponent({ children }: React.PropsWithChildren<{}>) {
 
 function MyApp({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <HeadComponent />
       <body>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

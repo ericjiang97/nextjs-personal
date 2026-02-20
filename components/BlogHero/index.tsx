@@ -14,10 +14,10 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
     <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
       <div className="relative mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
             From my blog
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
+          <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 dark:text-gray-400 sm:mt-4">
             I occassionally write on my blog about tech, projects, reviews (and
             will add photography and travel in the future)... so here&apos;s
             some of them.
@@ -33,7 +33,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
             return (
               <div
                 key={post.uid}
-                className="flex flex-col overflow-hidden rounded-lg shadow-lg"
+                className="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-900 border border-transparent dark:border-gray-800"
               >
                 {post.data.banner.url ? (
                   <div className="shrink-0">
@@ -44,7 +44,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                     />
                   </div>
                 ) : (
-                  <div className="shrink-0 bg-cyan-100">
+                  <div className="shrink-0 bg-cyan-100 dark:bg-cyan-900">
                     <img
                       className="h-48 w-full object-cover"
                       src="/images/content_creation_flag.png"
@@ -52,9 +52,9 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                     />
                   </div>
                 )}
-                <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                <div className="flex flex-1 flex-col justify-between bg-white dark:bg-gray-900 p-6">
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-indigo-600">
+                    <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                       <a
                         href={`/blog/category/${post.data.category.uid}`}
                         className="hover:underline"
@@ -63,16 +63,16 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                       </a>
                     </p>
                     <a href={`/blog/${post.uid}`} className="mt-2 block">
-                      <p className="text-xl font-semibold text-gray-900">
+                      <p className="text-xl font-semibold text-gray-900 dark:text-white">
                         {prismicH.asText(post.data.title)}
                       </p>
-                      <p className="mt-3 text-base text-gray-500">
+                      <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
                         {prismicH.asText(post.data.summary)}
                       </p>
                     </a>
                   </div>
                   <div className="mt-6 flex items-center">
-                    <div className="flex space-x-1 text-sm text-gray-500">
+                    <div className="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
                       <time
                         dateTime={prismicH
                           .asDate(post.data.published_time)

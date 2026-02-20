@@ -48,7 +48,7 @@ const WallpapersPage = () => {
                 <div className="my-2">
                   {wallpaper.tags.map((tag: string, index) => (
                     <span
-                      className="mr-1 inline-block shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800"
+                      className="mr-1 inline-block shrink-0 rounded-full bg-green-100 dark:bg-green-900 px-2 py-0.5 text-xs font-medium text-green-800 dark:text-green-300"
                       key={index}
                     >
                       {tag}
@@ -56,7 +56,7 @@ const WallpapersPage = () => {
                   ))}
                 </div>
               )}
-              <div className="aspect-w-10 aspect-h-7 max-h-100 group block w-full bg-transparent overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+              <div className="aspect-w-10 aspect-h-7 max-h-100 group block w-full bg-transparent overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 dark:focus-within:ring-offset-gray-900">
                 <img
                   src={wallpaper.previewUri}
                   alt={wallpaper.title}
@@ -75,7 +75,7 @@ const WallpapersPage = () => {
                   </button>
                 </Link>
               </div>
-              <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-white">
+              <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900 dark:text-white">
                 {wallpaper.title}
               </p>
             </li>
