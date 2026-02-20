@@ -28,9 +28,9 @@ export default function AlbumsList({ data }: React.PropsWithChildren<AlbumsListP
 
                         return <div
                             key={album.uid}
-                            className="flex flex-col overflow-hidden rounded-lg shadow-lg"
+                            className="flex flex-col overflow-hidden rounded-lg border-1 border-gray-200 bg-white"
                         >
-                            <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                            <div className="flex flex-1 flex-col justify-between p-6 ">
                                 <div className="flex-1">
                                     {data.featured_image && <div>
                                         <img src={data.featured_image.url} alt={data.featured_image.alt} />

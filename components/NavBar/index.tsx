@@ -13,6 +13,7 @@ import { Navigation } from "../../types/Navigation";
 const navigation: Navigation[] = [
   { name: "Blog", href: "/blog" },
   { name: "Media", href: "/media" },
+  { name: "Albums", href: "/albums" },
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
 ]
