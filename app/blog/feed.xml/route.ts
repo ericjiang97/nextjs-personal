@@ -13,9 +13,9 @@ export async function GET() {
 
     const feed = generateFeed(posts);
 
-    return new Response(feed.json1(), {
+    return new Response(feed.rss2(), {
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/rss+xml",
         },
     });
 }
