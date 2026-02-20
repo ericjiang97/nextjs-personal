@@ -1,8 +1,6 @@
 import { ImageResponse } from "@vercel/og";
-
 import { createClient } from "../../config/prismic";
 import * as prismicH from "@prismicio/helpers";
-
 import { IPrismicDocumentRecord } from "../../types";
 
 export const config = {

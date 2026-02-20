@@ -11,7 +11,7 @@ interface BlogCardProps {
   post: IPrismicDocumentRecord;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+const BlogCard = ({ post }: React.PropsWithChildren<BlogCardProps>) => {
   const postedDate = moment(
     prismicH.asDate(post.data.published_time)?.toISOString()
   );

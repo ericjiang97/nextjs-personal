@@ -8,7 +8,7 @@ interface NotFoundPageProps {
   children?: React.ReactNode;
 }
 
-const NotFoundPage: React.FC<NotFoundPageProps> = ({ reason, children }) => {
+const NotFoundPage = ({ reason, children }: React.PropsWithChildren<NotFoundPageProps>) => {
   return (
     <MainLayout pageTitle="404: Page Not Found" pageMeta={{
       description: "Page Cannot be Found"

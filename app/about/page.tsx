@@ -7,7 +7,7 @@ import experience from "../../data/experience";
 import classNames from "../../utils/classNames";
 import SmallHeroBanner from "../../components/SmallHeroBanner";
 
-const AboutPage: NextPage = () => {
+const AboutPage: React.FC = () => {
   return (
     <MainLayout
       pageTitle="About"

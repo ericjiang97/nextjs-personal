@@ -7,14 +7,14 @@ import NavBar from "../../components/NavBar";
 import { MainLayoutProps } from "./MainLayout";
 import { SITE_CONFIG } from "../../config";
 
-const MainLayout: React.FC<MainLayoutProps> = ({
+const MainLayout = ({
   pageTitle = "",
   customHero,
   children,
   pageMeta,
   showProgress = false,
   progress = 0,
-}) => {
+}: React.PropsWithChildren<MainLayoutProps>) => {
   const { endpoint, description, keywords, imageUrl } = pageMeta;
   let _pageTitle = "Eric Jiang";
   if (pageTitle) _pageTitle += ` - ${pageTitle}`;

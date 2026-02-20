@@ -22,7 +22,7 @@ interface BeforeAfterSlice {
  * @typedef {import("@prismicio/react").SliceComponentProps<BeforeAfterSlice>} BeforeAfterProps
  * @param { BeforeAfterProps }
  */
-const BeforeAfter: React.FC<BeforeAfterSlice> = ({ slice }) => {
+const BeforeAfter = ({ slice }: React.PropsWithChildren<BeforeAfterSlice>) => {
   const { before_image, after_image, title } = slice.primary;
   return (
     <div className="my-3">

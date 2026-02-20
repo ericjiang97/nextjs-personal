@@ -6,7 +6,7 @@ import "../styles/globals.css";
 import packageJson from "../package.json";
 
 
-const HeadComponent: React.FC = ({ children }) => {
+function HeadComponent({ children }: React.PropsWithChildren<{}>) {
   return (
     <head>
       <meta name="og:type" content="website" />

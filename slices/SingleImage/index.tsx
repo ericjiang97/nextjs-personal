@@ -21,7 +21,7 @@ interface SingleImageProps {
  * @typedef {import("@prismicio/react").SliceComponentProps<SingleImageSlice>} SingleImageProps
  * @param { SingleImageProps }
  */
-const SingleImage: React.FC<SingleImageProps> = ({ slice }) => {
+const SingleImage = ({ slice }: React.PropsWithChildren<SingleImageProps>) => {
   const dispatch = useImagePreviewDispatch();
 
   const { image, description } = slice.primary;

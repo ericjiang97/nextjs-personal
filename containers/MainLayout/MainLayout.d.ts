@@ -5,7 +5,7 @@ export declare interface PageMeta {
   imageUrl?: string;
 }
 
-declare interface MainLayoutProps {
+export declare interface MainLayoutProps {
   pageTitle?: string;
   customHero?: React.ReactElement;
   pageMeta: PageMeta;
