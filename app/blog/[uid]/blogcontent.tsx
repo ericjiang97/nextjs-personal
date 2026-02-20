@@ -68,15 +68,15 @@ export default function BlogContent({ content }: { content: Promise<PrismicDocum
         <div className="py-16">
             <div className="flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8">
                 <div className="md:sticky top-20 text-lg flex flex-col max-w-md">
-                    <span className="block text-start max-w-md text-base font-semibold uppercase tracking-wide text-gray-500">
+                    <span className="block text-start max-w-md text-base font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                         {`Posted on: ${postedDate.format("DD MMMM YYYY")}`}
                     </span>
                     <h1>
-                        <span className="mt-2 block text-start text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                        <span className="mt-2 block text-start text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                             <PrismicText field={title} />
                         </span>
                     </h1>
-                    <span className="mt-2">
+                    <span className="mt-2 dark:text-gray-300">
                         <b>Est Reading Time:</b> {getReadingTime(readingTime).text}
                     </span>
                 </div>
@@ -92,14 +92,14 @@ export default function BlogContent({ content }: { content: Promise<PrismicDocum
                             />
                         </div>
                     }
-                    <div className={classNames(hasBanner ? "mt-10" : "", "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard")}>
+                    <div className={classNames(hasBanner ? "mt-10" : "", "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard dark:first-letter:text-white dark:text-gray-300")}>
                         <PrismicRichTextWrapper page={post} />
                     </div>
                 </div>
             </div>
         </div>
-        <button className="fixed bottom-4 right-4 border border-gray-200 p-2 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <BarsArrowUpIcon className="h-6 w-6" aria-hidden="true" />
+        <button className="fixed bottom-4 right-4 border border-gray-200 dark:border-gray-700 p-2 rounded-lg bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <BarsArrowUpIcon className="h-6 w-6 dark:text-gray-300" aria-hidden="true" />
         </button>
     </MainLayout>
 }

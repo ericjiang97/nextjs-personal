@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import "../styles/globals.css";
 import packageJson from "../package.json";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 
 function HeadComponent({ children }: React.PropsWithChildren<{}>) {
@@ -103,7 +104,14 @@ function MyApp({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <HeadComponent />
       <body>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

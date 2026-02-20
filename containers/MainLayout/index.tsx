@@ -68,7 +68,7 @@ const MainLayout = ({
       <main className="flex flex-1 flex-col">
         <NavBar />
 
-        {showProgress && <div className="md:sticky top-0 w-full bg-white">
+        {showProgress && <div className="md:sticky top-0 w-full bg-white dark:bg-gray-900 z-50">
           <div className="h-1 bg-blue-500 transition-[width] duration-100" style={{ width: `${progress}%` }}></div>
         </div>}
         <div className={customHero && "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"}>

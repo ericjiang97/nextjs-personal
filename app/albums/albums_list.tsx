@@ -28,7 +28,7 @@ export default function AlbumsList({ data }: React.PropsWithChildren<AlbumsListP
 
                         return <div
                             key={album.uid}
-                            className="flex flex-col overflow-hidden rounded-lg border-1 border-gray-200 bg-white"
+                            className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900"
                         >
                             <div className="flex flex-1 flex-col justify-between p-6 ">
                                 <div className="flex-1">
@@ -37,11 +37,11 @@ export default function AlbumsList({ data }: React.PropsWithChildren<AlbumsListP
                                     </div>}
                                     <div className="mt-2">
                                         <a href={`/albums/${album.uid}`} className="mt-2 block">
-                                            <p className="text-xl font-semibold text-gray-900">
+                                            <p className="text-xl font-semibold text-gray-900 dark:text-white">
                                                 {prismicH.asText(data.title)}
                                             </p>
                                         </a>
-                                        <p className="text-sm font-medium text-gray-600">
+                                        <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
                                             {!isDateSame
                                                 ? `Posted on: ${firstPosted.format("DD MMMM YYYY")}`
                                                 : `Last Updated on: ${lastUpdated.format("DD MMMM YYYY")}`}

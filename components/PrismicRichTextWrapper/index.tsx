@@ -19,7 +19,7 @@ const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicR
         hyperlink: ({ children, node }) => (
           <a
             href={node.data.url}
-            className="font-semibold text-maroon underline"
+            className="font-semibold text-maroon dark:text-rose-400 underline"
           >
             {children}
           </a>
@@ -28,15 +28,15 @@ const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicR
           <h1 className="mt-2 text-3xl font-semibold">{children}</h1>
         ),
         heading2: ({ children }) => (
-          <h2 className="mt-2 text-2xl font-semibold text-maroon">
+          <h2 className="mt-2 text-2xl font-semibold text-maroon dark:text-rose-400">
             {children}
           </h2>
         ),
         heading3: ({ children }) => (
-          <h3 className="mt-3 text-xl font-semibold text-maroon">{children}</h3>
+          <h3 className="mt-3 text-xl font-semibold text-maroon dark:text-rose-400">{children}</h3>
         ),
         heading4: ({ children }) => (
-          <h4 className="mt-3 text-lg font-semibold text-maroon">{children}</h4>
+          <h4 className="mt-3 text-lg font-semibold text-maroon dark:text-rose-400">{children}</h4>
         ),
         paragraph: ({ children }) => (
           <p className="mt-3 font-sans text-base">{children}</p>
