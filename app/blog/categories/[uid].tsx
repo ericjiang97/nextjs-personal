@@ -48,10 +48,9 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, category, error }) => {
 };
 
 export const generateStaticParams: GetStaticProps = async ({
-  previewData,
   params,
 }) => {
-  const client = createClient({ previewData });
+  const client = createClient();
 
   const uid = params?.uid as string;
 
