@@ -7,12 +7,14 @@ import NavBar from "../../components/NavBar";
 import { MainLayoutProps } from "./MainLayout";
 import { SITE_CONFIG } from "../../config";
 
-const MainLayout: React.FC<MainLayoutProps> = ({
+const MainLayout = ({
   pageTitle = "",
   customHero,
   children,
   pageMeta,
-}) => {
+  showProgress = false,
+  progress = 0,
+}: React.PropsWithChildren<MainLayoutProps>) => {
   const { endpoint, description, keywords, imageUrl } = pageMeta;
   let _pageTitle = "Eric Jiang";
   if (pageTitle) _pageTitle += ` - ${pageTitle}`;
@@ -65,10 +67,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
       <main className="flex flex-1 flex-col">
         <NavBar />
+
+        {showProgress && <div className="md:sticky top-0 w-full bg-white">
+          <div className="h-1 bg-blue-500 transition-[width] duration-100" style={{ width: `${progress}%` }}></div>
+        </div>}
         <div className={customHero && "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"}>
 
-          {customHero ? <div className="md:sticky top-20 text-lg flex flex-col max-w-md">{customHero}
-          </div> : null}
+          {customHero ?
+            <div className="md:sticky top-20 text-lg flex flex-col max-w-md">
+              {customHero}
+            </div> :
+            null}
 
           <div>
             <div className="max-screen-lg container mx-auto flex flex-1 flex-col self-center py-12 px-4 ">

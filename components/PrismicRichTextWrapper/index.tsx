@@ -10,10 +10,7 @@ interface PrismicRichTextWrapperProps {
   data?: RichTextField;
 }
 
-const PrismicRichTextWrapper: React.FC<PrismicRichTextWrapperProps> = ({
-  page,
-  data,
-}) => {
+const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicRichTextWrapperProps>) => {
   let _field = data || (page && page.data.body);
   return (
     <PrismicRichText

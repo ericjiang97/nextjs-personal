@@ -7,7 +7,7 @@ interface ProjectCardProps {
   project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard = ({ project }: React.PropsWithChildren<ProjectCardProps>) => {
   const { screenshotUrl } = project;
   return (
     <div

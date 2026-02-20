@@ -20,9 +20,9 @@ interface ImageWithTextOnOneSideProps {
  * @typedef {import("@prismicio/react").SliceComponentProps<ImageLeftSlice>} ImageLeftProps
  * @param { ImageLeftProps }
  */
-const ImageWithTextOnOneSide: React.FC<ImageWithTextOnOneSideProps> = ({
+const ImageWithTextOnOneSide = ({
   slice,
-}) => {
+}: React.PropsWithChildren<ImageWithTextOnOneSideProps>) => {
   const { image, text, position } = slice.primary;
   return (
     <section className="mt-3 flex flex-wrap">

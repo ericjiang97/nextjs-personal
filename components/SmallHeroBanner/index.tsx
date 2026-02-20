@@ -5,7 +5,7 @@ interface SmallHeroBanner {
   description?: string;
 }
 
-const SmallHeroBanner: React.FC<SmallHeroBanner> = ({ title, description }) => {
+const SmallHeroBanner = ({ title, description }: React.PropsWithChildren<SmallHeroBanner>) => {
   return (
     <div>
       <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">

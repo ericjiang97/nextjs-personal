@@ -8,7 +8,7 @@ interface DownloadImageButtonProps {
   image: ImageField;
 }
 
-const DownloadImageButton: React.FC<DownloadImageButtonProps> = ({ image }) => {
+const DownloadImageButton = ({ image }: React.PropsWithChildren<DownloadImageButtonProps>) => {
   if (!image.url) {
     return null;
   }

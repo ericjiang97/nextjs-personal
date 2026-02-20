@@ -9,7 +9,7 @@ interface BlogHeroProps {
   posts: IPrismicDocumentRecord[];
 }
 
-const BlogHero: React.FC<BlogHeroProps> = ({ posts }) => {
+const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
   return (
     <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
       <div className="relative mx-auto max-w-7xl">

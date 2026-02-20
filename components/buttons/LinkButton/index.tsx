@@ -6,11 +6,11 @@ interface LinkButtonProps {
   background?: string;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({
+const LinkButton = ({
   href = "#",
   background = "white",
   children,
-}) => {
+}: React.PropsWithChildren<LinkButtonProps>) => {
   return (
     <Link href={href} passHref>
       <div
