@@ -25,7 +25,7 @@ export default function NavBar() {
   const parentPath = path.split("/")[1];
 
   return (
-    <Disclosure as="nav">
+    <Disclosure as="nav" className="sticky top-0 z-50 bg-white dark:bg-gray-900">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function NavBar() {
                     className={classNames(
                       isCurrent
                         ? "bg-gray-900 text-white"
-                        : "text-gray-600 hover:bg-gray-700 hover:text-white",
+                        : "text-gray-600 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:text-white",
                       "block rounded-md px-3 py-2 text-base font-medium"
                     )}
                     aria-current={isCurrent ? "page" : undefined}
@@ -99,6 +99,7 @@ export default function NavBar() {
                   </Disclosure.Button>
                 );
               })}
+              <ThemeToggle />
             </div>
           </Disclosure.Panel>
         </>
