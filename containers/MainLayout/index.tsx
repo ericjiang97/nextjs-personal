@@ -74,13 +74,13 @@ const MainLayout = ({
           }
         >
           {customHero ? (
-            <div className="top-20 flex max-w-md flex-col text-lg 2xl:sticky">
+            <div className="top-8 mt-12 flex max-w-md flex-col text-lg 2xl:sticky">
               {customHero}
             </div>
           ) : null}
 
-          <div>
-            <div className="container mx-auto flex max-w-5xl flex-1 flex-col self-center py-12 px-4 ">
+          <div className="mt-8">
+            <div className="container mx-auto flex max-w-5xl flex-1 flex-col self-center  px-4 ">
               {children}
             </div>
           </div>

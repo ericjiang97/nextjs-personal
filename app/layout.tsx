@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from '../components/ThemeProvider'
+import { ThemeProvider } from '../providers/ThemeProvider'
 import CoreHead from '../components/layout/CoreHead'
 import Footer from '../components/layout/Footer'
 import '../styles/globals.css'

@@ -47,12 +47,20 @@ export default function BlogContent({
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const totalHeight =
-        document.documentElement.scrollHeight - window.innerHeight
-      const scrollTop = window.scrollY
-      const percentage = (scrollTop / totalHeight) * 100
-      setProgress(percentage)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const totalHeight =
+            document.documentElement.scrollHeight - window.innerHeight
+          const scrollTop = window.scrollY
+          const percentage = (scrollTop / totalHeight) * 100
+          setProgress(percentage)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -70,7 +78,7 @@ export default function BlogContent({
       showProgress={true}
       progress={progress}
       customHero={
-        <div className="mt-24 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <span className="text-start block max-w-md text-base font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
             {`Posted on: ${postedDate.format('DD MMMM YYYY')}`}
           </span>
@@ -88,22 +96,20 @@ export default function BlogContent({
         </div>
       }
     >
-      <div className="py-16">
-        <div className="flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mt-10 flex max-w-prose flex-1 flex-col md:mt-0">
-            {hasBanner && (
-              <div className="mx-auto max-w-prose text-lg">
-                <img src={banner.url} alt={banner.alt} className="" />
-              </div>
-            )}
-            <div
-              className={classNames(
-                hasBanner ? 'mt-10' : '',
-                'first-letter:font-old-standard first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold dark:text-gray-300 dark:first-letter:text-white'
-              )}
-            >
-              <PrismicRichTextWrapper page={post} />
+      <div className="flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mt-10 flex max-w-prose flex-1 flex-col md:mt-0">
+          {hasBanner && (
+            <div className="mx-auto max-w-prose text-lg">
+              <img src={banner.url} alt={banner.alt} className="" />
             </div>
+          )}
+          <div
+            className={classNames(
+              hasBanner ? 'mt-10' : '',
+              'first-letter:font-old-standard first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold dark:text-gray-300 dark:first-letter:text-white'
+            )}
+          >
+            <PrismicRichTextWrapper page={post} />
           </div>
         </div>
       </div>

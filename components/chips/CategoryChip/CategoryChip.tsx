@@ -3,7 +3,7 @@
 import { PrismicDocument } from '@prismicio/client'
 import Link from 'next/link'
 import { createClient } from '../../../config/prismic'
-import { Suspense } from 'react'
+import { Suspense, useMemo } from 'react'
 import CategoryChipInner, { defaultClass } from './CategoryChipInner'
 
 export default function CategoryChip({
@@ -13,7 +13,10 @@ export default function CategoryChip({
 }) {
   if (!category.uid) return <> </>
 
-  const data = createClient().getByUID('category', category.uid)
+  const data = useMemo(
+    () => createClient().getByUID('category', category.uid!),
+    [category.uid]
+  )
 
   return (
     <Suspense fallback={<span className={defaultClass}>{category.uid}</span>}>
