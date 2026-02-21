@@ -1,18 +1,20 @@
-import { PrismicDocument } from "@prismicio/client";
-import { Suspense } from "react";
-import SmallHeroBanner from "../../components/SmallHeroBanner";
-import { createClient } from "../../config/prismic";
-import MainLayout from "../../containers/MainLayout";
-import { BlogPosts } from "./posts";
-
+import { PrismicDocument } from '@prismicio/client'
+import { Suspense } from 'react'
+import SmallHeroBanner from '../../components/SmallHeroBanner'
+import { createClient } from '../../config/prismic'
+import MainLayout from '../../containers/MainLayout'
+import { BlogPosts } from './posts'
 
 function BlogPage() {
-  const page: Promise<PrismicDocument[]> = createClient().getAllByType("blog-post", {
-    orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
-    },
-  });
+  const page: Promise<PrismicDocument[]> = createClient().getAllByType(
+    'blog-post',
+    {
+      orderings: {
+        field: 'document.last_publication_date',
+        direction: 'desc',
+      },
+    }
+  )
 
   return (
     <MainLayout
@@ -26,7 +28,7 @@ function BlogPage() {
       pageMeta={{
         description:
           "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them",
-        endpoint: "/blog",
+        endpoint: '/blog',
       }}
     >
       <div className="px-4 pt-0 pb-20 sm:px-6 lg:px-4 lg:pt-0 lg:pb-28">
@@ -37,7 +39,7 @@ function BlogPage() {
         </Suspense>
       </div>
     </MainLayout>
-  );
+  )
 }
 
-export default BlogPage;
+export default BlogPage

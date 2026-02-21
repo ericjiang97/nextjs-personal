@@ -1,23 +1,28 @@
-import React from "react";
+import React from 'react'
 
 interface SmallHeroBanner {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
-const SmallHeroBanner = ({ title, description }: React.PropsWithChildren<SmallHeroBanner>) => {
+const SmallHeroBanner = ({
+  title,
+  description,
+}: React.PropsWithChildren<SmallHeroBanner>) => {
   return (
-    <div>
-      <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
+    <div className="mt-8">
+      <div className="mx-auto max-w-7xl sm:px-6 lg:flex lg:justify-between lg:px-8">
         <div className="max-w-xl">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
             {title}
           </h2>
-          <p className="mt-5 text-xl text-gray-600 dark:text-gray-400">{description}</p>
+          <p className="mt-5 text-xl text-gray-600 dark:text-gray-400">
+            {description}
+          </p>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SmallHeroBanner;
+export default SmallHeroBanner

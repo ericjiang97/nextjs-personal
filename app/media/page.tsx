@@ -1,31 +1,35 @@
-import { NextPage } from "next";
+import { NextPage } from 'next'
 
-import { MicrophoneIcon, PhotoIcon, CameraIcon } from "@heroicons/react/24/outline";
+import {
+  MicrophoneIcon,
+  PhotoIcon,
+  CameraIcon,
+} from '@heroicons/react/24/outline'
 
-import SmallHeroBanner from "../../components/SmallHeroBanner";
-import MainLayout from "../../containers/MainLayout";
-import classNames from "../../utils/classNames";
+import SmallHeroBanner from '../../components/SmallHeroBanner'
+import MainLayout from '../../containers/MainLayout'
+import classNames from '../../utils/classNames'
 
 const actions = [
   {
-    title: "Photography",
-    href: "https://ericj.photos",
+    title: 'Photography',
+    href: 'https://ericj.photos',
     icon: CameraIcon,
-    iconForeground: "text-teal-700",
-    iconBackground: "bg-teal-50",
+    iconForeground: 'text-teal-700',
+    iconBackground: 'bg-teal-50',
     description:
       "I take photos when I'm travelling, check out my photography page!",
   },
   {
-    title: "Wallpapers",
-    href: "/media/wallpapers",
+    title: 'Wallpapers',
+    href: '/media/wallpapers',
     icon: PhotoIcon,
-    iconForeground: "text-purple-700",
-    iconBackground: "bg-purple-50",
+    iconForeground: 'text-purple-700',
+    iconBackground: 'bg-purple-50',
     description:
-      "Some of my photos that I take are edited and optimised as wallpapers.",
+      'Some of my photos that I take are edited and optimised as wallpapers.',
   },
-];
+]
 
 const MediaPage: NextPage = () => {
   return (
@@ -38,25 +42,25 @@ const MediaPage: NextPage = () => {
         />
       }
       pageMeta={{
-        description: "Check out these media and other works I do",
-        endpoint: "/media",
+        description: 'Check out these media and other works I do',
+        endpoint: '/media',
       }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
-        <div className="divide-y divide-gray-200 dark:divide-gray-800 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-800 shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+        <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow-sm dark:divide-gray-800 dark:bg-gray-800 sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
           {actions.map((action, actionIdx) => (
             <div
               key={action.title}
               className={classNames(
                 actionIdx === 0
-                  ? "rounded-tl-lg rounded-tr-lg sm:rounded-tr-none"
-                  : "",
-                actionIdx === 1 ? "sm:rounded-tr-lg" : "",
-                actionIdx === actions.length - 2 ? "sm:rounded-bl-lg" : "",
+                  ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none'
+                  : '',
+                actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
+                actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
                 actionIdx === actions.length - 1
-                  ? "rounded-bl-lg rounded-br-lg sm:rounded-bl-none"
-                  : "",
-                "group relative bg-white dark:bg-gray-900 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
+                  ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none'
+                  : '',
+                'group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 dark:bg-gray-900'
               )}
             >
               <div>
@@ -64,7 +68,7 @@ const MediaPage: NextPage = () => {
                   className={classNames(
                     action.iconBackground,
                     action.iconForeground,
-                    "inline-flex rounded-lg p-3 ring-4 ring-white dark:ring-gray-900"
+                    'inline-flex rounded-lg p-3 ring-4 ring-white dark:ring-gray-900'
                   )}
                 >
                   <action.icon className="h-6 w-6" aria-hidden="true" />
@@ -72,7 +76,12 @@ const MediaPage: NextPage = () => {
               </div>
               <div className="mt-8">
                 <h3 className="text-lg font-medium dark:text-white">
-                  <a href={action.href} className="focus:outline-none" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={action.href}
+                    className="focus:outline-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {/* Extend touch target to entire panel */}
                     <span className="absolute inset-0" aria-hidden="true" />
                     {action.title}
@@ -83,7 +92,7 @@ const MediaPage: NextPage = () => {
                 </p>
               </div>
               <span
-                className="pointer-events-none absolute top-6 right-6 text-gray-300 dark:text-gray-600 group-hover:text-gray-400 dark:group-hover:text-gray-500"
+                className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400 dark:text-gray-600 dark:group-hover:text-gray-500"
                 aria-hidden="true"
               >
                 <svg
@@ -100,7 +109,7 @@ const MediaPage: NextPage = () => {
         </div>
       </div>
     </MainLayout>
-  );
-};
+  )
+}
 
-export default MediaPage;
+export default MediaPage

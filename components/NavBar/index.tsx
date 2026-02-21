@@ -1,38 +1,41 @@
-'use client';
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+'use client'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import Logo from "../Logo";
-import { ThemeToggle } from "../ThemeToggle";
+import Logo from '../Logo'
+import { ThemeToggle } from '../ThemeToggle'
 
-import classNames from "../../utils/classNames";
+import classNames from '../../utils/classNames'
 
-import { Navigation } from "../../types/Navigation";
+import { Navigation } from '../../types/Navigation'
 
 const navigation: Navigation[] = [
-  { name: "Blog", href: "/blog" },
-  { name: "Media", href: "/media" },
-  { name: "Albums", href: "/albums" },
-  { name: "Projects", href: "/projects" },
-  { name: "About", href: "/about" },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Media', href: '/media' },
+  { name: 'Albums', href: '/albums' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'About', href: '/about' },
 ]
 export default function NavBar() {
-  const path = usePathname();
+  const path = usePathname()
 
-  const currentPath = path;
-  const parentPath = path.split("/")[1];
+  const currentPath = path
+  const parentPath = path.split('/')[1]
 
   return (
-    <Disclosure as="nav" className="sticky top-0 z-50 bg-white dark:bg-gray-900">
+    <Disclosure
+      as="nav"
+      className="sticky top-0 z-50 bg-white dark:bg-gray-900"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 hover:text-white focus:outline-hiddenfocus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="focus:outline-hiddenfocus:ring-2 inline-flex items-center justify-center rounded-md p-2 hover:text-white focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -46,29 +49,27 @@ export default function NavBar() {
                   <Logo />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                  <div className="flex space-x-4 items-center">
+                  <div className="flex items-center space-x-4">
                     {navigation.map((item) => {
                       const isCurrent =
-                        parentPath === item.href.replace("/", "");
+                        parentPath === item.href.replace('/', '')
                       return (
                         <div
                           key={item.href}
                           className={classNames(
-                            isCurrent
-                              ? "bg-gray-900 text-white"
-                              : "",
-                            "rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white dark:text-gray-300 dark:hover:text-white"
+                            isCurrent ? 'bg-gray-900 text-white' : '',
+                            'rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white dark:text-gray-300 dark:hover:text-white'
                           )}
                         >
                           <Link
                             key={item.name}
                             href={item.href}
-                            aria-current={isCurrent ? "page" : undefined}
+                            aria-current={isCurrent ? 'page' : undefined}
                           >
                             {item.name}
                           </Link>
                         </div>
-                      );
+                      )
                     })}
                     <ThemeToggle />
                   </div>
@@ -80,7 +81,7 @@ export default function NavBar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => {
-                const isCurrent = currentPath === item.href;
+                const isCurrent = currentPath === item.href
 
                 return (
                   <Disclosure.Button
@@ -89,15 +90,15 @@ export default function NavBar() {
                     href={item.href}
                     className={classNames(
                       isCurrent
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-600 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:text-white",
-                      "block rounded-md px-3 py-2 text-base font-medium"
+                        ? 'bg-gray-900 text-white'
+                        : 'text-gray-600 hover:bg-gray-700 hover:text-white dark:text-gray-300 dark:hover:text-white',
+                      'block rounded-md px-3 py-2 text-base font-medium'
                     )}
-                    aria-current={isCurrent ? "page" : undefined}
+                    aria-current={isCurrent ? 'page' : undefined}
                   >
                     {item.name}
                   </Disclosure.Button>
-                );
+                )
               })}
               <ThemeToggle />
             </div>
@@ -105,5 +106,5 @@ export default function NavBar() {
         </>
       )}
     </Disclosure>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
-import * as prismicH from "@prismicio/helpers";
+import * as prismicH from '@prismicio/helpers'
 
-import { IPrismicDocumentRecord } from "../../types";
-import moment from "moment";
+import { IPrismicDocumentRecord } from '../../types'
+import moment from 'moment'
 
 interface BlogHeroProps {
-  posts: IPrismicDocumentRecord[];
+  posts: IPrismicDocumentRecord[]
 }
 
 const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
@@ -25,15 +25,15 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
         </div>
         <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
           {posts.slice(0, 3).map((post) => {
-            const postLength = (prismicH.asText(post.data.body) || "").split(
-              " "
-            ).length;
-            const readingTime = Math.floor(postLength / 200);
+            const postLength = (prismicH.asText(post.data.body) || '').split(
+              ' '
+            ).length
+            const readingTime = Math.floor(postLength / 200)
 
             return (
               <div
                 key={post.uid}
-                className="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-900 border border-transparent dark:border-gray-800"
+                className="flex flex-col overflow-hidden rounded-lg border border-transparent bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900"
               >
                 {post.data.banner.url ? (
                   <div className="shrink-0">
@@ -52,7 +52,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                     />
                   </div>
                 )}
-                <div className="flex flex-1 flex-col justify-between bg-white dark:bg-gray-900 p-6">
+                <div className="flex flex-1 flex-col justify-between bg-white p-6 dark:bg-gray-900">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                       <a
@@ -80,7 +80,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                       >
                         {moment(
                           prismicH.asDate(post.data.published_time)
-                        ).format("Do MMMM YYYY")}
+                        ).format('Do MMMM YYYY')}
                       </time>
                       <span aria-hidden="true">&middot;</span>
                       <span>{readingTime} min read</span>
@@ -88,12 +88,12 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlogHero;
+export default BlogHero

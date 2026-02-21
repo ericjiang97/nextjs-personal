@@ -8,7 +8,14 @@ const experience: Experience[] = [
     positions: [
       {
         dates: {
+          startDate: moment("1 Feb 2025 00:00 +0800"),
+        },
+        title: "Software Engineer, SDLC BizTools, Android & Pixel Software Development Lifecycle (SDLC)",
+      },
+      {
+        dates: {
           startDate: moment("1 Jan 2023 00:00 +0800"),
+          endDate: moment("1 Feb 2025 00:00 +0800"),
         },
         title: "Software Engineer, Pixel Test Engineering",
       },
