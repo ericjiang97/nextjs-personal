@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import React from "react";
+import React from 'react'
 
 export default function HeadComponent({
   children,
@@ -93,5 +93,5 @@ export default function HeadComponent({
         href="/blog/feed.json"
       />
     </head>
-  );
+  )
 }

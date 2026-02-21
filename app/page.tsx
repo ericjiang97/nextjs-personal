@@ -1,14 +1,14 @@
-import React from "react";
-import type { GetStaticProps, NextPage } from "next";
+import React from 'react'
+import type { GetStaticProps, NextPage } from 'next'
 
-import MainLayout from "../containers/MainLayout";
-import BlogHero from "../components/BlogHero";
+import MainLayout from '../containers/MainLayout'
+import BlogHero from '../components/BlogHero'
 
-import { createClient } from "../config/prismic";
-import { IPrismicDocumentRecord } from "../types";
+import { createClient } from '../config/prismic'
+import { IPrismicDocumentRecord } from '../types'
 
 interface HomePageProps {
-  posts: IPrismicDocumentRecord[];
+  posts: IPrismicDocumentRecord[]
 }
 
 export default function HomePage({ posts }: HomePageProps) {
@@ -17,8 +17,8 @@ export default function HomePage({ posts }: HomePageProps) {
       pageTitle="Home"
       pageMeta={{
         description: "G'day, I'm Eric. I’m a Software Engineer at Google.",
-        endpoint: "/",
-        imageUrl: "/images/eric-jiang-bitbybit.jpeg",
+        endpoint: '/',
+        imageUrl: '/images/eric-jiang-bitbybit.jpeg',
       }}
     >
       <main>
@@ -28,7 +28,7 @@ export default function HomePage({ posts }: HomePageProps) {
               <div className="lg:py-24">
                 <h1 className="mt-4 text-7xl font-extrabold tracking-tight sm:mt-5 ">
                   <span className="block dark:text-white">
-                    G&apos;day I&apos;m{" "}
+                    G&apos;day I&apos;m{' '}
                     <span className="italic underline">Eric</span>
                   </span>
                   <span className="block text-rich-black dark:text-gray-200">
@@ -48,5 +48,5 @@ export default function HomePage({ posts }: HomePageProps) {
         </div>
       </main>
     </MainLayout>
-  );
+  )
 }

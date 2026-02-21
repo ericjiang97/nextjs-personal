@@ -1,32 +1,32 @@
-"use client";
+'use client'
 
-import { PrismicDocument } from "@prismicio/client";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicText, SliceZone } from "@prismicio/react";
-import moment from "moment";
-import React, { use } from "react";
-import ImagePreviewDialog from "../../../components/dialogs/ImagePreviewDialog";
-import MainLayout from "../../../containers/MainLayout";
-import { components } from "../../../slices";
-import NotFoundPage from "../../not-found";
-import { ImagePreviewContextProvider } from "../../../contexts/ImagePreviewContext";
+import { PrismicDocument } from '@prismicio/client'
+import * as prismicH from '@prismicio/helpers'
+import { PrismicText, SliceZone } from '@prismicio/react'
+import moment from 'moment'
+import React, { use } from 'react'
+import ImagePreviewDialog from '../../../components/dialogs/ImagePreviewDialog'
+import MainLayout from '../../../containers/MainLayout'
+import { components } from '../../../slices'
+import NotFoundPage from '../../not-found'
+import { ImagePreviewContextProvider } from '../../../contexts/ImagePreviewContext'
 
 declare interface AlbumPageProps {
-  data: Promise<PrismicDocument>;
+  data: Promise<PrismicDocument>
 }
 
 const AlbumContent = ({ data }: React.PropsWithChildren<AlbumPageProps>) => {
-  const album = use(data);
+  const album = use(data)
 
-  if (!album) return <NotFoundPage></NotFoundPage>;
-  const { uid } = album;
-  if (!uid) return <NotFoundPage></NotFoundPage>;
+  if (!album) return <NotFoundPage></NotFoundPage>
+  const { uid } = album
+  if (!uid) return <NotFoundPage></NotFoundPage>
 
-  const endpoint = `/album/${uid}`;
-  const firstPosted = moment(album.first_publication_date);
-  const lastUpdated = moment(album.last_publication_date);
+  const endpoint = `/album/${uid}`
+  const firstPosted = moment(album.first_publication_date)
+  const lastUpdated = moment(album.last_publication_date)
 
-  const isDateSame = firstPosted.isSameOrBefore(lastUpdated);
+  const isDateSame = firstPosted.isSameOrBefore(lastUpdated)
 
   return (
     <MainLayout
@@ -41,8 +41,8 @@ const AlbumContent = ({ data }: React.PropsWithChildren<AlbumPageProps>) => {
             <div className="mx-auto grid max-w-prose grid-cols-1 divide-y-2 divide-none text-lg">
               <span className="block text-center text-base font-semibold uppercase tracking-wide text-gray-500">
                 {!isDateSame
-                  ? `Posted on: ${firstPosted.format("DD MMMM YYYY")}`
-                  : `Last Updated: ${lastUpdated.format("DD MMMM YYYY")}`}
+                  ? `Posted on: ${firstPosted.format('DD MMMM YYYY')}`
+                  : `Last Updated: ${lastUpdated.format('DD MMMM YYYY')}`}
               </span>
               <h1>
                 <span className="mt-2 block text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
@@ -59,7 +59,7 @@ const AlbumContent = ({ data }: React.PropsWithChildren<AlbumPageProps>) => {
         <ImagePreviewDialog />
       </ImagePreviewContextProvider>
     </MainLayout>
-  );
-};
+  )
+}
 
-export default AlbumContent;
+export default AlbumContent

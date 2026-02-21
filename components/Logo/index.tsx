@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 const Logo: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
         <div className="ml-2 hidden text-lg font-bold sm:block">Eric Jiang</div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

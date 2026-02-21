@@ -1,9 +1,9 @@
-import React from "react";
-import { ThemeProvider } from "../components/ThemeProvider";
-import CoreHead from "../components/layout/CoreHead";
-import Footer from "../components/layout/Footer";
-import "../styles/globals.css";
-import NavBar from "../components/NavBar";
+import React from 'react'
+import { ThemeProvider } from '../components/ThemeProvider'
+import CoreHead from '../components/layout/CoreHead'
+import Footer from '../components/layout/Footer'
+import '../styles/globals.css'
+import NavBar from '../components/NavBar'
 
 function MyApp({ children }: { children: React.ReactNode }) {
   return (
@@ -24,7 +24,7 @@ function MyApp({ children }: { children: React.ReactNode }) {
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

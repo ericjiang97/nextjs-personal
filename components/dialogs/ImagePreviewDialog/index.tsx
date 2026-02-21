@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import React, { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import React, { Fragment } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 
-import DownloadImageButton from "../../buttons/DownloadImageButton";
+import DownloadImageButton from '../../buttons/DownloadImageButton'
 
 import {
   hideModal,
   useImagePreviewDispatch,
   useImagePreviewState,
-} from "../../../contexts/ImagePreviewContext";
+} from '../../../contexts/ImagePreviewContext'
 
 const ImagePreviewDialog: React.FC = () => {
-  const { showModal, image } = useImagePreviewState();
-  const dispatch = useImagePreviewDispatch();
+  const { showModal, image } = useImagePreviewState()
+  const dispatch = useImagePreviewDispatch()
 
   return (
     <Transition.Root show={showModal} as={Fragment}>
@@ -21,7 +21,7 @@ const ImagePreviewDialog: React.FC = () => {
         as="div"
         className="relative z-10"
         onClose={() => {
-          hideModal(dispatch);
+          hideModal(dispatch)
         }}
       >
         <Transition.Child
@@ -64,7 +64,7 @@ const ImagePreviewDialog: React.FC = () => {
                     </div>*/}
                     {image && image.url && (
                       <>
-                        <img src={image.url} alt={image.alt || ""} />
+                        <img src={image.url} alt={image.alt || ''} />
                       </>
                     )}
                   </div>
@@ -74,7 +74,7 @@ const ImagePreviewDialog: React.FC = () => {
                     type="button"
                     className="shadow-xs focus:outline-hiddenfocus:ring-2 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
                     onClick={() => {
-                      hideModal(dispatch);
+                      hideModal(dispatch)
                     }}
                   >
                     Hide Preview
@@ -89,7 +89,7 @@ const ImagePreviewDialog: React.FC = () => {
         </div>
       </Dialog>
     </Transition.Root>
-  );
-};
+  )
+}
 
-export default ImagePreviewDialog;
+export default ImagePreviewDialog

@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { use } from "react";
-import moment from "moment";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicDocument } from "@prismicio/client";
+import { use } from 'react'
+import moment from 'moment'
+import * as prismicH from '@prismicio/helpers'
+import { PrismicDocument } from '@prismicio/client'
 
 export declare interface AlbumsListProps {
-  data: Promise<PrismicDocument[]>;
+  data: Promise<PrismicDocument[]>
 }
 
 export default function AlbumsList({
   data,
 }: React.PropsWithChildren<AlbumsListProps>) {
-  const albums: PrismicDocument[] = use(data);
+  const albums: PrismicDocument[] = use(data)
 
   return (
     <div className="relative mt-4 pb-20 sm:px-6 md:mt-8 lg:px-8 lg:pb-28">
@@ -20,11 +20,11 @@ export default function AlbumsList({
         <div className="mx-auto mt-3 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-2">
           {albums.map((album: PrismicDocument) => {
             const { first_publication_date, last_publication_date, data } =
-              album;
-            const firstPosted = moment(first_publication_date);
-            const lastUpdated = moment(last_publication_date);
+              album
+            const firstPosted = moment(first_publication_date)
+            const lastUpdated = moment(last_publication_date)
 
-            const isDateSame = firstPosted.isSameOrBefore(lastUpdated);
+            const isDateSame = firstPosted.isSameOrBefore(lastUpdated)
 
             return (
               <div
@@ -49,19 +49,19 @@ export default function AlbumsList({
                       </a>
                       <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
                         {!isDateSame
-                          ? `Posted on: ${firstPosted.format("DD MMMM YYYY")}`
+                          ? `Posted on: ${firstPosted.format('DD MMMM YYYY')}`
                           : `Last Updated on: ${lastUpdated.format(
-                              "DD MMMM YYYY"
+                              'DD MMMM YYYY'
                             )}`}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
+  )
 }

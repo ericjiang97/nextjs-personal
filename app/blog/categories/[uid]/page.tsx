@@ -1,20 +1,20 @@
-import { filter } from "@prismicio/client";
-import { createClient } from "../../../../config/prismic";
-import { Suspense } from "react";
-import { BlogPosts } from "../../posts";
-import CategoryLayout from "./CategoryLayout";
-import MainLayout from "../../../../containers/MainLayout";
-import SmallHeroBanner from "../../../../components/SmallHeroBanner";
+import { filter } from '@prismicio/client'
+import { createClient } from '../../../../config/prismic'
+import { Suspense } from 'react'
+import { BlogPosts } from '../../posts'
+import CategoryLayout from './CategoryLayout'
+import MainLayout from '../../../../containers/MainLayout'
+import SmallHeroBanner from '../../../../components/SmallHeroBanner'
 
 export default async function BlogPage({
   params,
 }: {
-  params: Promise<{ uid: string }>;
+  params: Promise<{ uid: string }>
 }) {
-  const { uid } = await params;
-  const category = createClient().getByUID("category", uid);
+  const { uid } = await params
+  const category = createClient().getByUID('category', uid)
 
-  const title = `Blog - Category`;
+  const title = `Blog - Category`
 
   return (
     <Suspense
@@ -38,21 +38,21 @@ export default async function BlogPage({
     >
       <CategoryLayout category={category}></CategoryLayout>
     </Suspense>
-  );
+  )
 }
 
 export const generateStaticParams = async () => {
-  const client = createClient();
+  const client = createClient()
 
-  const blogPosts = await client.getAllByType("category", {
+  const blogPosts = await client.getAllByType('category', {
     orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
+      field: 'document.last_publication_date',
+      direction: 'desc',
     },
-  });
+  })
 
   const paths = blogPosts.map((post) => {
-    return { uid: post.uid };
-  });
-  return paths;
-};
+    return { uid: post.uid }
+  })
+  return paths
+}

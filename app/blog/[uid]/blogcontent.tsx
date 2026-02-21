@@ -1,70 +1,70 @@
-"use client";
+'use client'
 
-import { BarsArrowUpIcon } from "@heroicons/react/24/outline";
-import { PrismicDocument } from "@prismicio/client";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicText } from "@prismicio/react";
-import moment from "moment";
-import { use, useEffect, useState } from "react";
-import getReadingTime from "reading-time";
-import PrismicRichTextWrapper from "../../../components/PrismicRichTextWrapper";
-import MainLayout from "../../../containers/MainLayout";
-import classNames from "../../../utils/classNames";
-import NotFoundPage from "../../not-found";
-import CategoryChip from "../../../components/chips/CategoryChip/CategoryChip";
+import { BarsArrowUpIcon } from '@heroicons/react/24/outline'
+import { PrismicDocument } from '@prismicio/client'
+import * as prismicH from '@prismicio/helpers'
+import { PrismicText } from '@prismicio/react'
+import moment from 'moment'
+import { use, useEffect, useState } from 'react'
+import getReadingTime from 'reading-time'
+import PrismicRichTextWrapper from '../../../components/PrismicRichTextWrapper'
+import MainLayout from '../../../containers/MainLayout'
+import classNames from '../../../utils/classNames'
+import NotFoundPage from '../../not-found'
+import CategoryChip from '../../../components/chips/CategoryChip/CategoryChip'
 
 const extractTextFromRichText = (richText: any[]): string => {
   return (
     richText
-      ?.filter((node) => node.type === "paragraph" || node.type === "heading2")
+      ?.filter((node) => node.type === 'paragraph' || node.type === 'heading2')
       .map((node) => node.text)
-      .join(" ") || ""
-  );
-};
+      .join(' ') || ''
+  )
+}
 
 export default function BlogContent({
   content,
 }: {
-  content: Promise<PrismicDocument>;
+  content: Promise<PrismicDocument>
 }) {
-  const post = use(content);
+  const post = use(content)
 
-  const { uid, data } = post;
+  const { uid, data } = post
 
-  if (!uid || !data) return <NotFoundPage />;
+  if (!uid || !data) return <NotFoundPage />
 
-  const { body, published_time, summary, title, banner, category } = data;
+  const { body, published_time, summary, title, banner, category } = data
 
-  const postedDate = moment(prismicH.asDate(published_time)?.toISOString());
+  const postedDate = moment(prismicH.asDate(published_time)?.toISOString())
 
-  const endpoint = `/blog/${uid}`;
-  const postUrl = `https://ericjiang.dev${endpoint}`;
+  const endpoint = `/blog/${uid}`
+  const postUrl = `https://ericjiang.dev${endpoint}`
 
-  const hasBanner = !!banner.url;
+  const hasBanner = !!banner.url
 
-  const readingTime = extractTextFromRichText(body);
+  const readingTime = extractTextFromRichText(body)
 
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       const totalHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollTop = window.scrollY;
-      const percentage = (scrollTop / totalHeight) * 100;
-      setProgress(percentage);
-    };
+        document.documentElement.scrollHeight - window.innerHeight
+      const scrollTop = window.scrollY
+      const percentage = (scrollTop / totalHeight) * 100
+      setProgress(percentage)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <MainLayout
       pageTitle={`Blog - ${prismicH.asText(title)}`}
       pageMeta={{
         endpoint,
-        description: prismicH.asText(summary) || "",
+        description: prismicH.asText(summary) || '',
         imageUrl: `https://ericjiang.dev/api/static?blog=${uid}`,
       }}
       showProgress={true}
@@ -72,7 +72,7 @@ export default function BlogContent({
       customHero={
         <div className="mt-24 flex flex-col gap-2">
           <span className="text-start block max-w-md text-base font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-            {`Posted on: ${postedDate.format("DD MMMM YYYY")}`}
+            {`Posted on: ${postedDate.format('DD MMMM YYYY')}`}
           </span>
           <h1>
             <span className="text-start mt-2 block text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -98,8 +98,8 @@ export default function BlogContent({
             )}
             <div
               className={classNames(
-                hasBanner ? "mt-10" : "",
-                "first-letter:font-old-standard first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold dark:text-gray-300 dark:first-letter:text-white"
+                hasBanner ? 'mt-10' : '',
+                'first-letter:font-old-standard first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold dark:text-gray-300 dark:first-letter:text-white'
               )}
             >
               <PrismicRichTextWrapper page={post} />
@@ -109,7 +109,7 @@ export default function BlogContent({
       </div>
       <button
         className="fixed bottom-4 right-4 rounded-lg border border-gray-200 bg-white p-2 shadow-lg transition-colors hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <BarsArrowUpIcon
           className="h-6 w-6 dark:text-gray-300"
@@ -117,5 +117,5 @@ export default function BlogContent({
         />
       </button>
     </MainLayout>
-  );
+  )
 }

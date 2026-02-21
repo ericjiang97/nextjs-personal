@@ -1,14 +1,14 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 interface LinkButtonProps {
-  href?: string;
-  background?: string;
+  href?: string
+  background?: string
 }
 
 const LinkButton = ({
-  href = "#",
-  background = "white",
+  href = '#',
+  background = 'white',
   children,
 }: React.PropsWithChildren<LinkButtonProps>) => {
   return (
@@ -19,7 +19,7 @@ const LinkButton = ({
         {children}
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default LinkButton;
+export default LinkButton

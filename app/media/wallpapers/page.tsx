@@ -1,27 +1,27 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import SmallHeroBanner from "../../../components/SmallHeroBanner";
-import MainLayout from "../../../containers/MainLayout";
-import { wallpapers, Wallpapers } from "../../../data/wallpapers";
+import Link from 'next/link'
+import SmallHeroBanner from '../../../components/SmallHeroBanner'
+import MainLayout from '../../../containers/MainLayout'
+import { wallpapers, Wallpapers } from '../../../data/wallpapers'
 
 interface WallpapersADT extends Wallpapers {
-  previewUri?: string;
-  uri?: string;
+  previewUri?: string
+  uri?: string
 }
 
 const WallpapersPage = () => {
   const data: WallpapersADT[] = wallpapers.map((wallpaper) => {
-    const { slug } = wallpaper;
-    const publicRootDir = "/downloads/wallpapers/";
+    const { slug } = wallpaper
+    const publicRootDir = '/downloads/wallpapers/'
     const previewUri = `${publicRootDir}/${slug}/${
-      wallpaper.previewFileName ?? "preview.webp"
-    }`;
+      wallpaper.previewFileName ?? 'preview.webp'
+    }`
 
-    const uri = `${publicRootDir}/${slug}/${slug}.jpg`;
+    const uri = `${publicRootDir}/${slug}/${slug}.jpg`
 
-    return { ...wallpaper, previewUri, uri };
-  });
+    return { ...wallpaper, previewUri, uri }
+  })
 
   return (
     <MainLayout
@@ -34,8 +34,8 @@ const WallpapersPage = () => {
       }
       pageMeta={{
         description:
-          "Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for 4K, 5K & 6K displays, in addition to P3 color profiles for more vibrant colors.",
-        endpoint: "/media/wallpapers",
+          'Some of my photos edited and optimised as wallpapers, optimised for Mac & Other Displays. Includes support for 4K, 5K & 6K displays, in addition to P3 color profiles for more vibrant colors.',
+        endpoint: '/media/wallpapers',
       }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
@@ -66,7 +66,7 @@ const WallpapersPage = () => {
                 <Link
                   href={`/downloads/wallpapers/${wallpaper.slug}/${
                     wallpaper.slug
-                  }.${wallpaper.extension ?? "jpg"}`}
+                  }.${wallpaper.extension ?? 'jpg'}`}
                 >
                   <button
                     type="button"
@@ -86,7 +86,7 @@ const WallpapersPage = () => {
         </ul>
       </div>
     </MainLayout>
-  );
-};
+  )
+}
 
-export default WallpapersPage;
+export default WallpapersPage

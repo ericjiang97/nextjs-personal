@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
 interface YoutubeEmbedProps {
-  youtubeUrl: string;
+  youtubeUrl: string
 }
 
 const YoutubeEmbed = ({
   youtubeUrl,
 }: React.PropsWithChildren<YoutubeEmbedProps>) => {
-  let youtubeUrlComponents = youtubeUrl.split("/");
+  let youtubeUrlComponents = youtubeUrl.split('/')
 
-  const youtubeId = youtubeUrlComponents[youtubeUrlComponents.length - 1];
+  const youtubeId = youtubeUrlComponents[youtubeUrlComponents.length - 1]
 
   return (
     <iframe
@@ -22,7 +22,7 @@ const YoutubeEmbed = ({
       className="mt-2"
       allowFullScreen
     ></iframe>
-  );
-};
+  )
+}
 
-export default YoutubeEmbed;
+export default YoutubeEmbed

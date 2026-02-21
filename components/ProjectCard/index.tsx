@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react'
 
-import { Project } from "../../types";
-import LinkButton from "../buttons/LinkButton";
+import { Project } from '../../types'
+import LinkButton from '../buttons/LinkButton'
 
 interface ProjectCardProps {
-  project: Project;
+  project: Project
 }
 
 const ProjectCard = ({
   project,
 }: React.PropsWithChildren<ProjectCardProps>) => {
-  const { screenshotUrl } = project;
+  const { screenshotUrl } = project
   return (
     <div
       key={project.name}
@@ -43,7 +43,7 @@ const ProjectCard = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

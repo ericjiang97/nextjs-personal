@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react'
 
-import { ArrowDownTrayIcon as DownloadIcon } from "@heroicons/react/24/solid";
+import { ArrowDownTrayIcon as DownloadIcon } from '@heroicons/react/24/solid'
 
-import { ImageField } from "@prismicio/types";
+import { ImageField } from '@prismicio/types'
 
 interface DownloadImageButtonProps {
-  image: ImageField;
+  image: ImageField
 }
 
 const DownloadImageButton = ({
   image,
 }: React.PropsWithChildren<DownloadImageButtonProps>) => {
   if (!image.url) {
-    return null;
+    return null
   }
   return (
     <a
-      href={image.url.replace("?auto=compress,format", "")}
+      href={image.url.replace('?auto=compress,format', '')}
       target="_blank"
       rel="noreferrer noopener"
       type="button"
@@ -25,7 +25,7 @@ const DownloadImageButton = ({
       <DownloadIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
       Download Image
     </a>
-  );
-};
+  )
+}
 
-export default DownloadImageButton;
+export default DownloadImageButton

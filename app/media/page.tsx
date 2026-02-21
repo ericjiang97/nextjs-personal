@@ -1,35 +1,35 @@
-import { NextPage } from "next";
+import { NextPage } from 'next'
 
 import {
   MicrophoneIcon,
   PhotoIcon,
   CameraIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline'
 
-import SmallHeroBanner from "../../components/SmallHeroBanner";
-import MainLayout from "../../containers/MainLayout";
-import classNames from "../../utils/classNames";
+import SmallHeroBanner from '../../components/SmallHeroBanner'
+import MainLayout from '../../containers/MainLayout'
+import classNames from '../../utils/classNames'
 
 const actions = [
   {
-    title: "Photography",
-    href: "https://ericj.photos",
+    title: 'Photography',
+    href: 'https://ericj.photos',
     icon: CameraIcon,
-    iconForeground: "text-teal-700",
-    iconBackground: "bg-teal-50",
+    iconForeground: 'text-teal-700',
+    iconBackground: 'bg-teal-50',
     description:
       "I take photos when I'm travelling, check out my photography page!",
   },
   {
-    title: "Wallpapers",
-    href: "/media/wallpapers",
+    title: 'Wallpapers',
+    href: '/media/wallpapers',
     icon: PhotoIcon,
-    iconForeground: "text-purple-700",
-    iconBackground: "bg-purple-50",
+    iconForeground: 'text-purple-700',
+    iconBackground: 'bg-purple-50',
     description:
-      "Some of my photos that I take are edited and optimised as wallpapers.",
+      'Some of my photos that I take are edited and optimised as wallpapers.',
   },
-];
+]
 
 const MediaPage: NextPage = () => {
   return (
@@ -42,8 +42,8 @@ const MediaPage: NextPage = () => {
         />
       }
       pageMeta={{
-        description: "Check out these media and other works I do",
-        endpoint: "/media",
+        description: 'Check out these media and other works I do',
+        endpoint: '/media',
       }}
     >
       <div className="container flex max-w-7xl flex-1 flex-col">
@@ -53,14 +53,14 @@ const MediaPage: NextPage = () => {
               key={action.title}
               className={classNames(
                 actionIdx === 0
-                  ? "rounded-tl-lg rounded-tr-lg sm:rounded-tr-none"
-                  : "",
-                actionIdx === 1 ? "sm:rounded-tr-lg" : "",
-                actionIdx === actions.length - 2 ? "sm:rounded-bl-lg" : "",
+                  ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none'
+                  : '',
+                actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
+                actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
                 actionIdx === actions.length - 1
-                  ? "rounded-bl-lg rounded-br-lg sm:rounded-bl-none"
-                  : "",
-                "group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 dark:bg-gray-900"
+                  ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none'
+                  : '',
+                'group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 dark:bg-gray-900'
               )}
             >
               <div>
@@ -68,7 +68,7 @@ const MediaPage: NextPage = () => {
                   className={classNames(
                     action.iconBackground,
                     action.iconForeground,
-                    "inline-flex rounded-lg p-3 ring-4 ring-white dark:ring-gray-900"
+                    'inline-flex rounded-lg p-3 ring-4 ring-white dark:ring-gray-900'
                   )}
                 >
                   <action.icon className="h-6 w-6" aria-hidden="true" />
@@ -109,7 +109,7 @@ const MediaPage: NextPage = () => {
         </div>
       </div>
     </MainLayout>
-  );
-};
+  )
+}
 
-export default MediaPage;
+export default MediaPage

@@ -1,14 +1,14 @@
-import { NextPage } from "next";
-import Link from "next/link";
-import React from "react";
+import { NextPage } from 'next'
+import Link from 'next/link'
+import React from 'react'
 import {
   BriefcaseIcon,
   ArrowDownTrayIcon as DocumentDownloadIcon,
-} from "@heroicons/react/24/outline";
-import MainLayout from "../../containers/MainLayout";
-import experience from "../../data/experience";
-import classNames from "../../utils/classNames";
-import SmallHeroBanner from "../../components/SmallHeroBanner";
+} from '@heroicons/react/24/outline'
+import MainLayout from '../../containers/MainLayout'
+import experience from '../../data/experience'
+import classNames from '../../utils/classNames'
+import SmallHeroBanner from '../../components/SmallHeroBanner'
 
 const AboutPage: React.FC = () => {
   return (
@@ -23,13 +23,13 @@ const AboutPage: React.FC = () => {
       pageMeta={{
         description: `I recently finished my course in Bachelor of Information Technology at Monash University in
       Melbourne, Australia where I majored in Computer networks and security.`,
-        endpoint: "/about",
+        endpoint: '/about',
       }}
     >
       <div className="relative mx-auto mt-6 max-w-lg dark:text-gray-300 lg:max-w-7xl">
         <p className="first-letter:font-old-standard my-1 first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold dark:first-letter:text-white">
           As a Software Engineer on the Android SDLC BizTools Team within the
-          Android Software Development Lifecycle team at{" "}
+          Android Software Development Lifecycle team at{' '}
           <Link
             href="https://about.google"
             target="_blank"
@@ -37,12 +37,12 @@ const AboutPage: React.FC = () => {
           >
             <span className="underline">Google</span>
           </Link>
-          {". "}I work on building and maintaining business tools such as test
+          {'. '}I work on building and maintaining business tools such as test
           infrastructure, as well as shaping better processes to enable software
           and hardware teams to build the best products possible.
         </p>
         <p className="my-1">
-          If you are a recruiter, I am best contacted via email at{" "}
+          If you are a recruiter, I am best contacted via email at{' '}
           <Link href="mailto:recruiting@ericjiang.dev">
             <span className="underline">recruiting@ericjiang.dev</span>
           </Link>
@@ -64,7 +64,7 @@ const AboutPage: React.FC = () => {
         <div className="mt-8">
           <ol className="relative border-l border-gray-300 dark:border-gray-700">
             {experience.map((exp, index) => {
-              const isCompanyGoogle = exp.company === "Google";
+              const isCompanyGoogle = exp.company === 'Google'
 
               return (
                 <li className="mb-10 ml-10" key={index}>
@@ -78,24 +78,24 @@ const AboutPage: React.FC = () => {
                   >
                     <h3
                       className={classNames(
-                        "mb-1 text-lg font-semibold text-gray-900 dark:text-white",
-                        isCompanyGoogle ? "font-google-sans" : ""
+                        'mb-1 text-lg font-semibold text-gray-900 dark:text-white',
+                        isCompanyGoogle ? 'font-google-sans' : ''
                       )}
                     >
                       {exp.company}
                     </h3>
                   </Link>
                   {exp.positions.map((pos, j) => {
-                    const { title, description, dates } = pos;
-                    const { startDate, endDate } = dates;
+                    const { title, description, dates } = pos
+                    const { startDate, endDate } = dates
                     return (
                       <div className="mb-8" key={j}>
                         <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100">
                           {title}
                         </h4>
                         <span className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                          {`${startDate.format("MMM YYYY")} - ${
-                            endDate ? endDate.format("MMM YYYY") : "Present"
+                          {`${startDate.format('MMM YYYY')} - ${
+                            endDate ? endDate.format('MMM YYYY') : 'Present'
                           }`}
                         </span>
                         {description && (
@@ -106,16 +106,16 @@ const AboutPage: React.FC = () => {
                           </ul>
                         )}
                       </div>
-                    );
+                    )
                   })}
                 </li>
-              );
+              )
             })}
           </ol>
         </div>
       </div>
     </MainLayout>
-  );
-};
+  )
+}
 
-export default AboutPage;
+export default AboutPage

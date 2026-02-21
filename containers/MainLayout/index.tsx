@@ -1,21 +1,21 @@
-import React from "react";
-import Head from "next/head";
-import { MainLayoutProps } from "./MainLayout";
-import { SITE_CONFIG } from "../../config";
+import React from 'react'
+import Head from 'next/head'
+import { MainLayoutProps } from './MainLayout'
+import { SITE_CONFIG } from '../../config'
 
 const MainLayout = ({
-  pageTitle = "",
+  pageTitle = '',
   customHero,
   children,
   pageMeta,
   showProgress = false,
   progress = 0,
 }: React.PropsWithChildren<MainLayoutProps>) => {
-  const { endpoint, description, keywords, imageUrl } = pageMeta;
-  let _pageTitle = "Eric Jiang";
-  if (pageTitle) _pageTitle += ` - ${pageTitle}`;
+  const { endpoint, description, keywords, imageUrl } = pageMeta
+  let _pageTitle = 'Eric Jiang'
+  if (pageTitle) _pageTitle += ` - ${pageTitle}`
 
-  const siteDescription = description || SITE_CONFIG.description;
+  const siteDescription = description || SITE_CONFIG.description
 
   return (
     <div className="flex flex-col">
@@ -24,7 +24,7 @@ const MainLayout = ({
         <meta name="description" content={siteDescription} />
         <meta name="og:title" content={_pageTitle} />
         <meta name="description" content={siteDescription} />
-        {keywords && <meta name="keywords" content={keywords.join(", ")} />}
+        {keywords && <meta name="keywords" content={keywords.join(', ')} />}
         {endpoint && (
           <meta
             name="og:url"
@@ -70,7 +70,7 @@ const MainLayout = ({
         <div
           className={
             customHero &&
-            "flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8"
+            'flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8'
           }
         >
           {customHero ? (
@@ -87,7 +87,7 @@ const MainLayout = ({
         </div>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import { useParams } from "next/navigation";
-import { Suspense } from "react";
-import { createClient } from "../../../config/prismic";
-import MainLayout from "../../../containers/MainLayout";
-import NotFoundPage from "../../not-found";
-import BlogContent from "./blogcontent";
-import SmallHeroBanner from "../../../components/SmallHeroBanner";
+import { useParams } from 'next/navigation'
+import { Suspense } from 'react'
+import { createClient } from '../../../config/prismic'
+import MainLayout from '../../../containers/MainLayout'
+import NotFoundPage from '../../not-found'
+import BlogContent from './blogcontent'
+import SmallHeroBanner from '../../../components/SmallHeroBanner'
 
 export default function Content() {
-  const uid = useParams().uid as string;
-  if (!uid || uid.length === 0) return <NotFoundPage />;
+  const uid = useParams().uid as string
+  if (!uid || uid.length === 0) return <NotFoundPage />
 
-  const post = createClient().getByUID("blog-post", uid);
-  if (!post) return <NotFoundPage />;
+  const post = createClient().getByUID('blog-post', uid)
+  if (!post) return <NotFoundPage />
 
-  const endpoint = `/blog/${uid}`;
+  const endpoint = `/blog/${uid}`
 
   return (
     <Suspense
@@ -24,7 +24,7 @@ export default function Content() {
           pageTitle="Blog"
           pageMeta={{
             endpoint,
-            description: "",
+            description: '',
             imageUrl: `https://ericjiang.dev/api/static?blog=${uid}`,
           }}
           customHero={
@@ -50,5 +50,5 @@ export default function Content() {
     >
       <BlogContent content={post} />
     </Suspense>
-  );
+  )
 }

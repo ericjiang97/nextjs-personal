@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
-import MainLayout from "../containers/MainLayout";
+import MainLayout from '../containers/MainLayout'
 
 interface NotFoundPageProps {
-  reason?: string;
-  children?: React.ReactNode;
+  reason?: string
+  children?: React.ReactNode
 }
 
 const NotFoundPage = ({
@@ -16,13 +16,13 @@ const NotFoundPage = ({
     <MainLayout
       pageTitle="404: Page Not Found"
       pageMeta={{
-        description: "Page Cannot be Found",
+        description: 'Page Cannot be Found',
       }}
     >
       <div className="flex flex-1 flex-col items-center justify-center">
         <h2 className="text-4xl font-bold">Page Not found</h2>
         <h3 className="mt-3 flex text-2xl font-semibold text-gray-500">
-          perhaps its been deleted. Go back{" "}
+          perhaps its been deleted. Go back{' '}
           <span className="text-maroon ml-2 underline">
             {children ? children : <Link href="/">Home</Link>}
           </span>
@@ -38,7 +38,7 @@ const NotFoundPage = ({
         <img src="/images/ericshrug.png" className="block h-1/2 w-1/2" />
       </div>
     </MainLayout>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

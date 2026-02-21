@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 interface SmallHeroBanner {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
 const SmallHeroBanner = ({
@@ -22,7 +22,7 @@ const SmallHeroBanner = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SmallHeroBanner;
+export default SmallHeroBanner

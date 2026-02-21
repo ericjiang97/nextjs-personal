@@ -1,30 +1,30 @@
-import { PrismicDocument } from "@prismicio/types";
-import React, { Suspense, use } from "react";
-import MainLayout from "../../../../containers/MainLayout";
-import SmallHeroBanner from "../../../../components/SmallHeroBanner";
-import { createClient } from "../../../../config/prismic";
-import { filter } from "@prismicio/client";
-import { BlogPosts } from "../../posts";
+import { PrismicDocument } from '@prismicio/types'
+import React, { Suspense, use } from 'react'
+import MainLayout from '../../../../containers/MainLayout'
+import SmallHeroBanner from '../../../../components/SmallHeroBanner'
+import { createClient } from '../../../../config/prismic'
+import { filter } from '@prismicio/client'
+import { BlogPosts } from '../../posts'
 
 declare interface CategoryLayoutProps {
-  category: Promise<PrismicDocument>;
+  category: Promise<PrismicDocument>
 }
 
 export default function CategoryLayout({
   category,
   children,
 }: React.PropsWithChildren<CategoryLayoutProps>) {
-  const categoryData = use(category);
+  const categoryData = use(category)
 
-  const title = `Blog - Category - ${categoryData.data.category_name}`;
+  const title = `Blog - Category - ${categoryData.data.category_name}`
 
-  const posts = createClient().getAllByType("blog-post", {
-    filters: [filter.at("my.blog-post.category", categoryData.id)],
+  const posts = createClient().getAllByType('blog-post', {
+    filters: [filter.at('my.blog-post.category', categoryData.id)],
     orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
+      field: 'document.last_publication_date',
+      direction: 'desc',
     },
-  });
+  })
 
   return (
     <MainLayout
@@ -46,5 +46,5 @@ export default function CategoryLayout({
         </div>
       </Suspense>
     </MainLayout>
-  );
+  )
 }
