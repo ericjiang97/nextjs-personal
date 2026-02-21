@@ -5,29 +5,29 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
-    const [mounted, setMounted] = React.useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
 
-    // Avoid hydration mismatch
-    React.useEffect(() => {
-        setMounted(true);
-    }, []);
+  // Avoid hydration mismatch
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    if (!mounted) {
-        return <div className="p-2 w-10 h-10" />;
-    }
+  if (!mounted) {
+    return <div className="h-10 w-10 p-2" />;
+  }
 
-    return (
-        <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Toggle dark mode"
-        >
-            {theme === "dark" ? (
-                <SunIcon className="w-5 h-5 text-yellow-500" />
-            ) : (
-                <MoonIcon className="w-5 h-5 text-gray-700" />
-            )}
-        </button>
-    );
+  return (
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="rounded-md p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+      aria-label="Toggle dark mode"
+    >
+      {theme === "dark" ? (
+        <SunIcon className="h-5 w-5 text-yellow-500" />
+      ) : (
+        <MoonIcon className="h-5 w-5 text-gray-700" />
+      )}
+    </button>
+  );
 }

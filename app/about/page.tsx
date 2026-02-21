@@ -1,7 +1,10 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
-import { BriefcaseIcon, ArrowDownTrayIcon as DocumentDownloadIcon } from "@heroicons/react/24/outline";
+import {
+  BriefcaseIcon,
+  ArrowDownTrayIcon as DocumentDownloadIcon,
+} from "@heroicons/react/24/outline";
 import MainLayout from "../../containers/MainLayout";
 import experience from "../../data/experience";
 import classNames from "../../utils/classNames";
@@ -23,16 +26,20 @@ const AboutPage: React.FC = () => {
         endpoint: "/about",
       }}
     >
-      <div className="mt-6 relative mx-auto max-w-lg lg:max-w-7xl dark:text-gray-300">
-        <p className="my-1 first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left first-letter:font-old-standard dark:first-letter:text-white">
+      <div className="relative mx-auto mt-6 max-w-lg dark:text-gray-300 lg:max-w-7xl">
+        <p className="first-letter:font-old-standard my-1 first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold dark:first-letter:text-white">
           As a Software Engineer on the Android SDLC BizTools Team within the
           Android Software Development Lifecycle team at{" "}
-          <Link href="https://about.google" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://about.google"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="underline">Google</span>
           </Link>
-          {". "}I work on building and maintaining business tools such as test infrastructure, as
-          well as shaping better processes to enable software and hardware teams
-          to build the best products possible.
+          {". "}I work on building and maintaining business tools such as test
+          infrastructure, as well as shaping better processes to enable software
+          and hardware teams to build the best products possible.
         </p>
         <p className="my-1">
           If you are a recruiter, I am best contacted via email at{" "}
@@ -43,7 +50,7 @@ const AboutPage: React.FC = () => {
         <div className="mt-2">
           <a
             href="https://resume.ericjiang.dev"
-            className="inline-flex items-center rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 px-4 text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-700 focus:z-10 focus:text-blue-700 focus:outline-hiddenfocus:ring-4 focus:ring-gray-200"
+            className="focus:outline-hiddenfocus:ring-4 inline-flex items-center rounded-lg border border-gray-400 bg-white py-2 px-4 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700 focus:z-10 focus:text-blue-700 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
           >
             <DocumentDownloadIcon className="mr-2 h-4 w-4" />
             <span>View Resume</span>
@@ -57,15 +64,24 @@ const AboutPage: React.FC = () => {
         <div className="mt-8">
           <ol className="relative border-l border-gray-300 dark:border-gray-700">
             {experience.map((exp, index) => {
-              const isCompanyGoogle = exp.company === "Google"
+              const isCompanyGoogle = exp.company === "Google";
 
               return (
                 <li className="mb-10 ml-10" key={index}>
-                  <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-gray-800 ring-2 ring-blue-800">
+                  <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-white ring-2 ring-blue-800 dark:bg-gray-800">
                     <BriefcaseIcon className="h-3 w-3 text-blue-800 dark:text-blue-400" />
                   </span>
-                  <Link href={exp.companyUrl} target="_blank" rel="noopener noreferrer">
-                    <h3 className={classNames("mb-1 text-lg font-semibold text-gray-900 dark:text-white", isCompanyGoogle ? "font-google-sans" : "")}>
+                  <Link
+                    href={exp.companyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3
+                      className={classNames(
+                        "mb-1 text-lg font-semibold text-gray-900 dark:text-white",
+                        isCompanyGoogle ? "font-google-sans" : ""
+                      )}
+                    >
                       {exp.company}
                     </h3>
                   </Link>
@@ -78,8 +94,9 @@ const AboutPage: React.FC = () => {
                           {title}
                         </h4>
                         <span className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                          {`${startDate.format("MMM YYYY")} - ${endDate ? endDate.format("MMM YYYY") : "Present"
-                            }`}
+                          {`${startDate.format("MMM YYYY")} - ${
+                            endDate ? endDate.format("MMM YYYY") : "Present"
+                          }`}
                         </span>
                         {description && (
                           <ul className="ml-4 max-w-prose list-disc text-gray-600 dark:text-gray-400">

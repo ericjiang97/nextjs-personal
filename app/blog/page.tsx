@@ -5,14 +5,16 @@ import { createClient } from "../../config/prismic";
 import MainLayout from "../../containers/MainLayout";
 import { BlogPosts } from "./posts";
 
-
 function BlogPage() {
-  const page: Promise<PrismicDocument[]> = createClient().getAllByType("blog-post", {
-    orderings: {
-      field: "document.last_publication_date",
-      direction: "desc",
-    },
-  });
+  const page: Promise<PrismicDocument[]> = createClient().getAllByType(
+    "blog-post",
+    {
+      orderings: {
+        field: "document.last_publication_date",
+        direction: "desc",
+      },
+    }
+  );
 
   return (
     <MainLayout

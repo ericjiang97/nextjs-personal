@@ -10,7 +10,10 @@ interface PrismicRichTextWrapperProps {
   data?: RichTextField;
 }
 
-const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicRichTextWrapperProps>) => {
+const PrismicRichTextWrapper = ({
+  page,
+  data,
+}: React.PropsWithChildren<PrismicRichTextWrapperProps>) => {
   let _field = data || (page && page.data.body);
   return (
     <PrismicRichText
@@ -19,7 +22,7 @@ const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicR
         hyperlink: ({ children, node }) => (
           <a
             href={node.data.url}
-            className="font-semibold text-maroon dark:text-rose-400 underline"
+            className="text-maroon font-semibold underline dark:text-rose-400"
           >
             {children}
           </a>
@@ -28,15 +31,19 @@ const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicR
           <h1 className="mt-2 text-3xl font-semibold">{children}</h1>
         ),
         heading2: ({ children }) => (
-          <h2 className="mt-2 text-2xl font-semibold text-maroon dark:text-rose-400">
+          <h2 className="text-maroon mt-2 text-2xl font-semibold dark:text-rose-400">
             {children}
           </h2>
         ),
         heading3: ({ children }) => (
-          <h3 className="mt-3 text-xl font-semibold text-maroon dark:text-rose-400">{children}</h3>
+          <h3 className="text-maroon mt-3 text-xl font-semibold dark:text-rose-400">
+            {children}
+          </h3>
         ),
         heading4: ({ children }) => (
-          <h4 className="mt-3 text-lg font-semibold text-maroon dark:text-rose-400">{children}</h4>
+          <h4 className="text-maroon mt-3 text-lg font-semibold dark:text-rose-400">
+            {children}
+          </h4>
         ),
         paragraph: ({ children }) => (
           <p className="mt-3 font-sans text-base">{children}</p>
@@ -53,7 +60,9 @@ const PrismicRichTextWrapper = ({ page, data }: React.PropsWithChildren<PrismicR
           const { url, alt } = node;
           return <img src={url} alt={alt || ""} className="mt-2 self-center" />;
         },
-        preformatted: ({ children }) => <pre className="mt-2 whitespace-pre-wrap break-words">{children}</pre>,
+        preformatted: ({ children }) => (
+          <pre className="mt-2 whitespace-pre-wrap break-words">{children}</pre>
+        ),
         embed: (props) => {
           if (props.node.oembed.provider_name === "YouTube") {
             return <YoutubeEmbed youtubeUrl={props.node.oembed.embed_url} />;

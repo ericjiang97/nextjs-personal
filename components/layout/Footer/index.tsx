@@ -1,8 +1,5 @@
 import Link from "next/link";
-import React, { SVGProps } from "react";
-
-type IconProps = SVGProps<SVGSVGElement>;
-
+import { IconProps } from "./types";
 
 const navigation = {
   main: [
@@ -13,7 +10,7 @@ const navigation = {
     {
       name: "Instagram",
       href: "https://instagram.com/lorderikir",
-      icon: (props: SVGProps<SVGSVGElement>) => (
+      icon: (props: IconProps) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -26,7 +23,7 @@ const navigation = {
     {
       name: "Linkedin",
       href: "https://linkedin.com/in/ericjiang97",
-      icon: (props: SVGProps<SVGSVGElement>) => (
+      icon: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" {...props}>
           <path
             fill="currentColor"
@@ -40,7 +37,7 @@ const navigation = {
     {
       name: "Twitter",
       href: "https://twitter.com/ericjiang97",
-      icon: (props: SVGProps<SVGSVGElement>) => (
+      icon: (props: IconProps) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
@@ -49,7 +46,7 @@ const navigation = {
     {
       name: "GitHub",
       href: "https://github.com/ericjiang97",
-      icon: (props: SVGProps<SVGSVGElement>) => (
+      icon: (props: IconProps) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -74,7 +71,7 @@ export default function Footer() {
         >
           {navigation.main.map((item) => (
             <div key={item.name} className="px-5 py-2">
-              <div className="text-base text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <div className="text-base text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                 <Link href={item.href}>{item.name}</Link>
               </div>
             </div>
@@ -84,12 +81,27 @@ export default function Footer() {
           {navigation.socials.map((item) => (
             <div key={item.href}>
               <span className="sr-only">
-                <Link key={item.name} href={item.href} passHref target="_blank" rel="noopener noreferrer">
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {item.name}
                 </Link>
               </span>
-              <Link key={item.name} href={item.href} passHref target="_blank" rel="noopener noreferrer">
-                <item.icon className="h-6 w-6 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" aria-hidden="true" />
+              <Link
+                key={item.name}
+                href={item.href}
+                passHref
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <item.icon
+                  className="h-6 w-6 text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  aria-hidden="true"
+                />
               </Link>
             </div>
           ))}
@@ -99,30 +111,30 @@ export default function Footer() {
         </p>
         <div className="text-semibold mt-2 text-center text-gray-600 dark:text-gray-400">
           Powered by{" "}
-          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span className="underline transition-colors hover:text-gray-900 dark:hover:text-white">
             <Link href="https://vercel.com">Vercel</Link>
           </span>
           {" & "}
-          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span className="underline transition-colors hover:text-gray-900 dark:hover:text-white">
             <Link href="https://prismic.io/">Prismic</Link>
           </span>
           . Built in{" "}
-          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span className="underline transition-colors hover:text-gray-900 dark:hover:text-white">
             <Link href="https://nextjs.org/">NextJS</Link>
           </span>
           {" with "}{" "}
-          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span className="underline transition-colors hover:text-gray-900 dark:hover:text-white">
             <Link href="https://tailwindcss.com">Tailwind</Link>
           </span>
           . Profile Picture by{" "}
-          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span className="underline transition-colors hover:text-gray-900 dark:hover:text-white">
             <Link href="https://twitter.com/sushisamaou">sushisamaou</Link>
           </span>
           .
         </div>
         <div className="text-semibold mt-2 text-center text-gray-600 dark:text-gray-400">
           Encountering issues?{" "}
-          <span className="underline hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span className="underline transition-colors hover:text-gray-900 dark:hover:text-white">
             <Link href="https://github.com/ericjiang97/nextjs-personal/issues/new">
               Submit an issue.
             </Link>

@@ -25,24 +25,32 @@ function ProjectsPage() {
         endpoint: "/projects",
       }}
     >
-      <div className="mt-6 relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">
+      <div className="relative mx-auto mt-6 max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">
         <div className="container flex flex-1 flex-col">
-          {hasCurrentProjects &&
+          {hasCurrentProjects && (
             <>
-              <h3 className="text-2xl font-semibold dark:text-white">Current Projects</h3>
+              <h3 className="text-2xl font-semibold dark:text-white">
+                Current Projects
+              </h3>
               <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
                 {current.map((project) => (
                   <ProjectCard key={project.name} project={project} />
                 ))}
-              </div></>}
-          {hasPreviousProjects && <div className={classNames(hasCurrentProjects ? 'mt-12' : 'mt-8')}>
-            <h3 className="text-2xl font-semibold dark:text-white">Previous Projects</h3>
-            <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-              {previous.map((project) => (
-                <ProjectCard key={project.name} project={project} />
-              ))}
+              </div>
+            </>
+          )}
+          {hasPreviousProjects && (
+            <div className={classNames(hasCurrentProjects ? "mt-12" : "mt-8")}>
+              <h3 className="text-2xl font-semibold dark:text-white">
+                Previous Projects
+              </h3>
+              <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+                {previous.map((project) => (
+                  <ProjectCard key={project.name} project={project} />
+                ))}
+              </div>
             </div>
-          </div>}
+          )}
         </div>
       </div>
     </MainLayout>

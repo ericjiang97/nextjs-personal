@@ -4,7 +4,9 @@ interface YoutubeEmbedProps {
   youtubeUrl: string;
 }
 
-const YoutubeEmbed = ({ youtubeUrl }: React.PropsWithChildren<YoutubeEmbedProps>) => {
+const YoutubeEmbed = ({
+  youtubeUrl,
+}: React.PropsWithChildren<YoutubeEmbedProps>) => {
   let youtubeUrlComponents = youtubeUrl.split("/");
 
   const youtubeId = youtubeUrlComponents[youtubeUrlComponents.length - 1];

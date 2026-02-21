@@ -33,7 +33,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
             return (
               <div
                 key={post.uid}
-                className="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-900 border border-transparent dark:border-gray-800"
+                className="flex flex-col overflow-hidden rounded-lg border border-transparent bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900"
               >
                 {post.data.banner.url ? (
                   <div className="shrink-0">
@@ -52,7 +52,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
                     />
                   </div>
                 )}
-                <div className="flex flex-1 flex-col justify-between bg-white dark:bg-gray-900 p-6">
+                <div className="flex flex-1 flex-col justify-between bg-white p-6 dark:bg-gray-900">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                       <a

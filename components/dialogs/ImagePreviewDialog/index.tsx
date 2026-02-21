@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -9,7 +9,7 @@ import {
   hideModal,
   useImagePreviewDispatch,
   useImagePreviewState,
-} from "../../../contexts/ImagePreviewContext"
+} from "../../../contexts/ImagePreviewContext";
 
 const ImagePreviewDialog: React.FC = () => {
   const { showModal, image } = useImagePreviewState();
@@ -69,10 +69,10 @@ const ImagePreviewDialog: React.FC = () => {
                     )}
                   </div>
                 </div>
-                <div className="mt-5 sm:mt-6 flex justify-between items-center">
+                <div className="mt-5 flex items-center justify-between sm:mt-6">
                   <button
                     type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hiddenfocus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+                    className="shadow-xs focus:outline-hiddenfocus:ring-2 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
                     onClick={() => {
                       hideModal(dispatch);
                     }}
@@ -80,10 +80,7 @@ const ImagePreviewDialog: React.FC = () => {
                     Hide Preview
                   </button>
                   <div className="mt-1  justify-end">
-                    {
-                      image &&
-                      <DownloadImageButton image={image} />
-                    }
+                    {image && <DownloadImageButton image={image} />}
                   </div>
                 </div>
               </Dialog.Panel>

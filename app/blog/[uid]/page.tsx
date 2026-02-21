@@ -2,10 +2,8 @@ import { createClient } from "../../../config/prismic";
 import Content from "./content";
 
 export default async function BlogPage() {
-  return (
-    <Content />
-  );
-};
+  return <Content />;
+}
 
 export async function generateStaticParams() {
   const client = createClient();

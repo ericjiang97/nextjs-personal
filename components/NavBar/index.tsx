@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Disclosure } from "@headlessui/react";
@@ -17,7 +17,7 @@ const navigation: Navigation[] = [
   { name: "Albums", href: "/albums" },
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
-]
+];
 export default function NavBar() {
   const path = usePathname();
 
@@ -25,14 +25,17 @@ export default function NavBar() {
   const parentPath = path.split("/")[1];
 
   return (
-    <Disclosure as="nav" className="sticky top-0 z-50 bg-white dark:bg-gray-900">
+    <Disclosure
+      as="nav"
+      className="sticky top-0 z-50 bg-white dark:bg-gray-900"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 hover:text-white focus:outline-hiddenfocus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="focus:outline-hiddenfocus:ring-2 inline-flex items-center justify-center rounded-md p-2 hover:text-white focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -46,7 +49,7 @@ export default function NavBar() {
                   <Logo />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                  <div className="flex space-x-4 items-center">
+                  <div className="flex items-center space-x-4">
                     {navigation.map((item) => {
                       const isCurrent =
                         parentPath === item.href.replace("/", "");
@@ -54,9 +57,7 @@ export default function NavBar() {
                         <div
                           key={item.href}
                           className={classNames(
-                            isCurrent
-                              ? "bg-gray-900 text-white"
-                              : "",
+                            isCurrent ? "bg-gray-900 text-white" : "",
                             "rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white dark:text-gray-300 dark:hover:text-white"
                           )}
                         >
