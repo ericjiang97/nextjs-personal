@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
+    "build-types": "prismic-ts-codegen",
     "format": "prettier --write \"(app|components|config|constants|containers|contexts)/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
