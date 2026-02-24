@@ -12,6 +12,10 @@
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    "refresh": "prismic-ts-codegen",
+>>>>>>> Stashed changes
 =======
     "refresh": "prismic-ts-codegen",
 >>>>>>> Stashed changes
