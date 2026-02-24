@@ -11,26 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
     "refresh": "prismic-ts-codegen",
->>>>>>> Stashed changes
-=======
-    "refresh": "prismic-ts-codegen",
->>>>>>> Stashed changes
-=======
-    "refresh": "prismic-ts-codegen",
->>>>>>> Stashed changes
-=======
-    "refresh": "prismic-ts-codegen",
->>>>>>> Stashed changes
-=======
-    "refresh": "prismic-ts-codegen",
->>>>>>> Stashed changes
     "format": "prettier --write \"(app|components|config|constants|containers|contexts)/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
