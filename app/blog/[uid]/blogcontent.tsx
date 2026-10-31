@@ -29,21 +29,6 @@ export default function BlogContent({
 }) {
   const post = use(content)
 
-  const { uid, data } = post
-
-  if (!uid || !data) return <NotFoundPage />
-
-  const { body, published_time, summary, title, banner, category } = data
-
-  const postedDate = moment(prismicH.asDate(published_time)?.toISOString())
-
-  const endpoint = `/blog/${uid}`
-  const postUrl = `https://ericjiang.dev${endpoint}`
-
-  const hasBanner = !!banner.url
-
-  const readingTime = extractTextFromRichText(body)
-
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -66,6 +51,21 @@ export default function BlogContent({
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const { uid, data } = post
+
+  if (!uid || !data) return <NotFoundPage />
+
+  const { body, published_time, summary, title, banner, category } = data
+
+  const postedDate = moment(prismicH.asDate(published_time)?.toISOString())
+
+  const endpoint = `/blog/${uid}`
+  const postUrl = `https://ericjiang.dev${endpoint}`
+
+  const hasBanner = !!banner.url
+
+  const readingTime = extractTextFromRichText(body)
 
   return (
     <MainLayout

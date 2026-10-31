@@ -11,12 +11,13 @@ export default function CategoryChip({
 }: {
   category: PrismicDocument
 }) {
-  if (!category.uid) return <> </>
-
   const data = useMemo(
-    () => createClient().getByUID('category', category.uid!),
+    () =>
+      category.uid ? createClient().getByUID('category', category.uid) : null,
     [category.uid]
   )
+
+  if (!category.uid || !data) return <> </>
 
   return (
     <Suspense fallback={<span className={defaultClass}>{category.uid}</span>}>
