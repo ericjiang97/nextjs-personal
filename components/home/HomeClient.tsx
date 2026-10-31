@@ -13,7 +13,6 @@ import {
   IconShieldCheck,
   IconSparkles,
   IconTerminal2,
-  IconTrophy,
 } from '@tabler/icons-react'
 
 import MainLayout from '../../containers/MainLayout'
@@ -28,7 +27,6 @@ import { BentoGrid, BentoGridItem } from '../ui/bento-grid'
 import { HoverBorderGradient } from '../ui/hover-border-gradient'
 import { HoverEffect } from '../ui/card-hover-effect'
 import { CardSpotlight } from '../ui/card-spotlight'
-import { Meteors } from '../ui/meteors'
 import BlogHero from '../BlogHero'
 import projects from '../../data/projects'
 import talks from '../../data/talks'
@@ -122,14 +120,16 @@ export default function HomeClient({
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.05 }}
-                  className="text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-6xl lg:text-6xl dark:text-white"
+                  className="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl lg:text-[3.25rem] dark:text-white"
                 >
-                  <span className="block">
+                  <span className="block leading-[1.25]">
                     G&apos;day, I&apos;m{' '}
-                    <span className="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 bg-clip-text italic text-transparent">
-                      Eric Jiang
+                    <span className="whitespace-nowrap">
+                      <span className="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 bg-clip-text py-1 pr-1 italic text-transparent">
+                        Eric Jiang
+                      </span>
+                      .
                     </span>
-                    .
                   </span>
                   <span className="mt-3 block text-2xl font-bold leading-snug text-neutral-800 sm:text-4xl dark:text-neutral-100">
                     Crafting
@@ -236,9 +236,9 @@ export default function HomeClient({
                 </div>
               </div>
 
-              {/* Right Column: Aceternity 3D Card + Floating Orbiting Badges */}
+              {/* Right Column: Aceternity 3D Card + Floating Orbiting Badge */}
               <div className="relative lg:col-span-5">
-                {/* Floating Orbiting Badge 1 */}
+                {/* Floating Orbiting Badge */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -246,21 +246,6 @@ export default function HomeClient({
                 >
                   <IconShieldCheck className="h-4 w-4 text-sky-500" />
                   <span>Pixel Security &amp; SDLC</span>
-                </motion.div>
-
-                {/* Floating Orbiting Badge 2 */}
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{
-                    duration: 5.2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: 0.8,
-                  }}
-                  className="pointer-events-none absolute -right-2 -bottom-4 z-30 hidden items-center gap-2 rounded-2xl border border-amber-500/30 bg-white/90 px-3.5 py-2 text-xs font-bold text-neutral-800 shadow-lg backdrop-blur-md sm:flex dark:bg-neutral-900/90 dark:text-white"
-                >
-                  <IconTrophy className="h-4 w-4 text-amber-500" />
-                  <span>iTnews Rising Star</span>
                 </motion.div>
 
                 <CardContainer className="inter-var w-full">
@@ -397,7 +382,7 @@ export default function HomeClient({
           <BentoGrid>
             {/* Bento Item 1: Google Engineering */}
             <BentoGridItem
-              className="md:col-span-2"
+              className="md:col-span-3"
               href="/about"
               title="Android & Pixel SDLC Engineering at Google"
               description="Building business tools, test infrastructure, and security automation across Android & Pixel Software Development Lifecycle teams since 2020."
@@ -442,30 +427,7 @@ export default function HomeClient({
               }
             />
 
-            {/* Bento Item 2: iTnews Rising Star with Meteors */}
-            <BentoGridItem
-              className="md:col-span-1"
-              href="/about"
-              title="iTnews Rising Star Winner"
-              description="National award winner at the iTnews Benchmark Awards recognising young IT professionals across Australia."
-              icon={<IconTrophy className="h-5 w-5 text-amber-500" />}
-              header={
-                <div className="relative h-full min-h-[9rem] w-full overflow-hidden rounded-xl border border-neutral-200/60 dark:border-white/10">
-                  <img
-                    src="/images/itnews-2019benchmarkmain.webp"
-                    alt="iTnews Benchmark Awards"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover/bento:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <Meteors number={8} />
-                  <span className="absolute bottom-2.5 left-2.5 rounded-full bg-amber-500/90 px-2.5 py-0.5 text-[10px] font-bold text-black">
-                    iTnews Benchmark Awards
-                  </span>
-                </div>
-              }
-            />
-
-            {/* Bento Item 3: 6K & P3 Wallpapers */}
+            {/* Bento Item 2: 6K & P3 Wallpapers */}
             <BentoGridItem
               className="md:col-span-1"
               href="/media/wallpapers"

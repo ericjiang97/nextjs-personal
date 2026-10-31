@@ -4,7 +4,7 @@ import { RibbonShader } from './ribbon-shader'
 
 export const AmbientBackground = () => {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* GPU WebGL Ribbon Gradient Shader */}
       <RibbonShader />
 

@@ -33,7 +33,7 @@ const SmallHeroBanner = ({
           <span>{badge || title || 'Explore'}</span>
         </div>
 
-        <h1 className="bg-gradient-to-br from-neutral-950 via-neutral-800 to-neutral-500 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl lg:text-6xl dark:from-white dark:via-neutral-200 dark:to-neutral-500">
+        <h1 className="text-4xl leading-[1.2] font-extrabold tracking-tight text-neutral-900 sm:text-5xl sm:leading-[1.2] lg:text-6xl lg:leading-[1.2] dark:text-white">
           {title}
         </h1>
 

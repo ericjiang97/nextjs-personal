@@ -21,13 +21,22 @@ uniform float u_time;
 uniform vec2 u_mouse;
 uniform float u_dark;
 
-// Cosine color palette for silky ribbon gradients
-vec3 ribbonPalette(float t, float darkMode) {
-  vec3 a = mix(vec3(0.45, 0.65, 0.95), vec3(0.18, 0.42, 0.85), darkMode);
-  vec3 b = mix(vec3(0.35, 0.30, 0.45), vec3(0.45, 0.38, 0.60), darkMode);
+// Cosine color palette for dark mode neon ribbons
+vec3 darkRibbonPalette(float t) {
+  vec3 a = vec3(0.18, 0.42, 0.85);
+  vec3 b = vec3(0.45, 0.38, 0.60);
   vec3 c = vec3(1.0, 1.0, 1.0);
   vec3 d = vec3(0.05, 0.35, 0.68);
   return a + b * cos(6.28318 * (c * t + d));
+}
+
+// Vivid pigment palette for light mode silk ribbons
+vec3 lightRibbonPalette(float t) {
+  vec3 a = vec3(0.32, 0.52, 0.96);
+  vec3 b = vec3(0.36, 0.32, 0.48);
+  vec3 c = vec3(1.0, 1.0, 1.0);
+  vec3 d = vec3(0.00, 0.30, 0.65);
+  return clamp(a + b * cos(6.28318 * (c * t + d)), 0.0, 1.0);
 }
 
 void main() {
@@ -35,17 +44,19 @@ void main() {
   vec2 mouse = (u_mouse * 2.0 - 1.0);
 
   // Subtle mouse parallax warp
-  uv += mouse * 0.06 * exp(-length(uv - mouse) * 1.2);
+  uv += mouse * 0.07 * exp(-length(uv - mouse) * 1.1);
 
-  float t = u_time * 0.35;
+  float t = u_time * 0.38;
 
   // Base background colors for Light and Dark modes
-  vec3 lightBg = vec3(0.973, 0.980, 0.988);
+  vec3 lightBg = vec3(0.965, 0.976, 0.996);
   vec3 darkBg  = vec3(0.012, 0.020, 0.042);
-  vec3 bgColor = mix(lightBg, darkBg, u_dark);
 
-  vec3 ribbonAccum = vec3(0.0);
-  float alphaAccum = 0.0;
+  vec3 darkAccum = vec3(0.0);
+  vec3 lightColor = lightBg;
+
+  // Soft vignette
+  float vignette = smoothstep(2.3, 0.3, length(uv * vec2(0.75, 0.95)));
 
   // Render 5 layered flowing silk ribbons
   for (float i = 0.0; i < 5.0; i++) {
@@ -63,33 +74,28 @@ void main() {
     float dist = abs(p.y - wave + (i - 2.0) * 0.18);
 
     // Core silk strand + soft atmospheric bloom
-    float core = 0.014 / (dist + 0.018);
-    float halo = smoothstep(0.55, 0.0, dist) * 0.45;
-    float intensity = pow(core, 1.15) * 0.42 + halo;
+    float core = 0.015 / (dist + 0.018);
+    float halo = smoothstep(0.58, 0.0, dist) * 0.48;
+    float intensity = pow(core, 1.12) * 0.42 + halo;
 
     // Twist shimmer along the ribbon length
     float shimmer = 0.65 + 0.35 * sin(p.x * 3.5 - t * 1.8 + i * 1.7);
     intensity *= shimmer;
 
-    vec3 col = ribbonPalette(p.x * 0.28 + i * 0.19 + t * 0.12, u_dark);
+    float colorPhase = p.x * 0.28 + i * 0.21 + t * 0.14;
 
-    ribbonAccum += col * intensity;
-    alphaAccum += intensity * 0.22;
+    // Dark mode additive glow
+    vec3 dCol = darkRibbonPalette(colorPhase);
+    darkAccum += dCol * intensity * vignette;
+
+    // Light mode pigment alpha-blending over light pearl canvas
+    vec3 lCol = lightRibbonPalette(colorPhase);
+    float ribbonAlpha = clamp((smoothstep(0.45, 0.0, dist) * 0.38 + clamp(core * 0.28, 0.0, 0.55)) * shimmer * vignette, 0.0, 0.68);
+    lightColor = mix(lightColor, lCol, ribbonAlpha);
   }
 
-  // Soft vignette so edges stay clean
-  float vignette = smoothstep(2.2, 0.35, length(uv * vec2(0.75, 0.95)));
-  ribbonAccum *= vignette;
-
-  // Composite differently for Dark vs Light mode for optimal contrast
-  vec3 darkResult = bgColor + ribbonAccum * 0.55;
-  vec3 lightResult = mix(
-    bgColor,
-     vec3(0.22, 0.52, 0.96) * 0.35 + ribbonAccum * 0.45,
-    clamp(alphaAccum * vignette * 0.42, 0.0, 0.38)
-  );
-
-  vec3 finalColor = mix(lightResult, darkResult, u_dark);
+  vec3 darkResult = darkBg + darkAccum * 0.55;
+  vec3 finalColor = mix(lightColor, darkResult, u_dark);
 
   gl_FragColor = vec4(finalColor, 1.0);
 }
@@ -142,7 +148,6 @@ export const RibbonShader = ({ className }: { className?: string }) => {
 
     gl.useProgram(program)
 
-    // Fullscreen quad
     const buffer = gl.createBuffer()
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
     gl.bufferData(
@@ -180,15 +185,22 @@ export const RibbonShader = ({ className }: { className?: string }) => {
 
     let rafId = 0
     const startTime = performance.now()
-    let currentDark = isDarkRef.current
+    let currentDark =
+      typeof document !== 'undefined' &&
+      !document.documentElement.classList.contains('dark')
+        ? 0
+        : isDarkRef.current
 
     const render = (now: number) => {
       const elapsed = (now - startTime) * 0.001
 
-      // Smoothly interpolate mouse and theme uniform
+      // Also check DOM class directly in case theme changed
+      const domDark = document.documentElement.classList.contains('dark')
+        ? 1
+        : 0
       mouseCurrent.x += (mouseTarget.x - mouseCurrent.x) * 0.06
       mouseCurrent.y += (mouseTarget.y - mouseCurrent.y) * 0.06
-      currentDark += (isDarkRef.current - currentDark) * 0.08
+      currentDark += (domDark - currentDark) * 0.08
 
       gl.uniform2f(uResolution, canvas.width, canvas.height)
       gl.uniform1f(uTime, elapsed)
@@ -217,7 +229,7 @@ export const RibbonShader = ({ className }: { className?: string }) => {
       ref={canvasRef}
       aria-hidden="true"
       className={cn(
-        'pointer-events-none fixed inset-0 -z-10 h-full w-full',
+        'pointer-events-none fixed inset-0 z-0 h-full w-full',
         className
       )}
     />

@@ -10,7 +10,7 @@ const MainLayout = ({
 }: React.PropsWithChildren<MainLayoutProps>) => {
   return (
     <div className="relative flex min-h-[calc(100vh-12rem)] flex-1 flex-col">
-      {/* Multi-Layer Aceternity Ambient Background (Aurora + Grid Lasers + Cursor Spotlight) */}
+      {/* Multi-Layer Aceternity Ambient Background (WebGL Ribbon Shader + Grid) */}
       <AmbientBackground />
 
       {showProgress && (
@@ -22,7 +22,7 @@ const MainLayout = ({
         </div>
       )}
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pt-4 pb-16 sm:px-6 lg:px-8">
+      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pt-4 pb-16 sm:px-6 lg:px-8">
         {customHero && <div className="mb-10 w-full">{customHero}</div>}
         <div className="w-full flex-1">{children}</div>
       </main>

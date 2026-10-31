@@ -8,6 +8,8 @@
   font-weight: 300 900;
   font-display: swap;
   font-style: normal;
+  ascent-override: 105%;
+  descent-override: 30%;
 }
 
 @theme {
@@ -23,6 +25,10 @@
   --font-old-standard: "Old Standard TT", serif;
   --font-google-sans: "Google Sans Display", "Google Sans", sans-serif;
   --font-sans: Satoshi-Variable, sans-serif;
+
+  --text-5xl--line-height: 1.2;
+  --text-6xl--line-height: 1.2;
+  --text-7xl--line-height: 1.2;
 
   --background: #f8fafc;
   --foreground: #09090b;
