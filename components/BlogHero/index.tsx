@@ -1,98 +1,55 @@
+'use client'
 import React from 'react'
-
-import * as prismicH from '@prismicio/helpers'
+import Link from 'next/link'
+import { IconArrowUpRight, IconRss } from '@tabler/icons-react'
 
 import { IPrismicDocumentRecord } from '../../types'
-import moment from 'moment'
+import BlogCard from '../cards/BlogCard'
 
 interface BlogHeroProps {
   posts: IPrismicDocumentRecord[]
 }
 
 const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
-  return (
-    <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
-      <div className="relative mx-auto max-w-7xl">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
-            From my blog
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 dark:text-gray-400 sm:mt-4">
-            I occassionally write on my blog about tech, projects, reviews (and
-            will add photography and travel in the future)... so here&apos;s
-            some of them.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-          {posts.slice(0, 3).map((post) => {
-            const postLength = (prismicH.asText(post.data.body) || '').split(
-              ' '
-            ).length
-            const readingTime = Math.floor(postLength / 200)
+  if (!posts || posts.length === 0) return null
 
-            return (
-              <div
-                key={post.uid}
-                className="flex flex-col overflow-hidden rounded-lg border border-transparent bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900"
-              >
-                {post.data.banner.url ? (
-                  <div className="shrink-0">
-                    <img
-                      className="h-48 w-full object-cover"
-                      src={post.data.banner.url}
-                      alt={post.data.banner.alt}
-                    />
-                  </div>
-                ) : (
-                  <div className="shrink-0 bg-cyan-100 dark:bg-cyan-900">
-                    <img
-                      className="h-48 w-full object-cover"
-                      src="/images/content_creation_flag.png"
-                      alt="Blog post"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col justify-between bg-white p-6 dark:bg-gray-900">
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                      <a
-                        href={`/blog/category/${post.data.category.uid}`}
-                        className="hover:underline"
-                      >
-                        {post.data.category.slug}
-                      </a>
-                    </p>
-                    <a href={`/blog/${post.uid}`} className="mt-2 block">
-                      <p className="text-xl font-semibold text-gray-900 dark:text-white">
-                        {prismicH.asText(post.data.title)}
-                      </p>
-                      <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
-                        {prismicH.asText(post.data.summary)}
-                      </p>
-                    </a>
-                  </div>
-                  <div className="mt-6 flex items-center">
-                    <div className="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                      <time
-                        dateTime={prismicH
-                          .asDate(post.data.published_time)
-                          ?.toISOString()}
-                      >
-                        {moment(
-                          prismicH.asDate(post.data.published_time)
-                        ).format('Do MMMM YYYY')}
-                      </time>
-                      <span aria-hidden="true">&middot;</span>
-                      <span>{readingTime} min read</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+  return (
+    <section className="relative w-full">
+      <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <span className="text-xs font-bold tracking-widest text-sky-600 uppercase dark:text-sky-400">
+            Articles &amp; Deep Dives
+          </span>
+          <h2 className="mt-1 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">
+            Latest from the Blog
+          </h2>
+        </div>
+        <div className="flex items-center gap-4">
+          <a
+            href="/blog/feed.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200/80 bg-white/80 px-3 py-1.5 text-xs font-semibold text-neutral-600 transition-colors hover:border-amber-500/40 hover:text-amber-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300 dark:hover:text-amber-400"
+          >
+            <IconRss className="h-3.5 w-3.5 text-amber-500" />
+            <span>RSS</span>
+          </a>
+          <Link
+            href="/blog"
+            className="group inline-flex items-center gap-1 text-sm font-semibold text-sky-600 dark:text-sky-400"
+          >
+            <span>View all {posts.length} articles</span>
+            <IconArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
       </div>
-    </div>
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {posts.slice(0, 3).map((post) => (
+          <BlogCard key={post.uid} post={post} />
+        ))}
+      </div>
+    </section>
   )
 }
 

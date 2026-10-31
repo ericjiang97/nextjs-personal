@@ -1,45 +1,38 @@
-import React from "react";
+import React from 'react'
+import ReactBeforeSliderComponent from 'react-before-after-slider-component'
+import 'react-before-after-slider-component/dist/build.css'
 
-import { ArrowDownTrayIcon as DownloadIcon } from "@heroicons/react/24/solid";
-
-import ReactBeforeSliderComponent from "react-before-after-slider-component";
-import "react-before-after-slider-component/dist/build.css";
-
-import { ImageField, KeyTextField } from "@prismicio/types";
-import DownloadImageButton from "../../components/buttons/DownloadImageButton";
+import { ImageField, KeyTextField } from '@prismicio/types'
+import DownloadImageButton from '../../components/buttons/DownloadImageButton'
 
 interface BeforeAfterSlice {
   slice: {
     primary: {
-      before_image: ImageField;
-      after_image: ImageField;
-      title: KeyTextField;
-    };
-  };
+      before_image: ImageField
+      after_image: ImageField
+      title: KeyTextField
+    }
+  }
 }
-/**
- * @typedef {import("@prismicio/client").Content.BeforeAfterSlice} BeforeAfterSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<BeforeAfterSlice>} BeforeAfterProps
- * @param { BeforeAfterProps }
- */
+
 const BeforeAfter = ({ slice }: React.PropsWithChildren<BeforeAfterSlice>) => {
-  const { before_image, after_image, title } = slice.primary;
+  const { before_image, after_image, title } = slice.primary
   return (
-    <div className="my-3">
+    <div className="my-8 overflow-hidden rounded-2xl border border-neutral-200/80 bg-neutral-50/60 p-4 dark:border-white/10 dark:bg-white/[0.03]">
       {title && (
-        <div className="mt-1">
-          <h2 className="text-lg font-semibold text-blue-700">{title}</h2>
-        </div>
+        <h2 className="mb-3 text-lg font-bold text-neutral-900 dark:text-white">
+          {title}
+        </h2>
       )}
-      <div className="mt-2 w-full">
+      <div className="w-full overflow-hidden rounded-xl">
         {before_image.url && after_image.url && (
           <ReactBeforeSliderComponent
             firstImage={{
-              alt: before_image.alt || "",
+              alt: before_image.alt || '',
               imageUrl: before_image.url,
             }}
             secondImage={{
-              alt: after_image.alt || "",
+              alt: after_image.alt || '',
               imageUrl: after_image.url,
             }}
             className="w-full"
@@ -47,12 +40,12 @@ const BeforeAfter = ({ slice }: React.PropsWithChildren<BeforeAfterSlice>) => {
         )}
       </div>
       {after_image.url && (
-        <div className="mt-1 flex w-full justify-end">
+        <div className="mt-3 flex w-full justify-end">
           <DownloadImageButton image={after_image} />
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default BeforeAfter;
+export default BeforeAfter

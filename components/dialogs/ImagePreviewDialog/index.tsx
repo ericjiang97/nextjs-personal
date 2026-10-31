@@ -4,7 +4,6 @@ import React, { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
 import DownloadImageButton from '../../buttons/DownloadImageButton'
-
 import {
   hideModal,
   useImagePreviewDispatch,
@@ -19,7 +18,7 @@ const ImagePreviewDialog: React.FC = () => {
     <Transition.Root show={showModal} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-10"
+        className="relative z-50"
         onClose={() => {
           hideModal(dispatch)
         }}
@@ -33,11 +32,11 @@ const ImagePreviewDialog: React.FC = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-black/75 transition-opacity" />
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity" />
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full items-center justify-center p-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -47,41 +46,27 @@ const ImagePreviewDialog: React.FC = () => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative w-full transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:max-w-sm sm:p-6 md:max-w-4xl">
-                <div>
-                  <div className="mt-3 text-center sm:mt-5">
-                    {/* <Dialog.Title
-                      as="h3"
-                      className="text-lg font-medium leading-6 text-gray-900"
-                    >
-                      Payment successful
-                    </Dialog.Title> */}
-                    {/* <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Consequatur amet labore.
-                      </p>
-                    </div>*/}
-                    {image && image.url && (
-                      <>
-                        <img src={image.url} alt={image.alt || ''} />
-                      </>
-                    )}
+              <Dialog.Panel className="relative w-full max-w-4xl transform overflow-hidden rounded-3xl border border-neutral-200/80 bg-white/95 p-5 text-left shadow-2xl backdrop-blur-xl transition-all dark:border-white/10 dark:bg-neutral-900/95">
+                {image && image.url && (
+                  <div className="overflow-hidden rounded-2xl">
+                    <img
+                      src={image.url}
+                      alt={image.alt || ''}
+                      className="max-h-[75vh] w-full object-contain"
+                    />
                   </div>
-                </div>
-                <div className="mt-5 flex items-center justify-between sm:mt-6">
+                )}
+                <div className="mt-5 flex items-center justify-between gap-3">
                   <button
                     type="button"
-                    className="shadow-xs focus:outline-hiddenfocus:ring-2 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+                    className="inline-flex justify-center rounded-xl border border-neutral-200 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:bg-neutral-200 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
                     onClick={() => {
                       hideModal(dispatch)
                     }}
                   >
-                    Hide Preview
+                    Close Preview
                   </button>
-                  <div className="mt-1  justify-end">
-                    {image && <DownloadImageButton image={image} />}
-                  </div>
+                  <div>{image && <DownloadImageButton image={image} />}</div>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

@@ -3,41 +3,131 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'Satoshi-Variable';
-    src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
-    font-weight: 300 900;
-    font-display: swap;
-    font-style: normal;
+  font-family: 'Satoshi-Variable';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+  ascent-override: 105%;
+  descent-override: 30%;
 }
 
 @theme {
-    --color-maroon: #8D4F64;
+  --color-maroon: #8D4F64;
+  --color-rich-black: #023C40;
+  --color-independence: #4B4A67;
+  --color-rosewood: #570000;
+  --color-space-cadet: #2B2D42;
+  --color-imperial-red: #EF233C;
+  --color-crimson: #D80032;
 
-    /* This creates a new utility class: .font-roboto */
-    --font-satoshi: Satoshi-Variable, sans-serif;
+  --font-satoshi: Satoshi-Variable, sans-serif;
+  --font-old-standard: "Old Standard TT", serif;
+  --font-google-sans: "Google Sans Display", "Google Sans", sans-serif;
+  --font-sans: Satoshi-Variable, sans-serif;
 
-    --font-old-standard: "Old Standard TT", serif;
+  --text-5xl--line-height: 1.2;
+  --text-6xl--line-height: 1.2;
+  --text-7xl--line-height: 1.2;
 
-    --font-google-sans: "Google Sans", sans-serif;
+  --background: #f8fafc;
+  --foreground: #09090b;
 
-    /* Or redefine the default --font-sans globally */
-    --font-sans: Satoshi-Variable, sans-serif;
+  --animate-spotlight: spotlight 2s ease 0.35s 1 forwards;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-meteor-effect: meteor 5s linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
 
-    --spacing: 5px;
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
 
-    --background: #ffffff;
-    --foreground: #171717;
+@keyframes shimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-450px);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
 }
 
 @variant dark (&:where(.dark, .dark *));
 
 .dark {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --background: #03050a;
+  --foreground: #f4f4f5;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--background);
-    color: var(--foreground);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Aceternity UI Subtle Grid & Dot Backgrounds */
+.bg-grid-pattern {
+  background-size: 44px 44px;
+  background-image:
+    linear-gradient(to right, rgba(14, 165, 233, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.16) 1px, transparent 1px);
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
 }

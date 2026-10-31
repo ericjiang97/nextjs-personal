@@ -15,8 +15,9 @@ function ProjectsPage() {
       pageTitle="Projects"
       customHero={
         <SmallHeroBanner
+          badge="Open Source & Products"
           title="Projects"
-          description="Whether its a side project, or a product I'm working on at work, I bring my knowledge and energy to help build the most awesome, delightful, secure products for everyone."
+          description="Whether it's a side project, or a product I'm working on at work, I bring my knowledge and energy to help build the most awesome, delightful, secure products for everyone."
         />
       }
       pageMeta={{
@@ -25,35 +26,45 @@ function ProjectsPage() {
         endpoint: '/projects',
       }}
     >
-      <div className="relative mx-auto mt-6 max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">
-        <div className="container flex flex-1 flex-col">
-          {hasCurrentProjects && (
-            <>
-              <h3 className="text-2xl font-semibold dark:text-white">
+      <div className="mx-auto w-full">
+        {hasCurrentProjects && (
+          <section className="mb-14">
+            <div className="mb-6">
+              <span className="text-xs font-bold tracking-widest text-sky-600 uppercase dark:text-sky-400">
+                Active
+              </span>
+              <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
                 Current Projects
-              </h3>
-              <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                {current.map((project) => (
-                  <ProjectCard key={project.name} project={project} />
-                ))}
-              </div>
-            </>
-          )}
-          {hasPreviousProjects && (
-            <div className={classNames(hasCurrentProjects ? 'mt-12' : 'mt-8')}>
-              <h3 className="text-2xl font-semibold dark:text-white">
-                Previous Projects
-              </h3>
-              <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                {previous.map((project) => (
-                  <ProjectCard key={project.name} project={project} />
-                ))}
-              </div>
+              </h2>
             </div>
-          )}
-        </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {current.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {hasPreviousProjects && (
+          <section className={classNames(hasCurrentProjects ? 'mt-12' : '')}>
+            <div className="mb-6">
+              <span className="text-xs font-bold tracking-widest text-sky-600 uppercase dark:text-sky-400">
+                Archive &amp; Highlights
+              </span>
+              <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
+                Previous Projects
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {previous.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </MainLayout>
   )
 }
+
 export default ProjectsPage

@@ -21,21 +21,31 @@ function BlogPage() {
       pageTitle="Blog"
       customHero={
         <SmallHeroBanner
+          badge="Articles & Thoughts"
           title="Blog"
-          description="I occasionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
+          description="I occasionally write on my blog about tech, projects, food, reviews (and photography & travel)... so here's some of them."
         />
       }
       pageMeta={{
         description:
-          "I occassionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them",
+          "I occasionally write on my blog about tech, projects, reviews (and will add photography and travel in the future)... so here's some of them",
         endpoint: '/blog',
       }}
     >
-      <div className="px-4 pt-0 pb-20 sm:px-6 lg:px-4 lg:pt-0 lg:pb-28">
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl">
-            <BlogPosts posts={page} />
-          </div>
+      <div className="pb-12">
+        <Suspense
+          fallback={
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="h-44 animate-pulse rounded-2xl border border-neutral-200/80 bg-neutral-100/70 p-6 dark:border-white/10 dark:bg-neutral-900/50"
+                />
+              ))}
+            </div>
+          }
+        >
+          <BlogPosts posts={page} />
         </Suspense>
       </div>
     </MainLayout>

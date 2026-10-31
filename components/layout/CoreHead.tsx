@@ -1,12 +1,16 @@
-'use client'
-
 import React from 'react'
+
+const THEME_INIT_SCRIPT = `(function(){try{var s=localStorage.getItem('theme')||'system';var d=s==='dark'||(s==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(d?'dark':'light');r.style.colorScheme=d?'dark':'light';}catch(e){}})();`
 
 export default function HeadComponent({
   children,
 }: React.PropsWithChildren<{}>) {
   return (
     <head>
+      <script
+        dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        suppressHydrationWarning
+      />
       <meta name="og:type" content="website" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link
@@ -92,6 +96,7 @@ export default function HeadComponent({
         title="RSS Feed for ericjiang.dev blog"
         href="/blog/feed.json"
       />
+      {children}
     </head>
   )
 }
