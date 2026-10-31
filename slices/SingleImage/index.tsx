@@ -1,50 +1,52 @@
-import React from "react";
-import { PrismicText } from "@prismicio/react";
-
-import { ImageField, KeyTextField } from "@prismicio/types";
-import DownloadImageButton from "../../components/buttons/DownloadImageButton";
+import React from 'react'
+import { ImageField, KeyTextField } from '@prismicio/types'
+import DownloadImageButton from '../../components/buttons/DownloadImageButton'
 import {
   showModal,
   useImagePreviewDispatch,
-} from "../../contexts/ImagePreviewContext";
+} from '../../contexts/ImagePreviewContext'
 
 interface SingleImageProps {
   slice: {
     primary: {
-      image: ImageField;
-      description: KeyTextField;
-    };
-  };
+      image: ImageField
+      description: KeyTextField
+    }
+  }
 }
-/**
- * @typedef {import("@prismicio/client").Content.SingleImageSlice} SingleImageSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<SingleImageSlice>} SingleImageProps
- * @param { SingleImageProps }
- */
+
 const SingleImage = ({ slice }: React.PropsWithChildren<SingleImageProps>) => {
-  const dispatch = useImagePreviewDispatch();
+  const dispatch = useImagePreviewDispatch()
 
-  const { image, description } = slice.primary;
+  const { image, description } = slice.primary
   return (
-    <div className="my-3">
+    <figure className="my-6 overflow-hidden rounded-2xl border border-neutral-200/80 bg-neutral-50/60 p-3 shadow-sm dark:border-white/10 dark:bg-white/[0.03]">
       {image && image.url && (
-        <img
-          src={image.url}
-          alt={image.alt || description || ""}
+        <div
+          className="cursor-zoom-in overflow-hidden rounded-xl"
           onClick={() => {
-            showModal(dispatch, image);
+            showModal(dispatch, image)
           }}
-        />
+        >
+          <img
+            src={image.url}
+            alt={image.alt || description || ''}
+            className="w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+          />
+        </div>
       )}
-      <div className="mt-2 flex items-center">
+      <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-2 px-1">
         {description && (
-          <div className="font-semibold text-gray-700">{description}</div>
+          <div className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+            {description}
+          </div>
         )}
-        <div className="flex-1" />
-        <DownloadImageButton image={image} />
-      </div>
-    </div>
-  );
-};
+        <div className="ml-auto">
+          <DownloadImageButton image={image} />
+        </div>
+      </figcaption>
+    </figure>
+  )
+}
 
-export default SingleImage;
+export default SingleImage

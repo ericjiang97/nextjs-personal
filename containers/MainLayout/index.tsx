@@ -1,90 +1,30 @@
 import React from 'react'
-import Head from 'next/head'
 import { MainLayoutProps } from './MainLayout'
-import { SITE_CONFIG } from '../../config'
+import { AmbientBackground } from '../../components/ui/ambient-background'
 
 const MainLayout = ({
-  pageTitle = '',
   customHero,
   children,
-  pageMeta,
   showProgress = false,
   progress = 0,
 }: React.PropsWithChildren<MainLayoutProps>) => {
-  const { endpoint, description, keywords, imageUrl } = pageMeta
-  let _pageTitle = 'Eric Jiang'
-  if (pageTitle) _pageTitle += ` - ${pageTitle}`
-
-  const siteDescription = description || SITE_CONFIG.description
-
   return (
-    <div className="flex flex-col">
-      <Head>
-        <title>{_pageTitle}</title>
-        <meta name="description" content={siteDescription} />
-        <meta name="og:title" content={_pageTitle} />
-        <meta name="description" content={siteDescription} />
-        {keywords && <meta name="keywords" content={keywords.join(', ')} />}
-        {endpoint && (
-          <meta
-            name="og:url"
-            content={`${SITE_CONFIG.urls.BASE_URL}${endpoint}`}
+    <div className="relative flex min-h-[calc(100vh-12rem)] flex-1 flex-col">
+      {/* Multi-Layer Aceternity Ambient Background (Aurora + Grid Lasers + Cursor Spotlight) */}
+      <AmbientBackground />
+
+      {showProgress && (
+        <div className="fixed top-0 right-0 left-0 z-[60] h-1 bg-transparent">
+          <div
+            className="h-1 rounded-r-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-[width] duration-100"
+            style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
           />
-        )}
-        <meta name="og:description" content={siteDescription} />
-        {imageUrl ? (
-          <>
-            <meta name="og:image" content={imageUrl} />
-            <meta name="twitter:image" content={imageUrl}></meta>
-          </>
-        ) : (
-          <>
-            <meta
-              name="og:image"
-              content={`https://ericjiang.dev/api/static?title=${_pageTitle}`}
-            />
-            <meta
-              name="twitter:image"
-              content={`https://ericjiang.dev/api/static?title=${_pageTitle}`}
-            ></meta>
-          </>
-        )}
-        <meta
-          property="twitter:url"
-          content={`${SITE_CONFIG.urls.BASE_URL}${endpoint}`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={siteDescription} />
-      </Head>
-
-      <main className="flex flex-1 flex-col justify-start">
-        {showProgress && (
-          <div className="sticky top-16 z-50 w-full bg-white dark:bg-gray-900">
-            <div
-              className="h-1 rounded-r-full bg-rose-400 transition-[width] duration-100"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-        )}
-        <div
-          className={
-            customHero &&
-            'flex flex-row flex-wrap items-start px-4 sm:px-6 lg:px-8'
-          }
-        >
-          {customHero ? (
-            <div className="top-8 mt-12 flex max-w-md flex-col text-lg 2xl:sticky">
-              {customHero}
-            </div>
-          ) : null}
-
-          <div className="mt-8">
-            <div className="container mx-auto flex max-w-5xl flex-1 flex-col self-center  px-4 ">
-              {children}
-            </div>
-          </div>
         </div>
+      )}
+
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pt-4 pb-16 sm:px-6 lg:px-8">
+        {customHero && <div className="mb-10 w-full">{customHero}</div>}
+        <div className="w-full flex-1">{children}</div>
       </main>
     </div>
   )

@@ -9,23 +9,23 @@ import PlausibleProvider from 'next-plausible'
 function MyApp({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <PlausibleProvider src="https://analytics.ericj.app/js/pa-lbEEBCE5mYAVgOsD_CRqQ.js">
-        <CoreHead />
-        <body className="min-h-screen w-screen">
+      <CoreHead />
+      <body className="min-h-screen w-full overflow-x-hidden antialiased">
+        <PlausibleProvider src="https://analytics.ericj.app/js/pa-lbEEBCE5mYAVgOsD_CRqQ.js">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <main className="flex flex-1 flex-col justify-start">
+            <div className="flex min-h-screen flex-1 flex-col justify-between">
               <NavBar />
               {children}
               <Footer />
-            </main>
+            </div>
           </ThemeProvider>
-        </body>
-      </PlausibleProvider>
+        </PlausibleProvider>
+      </body>
     </html>
   )
 }
