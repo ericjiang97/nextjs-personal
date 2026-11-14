@@ -1,11 +1,8 @@
-'use client' // Required directive
+'use client'
 
 import { useEffect } from 'react'
-import MainLayout from '../../../containers/MainLayout'
 import { useParams } from 'next/navigation'
-import NotFoundPage from '../../not-found'
-import { NotFoundError } from '@prismicio/client'
-import Link from 'next/link'
+import MainLayout from '../../../containers/MainLayout'
 
 export default function Error({
   error,
@@ -15,20 +12,11 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error)
   }, [error])
 
   const uid = useParams().uid as string
   const endpoint = `/blog/${uid}`
-
-  if (error instanceof NotFoundError) {
-    return (
-      <NotFoundPage>
-        <Link href="/blog">to Blog</Link>
-      </NotFoundPage>
-    )
-  }
 
   return (
     <MainLayout

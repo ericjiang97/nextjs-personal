@@ -1,29 +1,30 @@
-import { PrismicDocument } from '@prismicio/client'
-import { Suspense } from 'react'
 import SmallHeroBanner from '../../components/SmallHeroBanner'
-import { createClient } from '../../config/prismic'
 import MainLayout from '../../containers/MainLayout'
 import { BlogPosts } from './posts'
+import { sanityFetch } from '../../sanity/lib/live'
+import { BLOG_POSTS_QUERY } from '../../sanity/lib/queries'
+import { DEFAULT_SITE_SETTINGS } from '../../sanity/lib/defaults'
 
-function BlogPage() {
-  const page: Promise<PrismicDocument[]> = createClient().getAllByType(
-    'blog-post',
-    {
-      orderings: {
-        field: 'document.last_publication_date',
-        direction: 'desc',
-      },
-    }
-  )
+export default async function BlogPage() {
+  let data: any = null
+  try {
+    const res = await sanityFetch({ query: BLOG_POSTS_QUERY })
+    data = res.data
+  } catch {
+    data = null
+  }
+
+  const settings = { ...DEFAULT_SITE_SETTINGS, ...(data?.settings || {}) }
+  const posts = data?.posts || []
 
   return (
     <MainLayout
       pageTitle="Blog"
       customHero={
         <SmallHeroBanner
-          badge="Articles & Thoughts"
-          title="Blog"
-          description="I occasionally write on my blog about tech, projects, food, reviews (and photography & travel)... so here's some of them."
+          badge={settings.blogHeroBadge}
+          title={settings.blogHeroTitle || 'Blog'}
+          description={settings.blogHeroDescription || ''}
         />
       }
       pageMeta={{
@@ -33,23 +34,8 @@ function BlogPage() {
       }}
     >
       <div className="pb-12">
-        <Suspense
-          fallback={
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="h-44 animate-pulse rounded-2xl border border-neutral-200/80 bg-neutral-100/70 p-6 dark:border-white/10 dark:bg-neutral-900/50"
-                />
-              ))}
-            </div>
-          }
-        >
-          <BlogPosts posts={page} />
-        </Suspense>
+        <BlogPosts posts={posts} />
       </div>
     </MainLayout>
   )
 }
-
-export default BlogPage

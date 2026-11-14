@@ -1,7 +1,6 @@
 import { ImageResponse } from '@vercel/og'
-import { createClient } from '../../config/prismic'
-import * as prismicH from '@prismicio/helpers'
-import { IPrismicDocumentRecord } from '../../types'
+import { client } from '../../sanity/lib/client'
+import { OG_BLOG_QUERY, OG_TALK_QUERY } from '../../sanity/lib/queries'
 
 export const config = {
   runtime: 'experimental-edge',
@@ -23,49 +22,45 @@ export const OpenGraphPage = async (req: any) => {
   const searchParamTitle = searchParams.get('title')
   const searchParamSubHeading = searchParams.get('subheading')
 
-  const prismicClient = createClient({})
-
   let imageTitle = searchParamTitle || 'EricJiang.dev'
   let subHeading = searchParamSubHeading || null
-
   let description = null
-
-  let shouldHideLogo = Boolean(searchParamShouldHideLogo) || false
+  const shouldHideLogo = Boolean(searchParamShouldHideLogo) || false
 
   if (blogPost) {
-    const post = (await prismicClient
-      .getByUID('blog-post', blogPost)
-      .catch(() => null)) as IPrismicDocumentRecord
-    if (post) {
-      const { title } = post.data
-      if (title) {
-        subHeading = '📝 Blog Post'
-        imageTitle = prismicH.asText(title) || imageTitle
-
-        const postedDate = prismicH
-          .asDate(post.data.published_time)
-          ?.toLocaleDateString('en-AU', dateFormat)
-
+    const post = await client
+      .fetch(OG_BLOG_QUERY, { slug: blogPost }, { stega: false })
+      .catch(() => null)
+    if (post?.title) {
+      subHeading = '📝 Blog Post'
+      imageTitle = post.title || imageTitle
+      const rawDate = post.publishedAt || post._createdAt
+      if (rawDate) {
+        const postedDate = new Date(rawDate).toLocaleDateString(
+          'en-AU',
+          dateFormat
+        )
         description = `Published on ${postedDate}`
       }
     }
   }
 
   if (techTalk) {
-    const talk = (await prismicClient
-      .getByUID('tech-talk', techTalk)
-      .catch(() => null)) as IPrismicDocumentRecord
+    const talk = await client
+      .fetch(OG_TALK_QUERY, { slug: techTalk }, { stega: false })
+      .catch(() => null)
 
-    if (talk) {
-      const { title, date } = talk.data
-      if (title) {
-        subHeading = '🎤 Tech Talk'
-        imageTitle = prismicH.asText(title) || imageTitle
-
-        const talkDate = prismicH
-          .asDate(date)
-          ?.toLocaleDateString('en-AU', dateFormat)
+    if (talk?.title) {
+      subHeading = '🎤 Tech Talk'
+      imageTitle = talk.title || imageTitle
+      if (talk.talkDate) {
+        const talkDate = new Date(talk.talkDate).toLocaleDateString(
+          'en-AU',
+          dateFormat
+        )
         description = `Talk Presented on ${talkDate}`
+      } else if (talk.date) {
+        description = `Talk Presented on ${talk.date}`
       }
     }
   }

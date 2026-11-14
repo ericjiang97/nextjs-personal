@@ -1,12 +1,17 @@
 import React from 'react'
-import { ThemeProvider } from '../providers/ThemeProvider'
-import CoreHead from '../components/layout/CoreHead'
-import Footer from '../components/layout/Footer'
-import '../styles/globals.css'
-import NavBar from '../components/NavBar'
+import { draftMode } from 'next/headers'
+import { VisualEditing } from 'next-sanity/visual-editing'
 import PlausibleProvider from 'next-plausible'
 
-function MyApp({ children }: { children: React.ReactNode }) {
+import { ThemeProvider } from '../providers/ThemeProvider'
+import CoreHead from '../components/layout/CoreHead'
+import SiteChrome from '../components/layout/SiteChrome'
+import { SanityLive } from '../sanity/lib/live'
+import '../styles/globals.css'
+
+async function MyApp({ children }: { children: React.ReactNode }) {
+  const { isEnabled: isDraftMode } = await draftMode()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <CoreHead />
@@ -18,11 +23,9 @@ function MyApp({ children }: { children: React.ReactNode }) {
             enableSystem
             disableTransitionOnChange
           >
-            <div className="flex min-h-screen flex-1 flex-col justify-between">
-              <NavBar />
-              {children}
-              <Footer />
-            </div>
+            <SiteChrome isDraftMode={isDraftMode}>{children}</SiteChrome>
+            <SanityLive />
+            {isDraftMode && <VisualEditing />}
           </ThemeProvider>
         </PlausibleProvider>
       </body>

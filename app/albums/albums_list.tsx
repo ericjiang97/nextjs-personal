@@ -1,44 +1,61 @@
 'use client'
 
-import { use } from 'react'
+import React from 'react'
+import { stegaClean } from 'next-sanity'
 import moment from 'moment'
-import * as prismicH from '@prismicio/helpers'
-import { PrismicDocument } from '@prismicio/client'
 import { IconArrowUpRight, IconCalendar } from '@tabler/icons-react'
 import { CardSpotlight } from '../../components/ui/card-spotlight'
+import { SanityAlbum } from '../../sanity/lib/queries'
 
-export declare interface AlbumsListProps {
-  data: Promise<PrismicDocument[]>
+export interface AlbumsListProps {
+  albums: SanityAlbum[]
 }
 
 export default function AlbumsList({
-  data,
+  albums,
 }: React.PropsWithChildren<AlbumsListProps>) {
-  const albums: PrismicDocument[] = use(data)
+  if (!albums || albums.length === 0) {
+    return (
+      <div className="pb-16">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-neutral-200/80 bg-white/60 py-16 text-center backdrop-blur-sm dark:border-white/10 dark:bg-neutral-900/50">
+          <p className="text-lg font-bold text-neutral-900 dark:text-white">
+            No photo albums published yet
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="pb-16">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {albums.map((album: PrismicDocument) => {
-          const { first_publication_date, last_publication_date, data } = album
-          const firstPosted = moment(first_publication_date)
-          const lastUpdated = moment(last_publication_date)
+        {albums.map((album) => {
+          const cleanSlug = stegaClean(album.slug)
+          const firstPosted = moment(
+            stegaClean(album.publishedAt || album._createdAt)
+          )
+          const lastUpdated = moment(
+            stegaClean(
+              album.updatedAt || album._updatedAt || album.publishedAt
+            )
+          )
           const isDateSame = firstPosted.isSameOrBefore(lastUpdated)
+          const coverUrl = stegaClean(album.featuredImage?.url)
 
           return (
             <CardSpotlight
-              key={album.uid}
+              key={album._id || cleanSlug}
               className="group flex flex-col justify-between overflow-hidden p-5 transition-transform duration-300 hover:-translate-y-1"
             >
               <div>
-                {data.featured_image?.url && (
+                {coverUrl && (
                   <a
-                    href={`/albums/${album.uid}`}
+                    href={`/albums/${cleanSlug}`}
                     className="relative mb-5 block h-64 w-full overflow-hidden rounded-xl border border-neutral-200/60 dark:border-white/10"
                   >
                     <img
-                      src={data.featured_image.url}
-                      alt={data.featured_image.alt || ''}
+                      src={coverUrl}
+                      alt={stegaClean(album.featuredImage?.alt) || ''}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -54,16 +71,16 @@ export default function AlbumsList({
                   </span>
                 </div>
 
-                <a href={`/albums/${album.uid}`} className="mt-2 block">
+                <a href={`/albums/${cleanSlug}`} className="mt-2 block">
                   <h3 className="text-xl font-bold text-neutral-900 transition-colors group-hover:text-sky-600 dark:text-white dark:group-hover:text-sky-400">
-                    {prismicH.asText(data.title)}
+                    {album.title}
                   </h3>
                 </a>
               </div>
 
               <div className="mt-5">
                 <a
-                  href={`/albums/${album.uid}`}
+                  href={`/albums/${cleanSlug}`}
                   className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 dark:text-sky-400"
                 >
                   <span>View Album</span>

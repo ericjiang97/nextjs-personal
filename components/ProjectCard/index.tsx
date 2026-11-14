@@ -1,21 +1,29 @@
 'use client'
 import React from 'react'
+import { stegaClean } from 'next-sanity'
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react'
 
-import { Project } from '../../types'
+import { SanityProject } from '../../sanity/lib/queries'
 import { CardContainer, CardBody, CardItem } from '../ui/3d-card'
 
 interface ProjectCardProps {
-  project: Project
+  project: SanityProject
 }
 
 const ProjectCard = ({
   project,
 }: React.PropsWithChildren<ProjectCardProps>) => {
-  const { screenshotUrl, imageUrl } = project
+  const screenshotUrl = stegaClean(project.screenshotUrl)
+  const imageUrl = stegaClean(project.imageUrl)
+  const projectUrl = stegaClean(project.url)
+  const repoUrl = stegaClean(project.repoUrl)
+  const cleanName = stegaClean(project.name) || ''
 
   return (
-    <CardContainer className="inter-var h-full w-full" containerClassName="h-full">
+    <CardContainer
+      className="inter-var h-full w-full"
+      containerClassName="h-full"
+    >
       <CardBody className="group/card relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/85 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-sky-500/40 hover:shadow-xl dark:border-white/[0.09] dark:bg-neutral-900/80 dark:hover:border-sky-400/30 dark:hover:shadow-sky-500/[0.08]">
         <div>
           <CardItem translateZ="60" className="w-full">
@@ -24,7 +32,7 @@ const ProjectCard = ({
                 <img
                   className="h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
                   src={screenshotUrl}
-                  alt={project.name}
+                  alt={cleanName}
                 />
               </div>
             ) : (
@@ -32,12 +40,12 @@ const ProjectCard = ({
                 {imageUrl ? (
                   <img
                     src={imageUrl}
-                    alt={project.name}
+                    alt={cleanName}
                     className="h-16 w-16 rounded-2xl object-cover shadow-md transition-transform duration-300 group-hover/card:scale-110"
                   />
                 ) : (
                   <span className="bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-3xl font-extrabold text-transparent">
-                    {project.name.slice(0, 2).toUpperCase()}
+                    {cleanName.slice(0, 2).toUpperCase()}
                   </span>
                 )}
               </div>
@@ -64,7 +72,7 @@ const ProjectCard = ({
           <CardItem
             translateZ={25}
             as="a"
-            href={project.url}
+            href={projectUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 transition-colors hover:text-sky-500 dark:text-sky-400"
@@ -73,11 +81,11 @@ const ProjectCard = ({
             <IconExternalLink className="h-3.5 w-3.5" />
           </CardItem>
 
-          {project.repoUrl && (
+          {repoUrl && (
             <CardItem
               translateZ={25}
               as="a"
-              href={project.repoUrl}
+              href={repoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-neutral-100/80 px-3 py-1.5 text-xs font-semibold text-neutral-700 transition-colors hover:border-sky-500/40 hover:text-sky-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300 dark:hover:text-sky-400"

@@ -1,20 +1,37 @@
 import React from 'react'
-import { createClient } from '../config/prismic'
 import HomeClient from '../components/home/HomeClient'
-import { IPrismicDocumentRecord } from '../types'
+import { sanityFetch } from '../sanity/lib/live'
+import { HOME_PAGE_QUERY } from '../sanity/lib/queries'
+import {
+  DEFAULT_HOME_PAGE,
+  DEFAULT_PROJECTS,
+  DEFAULT_TALKS,
+} from '../sanity/lib/defaults'
 
 export default async function HomePage() {
-  let posts: IPrismicDocumentRecord[] = []
+  let data: any = null
   try {
-    posts = await createClient().getAllByType('blog-post', {
-      orderings: {
-        field: 'document.last_publication_date',
-        direction: 'desc',
-      },
-    })
+    const res = await sanityFetch({ query: HOME_PAGE_QUERY })
+    data = res.data
   } catch {
-    posts = []
+    data = null
   }
 
-  return <HomeClient latestPosts={posts} />
+  const home = { ...DEFAULT_HOME_PAGE, ...(data?.home || {}) }
+  const latestPosts = data?.latestPosts || []
+  const projects =
+    data?.projects && data.projects.length > 0
+      ? data.projects
+      : DEFAULT_PROJECTS
+  const talks =
+    data?.talks && data.talks.length > 0 ? data.talks : DEFAULT_TALKS
+
+  return (
+    <HomeClient
+      home={home}
+      latestPosts={latestPosts}
+      projects={projects}
+      talks={talks}
+    />
+  )
 }

@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
-import * as prismicH from '@prismicio/helpers'
-import { PrismicText } from '@prismicio/react'
+import { stegaClean } from 'next-sanity'
 import moment from 'moment'
 import getReadingTime from 'reading-time'
 import {
@@ -11,13 +10,16 @@ import {
   IconSparkles,
 } from '@tabler/icons-react'
 
-import { IPrismicDocumentRecord } from '../../../types'
+import {
+  portableTextToPlainText,
+  SanityBlogPost,
+} from '../../../sanity/lib/queries'
 import CategoryChip from '../../chips/CategoryChip/CategoryChip'
 import { CardSpotlight } from '../../ui/card-spotlight'
 import { cn } from '../../../utils/cn'
 
 interface BlogCardProps {
-  post: IPrismicDocumentRecord
+  post: SanityBlogPost
   featured?: boolean
 }
 
@@ -25,16 +27,17 @@ const BlogCard = ({
   post,
   featured = false,
 }: React.PropsWithChildren<BlogCardProps>) => {
-  const postedDate = moment(
-    prismicH.asDate(post.data.published_time)?.toISOString()
-  )
+  const cleanSlug = stegaClean(post.slug)
+  const rawDate = stegaClean(post.publishedAt || post._createdAt)
+  const postedDate = moment(rawDate)
 
-  const { summary, category, title, banner, body } = post.data
-  const hasSummary = summary && summary.length > 0
-  const hasBanner = Boolean(banner?.url)
+  const { summary, category, title, banner, body } = post
+  const hasSummary = Boolean(summary && stegaClean(summary).trim().length > 0)
+  const bannerUrl = stegaClean(banner?.url)
+  const hasBanner = Boolean(bannerUrl)
 
-  const plainBody = prismicH.asText(body) || ''
-  const readStats = getReadingTime(plainBody)
+  const plainBody = portableTextToPlainText(body)
+  const readStats = getReadingTime(stegaClean(plainBody))
   const readingTimeText =
     readStats.minutes < 1
       ? '1 min read'
@@ -45,13 +48,13 @@ const BlogCard = ({
       <CardSpotlight className="group overflow-hidden p-0 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/5">
         <div className="grid grid-cols-1 lg:grid-cols-12">
           <a
-            href={`/blog/${post.uid}`}
+            href={`/blog/${cleanSlug}`}
             className="relative min-h-[220px] overflow-hidden bg-gradient-to-br from-sky-500/20 via-indigo-500/20 to-purple-500/20 lg:col-span-5"
           >
-            {hasBanner ? (
+            {hasBanner && bannerUrl ? (
               <img
-                src={banner.url}
-                alt={banner.alt || prismicH.asText(title) || ''}
+                src={bannerUrl}
+                alt={stegaClean(banner?.alt) || stegaClean(title) || ''}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
@@ -86,13 +89,13 @@ const BlogCard = ({
                 </span>
               </div>
 
-              <a href={`/blog/${post.uid}`} className="mt-4 block">
+              <a href={`/blog/${cleanSlug}`} className="mt-4 block">
                 <h2 className="text-2xl font-extrabold tracking-tight text-neutral-900 transition-colors group-hover:text-sky-600 sm:text-3xl dark:text-white dark:group-hover:text-sky-400">
-                  <PrismicText field={title} />
+                  {title}
                 </h2>
                 {hasSummary && (
                   <p className="mt-3 line-clamp-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-300">
-                    <PrismicText field={summary} />
+                    {summary}
                   </p>
                 )}
               </a>
@@ -100,7 +103,7 @@ const BlogCard = ({
 
             <div className="mt-6 flex items-center justify-between border-t border-neutral-200/60 pt-4 dark:border-white/10">
               <a
-                href={`/blog/${post.uid}`}
+                href={`/blog/${cleanSlug}`}
                 className="inline-flex items-center gap-1.5 text-sm font-bold text-sky-600 transition-colors hover:text-sky-500 dark:text-sky-400"
               >
                 <span>Read full article</span>
@@ -120,14 +123,14 @@ const BlogCard = ({
       )}
     >
       <div>
-        {hasBanner ? (
+        {hasBanner && bannerUrl ? (
           <a
-            href={`/blog/${post.uid}`}
+            href={`/blog/${cleanSlug}`}
             className="relative block h-44 w-full overflow-hidden border-b border-neutral-200/60 dark:border-white/10"
           >
             <img
-              src={banner.url}
-              alt={banner.alt || prismicH.asText(title) || ''}
+              src={bannerUrl}
+              alt={stegaClean(banner?.alt) || stegaClean(title) || ''}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </a>
@@ -151,13 +154,13 @@ const BlogCard = ({
             </div>
           </div>
 
-          <a href={`/blog/${post.uid}`} className="mt-3.5 block">
+          <a href={`/blog/${cleanSlug}`} className="mt-3.5 block">
             <h3 className="text-xl font-bold tracking-tight text-neutral-900 transition-colors group-hover:text-sky-600 dark:text-neutral-100 dark:group-hover:text-sky-400">
-              <PrismicText field={title} />
+              {title}
             </h3>
             {hasSummary && (
               <p className="mt-2.5 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-                <PrismicText field={summary} />
+                {summary}
               </p>
             )}
           </a>
@@ -166,7 +169,7 @@ const BlogCard = ({
 
       <div className="px-6 pt-2 pb-6">
         <a
-          href={`/blog/${post.uid}`}
+          href={`/blog/${cleanSlug}`}
           className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 dark:text-sky-400"
         >
           <span>Read article</span>

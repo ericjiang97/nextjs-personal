@@ -1,58 +1,64 @@
-import { filter } from '@prismicio/client'
-import { createClient } from '../../../../config/prismic'
-import { Suspense } from 'react'
+import { stegaClean } from 'next-sanity'
 import { BlogPosts } from '../../posts'
-import CategoryLayout from './CategoryLayout'
 import MainLayout from '../../../../containers/MainLayout'
 import SmallHeroBanner from '../../../../components/SmallHeroBanner'
+import NotFoundPage from '../../../not-found'
+import { sanityFetch } from '../../../../sanity/lib/live'
+import { client } from '../../../../sanity/lib/client'
+import {
+  CATEGORY_PAGE_QUERY,
+  CATEGORY_SLUGS_QUERY,
+} from '../../../../sanity/lib/queries'
 
-export default async function BlogPage({
+export default async function CategoryPage({
   params,
 }: {
   params: Promise<{ uid: string }>
 }) {
   const { uid } = await params
-  const category = createClient().getByUID('category', uid)
+  let data: any = null
+  try {
+    const res = await sanityFetch({
+      query: CATEGORY_PAGE_QUERY,
+      params: { slug: uid },
+    })
+    data = res.data
+  } catch {
+    data = null
+  }
 
-  const title = `Blog - Category`
+  const category = data?.category
+  if (!category) return <NotFoundPage />
+
+  const categoryName = category.title
+  const cleanName = stegaClean(categoryName)
+  const title = `Blog - ${cleanName}`
 
   return (
-    <Suspense
-      fallback={
-        <MainLayout
-          pageTitle={title}
-          customHero={
-            <SmallHeroBanner
-              title={title}
-              description="I occasionally write on my blog about tech, projects, food, reviews (and will add photography and travel in the future)... so here's some of them."
-            />
-          }
-          pageMeta={{
-            description: title,
-            endpoint: `/blog/categories`,
-          }}
-        >
-          <div>Loading...</div>
-        </MainLayout>
+    <MainLayout
+      pageTitle={title}
+      customHero={
+        <SmallHeroBanner
+          badge="Category Archive"
+          title={categoryName}
+          description={`Articles and thoughts filed under ${cleanName}.`}
+        />
       }
+      pageMeta={{
+        description: title,
+        endpoint: `/blog/categories/${stegaClean(category.slug)}`,
+      }}
     >
-      <CategoryLayout category={category}></CategoryLayout>
-    </Suspense>
+      <BlogPosts posts={data?.posts || []} />
+    </MainLayout>
   )
 }
 
 export const generateStaticParams = async () => {
-  const client = createClient()
-
-  const blogPosts = await client.getAllByType('category', {
-    orderings: {
-      field: 'document.last_publication_date',
-      direction: 'desc',
-    },
-  })
-
-  const paths = blogPosts.map((post) => {
-    return { uid: post.uid }
-  })
-  return paths
+  try {
+    const slugs = await client.fetch(CATEGORY_SLUGS_QUERY, {}, { stega: false })
+    return (slugs || []).filter((s: any) => s?.uid)
+  } catch {
+    return []
+  }
 }

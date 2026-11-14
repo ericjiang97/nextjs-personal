@@ -1,13 +1,12 @@
 'use client'
 
 import React, { useReducer } from 'react'
-import { ImageField } from '@prismicio/types'
-import { Nullable } from '../types'
+import { SanityImageValue } from '../sanity/lib/queries'
 
 type Action =
   | {
       type: '@@IMAGE_PREVIEW_DISPATCH/SHOW_IMAGE'
-      image: ImageField
+      image: SanityImageValue
     }
   | {
       type: '@@IMAGE_PREVIEW_DISPATCH/DISMISS_PREVIEW'
@@ -15,8 +14,8 @@ type Action =
 
 type Dispatch = (action: Action) => void
 
-export declare interface ImagePreviewContextState {
-  image: Nullable<ImageField>
+export interface ImagePreviewContextState {
+  image: SanityImageValue | null
   showModal: boolean
 }
 
@@ -50,7 +49,7 @@ const reducer = (
 
 export const ImagePreviewContextProvider = ({
   children,
-}: React.PropsWithChildren<{}>) => {
+}: React.PropsWithChildren<object>) => {
   const [state, dispatch] = useReducer(reducer, {
     showModal: false,
     image: null,
@@ -85,10 +84,10 @@ function useImagePreviewDispatch() {
   return context
 }
 
-async function showModal(dispatch: Dispatch, image: ImageField) {
+async function showModal(dispatch: Dispatch, image: SanityImageValue) {
   dispatch({
     type: '@@IMAGE_PREVIEW_DISPATCH/SHOW_IMAGE',
-    image: image,
+    image,
   })
 }
 

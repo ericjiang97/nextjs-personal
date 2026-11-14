@@ -1,17 +1,10 @@
-import { createClient } from '../../../config/prismic'
+import { client } from '../../../sanity/lib/client'
+import { BLOG_POSTS_QUERY } from '../../../sanity/lib/queries'
 import { generateFeed } from '../../../utils/feed'
 
 export async function GET() {
-  const client = createClient()
-
-  const posts = await client.getAllByType('blog-post', {
-    orderings: {
-      field: 'document.last_publication_date',
-      direction: 'desc',
-    },
-  })
-
-  const feed = generateFeed(posts)
+  const data = await client.fetch(BLOG_POSTS_QUERY, {}, { stega: false })
+  const feed = generateFeed(data?.posts || [])
 
   return new Response(feed.json1(), {
     headers: {
