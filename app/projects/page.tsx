@@ -1,11 +1,36 @@
+import { stegaClean } from 'next-sanity'
 import SmallHeroBanner from '../../components/SmallHeroBanner'
 import ProjectCard from '../../components/ProjectCard'
 import MainLayout from '../../containers/MainLayout'
-import projects from '../../data/projects'
 import classNames from '../../utils/classNames'
+import { sanityFetch } from '../../sanity/lib/live'
+import { PROJECTS_PAGE_QUERY, SanityProject } from '../../sanity/lib/queries'
+import {
+  DEFAULT_PROJECTS,
+  DEFAULT_SITE_SETTINGS,
+} from '../../sanity/lib/defaults'
 
-function ProjectsPage() {
-  const { current, previous } = projects
+export default async function ProjectsPage() {
+  let data: any = null
+  try {
+    const res = await sanityFetch({ query: PROJECTS_PAGE_QUERY })
+    data = res.data
+  } catch {
+    data = null
+  }
+
+  const settings = { ...DEFAULT_SITE_SETTINGS, ...(data?.settings || {}) }
+  const allProjects: SanityProject[] =
+    data?.projects && data.projects.length > 0
+      ? data.projects
+      : DEFAULT_PROJECTS
+
+  const current = allProjects.filter(
+    (p) => stegaClean(p.status) === 'current'
+  )
+  const previous = allProjects.filter(
+    (p) => stegaClean(p.status) !== 'current'
+  )
 
   const hasCurrentProjects = current.length > 0
   const hasPreviousProjects = previous.length > 0
@@ -15,9 +40,9 @@ function ProjectsPage() {
       pageTitle="Projects"
       customHero={
         <SmallHeroBanner
-          badge="Open Source & Products"
-          title="Projects"
-          description="Whether it's a side project, or a product I'm working on at work, I bring my knowledge and energy to help build the most awesome, delightful, secure products for everyone."
+          badge={settings.projectsHeroBadge}
+          title={settings.projectsHeroTitle || 'Projects'}
+          description={settings.projectsHeroDescription || ''}
         />
       }
       pageMeta={{
@@ -39,7 +64,10 @@ function ProjectsPage() {
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {current.map((project) => (
-                <ProjectCard key={project.name} project={project} />
+                <ProjectCard
+                  key={project._id || project.name}
+                  project={project}
+                />
               ))}
             </div>
           </section>
@@ -57,7 +85,10 @@ function ProjectsPage() {
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {previous.map((project) => (
-                <ProjectCard key={project.name} project={project} />
+                <ProjectCard
+                  key={project._id || project.name}
+                  project={project}
+                />
               ))}
             </div>
           </section>
@@ -66,5 +97,3 @@ function ProjectsPage() {
     </MainLayout>
   )
 }
-
-export default ProjectsPage

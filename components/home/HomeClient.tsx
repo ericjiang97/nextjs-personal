@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { stegaClean } from 'next-sanity'
 import { AnimatePresence, motion } from 'motion/react'
 import {
   IconArrowUpRight,
@@ -28,51 +29,59 @@ import { HoverBorderGradient } from '../ui/hover-border-gradient'
 import { HoverEffect } from '../ui/card-hover-effect'
 import { CardSpotlight } from '../ui/card-spotlight'
 import BlogHero from '../BlogHero'
-import projects from '../../data/projects'
-import talks from '../../data/talks'
-import { IPrismicDocumentRecord } from '../../types'
+import {
+  SanityBlogPost,
+  SanityHomePage,
+  SanityProject,
+  SanityTalk,
+} from '../../sanity/lib/queries'
+import { DEFAULT_HOME_PAGE } from '../../sanity/lib/defaults'
 
-const TERMINAL_LINES = [
-  {
-    cmd: 'blaze test //android/sdlc/biztools/...',
-    out: '✓ 1,428 passed in 0.42s • 100% coverage',
-    color: 'text-emerald-400',
-  },
-  {
-    cmd: 'pixel-sec verify --target=tensor-trustzone',
-    out: '🛡️ Security attestation verified (0 advisories)',
-    color: 'text-sky-400',
-  },
-  {
-    cmd: 'color-sync export --profile="Display P3" --res=6K',
-    out: '📷 12 high-DPI wallpapers ready for download',
-    color: 'text-purple-400',
-  },
-]
-
-const STATS = [
-  { value: '6+ Yrs', label: 'Engineering at Google', icon: IconCode },
-  { value: '4 Roles', label: 'Android & Pixel Teams', icon: IconShieldCheck },
-  { value: '12+ 6K', label: 'Display P3 Wallpapers', icon: IconCamera },
-]
+const STAT_ICONS: Record<string, typeof IconCode> = {
+  code: IconCode,
+  shield: IconShieldCheck,
+  camera: IconCamera,
+}
 
 export default function HomeClient({
+  home,
   latestPosts,
+  projects,
+  talks,
 }: {
-  latestPosts: IPrismicDocumentRecord[]
+  home: SanityHomePage
+  latestPosts: SanityBlogPost[]
+  projects: SanityProject[]
+  talks: SanityTalk[]
 }) {
-  const flipWords = ['delightful', 'secure', 'scalable', 'impactful']
-  const allProjects = [...projects.current, ...projects.previous]
+  const flipWords =
+    home.flipWords && home.flipWords.length > 0
+      ? home.flipWords.map((w) => stegaClean(w))
+      : DEFAULT_HOME_PAGE.flipWords!
+
+  const terminalLines =
+    home.terminalLines && home.terminalLines.length > 0
+      ? home.terminalLines
+      : DEFAULT_HOME_PAGE.terminalLines!
+
+  const stats =
+    home.stats && home.stats.length > 0 ? home.stats : DEFAULT_HOME_PAGE.stats!
+
+  const roleStages =
+    home.googleRoleStages && home.googleRoleStages.length > 0
+      ? home.googleRoleStages
+      : DEFAULT_HOME_PAGE.googleRoleStages!
+
   const [termIdx, setTermIdx] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTermIdx((prev) => (prev + 1) % TERMINAL_LINES.length)
+      setTermIdx((prev) => (prev + 1) % terminalLines.length)
     }, 3600)
     return () => clearInterval(timer)
-  }, [])
+  }, [terminalLines.length])
 
-  const activeTerm = TERMINAL_LINES[termIdx]
+  const activeTerm = terminalLines[termIdx % terminalLines.length]
 
   return (
     <MainLayout
@@ -113,7 +122,7 @@ export default function HomeClient({
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
                   </span>
-                  <span>Software Engineer @ Google • Android &amp; Pixel SDLC</span>
+                  <span>{home.heroBadge}</span>
                 </motion.div>
 
                 <motion.h1
@@ -123,24 +132,24 @@ export default function HomeClient({
                   className="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl lg:text-[3.25rem] dark:text-white"
                 >
                   <span className="block leading-[1.25]">
-                    G&apos;day, I&apos;m{' '}
+                    {home.heroGreeting}{' '}
                     <span className="whitespace-nowrap">
-                      <span className="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 bg-clip-text py-1 pr-1 italic text-transparent">
-                        Eric Jiang
+                      <span className="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 bg-clip-text py-1 pr-1 text-transparent italic">
+                        {home.heroName}
                       </span>
                       .
                     </span>
                   </span>
-                  <span className="mt-3 block text-2xl font-bold leading-snug text-neutral-800 sm:text-4xl dark:text-neutral-100">
-                    Crafting
+                  <span className="mt-3 block text-2xl leading-snug font-bold text-neutral-800 sm:text-4xl dark:text-neutral-100">
+                    {home.heroRoleVerb}
                     <FlipWords
                       words={flipWords}
                       className="text-sky-600 dark:text-sky-400"
                     />
                     <span className="block sm:inline">
-                      engineering tools for{' '}
+                      {home.heroRoleSuffix}{' '}
                       <Highlight className="text-neutral-900 dark:text-white">
-                        Android &amp; Pixel
+                        {home.heroHighlight}
                       </Highlight>
                       .
                     </span>
@@ -148,7 +157,7 @@ export default function HomeClient({
                 </motion.h1>
 
                 <TextGenerateEffect
-                  words="Technology has been rapidly growing and is at the forefront of bringing change. I've always wanted to build awesome & secure products which delight users and impact their lives. I currently build engineering tools to help make Android & Pixel devices more helpful & delightful for everyone!"
+                  words={stegaClean(home.heroBio) || ''}
                   className="mt-6 max-w-2xl text-base text-neutral-600 sm:text-lg dark:text-neutral-300"
                 />
 
@@ -166,11 +175,11 @@ export default function HomeClient({
                       <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
                       <span className="ml-2 flex items-center gap-1 text-[11px] text-neutral-400">
                         <IconTerminal2 className="h-3.5 w-3.5 text-sky-400" />
-                        eric@ericjiang-server:~
+                        {home.terminalHost}
                       </span>
                     </div>
                     <div className="flex gap-1">
-                      {TERMINAL_LINES.map((_, idx) => (
+                      {terminalLines.map((_, idx) => (
                         <button
                           key={idx}
                           type="button"
@@ -198,7 +207,11 @@ export default function HomeClient({
                         <span className="text-sky-400">$</span>
                         <span className="truncate">{activeTerm.cmd}</span>
                       </div>
-                      <div className={`truncate font-semibold ${activeTerm.color}`}>
+                      <div
+                        className={`truncate font-semibold ${
+                          stegaClean(activeTerm.color) || 'text-emerald-400'
+                        }`}
+                      >
                         {activeTerm.out}
                       </div>
                     </motion.div>
@@ -238,14 +251,17 @@ export default function HomeClient({
 
               {/* Right Column: Aceternity 3D Card + Floating Orbiting Badge */}
               <div className="relative lg:col-span-5">
-                {/* Floating Orbiting Badge */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 4.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="pointer-events-none absolute -top-5 -left-2 z-30 hidden items-center gap-2 rounded-2xl border border-sky-500/30 bg-white/90 px-3.5 py-2 text-xs font-bold text-neutral-800 shadow-lg backdrop-blur-md sm:flex dark:bg-neutral-900/90 dark:text-white"
                 >
                   <IconShieldCheck className="h-4 w-4 text-sky-500" />
-                  <span>Pixel Security &amp; SDLC</span>
+                  <span>{home.floatingBadge}</span>
                 </motion.div>
 
                 <CardContainer className="inter-var w-full">
@@ -256,28 +272,31 @@ export default function HomeClient({
                     >
                       <div>
                         <p className="text-lg font-bold text-neutral-900 dark:text-white">
-                          Eric Jiang
+                          {home.cardName}
                         </p>
                         <p className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
-                          Android &amp; Pixel Engineering
+                          {home.cardSubtitle}
                         </p>
                       </div>
                       <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                        Google
+                        {home.cardCompanyBadge}
                       </span>
                     </CardItem>
 
                     <CardItem translateZ="90" className="mt-4 w-full">
                       <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-neutral-200/60 dark:border-white/10">
                         <img
-                          src="/images/eric-jiang-bitbybit.webp"
-                          alt="Eric Jiang"
+                          src={
+                            stegaClean(home.cardImageUrl) ||
+                            '/images/eric-jiang-bitbybit.webp'
+                          }
+                          alt={stegaClean(home.cardName) || 'Eric Jiang'}
                           className="h-full w-full object-cover object-center transition-transform duration-500 group-hover/card:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
                         <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
                           <IconDeviceMobile className="h-3.5 w-3.5 text-sky-400" />
-                          <span>SDLC BizTools &amp; Test Infra</span>
+                          <span>{home.cardOverlayBadge}</span>
                         </div>
                       </div>
                     </CardItem>
@@ -288,7 +307,10 @@ export default function HomeClient({
                         className="flex items-center gap-2"
                       >
                         <a
-                          href="https://github.com/ericjiang97"
+                          href={
+                            stegaClean(home.githubUrl) ||
+                            'https://github.com/ericjiang97'
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-700 transition-colors hover:border-sky-500 hover:text-sky-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300 dark:hover:text-sky-400"
@@ -297,7 +319,10 @@ export default function HomeClient({
                           <IconBrandGithub className="h-4 w-4" />
                         </a>
                         <a
-                          href="https://linkedin.com/in/ericjiang97"
+                          href={
+                            stegaClean(home.linkedinUrl) ||
+                            'https://linkedin.com/in/ericjiang97'
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-700 transition-colors hover:border-sky-500 hover:text-sky-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300 dark:hover:text-sky-400"
@@ -306,7 +331,9 @@ export default function HomeClient({
                           <IconBrandLinkedin className="h-4 w-4" />
                         </a>
                         <a
-                          href="https://ericj.photos"
+                          href={
+                            stegaClean(home.photosUrl) || 'https://ericj.photos'
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-700 transition-colors hover:border-sky-500 hover:text-sky-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300 dark:hover:text-sky-400"
@@ -319,7 +346,10 @@ export default function HomeClient({
                       <CardItem
                         translateZ={35}
                         as="a"
-                        href="https://resume.ericjiang.dev"
+                        href={
+                          stegaClean(home.resumeUrl) ||
+                          'https://resume.ericjiang.dev'
+                        }
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-xl bg-neutral-900 px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-sky-600 dark:bg-white dark:text-neutral-950 dark:hover:bg-sky-400"
@@ -334,27 +364,31 @@ export default function HomeClient({
 
             {/* Hero Bottom Impact Metrics Strip */}
             <div className="relative z-10 mt-12 grid grid-cols-1 gap-3 border-t border-neutral-200/70 pt-8 sm:grid-cols-3 dark:border-white/10">
-              {STATS.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  className="flex items-center gap-3 rounded-2xl border border-neutral-200/60 bg-white/60 p-3.5 backdrop-blur-md dark:border-white/[0.06] dark:bg-white/[0.03]"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:bg-sky-400/10 dark:text-sky-400">
-                    <stat.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-lg font-extrabold tracking-tight text-neutral-900 dark:text-white">
-                      {stat.value}
+              {stats.map((stat, i) => {
+                const IconComp =
+                  STAT_ICONS[stegaClean(stat.icon) || 'code'] || IconCode
+                return (
+                  <motion.div
+                    key={stat._key || i}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                    className="flex items-center gap-3 rounded-2xl border border-neutral-200/60 bg-white/60 p-3.5 backdrop-blur-md dark:border-white/[0.06] dark:bg-white/[0.03]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:bg-sky-400/10 dark:text-sky-400">
+                      <IconComp className="h-5 w-5" />
                     </div>
-                    <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
-                      {stat.label}
+                    <div>
+                      <div className="text-lg font-extrabold tracking-tight text-neutral-900 dark:text-white">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
+                        {stat.label}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                )
+              })}
             </div>
           </HeroHighlight>
         </BackgroundBeamsWithCollision>
@@ -364,10 +398,10 @@ export default function HomeClient({
           <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <span className="text-xs font-bold tracking-widest text-sky-600 uppercase dark:text-sky-400">
-                Highlights &amp; Craft
+                {home.bentoEyebrow}
               </span>
               <h2 className="mt-1 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">
-                Engineering, Impact &amp; Creative Work
+                {home.bentoHeading}
               </h2>
             </div>
             <Link
@@ -380,12 +414,11 @@ export default function HomeClient({
           </div>
 
           <BentoGrid>
-            {/* Bento Item 1: Google Engineering */}
             <BentoGridItem
               className="md:col-span-3"
               href="/about"
-              title="Android & Pixel SDLC Engineering at Google"
-              description="Building business tools, test infrastructure, and security automation across Android & Pixel Software Development Lifecycle teams since 2020."
+              title={home.googleCardTitle}
+              description={home.googleCardDescription}
               icon={<IconCode className="h-5 w-5 text-sky-500" />}
               header={
                 <div className="relative flex h-full min-h-[9rem] w-full flex-col justify-between overflow-hidden rounded-xl border border-neutral-200/60 bg-gradient-to-br from-sky-500/10 via-indigo-500/10 to-purple-500/10 p-4 dark:border-white/10 dark:from-sky-500/15 dark:via-indigo-500/10 dark:to-neutral-900">
@@ -399,19 +432,14 @@ export default function HomeClient({
                       </span>
                     </div>
                     <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
                       Active
                     </span>
                   </div>
                   <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                    {[
-                      { role: 'SDLC BizTools', year: '2025–Now' },
-                      { role: 'Pixel Test Eng', year: '2023–2025' },
-                      { role: 'Pixel Security', year: '2021–2023' },
-                      { role: 'Script Automation', year: '2020–2021' },
-                    ].map((stage) => (
+                    {roleStages.map((stage, idx) => (
                       <div
-                        key={stage.role}
+                        key={stage._key || idx}
                         className="rounded-lg border border-neutral-200/70 bg-white/85 p-2.5 backdrop-blur-sm transition-transform duration-200 group-hover/bento:-translate-y-0.5 dark:border-white/10 dark:bg-neutral-950/75"
                       >
                         <div className="text-[11px] font-bold text-sky-600 dark:text-sky-400">
@@ -427,12 +455,11 @@ export default function HomeClient({
               }
             />
 
-            {/* Bento Item 2: 6K & P3 Wallpapers */}
             <BentoGridItem
               className="md:col-span-1"
               href="/media/wallpapers"
-              title="P3 & 6K Wallpapers"
-              description="Travel photography from Japan, Taiwan & China edited and colour-calibrated for Pro Display XDR & Mac."
+              title={home.wallpapersCardTitle}
+              description={home.wallpapersCardDescription}
               icon={<IconCamera className="h-5 w-5 text-purple-500" />}
               header={
                 <div className="grid h-full min-h-[9rem] w-full grid-cols-2 gap-2 overflow-hidden rounded-xl">
@@ -454,12 +481,11 @@ export default function HomeClient({
               }
             />
 
-            {/* Bento Item 4: Tech Talks & Community */}
             <BentoGridItem
               className="md:col-span-2"
               href="#talks"
-              title="Tech Talks & Developer Community"
-              description="Sharing insights on scalable Node.js on Google Cloud, React & Firebase MVPs, and Git workflows at JuniorDev, WIRED Monash, and Hackamon."
+              title={home.talksCardTitle}
+              description={home.talksCardDescription}
               icon={<IconMicrophone className="h-5 w-5 text-emerald-500" />}
               header={
                 <div className="relative flex h-full min-h-[9rem] w-full items-center overflow-hidden rounded-xl border border-neutral-200/60 dark:border-white/10">
@@ -471,11 +497,10 @@ export default function HomeClient({
                   <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
                   <div className="relative z-10 p-5 text-white">
                     <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md">
-                      5+ Featured Speaker Sessions
+                      {home.talksCardBadge}
                     </span>
                     <p className="mt-2 max-w-sm text-sm font-medium text-white/90">
-                      &ldquo;Building NodeJS Apps on Google&apos;s Scalable
-                      Infrastructure&rdquo;
+                      &ldquo;{home.talksCardQuote}&rdquo;
                     </p>
                   </div>
                 </div>
@@ -494,10 +519,10 @@ export default function HomeClient({
           <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <span className="text-xs font-bold tracking-widest text-sky-600 uppercase dark:text-sky-400">
-                Open Source &amp; Products
+                {home.projectsEyebrow}
               </span>
               <h2 className="mt-1 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">
-                Featured Projects
+                {home.projectsHeading}
               </h2>
             </div>
             <Link
@@ -510,10 +535,10 @@ export default function HomeClient({
           </div>
 
           <HoverEffect
-            items={allProjects.map((proj) => ({
+            items={projects.map((proj) => ({
               title: proj.name,
               description: proj.description,
-              link: proj.url,
+              link: stegaClean(proj.url),
               badge: proj.repoUrl ? 'Open Source' : 'Product',
             }))}
           />
@@ -523,17 +548,17 @@ export default function HomeClient({
         <section id="talks" className="scroll-mt-24">
           <div className="mb-8">
             <span className="text-xs font-bold tracking-widest text-sky-600 uppercase dark:text-sky-400">
-              Speaking &amp; Workshops
+              {home.talksSectionEyebrow}
             </span>
             <h2 className="mt-1 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">
-              Tech Talks &amp; Presentations
+              {home.talksSectionHeading}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {talks.past.map((talk, index) => (
+            {talks.map((talk, index) => (
               <CardSpotlight
-                key={index}
+                key={talk._id || index}
                 className="flex flex-col justify-between"
               >
                 <div>
@@ -548,17 +573,19 @@ export default function HomeClient({
                     {talk.title}
                   </h3>
                 </div>
-                <div className="mt-5">
-                  <a
-                    href={talk.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 transition-colors hover:text-sky-500 dark:text-sky-400"
-                  >
-                    <span>View Slides on SpeakerDeck</span>
-                    <IconArrowUpRight className="h-4 w-4" />
-                  </a>
-                </div>
+                {talk.url && (
+                  <div className="mt-5">
+                    <a
+                      href={stegaClean(talk.url)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 transition-colors hover:text-sky-500 dark:text-sky-400"
+                    >
+                      <span>View Slides on SpeakerDeck</span>
+                      <IconArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </div>
+                )}
               </CardSpotlight>
             ))}
           </div>

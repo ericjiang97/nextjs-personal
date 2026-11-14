@@ -1,12 +1,10 @@
 'use client'
 
 import { BarsArrowUpIcon } from '@heroicons/react/24/outline'
-import { PrismicDocument } from '@prismicio/client'
-import * as prismicH from '@prismicio/helpers'
-import { PrismicText } from '@prismicio/react'
+import { stegaClean } from 'next-sanity'
 import moment from 'moment'
 import Link from 'next/link'
-import { use, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import getReadingTime from 'reading-time'
 import {
   IconArrowLeft,
@@ -17,9 +15,9 @@ import {
   IconShare,
 } from '@tabler/icons-react'
 
-import PrismicRichTextWrapper, {
+import SanityPortableText, {
   slugifyHeading,
-} from '../../../components/PrismicRichTextWrapper'
+} from '../../../components/SanityPortableText'
 import MainLayout from '../../../containers/MainLayout'
 import classNames from '../../../utils/classNames'
 import NotFoundPage from '../../not-found'
@@ -27,21 +25,10 @@ import CategoryChip from '../../../components/chips/CategoryChip/CategoryChip'
 import { TracingBeam } from '../../../components/ui/tracing-beam'
 import { Spotlight } from '../../../components/ui/spotlight'
 import { CardSpotlight } from '../../../components/ui/card-spotlight'
-
-const extractTextFromRichText = (richText: any[]): string => {
-  return (
-    richText
-      ?.filter(
-        (node) =>
-          node.type === 'paragraph' ||
-          node.type === 'heading1' ||
-          node.type === 'heading2' ||
-          node.type === 'heading3'
-      )
-      .map((node) => node.text)
-      .join(' ') || ''
-  )
-}
+import {
+  portableTextToPlainText,
+  SanityBlogPost,
+} from '../../../sanity/lib/queries'
 
 interface TocHeading {
   id: string
@@ -49,13 +36,7 @@ interface TocHeading {
   level: number
 }
 
-export default function BlogContent({
-  content,
-}: {
-  content: Promise<PrismicDocument>
-}) {
-  const post = use(content)
-
+export default function BlogContent({ post }: { post: SanityBlogPost }) {
   const [progress, setProgress] = useState(0)
   const [copiedLink, setCopiedLink] = useState(false)
 
@@ -81,34 +62,37 @@ export default function BlogContent({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const { uid, data } = post
-
   const headings: TocHeading[] = useMemo(() => {
-    if (!data?.body || !Array.isArray(data.body)) return []
-    return data.body
+    if (!post?.body || !Array.isArray(post.body)) return []
+    return post.body
       .filter(
         (node: any) =>
-          (node.type === 'heading1' ||
-            node.type === 'heading2' ||
-            node.type === 'heading3') &&
-          node.text
+          node._type === 'block' &&
+          (node.style === 'h1' || node.style === 'h2' || node.style === 'h3') &&
+          Array.isArray(node.children)
       )
-      .map((node: any) => ({
-        id: slugifyHeading(node.text),
-        text: node.text,
-        level:
-          node.type === 'heading1' ? 1 : node.type === 'heading2' ? 2 : 3,
-      }))
-  }, [data])
+      .map((node: any) => {
+        const text = node.children.map((c: any) => c.text || '').join('')
+        return {
+          id: slugifyHeading(text),
+          text,
+          level: node.style === 'h1' ? 1 : node.style === 'h2' ? 2 : 3,
+        }
+      })
+      .filter((h) => h.text)
+  }, [post?.body])
 
-  if (!uid || !data) return <NotFoundPage />
+  const cleanSlug = stegaClean(post?.slug)
+  if (!cleanSlug) return <NotFoundPage />
 
-  const { body, published_time, summary, title, banner, category } = data
+  const { body, publishedAt, _createdAt, summary, title, banner, category } =
+    post
 
-  const postedDate = moment(prismicH.asDate(published_time)?.toISOString())
-  const endpoint = `/blog/${uid}`
-  const hasBanner = !!banner?.url
-  const readingTime = extractTextFromRichText(body)
+  const postedDate = moment(stegaClean(publishedAt || _createdAt))
+  const endpoint = `/blog/${cleanSlug}`
+  const bannerUrl = stegaClean(banner?.url)
+  const hasBanner = Boolean(bannerUrl)
+  const readingTime = stegaClean(portableTextToPlainText(body))
   const readingTimeStats = getReadingTime(readingTime)
 
   const handleCopyShareLink = () => {
@@ -123,11 +107,11 @@ export default function BlogContent({
 
   return (
     <MainLayout
-      pageTitle={`Blog - ${prismicH.asText(title)}`}
+      pageTitle={`Blog - ${stegaClean(title)}`}
       pageMeta={{
         endpoint,
-        description: prismicH.asText(summary) || '',
-        imageUrl: `https://ericjiang.dev/api/static?blog=${uid}`,
+        description: stegaClean(summary) || '',
+        imageUrl: `https://ericjiang.dev/api/static?blog=${cleanSlug}`,
       }}
       showProgress={true}
       progress={progress}
@@ -135,7 +119,6 @@ export default function BlogContent({
         <div className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-white/75 p-6 shadow-sm backdrop-blur-xl sm:p-10 dark:border-white/10 dark:bg-neutral-900/70">
           <Spotlight className="-top-32 left-0" fill="#38bdf8" />
           <div className="relative z-10 flex flex-col gap-4">
-            {/* Top Back & Share Navigation Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200/60 pb-4 dark:border-white/10">
               <Link
                 href="/blog"
@@ -166,7 +149,6 @@ export default function BlogContent({
               </button>
             </div>
 
-            {/* Metadata Chips */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <CategoryChip category={category} />
               <span className="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 dark:text-neutral-400">
@@ -180,12 +162,12 @@ export default function BlogContent({
             </div>
 
             <h1 className="mt-1 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl dark:text-white">
-              <PrismicText field={title} />
+              {title}
             </h1>
 
-            {summary && summary.length > 0 && (
+            {summary && stegaClean(summary).trim().length > 0 && (
               <p className="max-w-3xl text-base leading-relaxed text-neutral-600 sm:text-lg dark:text-neutral-300">
-                <PrismicText field={summary} />
+                {summary}
               </p>
             )}
           </div>
@@ -194,7 +176,6 @@ export default function BlogContent({
     >
       <TracingBeam className="px-2 sm:px-6">
         <div className="mx-auto flex max-w-3xl flex-col gap-8">
-          {/* Optional Table of Contents Card */}
           {headings.length > 1 && (
             <div className="rounded-2xl border border-neutral-200/80 bg-white/75 p-5 backdrop-blur-md dark:border-white/[0.08] dark:bg-neutral-900/60">
               <div className="mb-3 flex items-center gap-2 text-xs font-bold tracking-wider text-sky-600 uppercase dark:text-sky-400">
@@ -221,13 +202,12 @@ export default function BlogContent({
             </div>
           )}
 
-          {/* Main Article Body Card */}
           <article className="flex flex-1 flex-col rounded-3xl border border-neutral-200/80 bg-white/85 p-6 shadow-sm backdrop-blur-md sm:p-10 dark:border-white/[0.08] dark:bg-neutral-900/70">
-            {hasBanner && (
+            {hasBanner && bannerUrl && (
               <div className="mb-8 overflow-hidden rounded-2xl border border-neutral-200/60 dark:border-white/10">
                 <img
-                  src={banner.url}
-                  alt={banner.alt || ''}
+                  src={bannerUrl}
+                  alt={stegaClean(banner?.alt) || ''}
                   className="max-h-[460px] w-full object-cover"
                 />
               </div>
@@ -237,11 +217,10 @@ export default function BlogContent({
                 'first-letter:font-old-standard leading-relaxed text-neutral-800 first-letter:float-left first-letter:mr-3 first-letter:text-5xl first-letter:font-bold dark:text-neutral-200 dark:first-letter:text-white'
               )}
             >
-              <PrismicRichTextWrapper page={post} />
+              <SanityPortableText value={body} />
             </div>
           </article>
 
-          {/* Author Bio Footer Card */}
           <CardSpotlight className="p-6">
             <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div className="flex items-center gap-4">

@@ -110,10 +110,10 @@ export default function Footer() {
           </Link>{' '}
           &amp;{' '}
           <Link
-            href="https://prismic.io/"
+            href="https://www.sanity.io/"
             className="underline decoration-neutral-400/50 underline-offset-4 transition-colors hover:text-neutral-900 dark:hover:text-white"
           >
-            Prismic
+            Sanity
           </Link>
           . Built with{' '}
           <Link

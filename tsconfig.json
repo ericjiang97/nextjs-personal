@@ -28,7 +28,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/slice-simulator.jsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

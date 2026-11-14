@@ -1,28 +1,28 @@
 import React from 'react'
-
+import { stegaClean } from 'next-sanity'
 import { ArrowDownTrayIcon as DownloadIcon } from '@heroicons/react/24/solid'
-
-import { ImageField } from '@prismicio/types'
+import { SanityImageValue } from '../../../sanity/lib/queries'
 
 interface DownloadImageButtonProps {
-  image: ImageField
+  image: SanityImageValue
 }
 
 const DownloadImageButton = ({
   image,
 }: React.PropsWithChildren<DownloadImageButtonProps>) => {
-  if (!image.url) {
+  const cleanUrl = stegaClean(image?.url)
+  if (!cleanUrl) {
     return null
   }
   return (
     <a
-      href={image.url.replace('?auto=compress,format', '')}
+      href={cleanUrl.replace('?auto=compress,format', '')}
       target="_blank"
       rel="noreferrer noopener"
       type="button"
-      className="shadow-xs focus:outline-hiddenfocus:ring-2 inline-flex items-center rounded-md border border-transparent bg-sky-600 px-3 py-2 text-sm font-medium leading-4 text-white hover:bg-sky-700 focus:ring-indigo-500 focus:ring-offset-2"
+      className="inline-flex items-center rounded-md border border-transparent bg-sky-600 px-3 py-2 text-sm leading-4 font-medium text-white shadow-xs hover:bg-sky-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
     >
-      <DownloadIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+      <DownloadIcon className="mr-2 -ml-0.5 h-4 w-4" aria-hidden="true" />
       Download Image
     </a>
   )

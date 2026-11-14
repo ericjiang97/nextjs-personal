@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Fragment } from 'react'
+import { stegaClean } from 'next-sanity'
 import { Dialog, Transition } from '@headlessui/react'
 
 import DownloadImageButton from '../../buttons/DownloadImageButton'
@@ -13,6 +14,7 @@ import {
 const ImagePreviewDialog: React.FC = () => {
   const { showModal, image } = useImagePreviewState()
   const dispatch = useImagePreviewDispatch()
+  const cleanUrl = stegaClean(image?.url)
 
   return (
     <Transition.Root show={showModal} as={Fragment}>
@@ -47,11 +49,11 @@ const ImagePreviewDialog: React.FC = () => {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative w-full max-w-4xl transform overflow-hidden rounded-3xl border border-neutral-200/80 bg-white/95 p-5 text-left shadow-2xl backdrop-blur-xl transition-all dark:border-white/10 dark:bg-neutral-900/95">
-                {image && image.url && (
+                {cleanUrl && (
                   <div className="overflow-hidden rounded-2xl">
                     <img
-                      src={image.url}
-                      alt={image.alt || ''}
+                      src={cleanUrl}
+                      alt={stegaClean(image?.alt) || ''}
                       className="max-h-[75vh] w-full object-contain"
                     />
                   </div>

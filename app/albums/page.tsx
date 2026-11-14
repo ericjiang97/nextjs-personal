@@ -1,43 +1,35 @@
 import SmallHeroBanner from '../../components/SmallHeroBanner'
-import { createClient } from '../../config/prismic'
 import MainLayout from '../../containers/MainLayout'
 import AlbumsList from './albums_list'
-import { Suspense } from 'react'
+import { sanityFetch } from '../../sanity/lib/live'
+import { ALBUMS_PAGE_QUERY } from '../../sanity/lib/queries'
+import { DEFAULT_SITE_SETTINGS } from '../../sanity/lib/defaults'
 
-export default function AlbumHomePage() {
-  const albums = createClient().getAllByType('album', {
-    orderings: {
-      field: 'document.date',
-      direction: 'desc',
-    },
-  })
+export default async function AlbumHomePage() {
+  let data: any = null
+  try {
+    const res = await sanityFetch({ query: ALBUMS_PAGE_QUERY })
+    data = res.data
+  } catch {
+    data = null
+  }
+
+  const settings = { ...DEFAULT_SITE_SETTINGS, ...(data?.settings || {}) }
+  const albums = data?.albums || []
 
   return (
     <MainLayout
       customHero={
         <SmallHeroBanner
-          badge="Photography Stories"
-          title="Albums"
-          description="I take photos in my spare time — explore curated collections from my travels and adventures."
+          badge={settings.albumsHeroBadge}
+          title={settings.albumsHeroTitle || 'Albums'}
+          description={settings.albumsHeroDescription || ''}
         />
       }
       pageTitle="Albums"
       pageMeta={{ description: 'Photography Albums', endpoint: '/albums' }}
     >
-      <Suspense
-        fallback={
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="h-80 animate-pulse rounded-2xl border border-neutral-200/80 bg-neutral-100/70 dark:border-white/10 dark:bg-neutral-900/50"
-              />
-            ))}
-          </div>
-        }
-      >
-        <AlbumsList data={albums} />
-      </Suspense>
+      <AlbumsList albums={albums} />
     </MainLayout>
   )
 }

@@ -1,36 +1,37 @@
 'use client'
 
-import { PrismicDocument } from '@prismicio/client'
-import { PrismicText, SliceZone } from '@prismicio/react'
 import moment from 'moment'
-import React, { use } from 'react'
+import React from 'react'
+import { stegaClean } from 'next-sanity'
 import ImagePreviewDialog from '../../../components/dialogs/ImagePreviewDialog'
 import MainLayout from '../../../containers/MainLayout'
-import { components } from '../../../slices'
 import NotFoundPage from '../../not-found'
 import { ImagePreviewContextProvider } from '../../../contexts/ImagePreviewContext'
 import { Spotlight } from '../../../components/ui/spotlight'
+import SanitySlices from '../../../components/SanitySlices'
+import SanityPortableText from '../../../components/SanityPortableText'
+import { SanityAlbum } from '../../../sanity/lib/queries'
 
-declare interface AlbumPageProps {
-  data: Promise<PrismicDocument>
+interface AlbumPageProps {
+  album: SanityAlbum
 }
 
-const AlbumContent = ({ data }: React.PropsWithChildren<AlbumPageProps>) => {
-  const album = use(data)
-
+const AlbumContent = ({ album }: React.PropsWithChildren<AlbumPageProps>) => {
   if (!album) return <NotFoundPage />
-  const { uid } = album
-  if (!uid) return <NotFoundPage />
+  const cleanSlug = stegaClean(album.slug)
+  if (!cleanSlug) return <NotFoundPage />
 
-  const endpoint = `/album/${uid}`
-  const firstPosted = moment(album.first_publication_date)
-  const lastUpdated = moment(album.last_publication_date)
+  const endpoint = `/albums/${cleanSlug}`
+  const firstPosted = moment(stegaClean(album.publishedAt || album._createdAt))
+  const lastUpdated = moment(
+    stegaClean(album.updatedAt || album._updatedAt || album.publishedAt)
+  )
 
   const isDateSame = firstPosted.isSameOrBefore(lastUpdated)
 
   return (
     <MainLayout
-      pageTitle="Album"
+      pageTitle={`Album - ${stegaClean(album.title)}`}
       pageMeta={{
         endpoint,
       }}
@@ -46,12 +47,17 @@ const AlbumContent = ({ data }: React.PropsWithChildren<AlbumPageProps>) => {
                   : `Last Updated: ${lastUpdated.format('DD MMMM YYYY')}`}
               </span>
               <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl dark:text-white">
-                <PrismicText field={album.data.title} />
+                {album.title}
               </h1>
+              {album.description && album.description.length > 0 && (
+                <div className="mt-4 text-neutral-600 dark:text-neutral-300">
+                  <SanityPortableText value={album.description} />
+                </div>
+              )}
             </div>
 
             <div className="mx-auto mt-10 flex w-full max-w-4xl flex-col">
-              <SliceZone components={components} slices={album.data.body} />
+              <SanitySlices slices={album.slices} />
             </div>
           </div>
         </div>

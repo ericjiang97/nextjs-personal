@@ -3,11 +3,11 @@ import React from 'react'
 import Link from 'next/link'
 import { IconArrowUpRight, IconRss } from '@tabler/icons-react'
 
-import { IPrismicDocumentRecord } from '../../types'
+import { SanityBlogPost } from '../../sanity/lib/queries'
 import BlogCard from '../cards/BlogCard'
 
 interface BlogHeroProps {
-  posts: IPrismicDocumentRecord[]
+  posts: SanityBlogPost[]
 }
 
 const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
@@ -46,7 +46,7 @@ const BlogHero = ({ posts }: React.PropsWithChildren<BlogHeroProps>) => {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {posts.slice(0, 3).map((post) => (
-          <BlogCard key={post.uid} post={post} />
+          <BlogCard key={post._id || post.slug} post={post} />
         ))}
       </div>
     </section>
