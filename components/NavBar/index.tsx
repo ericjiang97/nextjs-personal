@@ -15,6 +15,7 @@ const navigation: Navigation[] = [
   { name: 'Projects', href: '/projects' },
   { name: 'Blog', href: '/blog' },
   { name: 'Albums', href: '/albums' },
+  { name: 'Places', href: '/places' },
   { name: 'Media', href: '/media' },
   { name: 'About', href: '/about' },
 ]
@@ -23,6 +24,12 @@ export default function NavBar() {
   const path = usePathname() || '/'
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [prevPath, setPrevPath] = useState(path)
+
+  if (path !== prevPath) {
+    setPrevPath(path)
+    setMobileOpen(false)
+  }
 
   const parentPath = path.split('/')[1] || ''
 
@@ -32,11 +39,11 @@ export default function NavBar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full px-4 pt-4 pb-2 sm:px-6 lg:px-8">
+    <header className="pointer-events-none sticky top-0 z-50 w-full px-4 pt-4 pb-2 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <nav
           aria-label="Global"
-          className="relative flex items-center justify-between rounded-full border border-neutral-200/80 bg-white/80 px-4 py-2.5 shadow-lg shadow-black/[0.03] backdrop-blur-xl transition-colors dark:border-white/[0.1] dark:bg-neutral-950/75 dark:shadow-sky-500/[0.03]"
+          className="pointer-events-auto relative flex items-center justify-between rounded-full border border-neutral-200/80 bg-white/80 px-4 py-2.5 shadow-lg shadow-black/[0.03] backdrop-blur-xl transition-colors dark:border-white/[0.1] dark:bg-neutral-950/75 dark:shadow-sky-500/[0.03]"
         >
           {/* Top subtle specular highlight line */}
           <div className="pointer-events-none absolute inset-x-10 -top-px h-px bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
@@ -124,7 +131,7 @@ export default function NavBar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
               transition={{ duration: 0.18 }}
-              className="mt-2 overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/95 p-3 shadow-xl backdrop-blur-xl md:hidden dark:border-white/10 dark:bg-neutral-950/95"
+              className="pointer-events-auto mt-2 overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/95 p-3 shadow-xl backdrop-blur-xl md:hidden dark:border-white/10 dark:bg-neutral-950/95"
             >
               <div className="flex flex-col space-y-1">
                 {navigation.map((item) => {

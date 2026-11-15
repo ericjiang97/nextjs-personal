@@ -131,3 +131,129 @@ body {
 .dark .bg-dot-pattern {
   background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
 }
+
+/* Leaflet interactive map & custom scrollbar helpers */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  background: #e2e8f0 !important;
+  font-family: inherit;
+  z-index: 0;
+}
+
+.dark .leaflet-container,
+.xplore-map-dark .leaflet-container {
+  background: #09090b !important;
+}
+
+.leaflet-container img,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.leaflet-tile-pane {
+  transition: filter 0.28s ease;
+}
+
+.xplore-map-dark .leaflet-tile-pane {
+  filter: invert(100%) hue-rotate(180deg) brightness(92%) contrast(92%)
+    saturate(82%);
+}
+
+.xplore-custom-pin {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-tooltip {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  border-radius: 12px !important;
+  color: #09090b !important;
+  padding: 6px 10px !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+}
+
+.leaflet-tooltip-top:before {
+  border-top-color: rgba(255, 255, 255, 0.96) !important;
+}
+
+.dark .leaflet-tooltip {
+  background: rgba(9, 9, 11, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #f4f4f5 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .leaflet-tooltip-top:before {
+  border-top-color: rgba(9, 9, 11, 0.94) !important;
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+.leaflet-bar a {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #09090b !important;
+  border-bottom-color: rgba(15, 23, 42, 0.1) !important;
+  backdrop-filter: blur(12px);
+}
+
+.leaflet-bar a:hover {
+  background: #ffffff !important;
+  color: #0284c7 !important;
+}
+
+.dark .leaflet-bar {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .leaflet-bar a {
+  background: rgba(9, 9, 11, 0.88) !important;
+  color: #f4f4f5 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .leaflet-bar a:hover {
+  background: rgba(24, 24, 27, 0.95) !important;
+  color: #38bdf8 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.78) !important;
+  color: #52525b !important;
+  backdrop-filter: blur(8px);
+  border-radius: 8px 0 0 0;
+}
+
+.dark .leaflet-control-attribution {
+  background: rgba(9, 9, 11, 0.78) !important;
+  color: #a1a1aa !important;
+}
+
+.dark .leaflet-control-attribution a {
+  color: #38bdf8 !important;
+}
+
+.xplore-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.xplore-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.xplore-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+.dark .xplore-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+}

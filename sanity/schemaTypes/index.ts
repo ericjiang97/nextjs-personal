@@ -1,6 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
 import { portableTextType } from './objects/portableText'
+import { placeItemType } from './objects/placeItem'
 import {
   beforeAfterSlice,
   imageGroupSlice,
@@ -18,6 +19,7 @@ import { projectType } from './documents/project'
 import { experienceType } from './documents/experience'
 import { talkType } from './documents/talk'
 import { wallpaperType } from './documents/wallpaper'
+import { placeListType } from './documents/placeList'
 
 export const singletonTypes = new Set(['homePage', 'aboutPage', 'siteSettings'])
 
@@ -25,6 +27,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Objects & Slices
     portableTextType,
+    placeItemType,
     singleImageSlice,
     imageGroupSlice,
     beforeAfterSlice,
@@ -38,6 +41,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blogPostType,
     categoryType,
     albumType,
+    placeListType,
     projectType,
     experienceType,
     talkType,

@@ -38,6 +38,14 @@ export const resolve: PresentationPluginOptions['resolve'] = {
       route: '/albums/:uid',
       filter: `_type == "album" && slug.current == $uid`,
     },
+    {
+      route: '/places',
+      filter: `_type == "placeList" && unlisted != true`,
+    },
+    {
+      route: '/places/:slug',
+      filter: `_type == "placeList" && slug.current == $slug`,
+    },
   ]),
   locations: {
     homePage: defineLocations({
@@ -51,6 +59,7 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         { title: 'Blog Index', href: '/blog' },
         { title: 'Projects', href: '/projects' },
         { title: 'Albums', href: '/albums' },
+        { title: 'Places', href: '/places' },
         { title: 'Media', href: '/media' },
         { title: 'Wallpapers', href: '/media/wallpapers' },
       ],
@@ -130,6 +139,24 @@ export const resolve: PresentationPluginOptions['resolve'] = {
       resolve: (doc) => ({
         locations: [
           { title: doc?.title || 'Wallpapers', href: '/media/wallpapers' },
+        ],
+      }),
+    }),
+    placeList: defineLocations({
+      select: {
+        title: 'title',
+        slug: 'slug.current',
+        unlisted: 'unlisted',
+      },
+      resolve: (doc) => ({
+        locations: [
+          {
+            title: doc?.title || 'Places List',
+            href: doc?.slug ? `/places/${doc.slug}` : '/places',
+          },
+          ...(doc?.unlisted
+            ? []
+            : [{ title: 'All Favourite Places', href: '/places' }]),
         ],
       }),
     }),

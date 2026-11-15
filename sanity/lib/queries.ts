@@ -209,6 +209,9 @@ export interface SanitySiteSettings {
   albumsHeroBadge?: string
   albumsHeroTitle?: string
   albumsHeroDescription?: string
+  placesHeroBadge?: string
+  placesHeroTitle?: string
+  placesHeroDescription?: string
   mediaHeroBadge?: string
   mediaHeroTitle?: string
   mediaHeroDescription?: string
@@ -493,4 +496,158 @@ export const OG_TALK_QUERY = defineQuery(`*[_type == "talk" && slug.current == $
   title,
   date,
   talkDate
+}`)
+
+export interface SanityPlaceItem {
+  _key?: string
+  name: string
+  subtitle?: string | null
+  primaryTag?: 'restaurant' | 'city' | 'cafe' | 'place' | string | null
+  address?: string | null
+  country?: string | null
+  lat: number
+  lng: number
+  rating?: number | null
+  cuisine?: string | null
+  priceRange?: string | null
+  wouldGoAgain?: 'yes' | 'maybe' | 'no' | string | null
+  recommendedDishes?: string[] | null
+  lastVisited?: string | null
+  operatingStatus?:
+    | 'open'
+    | 'temporarily_closed'
+    | 'permanently_closed'
+    | string
+    | null
+  tags?: string[] | null
+  notes?: string | null
+  images?: Array<{
+    _key?: string
+    url?: string | null
+    alt?: string | null
+  }> | null
+  externalUrl?: string | null
+}
+
+export interface SanityPlaceList {
+  _id: string
+  title: string
+  slug: string
+  emoji?: string | null
+  description?: string | null
+  ownerName?: string | null
+  coverTheme?: 'amber' | 'cyan' | 'violet' | 'emerald' | 'rose' | string | null
+  sortBy?: 'manual' | 'rating' | 'name' | 'tag' | string | null
+  cardStyle?: 'detailed' | 'compact' | string | null
+  ratingScale?: number | null
+  customTags?: string[] | null
+  unlisted?: boolean | null
+  sharingPaused?: boolean | null
+  hideNotesOnShare?: boolean | null
+  order?: number | null
+  _updatedAt?: string
+  places?: SanityPlaceItem[] | null
+}
+
+export const PUBLIC_PLACE_LISTS_QUERY = defineQuery(`{
+  "settings": *[_type == "siteSettings" && _id == "siteSettings"][0]{
+    placesHeroBadge,
+    placesHeroTitle,
+    placesHeroDescription
+  },
+  "totalCount": count(*[_type == "placeList"]),
+  "lists": *[_type == "placeList" && unlisted != true && sharingPaused != true] | order(coalesce(order, 999) asc, _updatedAt desc){
+    _id,
+    title,
+    "slug": slug.current,
+    emoji,
+    description,
+    ownerName,
+    coverTheme,
+    sortBy,
+    cardStyle,
+    ratingScale,
+    customTags,
+    unlisted,
+    sharingPaused,
+    hideNotesOnShare,
+    order,
+    _updatedAt,
+    places[]{
+      _key,
+      name,
+      subtitle,
+      primaryTag,
+      address,
+      country,
+      lat,
+      lng,
+      rating,
+      cuisine,
+      priceRange,
+      wouldGoAgain,
+      recommendedDishes,
+      lastVisited,
+      operatingStatus,
+      tags,
+      notes,
+      "images": images[]{
+        _key,
+        "url": asset->url,
+        alt
+      },
+      externalUrl
+    }
+  }
+}`)
+
+export const PLACE_LIST_BY_SLUG_QUERY = defineQuery(`{
+  "totalCount": count(*[_type == "placeList"]),
+  "list": *[_type == "placeList" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    emoji,
+    description,
+    ownerName,
+    coverTheme,
+    sortBy,
+    cardStyle,
+    ratingScale,
+    customTags,
+    unlisted,
+    sharingPaused,
+    hideNotesOnShare,
+    order,
+    _updatedAt,
+    places[]{
+      _key,
+      name,
+      subtitle,
+      primaryTag,
+      address,
+      country,
+      lat,
+      lng,
+      rating,
+      cuisine,
+      priceRange,
+      wouldGoAgain,
+      recommendedDishes,
+      lastVisited,
+      operatingStatus,
+      tags,
+      notes,
+      "images": images[]{
+        _key,
+        "url": asset->url,
+        alt
+      },
+      externalUrl
+    }
+  }
+}`)
+
+export const PLACE_LIST_SLUGS_QUERY = defineQuery(`*[_type == "placeList" && defined(slug.current)]{
+  "slug": slug.current
 }`)
