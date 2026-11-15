@@ -7,6 +7,7 @@ const navigation = {
     { name: 'Projects', href: '/projects' },
     { name: 'Blog', href: '/blog' },
     { name: 'Albums', href: '/albums' },
+    { name: 'Places', href: '/places' },
     { name: 'Wallpapers', href: '/media/wallpapers' },
     { name: 'Photos', href: 'https://ericj.photos' },
     { name: 'About', href: '/about' },
