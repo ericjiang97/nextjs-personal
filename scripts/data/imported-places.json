@@ -1,0 +1,2927 @@
+[
+  {
+    "_id": "placeList-erics-ramen-review",
+    "_type": "placeList",
+    "title": "Eric’s Ramen Review",
+    "slug": {
+      "_type": "slug",
+      "current": "erics-ramen-review"
+    },
+    "emoji": "🍜",
+    "description": "Personal ramen & tsukemen ratings (/10), tasting notes, and recommended bowls across Taiwan, Japan, and Singapore.",
+    "ownerName": "Eric Jiang",
+    "coverTheme": "amber",
+    "sortBy": "rating",
+    "cardStyle": "detailed",
+    "ratingScale": 10,
+    "customTags": [
+      "would-go-again",
+      "tsukemen",
+      "taipei",
+      "banqiao",
+      "japan",
+      "singapore"
+    ],
+    "unlisted": false,
+    "sharingPaused": false,
+    "hideNotesOnShare": false,
+    "order": 1,
+    "places": [
+      {
+        "_key": "ramen-10",
+        "_type": "placeItem",
+        "name": "六厘舎 東京駅東京ラーメンストリート店",
+        "subtitle": "Rokurinsha · Chiyoda City, Tokyo",
+        "primaryTag": "restaurant",
+        "rating": 8.75,
+        "cuisine": "Tsukemen & Ramen",
+        "wouldGoAgain": "yes",
+        "lastVisited": "2024-11-08",
+        "operatingStatus": "open",
+        "address": "Chiyoda City, Tokyo, Japan",
+        "country": "Japan",
+        "lat": 35.6800519,
+        "lng": 139.7678455,
+        "tags": [
+          "japan",
+          "tokyo",
+          "tsukemen",
+          "would-go-again"
+        ],
+        "notes": "The best tsukemen I’ve ever had",
+        "externalUrl": "https://maps.app.goo.gl/Tvh6FYaSqqS643Rv7"
+      },
+      {
+        "_key": "ramen-32",
+        "_type": "placeItem",
+        "name": "Menya Musashi Kanzan 麵屋武藏-神山",
+        "subtitle": "Zhongshan District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.7,
+        "cuisine": "Tsukemen & Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "濃厚沾麵 (味玉叉燒版)"
+        ],
+        "lastVisited": "2026-08-15",
+        "operatingStatus": "open",
+        "address": "Zhongshan District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0510319,
+        "lng": 121.5235744,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "tsukemen",
+          "would-go-again"
+        ],
+        "notes": "Tsukemen is so good",
+        "externalUrl": "https://maps.app.goo.gl/mPxfRmHzALw32vWt7"
+      },
+      {
+        "_key": "ramen-9",
+        "_type": "placeItem",
+        "name": "麵屋鶴立 RAMEN TSURU",
+        "subtitle": "Datong District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.7,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "鶴立雞白湯拉麵（濃)",
+          "清湯醬油拉麵",
+          "叉燒飯"
+        ],
+        "lastVisited": "2026-08-22",
+        "operatingStatus": "open",
+        "address": "Datong District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0535571,
+        "lng": 121.5185093,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen",
+          "would-go-again"
+        ],
+        "notes": "醬油雞湯拉麵(清) - Absolutely almost perfection\nBroth: 9/10\nNoodles (firm): 8.75/10\nCharsiu: 9/10\nEgg: N/A (no egg, sad)\n\n鶴立雞白湯拉麵（濃）- broth super nice (not super heavy)",
+        "externalUrl": "https://maps.app.goo.gl/LND9DDpmtgHehiTf8",
+        "images": [
+          {
+            "_key": "img-9-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-e96703c830066ed26f8f0b8f9312d33a53e79c0f-1089x1446-jpg"
+            }
+          },
+          {
+            "_key": "img-9-2",
+            "_type": "image",
+            "alt": "鶴立雞白湯拉麵（濃)",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-4402f8be6d5e6247250a086ef9a95e4c8c44c977-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-29",
+        "_type": "placeItem",
+        "name": "野澤麵所Nozawa",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.5,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "貝出汁鹽味拉麵",
+          "山珍醬油拉麵"
+        ],
+        "lastVisited": "2026-09-04",
+        "operatingStatus": "open",
+        "address": "No. 24, Gong Yuan St., Banqiao District, New Taipei City, 220351, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0087834,
+        "lng": 121.4626619,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "notes": "The Salt-base 鹽味 is better than the Shoyu 醬油",
+        "externalUrl": "https://maps.app.goo.gl/PpZ2gBp5VtYkfrXc6",
+        "images": [
+          {
+            "_key": "img-29-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-6ac804ee0875a48f23645a36e4aa54c107dac8f0-1692x2252-png"
+            }
+          },
+          {
+            "_key": "img-29-2",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-4b7abd31754e291d7f15e7223cc3affdf12072d8-1692x2252-png"
+            }
+          },
+          {
+            "_key": "img-29-3",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-a3c4b308f3b457b7e1f7bf2b3140979f9860cdab-1692x2252-png"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-4",
+        "_type": "placeItem",
+        "name": "拉麵らぁ麺魚堺-板橋府中店",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.5,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "味玉醬油拉麵"
+        ],
+        "lastVisited": "2025-04-24",
+        "operatingStatus": "permanently_closed",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0078694,
+        "lng": 121.4637212,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen",
+          "would-go-again",
+          "closed"
+        ],
+        "notes": "味玉醬油拉麵 - fried enoki really good, broth super good and not too salty. (probs one of the best ramen shops in Banqiao District)",
+        "externalUrl": "https://maps.app.goo.gl/jsoea2jmC2bsj8ze9",
+        "images": [
+          {
+            "_key": "img-4-1",
+            "_type": "image",
+            "alt": "味玉醬油拉麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-857f319156e0686da223dee6dca352ef378b22ba-8160x6144-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-25",
+        "_type": "placeItem",
+        "name": "双豚ラーメン",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.4,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "清湯醬油拉麵"
+        ],
+        "lastVisited": "2026-08-20",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0274807,
+        "lng": 121.4651899,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "notes": "清湯醬油叉燒拉麵  - soya broth really good, lots of charsiu (got free extra noodles).\n\n20th Aug - Updated rating from 7.75 to 8.35",
+        "externalUrl": "https://maps.app.goo.gl/cNu18X92EkL5PLPZ8",
+        "images": [
+          {
+            "_key": "img-25-1",
+            "_type": "image",
+            "alt": "清湯醬油叉燒拉麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-3b3cb5729179c47278835b1895a02460ec30222a-8160x6144-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-34",
+        "_type": "placeItem",
+        "name": "麵屋 四季 板橋店",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.4,
+        "cuisine": "Tsukemen & Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "雞白湯沾麵"
+        ],
+        "lastVisited": "2026-09-13",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0230107,
+        "lng": 121.4612409,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "tsukemen",
+          "would-go-again"
+        ],
+        "notes": "Good Tsukemen, broth not thick enough",
+        "externalUrl": "https://maps.app.goo.gl/AdjCovwd7hrTyJY68",
+        "images": [
+          {
+            "_key": "img-34-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-ad37384dba215d676133af1a3e3d8ae265eec9f4-1295x1724-png"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-31",
+        "_type": "placeItem",
+        "name": "拉麵らぁ麺魚堺-中山店",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 8.35,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "玉味醬油拉麵"
+        ],
+        "lastVisited": "2026-09-06",
+        "operatingStatus": "open",
+        "address": "Zhongshan District, Taipei, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0556675,
+        "lng": 121.52017889999999,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen",
+          "would-go-again"
+        ],
+        "notes": "Noodles disappointing, otherwise good broth, loved the fried enoki",
+        "externalUrl": "https://maps.app.goo.gl/YGxufamR9C5s3dBu5",
+        "images": [
+          {
+            "_key": "img-31-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-0aa63273690302b16b8da0155d689fdcf05890dd-1692x2252-png"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-33",
+        "_type": "placeItem",
+        "name": "麵屋饗",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 8.25,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "lastVisited": "2026-08-16",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0289991,
+        "lng": 121.4613009,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://maps.app.goo.gl/PW4z5hvSArG5NkPX7"
+      },
+      {
+        "_key": "ramen-2",
+        "_type": "placeItem",
+        "name": "麵屋 千雲 光華店",
+        "subtitle": "Menya Chikumo Guanghua Branch · Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 7.8,
+        "cuisine": "Tsukemen & Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "雞白湯沾麵"
+        ],
+        "lastVisited": "2025-04-26",
+        "operatingStatus": "open",
+        "address": "Zhongzheng District, Taipei, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0434094,
+        "lng": 121.5310135,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "tsukemen",
+          "would-go-again"
+        ],
+        "notes": "雞白湯沾麵 - really good tsukemen, broth on point",
+        "externalUrl": "https://maps.app.goo.gl/AHUEMSEJuXtR7xoKA",
+        "images": [
+          {
+            "_key": "img-2-1",
+            "_type": "image",
+            "alt": "雞白湯沾麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-a7354ada281e7f123ae0aa5b7c7b72e4f314b679-8160x6144-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-3",
+        "_type": "placeItem",
+        "name": "雞吉君拉麵-西門店",
+        "subtitle": "Wanhua District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.75,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "淡麗雞吉君",
+          "叉燒飯"
+        ],
+        "lastVisited": "2025-04-20",
+        "operatingStatus": "open",
+        "address": "Wanhua District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0419867,
+        "lng": 121.5045269,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen",
+          "would-go-again"
+        ],
+        "notes": "鹽味雞白湯 - really good\n淡麗雞吉君- the better option of the 3\n濃厚雞吉君 - broth super light (doesnt feel like a thick broth)",
+        "externalUrl": "https://maps.app.goo.gl/SSppnVtFUhLzJXHk6",
+        "images": [
+          {
+            "_key": "img-3-1",
+            "_type": "image",
+            "alt": "鹽味雞白湯",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-0fe0188e783e4c70ab4f5669cf7d65ef547655ad-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-6",
+        "_type": "placeItem",
+        "name": "三武魂ラーメン",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.5,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "鹽味雞骨拉麵",
+          "叉燒飯"
+        ],
+        "lastVisited": "2025-04-17",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0316716,
+        "lng": 121.4724856,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "notes": "鹽味雞骨拉麵 - Super good, broth on the lighter side (cannot go wrong)\n干貝雞骨拉麵 - limited edition, the seared scallops gives it a different flavour profile to enjoy\n\n叉燒飯 - Good",
+        "externalUrl": "https://maps.app.goo.gl/tZnwKqQrQmh8eH4n8",
+        "images": [
+          {
+            "_key": "img-6-1",
+            "_type": "image",
+            "alt": "鹽味雞骨拉麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-76039f677cf8cc599b6bd76302005962fc5f62de-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-1",
+        "_type": "placeItem",
+        "name": "茶悟拉麵",
+        "subtitle": "Zhongshan District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.5,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "maybe",
+        "recommendedDishes": [
+          "焙茶雞白湯"
+        ],
+        "lastVisited": "2025-04-27",
+        "operatingStatus": "open",
+        "address": "Zhongshan District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0487385,
+        "lng": 121.5208082,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "notes": "泡雞白湯 - flavour too sweet\n焙茶雞白湯 - Interesting ramen, tea flavour. (Probs the best out of the 3)\n山塵烏龍醬油清湯 - oolong flavour too intense, overpowering the broth",
+        "externalUrl": "https://maps.app.goo.gl/3hDDvFPEatdFXGfJ7",
+        "images": [
+          {
+            "_key": "img-1-1",
+            "_type": "image",
+            "alt": "焙茶雞白湯",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-0e5b2f56137dc6f546b1dc24a416626f2ae308bd-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-20",
+        "_type": "placeItem",
+        "name": "龍鱗拉麵",
+        "subtitle": "Datong District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "maybe",
+        "lastVisited": "2025-04-13",
+        "operatingStatus": "open",
+        "address": "Datong District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0536187,
+        "lng": 121.5182635,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "notes": "Prawn Ramen too rich for my stomach, but depth of flavour super good",
+        "externalUrl": "https://maps.app.goo.gl/w5s3pnj8Ldceb7pG7"
+      },
+      {
+        "_key": "ramen-11",
+        "_type": "placeItem",
+        "name": "ラーメンNEW大宝",
+        "subtitle": "Shimogyo Ward, Kyoto",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2024-11-05",
+        "operatingStatus": "open",
+        "address": "Shimogyo Ward, Kyoto, Japan",
+        "country": "Japan",
+        "lat": 34.9942336,
+        "lng": 135.759919,
+        "tags": [
+          "japan",
+          "kyoto",
+          "ramen"
+        ],
+        "notes": "Just an average Ramen in Japan, not super good or super bad",
+        "externalUrl": "https://maps.app.goo.gl/KKkLwR3r3rx3Fb9NA"
+      },
+      {
+        "_key": "ramen-17",
+        "_type": "placeItem",
+        "name": "鳥人拉麵-台灣總店TOTTO Ramen",
+        "subtitle": "Da’an District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Japanese Ramen",
+        "lastVisited": "2023-05-27",
+        "operatingStatus": "open",
+        "address": "Da’an District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0442602,
+        "lng": 121.5443423,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "notes": "Broth nice",
+        "externalUrl": "https://maps.app.goo.gl/BXo7msHwb1nc33wu5"
+      },
+      {
+        "_key": "ramen-19",
+        "_type": "placeItem",
+        "name": "豚人拉麵 台灣本店",
+        "subtitle": "Butanchu Ramen Taipei · Da’an District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Japanese Ramen",
+        "lastVisited": "2023-09-29",
+        "operatingStatus": "open",
+        "address": "Da’an District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0406826,
+        "lng": 121.5512449,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://maps.app.goo.gl/dadAVtmUUjhf6Hmt5"
+      },
+      {
+        "_key": "ramen-13",
+        "_type": "placeItem",
+        "name": "一生懸麵 新埔三猿店",
+        "subtitle": "Issyokemen · Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Tsukemen & Ramen",
+        "wouldGoAgain": "maybe",
+        "lastVisited": "2024-05-18",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0236277,
+        "lng": 121.4687999,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "tsukemen"
+        ],
+        "notes": "Tsukemen - not bad, ramen - not bad either",
+        "externalUrl": "https://maps.app.goo.gl/bSNphEWcqftf7rre9"
+      },
+      {
+        "_key": "ramen-24",
+        "_type": "placeItem",
+        "name": "Ramen Keisuke Tonkotsu King Four Seasons",
+        "subtitle": "Singapore",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "maybe",
+        "lastVisited": "2023-11-26",
+        "operatingStatus": "open",
+        "address": "Singapore, Singapore",
+        "country": "Singapore",
+        "lat": 1.3009611,
+        "lng": 103.8552972,
+        "tags": [
+          "singapore",
+          "ramen"
+        ],
+        "notes": "Nice Tonoktsu Ramen",
+        "externalUrl": "https://maps.app.goo.gl/DdqTcumwTHjsfGNv9"
+      },
+      {
+        "_key": "ramen-21",
+        "_type": "placeItem",
+        "name": "春㐂拉麵職人",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7.2,
+        "cuisine": "Japanese Ramen",
+        "lastVisited": "2023-12-01",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0275754,
+        "lng": 121.4760856,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen"
+        ],
+        "notes": "Nice thick broth, charsiu super good",
+        "externalUrl": "https://maps.app.goo.gl/jWrVQnCrVR2LSZZs9"
+      },
+      {
+        "_key": "ramen-27",
+        "_type": "placeItem",
+        "name": "池音 鶏白湯ラーメン",
+        "subtitle": "Chiyin Chicken Ramen · Datong District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "recommendedDishes": [
+          "鶏白湯 (Pitan Ramen)"
+        ],
+        "lastVisited": "2025-05-11",
+        "operatingStatus": "open",
+        "address": "Datong District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0538213,
+        "lng": 121.5202146,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "notes": "Disappointing, Egg overcooked",
+        "externalUrl": "https://maps.app.goo.gl/vUQ2r4PukeG1J8DK6"
+      },
+      {
+        "_key": "ramen-18",
+        "_type": "placeItem",
+        "name": "無二亭拉麵",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 7,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "maybe",
+        "lastVisited": "2023-05-06",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0315295,
+        "lng": 121.4758718,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen"
+        ],
+        "notes": "NIce ramen",
+        "externalUrl": "https://maps.app.goo.gl/B7AucFA6Ag9bPjpdA"
+      },
+      {
+        "_key": "ramen-22",
+        "_type": "placeItem",
+        "name": "大阪麦風 心斎橋店",
+        "subtitle": "Osaka Bakufu Shinsaibashi · Chuo Ward, Osaka",
+        "primaryTag": "restaurant",
+        "rating": 7,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2024-10-31",
+        "operatingStatus": "open",
+        "address": "Chuo Ward, Osaka, Japan",
+        "country": "Japan",
+        "lat": 34.673495,
+        "lng": 135.5034205,
+        "tags": [
+          "japan",
+          "osaka",
+          "ramen"
+        ],
+        "notes": "Broth lacked flavour, just meh. (probably tourist trap since it was Shinsaibashi area)",
+        "externalUrl": "https://maps.app.goo.gl/ijdocZR2vwoSuL2Q7"
+      },
+      {
+        "_key": "ramen-23",
+        "_type": "placeItem",
+        "name": "Tsuta Japanese Dining",
+        "subtitle": "Singapore",
+        "primaryTag": "restaurant",
+        "rating": 7,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2023-11-28",
+        "operatingStatus": "open",
+        "address": "Singapore, Singapore",
+        "country": "Singapore",
+        "lat": 1.3009665,
+        "lng": 103.8384727,
+        "tags": [
+          "singapore",
+          "ramen"
+        ],
+        "notes": "Interesting truffle ramen",
+        "externalUrl": "https://maps.app.goo.gl/nXFXuZ2u2brMLsqU8"
+      },
+      {
+        "_key": "ramen-16",
+        "_type": "placeItem",
+        "name": "拉麵山頭火 大遠百板橋店",
+        "subtitle": "Hokkaido Ramen Santouka · Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 6,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2023-12-09",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0138984,
+        "lng": 121.4669325,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen"
+        ],
+        "notes": "Meh ramen, overpriced",
+        "externalUrl": "https://maps.app.goo.gl/RTZRHQ2WpPNnRwzv6"
+      },
+      {
+        "_key": "ramen-15",
+        "_type": "placeItem",
+        "name": "らあめん花月嵐 信義威秀店",
+        "subtitle": "Kagetsu Arashi Vieshow Xinyi Restaurant · Xinyi District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 5.25,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2024-01-21",
+        "operatingStatus": "open",
+        "address": "Xinyi District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0352646,
+        "lng": 121.5672596,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "notes": "Meh",
+        "externalUrl": "https://maps.app.goo.gl/nTR9N6S3BoJwbWLq7"
+      },
+      {
+        "_key": "ramen-26",
+        "_type": "placeItem",
+        "name": "樂麵屋 Globalmall板橋車站",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 5.25,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2025-04-30",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0146099,
+        "lng": 121.4642406,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen"
+        ],
+        "notes": "Just Average",
+        "externalUrl": "https://maps.app.goo.gl/JVJqg7MLgefuaBAf7",
+        "images": [
+          {
+            "_key": "img-26-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-0156583b2a7d1fe2b270b6d35d3a2756d86b62cc-8160x6144-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "ramen-12",
+        "_type": "placeItem",
+        "name": "一風堂 板橋環球店",
+        "subtitle": "Banqiao District, New Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 5,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2024-09-08",
+        "operatingStatus": "open",
+        "address": "Banqiao District, New Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0142426,
+        "lng": 121.4636617,
+        "tags": [
+          "taiwan",
+          "banqiao",
+          "ramen"
+        ],
+        "notes": "Slight better than ichiran, but still there are better options",
+        "externalUrl": "https://maps.app.goo.gl/nE4ANXvb79qT4iAL6"
+      },
+      {
+        "_key": "ramen-8",
+        "_type": "placeItem",
+        "name": "一蘭 台灣台北別館",
+        "subtitle": "Ichiran Taipei Second Branch · Xinyi District, Taipei City",
+        "primaryTag": "restaurant",
+        "rating": 5,
+        "cuisine": "Japanese Ramen",
+        "wouldGoAgain": "no",
+        "lastVisited": "2022-12-01",
+        "operatingStatus": "open",
+        "address": "Xinyi District, Taipei City, Taiwan",
+        "country": "Taiwan",
+        "lat": 25.0368522,
+        "lng": 121.5672633,
+        "tags": [
+          "taiwan",
+          "taipei",
+          "ramen"
+        ],
+        "notes": "There are better options for the wait time and price, so why?",
+        "externalUrl": "https://maps.app.goo.gl/G9h6YozKtN7zJveQ8"
+      }
+    ]
+  },
+  {
+    "_id": "placeList-erics-good-eats-taiwan",
+    "_type": "placeList",
+    "title": "Eric’s Good Eats in Taiwan",
+    "slug": {
+      "_type": "slug",
+      "current": "erics-good-eats-taiwan"
+    },
+    "emoji": "🥟",
+    "description": "Food places that are worth visiting across Taipei, Banqiao, Tamsui, Tainan, Kaohsiung, and Hualien.",
+    "ownerName": "Eric Jiang",
+    "coverTheme": "cyan",
+    "sortBy": "manual",
+    "cardStyle": "detailed",
+    "ratingScale": 10,
+    "customTags": [
+      "taipei",
+      "banqiao",
+      "tainan",
+      "kaohsiung",
+      "ramen",
+      "izakaya",
+      "taiwanese",
+      "dessert"
+    ],
+    "unlisted": false,
+    "sharingPaused": false,
+    "hideNotesOnShare": false,
+    "order": 2,
+    "places": [
+      {
+        "_key": "tw-eats-1",
+        "_type": "placeItem",
+        "name": "Chandu 讚都",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Indonesian",
+        "operatingStatus": "open",
+        "address": "106, Taipei City, Da’an District, Minhui Village, Lane 128, Section 3, Shimin Blvd, 6號1樓",
+        "country": "Taiwan",
+        "lat": 25.0445396,
+        "lng": 121.5346848,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Chandu%20%E8%AE%9A%E9%83%BD/@25.0445396,121.5346848,17z/data=!4m6!3m5!1s0x3442a9320ef2833b:0xe1a97dfea38b4f8!8m2!3d25.0445396!4d121.5346848"
+      },
+      {
+        "_key": "tw-eats-2",
+        "_type": "placeItem",
+        "name": "永和黑豆漿",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Breakfast",
+        "operatingStatus": "open",
+        "address": "No. 123號, Zhuangjing Rd, Huacui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0254383,
+        "lng": 121.4720927,
+        "tags": [
+          "banqiao",
+          "breakfast-brunch"
+        ],
+        "notes": "One of the best Doujian Youtian places (their Fantuan is really good)",
+        "externalUrl": "https://www.google.com/maps/place/%E6%B0%B8%E5%92%8C%E9%BB%91%E8%B1%86%E6%BC%BF/@25.0254383,121.4720927,17z/data=!4m6!3m5!1s0x3442a8023b8e54e3:0x3791176c45f7ae80!8m2!3d25.0254383!4d121.4720927"
+      },
+      {
+        "_key": "tw-eats-3",
+        "_type": "placeItem",
+        "name": "BLIKE Milk Tea Specialty Taipei Yanji Shop",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Ice cream and drink shop",
+        "operatingStatus": "open",
+        "address": "Yanji St, Zhengsheng Village, Da’an District, Taipei City, 10659",
+        "country": "Taiwan",
+        "lat": 25.0398596,
+        "lng": 121.5549813,
+        "tags": [
+          "taipei",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/BLIKE%20Milk%20Tea%20Specialty%20Taipei%20Yanji%20Shop/@25.0398596,121.5549813,17z/data=!4m6!3m5!1s0x3442ab8cf639cd81:0x6b575132f83f8115!8m2!3d25.0398596!4d121.5549813"
+      },
+      {
+        "_key": "tw-eats-4",
+        "_type": "placeItem",
+        "name": "GUGU Yakitori 居酒屋",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "106, Taipei City, Da’an District, Zhengsheng Village, Lane 290, Guangfu S Rd, 41號1樓",
+        "country": "Taiwan",
+        "lat": 25.0392748,
+        "lng": 121.5559827,
+        "tags": [
+          "taipei",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/GUGU%20Yakitori%20%E5%B1%85%E9%85%92%E5%B1%8B/@25.0392748,121.5559827,17z/data=!4m6!3m5!1s0x3442ab9288415909:0xdad5eaa028dd742f!8m2!3d25.0392748!4d121.5559827"
+      },
+      {
+        "_key": "tw-eats-5",
+        "_type": "placeItem",
+        "name": "Yamato Japanese Restaurant",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Japanese",
+        "operatingStatus": "open",
+        "address": "No. 312號, Section 4, Zhongxiao E Rd, Zhengsheng Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0408021,
+        "lng": 121.5568737,
+        "tags": [
+          "taipei",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Yamato%20Japanese%20Restaurant/@25.0408021,121.5568737,17z/data=!4m6!3m5!1s0x3442abc7acb2a781:0xd75096c7974c42ab!8m2!3d25.0408021!4d121.5568737"
+      },
+      {
+        "_key": "tw-eats-6",
+        "_type": "placeItem",
+        "name": "麵屋壹の穴 ICHI",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Ramen",
+        "operatingStatus": "open",
+        "address": "No. 22, Lane 137, Yanji St, Huasheng Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0418912,
+        "lng": 121.5552509,
+        "tags": [
+          "taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%BA%B5%E5%B1%8B%E5%A3%B9%E3%81%AE%E7%A9%B4%20ICHI/@25.0418912,121.5552509,17z/data=!4m6!3m5!1s0x3442abc68a279125:0x1c5b1c90785e9e10!8m2!3d25.0418912!4d121.5552509"
+      },
+      {
+        "_key": "tw-eats-7",
+        "_type": "placeItem",
+        "name": "Mitsui Cuisine",
+        "subtitle": "Songshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Japanese",
+        "operatingStatus": "open",
+        "address": "105, Taipei City, Songshan District, Fucheng Village, 敦化南路1段108號B1",
+        "country": "Taiwan",
+        "lat": 25.045644,
+        "lng": 121.5484075,
+        "tags": [
+          "taipei",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Mitsui%20Cuisine/@25.045644,121.5484075,17z/data=!4m6!3m5!1s0x3442abc4acde9da3:0xabd18d0fd1aaebdc!8m2!3d25.045644!4d121.5484075"
+      },
+      {
+        "_key": "tw-eats-8",
+        "_type": "placeItem",
+        "name": "UNCLE RAY 串燒·牛飲·咖喱 台北大安",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "106, Taipei City, Da’an District, Guangwu Village, Lane 160, Section 1, Dunhua S Rd, 48號1樓",
+        "country": "Taiwan",
+        "lat": 25.0435144,
+        "lng": 121.5469338,
+        "tags": [
+          "taipei",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/UNCLE%20RAY%20%E4%B8%B2%E7%87%92%C2%B7%E7%89%9B%E9%A3%B2%C2%B7%E5%92%96%E5%96%B1%20%E5%8F%B0%E5%8C%97%E5%A4%A7%E5%AE%89/@25.0435144,121.5469338,17z/data=!4m6!3m5!1s0x3442ab3af2e8a30f:0x4921e77593856901!8m2!3d25.0435144!4d121.5469338"
+      },
+      {
+        "_key": "tw-eats-9",
+        "_type": "placeItem",
+        "name": "The Secret Cake",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Patisserie",
+        "operatingStatus": "open",
+        "address": "No. 2號, Lane 16, Section 1, Da'an Rd, Guangwu Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0443065,
+        "lng": 121.5460992,
+        "tags": [
+          "taipei",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/The%20Secret%20Cake/@25.0443065,121.5460992,17z/data=!4m6!3m5!1s0x3442abdb0462b249:0x5dd47babd11ed330!8m2!3d25.0443065!4d121.5460992"
+      },
+      {
+        "_key": "tw-eats-10",
+        "_type": "placeItem",
+        "name": "Goodman Roaster 華山店",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Coffee shop",
+        "operatingStatus": "open",
+        "address": "No. 17號, Section 1, Xinsheng N Rd, Xingya Village, Zhongshan District, Taipei City, 10491",
+        "country": "Taiwan",
+        "lat": 25.0467348,
+        "lng": 121.5318246,
+        "tags": [
+          "taipei",
+          "coffee-tea"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Goodman%20Roaster%20%E8%8F%AF%E5%B1%B1%E5%BA%97/@25.0467348,121.5318246,17z/data=!4m6!3m5!1s0x3442a94df72569d3:0xf7a1caad3095ade8!8m2!3d25.0467348!4d121.5318246"
+      },
+      {
+        "_key": "tw-eats-11",
+        "_type": "placeItem",
+        "name": "Menya Chikumo Guanghua Branch",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 7.8,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "雞白湯沾麵"
+        ],
+        "lastVisited": "2025-04-26",
+        "operatingStatus": "open",
+        "address": "No. 1號, Lane 3, Linyi St, Meihua Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0434094,
+        "lng": 121.5310135,
+        "tags": [
+          "taipei",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Menya%20Chikumo%20Guanghua%20Branch/@25.0434094,121.5310135,17z/data=!4m6!3m5!1s0x3442a9c2cf96bbf9:0xfb4d765a274a7fda!8m2!3d25.0434094!4d121.5310135",
+        "images": [
+          {
+            "_key": "tw-img-2-1",
+            "_type": "image",
+            "alt": "雞白湯沾麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-a7354ada281e7f123ae0aa5b7c7b72e4f314b679-8160x6144-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-12",
+        "_type": "placeItem",
+        "name": "Yongkang Beef Noodles",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Chinese noodle",
+        "operatingStatus": "open",
+        "address": "No. 17號, Lane 31, Section 2, Jinshan S Rd, Yongkang Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0329382,
+        "lng": 121.5281111,
+        "tags": [
+          "taipei",
+          "noodles-dumplings"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Yongkang%20Beef%20Noodles/@25.0329382,121.5281111,17z/data=!4m6!3m5!1s0x3442a982f7561781:0x1d0cff4ca69a3838!8m2!3d25.0329382!4d121.5281111"
+      },
+      {
+        "_key": "tw-eats-13",
+        "_type": "placeItem",
+        "name": "Moon Moon Food Jinan Branch",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "operatingStatus": "open",
+        "address": "100, Taipei City, Zhongzheng District, Xingfu Village, Section 1, Jinan Rd, 7號1樓",
+        "country": "Taiwan",
+        "lat": 25.0427329,
+        "lng": 121.5219127,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Moon%20Moon%20Food%20Jinan%20Branch/@25.0427329,121.5219127,17z/data=!4m6!3m5!1s0x3442a9a8a225dfbb:0x8f189a1ea4177217!8m2!3d25.0427329!4d121.5219127"
+      },
+      {
+        "_key": "tw-eats-14",
+        "_type": "placeItem",
+        "name": "Takumi Dumplings",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Dumpling",
+        "operatingStatus": "open",
+        "address": "No. 6, Section 2, Jinan Rd, Wenbei Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0412914,
+        "lng": 121.5267896,
+        "tags": [
+          "taipei",
+          "noodles-dumplings"
+        ],
+        "notes": "nice affordable dumplings",
+        "externalUrl": "https://www.google.com/maps/place/Takumi%20Dumplings/@25.0412914,121.5267896,17z/data=!4m6!3m5!1s0x3442a97a17041737:0x9ec840455b1f09af!8m2!3d25.0412914!4d121.5267896"
+      },
+      {
+        "_key": "tw-eats-15",
+        "_type": "placeItem",
+        "name": "Ramen Chikumo Linsen Branch",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Ramen",
+        "operatingStatus": "open",
+        "address": "No. 105-1號, Linsen N Rd, Zhengyi Village, Zhongshan District, Taipei City, 10491",
+        "country": "Taiwan",
+        "lat": 25.050188,
+        "lng": 121.5251937,
+        "tags": [
+          "taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Ramen%20Chikumo%20Linsen%20Branch/@25.050188,121.5251937,17z/data=!4m6!3m5!1s0x3442a9d86eaf89a9:0x532d9321d5a305f0!8m2!3d25.050188!4d121.5251937"
+      },
+      {
+        "_key": "tw-eats-16",
+        "_type": "placeItem",
+        "name": "Hamamatsuya",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Unagi",
+        "operatingStatus": "open",
+        "address": "No. 12號, Lane 119, Linsen N Rd, Zhengyi Village, Zhongshan District, Taipei City, 104",
+        "country": "Taiwan",
+        "lat": 25.050485,
+        "lng": 121.525596,
+        "tags": [
+          "taipei",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Hamamatsuya/@25.050485,121.525596,17z/data=!4m6!3m5!1s0x3442a968600a525d:0x9a26a4d0b053af6f!8m2!3d25.050485!4d121.525596"
+      },
+      {
+        "_key": "tw-eats-17",
+        "_type": "placeItem",
+        "name": "双豚ラーメン",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "rating": 8.4,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "清湯醬油拉麵"
+        ],
+        "lastVisited": "2026-08-20",
+        "operatingStatus": "open",
+        "address": "No. 193號, Section 3, Minsheng Rd, Mingcui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0274807,
+        "lng": 121.4651899,
+        "tags": [
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%8F%8C%E8%B1%9A%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3/@25.0274807,121.4651899,17z/data=!4m6!3m5!1s0x3442a949818692a1:0x1713563b8fdb7bb6!8m2!3d25.0274807!4d121.4651899",
+        "images": [
+          {
+            "_key": "tw-img-25-1",
+            "_type": "image",
+            "alt": "清湯醬油叉燒拉麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-3b3cb5729179c47278835b1895a02460ec30222a-8160x6144-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-18",
+        "_type": "placeItem",
+        "name": "好初早餐 江翠本店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Breakfast",
+        "operatingStatus": "open",
+        "address": "No. 70號, Lane 125, Section 2, Wenhua Rd, Wenhua Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0277925,
+        "lng": 121.4699811,
+        "tags": [
+          "banqiao",
+          "breakfast-brunch"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%A5%BD%E5%88%9D%E6%97%A9%E9%A4%90%20%E6%B1%9F%E7%BF%A0%E6%9C%AC%E5%BA%97/@25.0277925,121.4699811,17z/data=!4m6!3m5!1s0x3442a84072c2eb2f:0xbea9006e45fad5c!8m2!3d25.0277925!4d121.4699811"
+      },
+      {
+        "_key": "tw-eats-19",
+        "_type": "placeItem",
+        "name": "FlourishBakery",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Bakery",
+        "operatingStatus": "open",
+        "address": "No. 9號, Lane 225, Section 2, Wenhua Rd, Jiangcui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0283615,
+        "lng": 121.4700975,
+        "tags": [
+          "banqiao",
+          "bakery"
+        ],
+        "notes": "Good cafe and bakery",
+        "externalUrl": "https://www.google.com/maps/place/FlourishBakery/@25.0283615,121.4700975,17z/data=!4m6!3m5!1s0x3442a94f03306ded:0xd11108d26ff10bb2!8m2!3d25.0283615!4d121.4700975"
+      },
+      {
+        "_key": "tw-eats-20",
+        "_type": "placeItem",
+        "name": "老味噌居酒屋 板橋-江翠店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 255號, Section 2, Wenhua Rd, Jiangcui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0290165,
+        "lng": 121.4711971,
+        "tags": [
+          "banqiao",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%80%81%E5%91%B3%E5%99%8C%E5%B1%85%E9%85%92%E5%B1%8B%20%E6%9D%BF%E6%A9%8B-%E6%B1%9F%E7%BF%A0%E5%BA%97/@25.0290165,121.4711971,17z/data=!4m6!3m5!1s0x3442a8405817be89:0x11840c8d96fd429b!8m2!3d25.0290165!4d121.4711971"
+      },
+      {
+        "_key": "tw-eats-21",
+        "_type": "placeItem",
+        "name": "方人也鮮奶麻糬(江翠店)",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Bakery",
+        "operatingStatus": "open",
+        "address": "No. 20號, Section 3, Shuangshi Rd, Bocui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0307842,
+        "lng": 121.4714461,
+        "tags": [
+          "banqiao",
+          "bakery"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E6%96%B9%E4%BA%BA%E4%B9%9F%E9%AE%AE%E5%A5%B6%E9%BA%BB%E7%B3%AC(%E6%B1%9F%E7%BF%A0%E5%BA%97)/@25.0307842,121.4714461,17z/data=!4m6!3m5!1s0x3442a9002fe5fe7b:0x9abc7d4d86ca503a!8m2!3d25.0307842!4d121.4714461"
+      },
+      {
+        "_key": "tw-eats-22",
+        "_type": "placeItem",
+        "name": "隱居居酒屋-江子翠店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Japanese",
+        "operatingStatus": "open",
+        "address": "No. 349號, Section 2, Wenhua Rd, Bocui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.030721,
+        "lng": 121.4727308,
+        "tags": [
+          "banqiao",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%9A%B1%E5%B1%85%E5%B1%85%E9%85%92%E5%B1%8B-%E6%B1%9F%E5%AD%90%E7%BF%A0%E5%BA%97/@25.030721,121.4727308,17z/data=!4m6!3m5!1s0x3442a9196f0352e5:0xc03497ab3a82fba5!8m2!3d25.030721!4d121.4727308"
+      },
+      {
+        "_key": "tw-eats-23",
+        "_type": "placeItem",
+        "name": "三武魂ラーメン",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "rating": 7.5,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "鹽味雞骨拉麵",
+          "叉燒飯"
+        ],
+        "lastVisited": "2025-04-17",
+        "operatingStatus": "open",
+        "address": "No. 24號, Lane 369, Section 2, Wenhua Rd, Bocui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0316716,
+        "lng": 121.4724856,
+        "tags": [
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E4%B8%89%E6%AD%A6%E9%AD%82%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3/@25.0316716,121.4724856,17z/data=!4m6!3m5!1s0x3442a9f58a647603:0x1c5271169bb88664!8m2!3d25.0316716!4d121.4724856",
+        "images": [
+          {
+            "_key": "tw-img-6-1",
+            "_type": "image",
+            "alt": "鹽味雞骨拉麵",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-76039f677cf8cc599b6bd76302005962fc5f62de-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-24",
+        "_type": "placeItem",
+        "name": "鮨跡日本料理",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Sushi",
+        "operatingStatus": "open",
+        "address": "No. 10號, Lane 410, Section 2, Wenhua Rd, Songcui Village, Banqiao District, New Taipei City, 22046",
+        "country": "Taiwan",
+        "lat": 25.0311336,
+        "lng": 121.4741225,
+        "tags": [
+          "banqiao",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%AE%A8%E8%B7%A1%E6%97%A5%E6%9C%AC%E6%96%99%E7%90%86/@25.0311336,121.4741225,17z/data=!4m6!3m5!1s0x3442a91698a6e919:0x4b1f87acbf00b926!8m2!3d25.0311336!4d121.4741225"
+      },
+      {
+        "_key": "tw-eats-25",
+        "_type": "placeItem",
+        "name": "Shan Nay chicken",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Snack bar",
+        "operatingStatus": "open",
+        "address": "No. 20-3號, Lane 307, Section 2, Zhonghua Rd, Zhongqin Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0291962,
+        "lng": 121.5058561,
+        "tags": [
+          "taipei",
+          "street-food"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Shan%20Nay%20chicken/@25.0291962,121.5058561,17z/data=!4m6!3m5!1s0x3442a9a4ce829fcb:0x79625a807eb69bc1!8m2!3d25.0291962!4d121.5058561"
+      },
+      {
+        "_key": "tw-eats-26",
+        "_type": "placeItem",
+        "name": "Hung Kan",
+        "subtitle": "Wanhua District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Cantonese",
+        "operatingStatus": "open",
+        "address": "108, Taipei City, Wanhua District, Ximen Village, Section 1, Zhonghua Rd, 144號2樓",
+        "country": "Taiwan",
+        "lat": 25.043161,
+        "lng": 121.5080755,
+        "tags": [
+          "taipei",
+          "cantonese-hk"
+        ],
+        "notes": "Decent Yum Cha place",
+        "externalUrl": "https://www.google.com/maps/place/Hung%20Kan/@25.043161,121.5080755,17z/data=!4m6!3m5!1s0x3442a90963d7e3e7:0xa03fc5580e34fd80!8m2!3d25.043161!4d121.5080755"
+      },
+      {
+        "_key": "tw-eats-27",
+        "_type": "placeItem",
+        "name": "天天利美食坊",
+        "subtitle": "Wanhua District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "108, Taipei City, Wanhua District, Wanshou Village, 漢中街32巷1號",
+        "country": "Taiwan",
+        "lat": 25.0449773,
+        "lng": 121.5075459,
+        "tags": [
+          "taipei",
+          "taiwanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%A4%A9%E5%A4%A9%E5%88%A9%E7%BE%8E%E9%A3%9F%E5%9D%8A/@25.0449773,121.5075459,17z/data=!4m6!3m5!1s0x3442a90eb2df3bb1:0x4daefa8d64f74f0a!8m2!3d25.0449773!4d121.5075459"
+      },
+      {
+        "_key": "tw-eats-28",
+        "_type": "placeItem",
+        "name": "明水然·樂-板橋重慶店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Teppanyaki",
+        "operatingStatus": "open",
+        "address": "220, New Taipei City, Banqiao District, Guangde Village, Chongqing Rd, 251號1樓",
+        "country": "Taiwan",
+        "lat": 25.0001036,
+        "lng": 121.4634362,
+        "tags": [
+          "banqiao",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E6%98%8E%E6%B0%B4%E7%84%B6%C2%B7%E6%A8%82-%E6%9D%BF%E6%A9%8B%E9%87%8D%E6%85%B6%E5%BA%97/@25.0001036,121.4634362,17z/data=!4m6!3m5!1s0x34680300513beb7b:0x10ad1118994a!8m2!3d25.0001036!4d121.4634362"
+      },
+      {
+        "_key": "tw-eats-29",
+        "_type": "placeItem",
+        "name": "麵屋 四季 板橋店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "rating": 8.4,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "雞白湯沾麵"
+        ],
+        "lastVisited": "2026-09-13",
+        "operatingStatus": "open",
+        "address": "No. 124號, Xinhai Rd, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0230107,
+        "lng": 121.4612409,
+        "tags": [
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%BA%B5%E5%B1%8B%20%E5%9B%9B%E5%AD%A3%20%E6%9D%BF%E6%A9%8B%E5%BA%97/@25.0230107,121.4612409,17z/data=!4m6!3m5!1s0x3442a9e04e80434b:0xfde4bf4db8edd30f!8m2!3d25.0230107!4d121.4612409",
+        "images": [
+          {
+            "_key": "tw-img-34-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-ad37384dba215d676133af1a3e3d8ae265eec9f4-1295x1724-png"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-30",
+        "_type": "placeItem",
+        "name": "Dating Beef Noodle Restaurant",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Chinese noodle",
+        "operatingStatus": "open",
+        "address": "No. 39號, Guoguang Rd, Guoguang Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.017794,
+        "lng": 121.457455,
+        "tags": [
+          "banqiao",
+          "noodles-dumplings"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Dating%20Beef%20Noodle%20Restaurant/@25.017794,121.457455,17z/data=!4m6!3m5!1s0x3442a81ace3f9047:0x65e0a1a67baccb67!8m2!3d25.017794!4d121.457455"
+      },
+      {
+        "_key": "tw-eats-31",
+        "_type": "placeItem",
+        "name": "Yannick",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Dessert shop",
+        "operatingStatus": "open",
+        "address": "220, New Taipei City, Banqiao District, Xinmin Village, Section 2, Xianmin Blvd, 7號1樓大廳板橋車站內 1",
+        "country": "Taiwan",
+        "lat": 25.0137901,
+        "lng": 121.4625297,
+        "tags": [
+          "banqiao",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Yannick/@25.0137901,121.4625297,17z/data=!4m6!3m5!1s0x3442a81641010d49:0xe9b07cc6bbe31722!8m2!3d25.0137901!4d121.4625297"
+      },
+      {
+        "_key": "tw-eats-32",
+        "_type": "placeItem",
+        "name": "野澤麵所Nozawa",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "rating": 8.5,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "貝出汁鹽味拉麵",
+          "山珍醬油拉麵"
+        ],
+        "lastVisited": "2026-09-04",
+        "operatingStatus": "open",
+        "address": "220, New Taipei City, Banqiao District, Fuqiu Village, Gongyuan St, 24號1樓",
+        "country": "Taiwan",
+        "lat": 25.0087834,
+        "lng": 121.4626619,
+        "tags": [
+          "banqiao",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%87%8E%E6%BE%A4%E9%BA%B5%E6%89%80Nozawa/@25.0087834,121.4626619,17z/data=!4m6!3m5!1s0x3442a90050b2010b:0x176855746c2bbda0!8m2!3d25.0087834!4d121.4626619",
+        "images": [
+          {
+            "_key": "tw-img-29-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-6ac804ee0875a48f23645a36e4aa54c107dac8f0-1692x2252-png"
+            }
+          },
+          {
+            "_key": "tw-img-29-2",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-4b7abd31754e291d7f15e7223cc3affdf12072d8-1692x2252-png"
+            }
+          },
+          {
+            "_key": "tw-img-29-3",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-a3c4b308f3b457b7e1f7bf2b3140979f9860cdab-1692x2252-png"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-33",
+        "_type": "placeItem",
+        "name": "老八風居酒屋 板橋店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 8號, Lane 34, Minzu Rd, Fuqiu Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0093639,
+        "lng": 121.462046,
+        "tags": [
+          "banqiao",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%80%81%E5%85%AB%E9%A2%A8%E5%B1%85%E9%85%92%E5%B1%8B%20%E6%9D%BF%E6%A9%8B%E5%BA%97/@25.0093639,121.462046,17z/data=!4m6!3m5!1s0x3442a81ddd4ab76b:0xc7ddc88eecf0a4c7!8m2!3d25.0093639!4d121.462046"
+      },
+      {
+        "_key": "tw-eats-34",
+        "_type": "placeItem",
+        "name": "大根屋",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Sushi",
+        "operatingStatus": "open",
+        "address": "No. 6, Dongmen St, Yixiu Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.009103,
+        "lng": 121.4578455,
+        "tags": [
+          "banqiao",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%A4%A7%E6%A0%B9%E5%B1%8B/@25.009103,121.4578455,17z/data=!4m6!3m5!1s0x346802aaad8668d3:0xd9c9940af95a4cd1!8m2!3d25.009103!4d121.4578455"
+      },
+      {
+        "_key": "tw-eats-35",
+        "_type": "placeItem",
+        "name": "兩喜布丁蛋糕甜點",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Cake shop",
+        "operatingStatus": "open",
+        "address": "No. 13號, Minzu Rd, Fuqiu Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0098207,
+        "lng": 121.4616775,
+        "tags": [
+          "banqiao",
+          "dessert"
+        ],
+        "notes": "Good pudding place, chocolate mousse place was slightly too sweet",
+        "externalUrl": "https://www.google.com/maps/place/%E5%85%A9%E5%96%9C%E5%B8%83%E4%B8%81%E8%9B%8B%E7%B3%95%E7%94%9C%E9%BB%9E/@25.0098207,121.4616775,17z/data=!4m6!3m5!1s0x3442a9cb69e47ab3:0x688554271f1a5ba7!8m2!3d25.0098207!4d121.4616775"
+      },
+      {
+        "_key": "tw-eats-36",
+        "_type": "placeItem",
+        "name": "帝王林家薑母鴨",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Hot pot",
+        "operatingStatus": "open",
+        "address": "220, New Taipei City, Banqiao District, Liuhou Village, 西門街55巷1號",
+        "country": "Taiwan",
+        "lat": 25.0101263,
+        "lng": 121.4542337,
+        "tags": [
+          "banqiao"
+        ],
+        "notes": "Nice duck hot pot restaurant",
+        "externalUrl": "https://www.google.com/maps/place/%E5%B8%9D%E7%8E%8B%E6%9E%97%E5%AE%B6%E8%96%91%E6%AF%8D%E9%B4%A8/@25.0101263,121.4542337,17z/data=!4m6!3m5!1s0x346802a8330591e7:0x1a10f5aa9b3bc712!8m2!3d25.0101263!4d121.4542337"
+      },
+      {
+        "_key": "tw-eats-37",
+        "_type": "placeItem",
+        "name": "FULL MOON 手工蛋餅外帶店早午餐（不定期公休）",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Brunch",
+        "operatingStatus": "open",
+        "address": "No. 31號, Lane 20, Daming St, Huagui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.003586,
+        "lng": 121.45849,
+        "tags": [
+          "banqiao",
+          "breakfast-brunch"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/FULL%20MOON%20%E6%89%8B%E5%B7%A5%E8%9B%8B%E9%A4%85%E5%A4%96%E5%B8%B6%E5%BA%97%E6%97%A9%E5%8D%88%E9%A4%90%EF%BC%88%E4%B8%8D%E5%AE%9A%E6%9C%9F%E5%85%AC%E4%BC%91%EF%BC%89/@25.003586,121.45849,17z/data=!4m6!3m5!1s0x346803d037be552b:0x5979a4a94c9b86d8!8m2!3d25.003586!4d121.45849"
+      },
+      {
+        "_key": "tw-eats-38",
+        "_type": "placeItem",
+        "name": "入魂燒味 燒臘餐廳",
+        "subtitle": "Yonghe District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Hong Kong style fast food",
+        "operatingStatus": "open",
+        "address": "No. 38號, Daxin St, Daxin Village, Yonghe District, New Taipei City, 234",
+        "country": "Taiwan",
+        "lat": 25.0083642,
+        "lng": 121.5156091,
+        "tags": [
+          "new-taipei",
+          "cantonese-hk"
+        ],
+        "notes": "Nice HK roast food place",
+        "externalUrl": "https://www.google.com/maps/place/%E5%85%A5%E9%AD%82%E7%87%92%E5%91%B3%20%E7%87%92%E8%87%98%E9%A4%90%E5%BB%B3/@25.0083642,121.5156091,17z/data=!4m6!3m5!1s0x3442a90bc915b3ad:0x9e464c76ec185259!8m2!3d25.0083642!4d121.5156091"
+      },
+      {
+        "_key": "tw-eats-39",
+        "_type": "placeItem",
+        "name": "RAMEN TSURU",
+        "subtitle": "Datong District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 8.7,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "鶴立雞白湯拉麵（濃)",
+          "清湯醬油拉麵",
+          "叉燒飯"
+        ],
+        "lastVisited": "2026-08-22",
+        "operatingStatus": "open",
+        "address": "No. 18號, Lane 1, Section 2, Chengde Rd, Guangneng Village, Datong District, Taipei City, 103",
+        "country": "Taiwan",
+        "lat": 25.0535571,
+        "lng": 121.5185093,
+        "tags": [
+          "taipei",
+          "ramen",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/RAMEN%20TSURU/@25.0535571,121.5185093,17z/data=!4m6!3m5!1s0x3442a9006b8e841f:0x36f0421df01a7f90!8m2!3d25.0535571!4d121.5185093",
+        "images": [
+          {
+            "_key": "tw-img-9-1",
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-e96703c830066ed26f8f0b8f9312d33a53e79c0f-1089x1446-jpg"
+            }
+          },
+          {
+            "_key": "tw-img-9-2",
+            "_type": "image",
+            "alt": "鶴立雞白湯拉麵（濃)",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-4402f8be6d5e6247250a086ef9a95e4c8c44c977-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-40",
+        "_type": "placeItem",
+        "name": "話一隻雞-南陽店",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Chicken",
+        "operatingStatus": "open",
+        "address": "100, Taipei City, Zhongzheng District, Liming Village, Lane 17, Nanyang St, 5號1樓",
+        "country": "Taiwan",
+        "lat": 25.0442188,
+        "lng": 121.5164408,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%A9%B1%E4%B8%80%E9%9A%BB%E9%9B%9E-%E5%8D%97%E9%99%BD%E5%BA%97/@25.0442188,121.5164408,17z/data=!4m6!3m5!1s0x3442a9b0e55ddba7:0xd8ae8861db3356c3!8m2!3d25.0442188!4d121.5164408"
+      },
+      {
+        "_key": "tw-eats-41",
+        "_type": "placeItem",
+        "name": "今大魯肉飯",
+        "subtitle": "Sanchong District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 40號, Daren St, Chongyang Village, Sanchong District, New Taipei City, 241",
+        "country": "Taiwan",
+        "lat": 25.064409,
+        "lng": 121.4915464,
+        "tags": [
+          "new-taipei",
+          "taiwanese"
+        ],
+        "notes": "Really good braises pork rice and tofu was good",
+        "externalUrl": "https://www.google.com/maps/place/%E4%BB%8A%E5%A4%A7%E9%AD%AF%E8%82%89%E9%A3%AF/@25.064409,121.4915464,17z/data=!4m6!3m5!1s0x3442a91ffc2c1ccb:0x8a6c60a5dd4be9f8!8m2!3d25.064409!4d121.4915464"
+      },
+      {
+        "_key": "tw-eats-42",
+        "_type": "placeItem",
+        "name": "Salt Lick Smokehouse & Grill",
+        "subtitle": "Hualien",
+        "primaryTag": "restaurant",
+        "cuisine": "American",
+        "operatingStatus": "open",
+        "address": "No. 151, Zhongshan Rd, Minzu Village, Hualien City, Hualien County, 970",
+        "country": "Taiwan",
+        "lat": 23.975877,
+        "lng": 121.6100381,
+        "tags": [
+          "hualien"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Salt%20Lick%20Smokehouse%20%26%20Grill/@23.975877,121.6100381,17z/data=!4m6!3m5!1s0x34689fc1e67ebae7:0xdc64d603742db100!8m2!3d23.975877!4d121.6100381"
+      },
+      {
+        "_key": "tw-eats-43",
+        "_type": "placeItem",
+        "name": "麵屋德家",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Ramen",
+        "operatingStatus": "open",
+        "address": "104, Taipei City, Zhongshan District, 中山區 Lane 70, Minquan W Rd, 41-1號1樓",
+        "country": "Taiwan",
+        "lat": 25.0609926,
+        "lng": 121.5204273,
+        "tags": [
+          "taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%BA%B5%E5%B1%8B%E5%BE%B7%E5%AE%B6/@25.0609926,121.5204273,17z/data=!4m6!3m5!1s0x3442a9aa0a18c9b1:0x565c2bc5374f8d08!8m2!3d25.0609926!4d121.5204273"
+      },
+      {
+        "_key": "tw-eats-44",
+        "_type": "placeItem",
+        "name": "Iyoshi Cola",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Craft drink shop",
+        "operatingStatus": "permanently_closed",
+        "address": "No. 21-4號, Lane 44, Section 2, Zhongshan N Rd, Min'an Village, Zhongshan District, Taipei City, 104",
+        "country": "Taiwan",
+        "lat": 25.055199,
+        "lng": 121.5212978,
+        "tags": [
+          "taipei",
+          "closed"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Iyoshi%20Cola/@25.055199,121.5212978,17z/data=!4m6!3m5!1s0x3442a90004bb0b37:0x4f1f53a1bf35cec7!8m2!3d25.055199!4d121.5212978"
+      },
+      {
+        "_key": "tw-eats-45",
+        "_type": "placeItem",
+        "name": "Bogart's Smokehouse Taipei (美式木柴煙燻屋)",
+        "subtitle": "Nangang District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Barbecue",
+        "operatingStatus": "open",
+        "address": "No. 255號, Section 1, Nangang Rd, Nangang Village, Nangang District, Taipei City, 115",
+        "country": "Taiwan",
+        "lat": 25.0547954,
+        "lng": 121.6101432,
+        "tags": [
+          "taipei",
+          "bbq-yakiniku"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Bogart's%20Smokehouse%20Taipei%20(%E7%BE%8E%E5%BC%8F%E6%9C%A8%E6%9F%B4%E7%85%99%E7%87%BB%E5%B1%8B)/@25.0547954,121.6101432,17z/data=!4m6!3m5!1s0x3442abac7ae502fd:0x1ee6de4490850f80!8m2!3d25.0547954!4d121.6101432"
+      },
+      {
+        "_key": "tw-eats-46",
+        "_type": "placeItem",
+        "name": "Yaoya",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 11號, Lane 27, Section 2, Zhongshan N Rd, Kangle Village, Zhongshan District, Taipei City, 10445",
+        "country": "Taiwan",
+        "lat": 25.0533309,
+        "lng": 121.5241898,
+        "tags": [
+          "taipei",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Yaoya/@25.0533309,121.5241898,17z/data=!4m6!3m5!1s0x3442a9e96127b4fd:0xb2f50ea4455574aa!8m2!3d25.0533309!4d121.5241898"
+      },
+      {
+        "_key": "tw-eats-47",
+        "_type": "placeItem",
+        "name": "Kumagoshi Ramen",
+        "subtitle": "Xinzhuang District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Ramen",
+        "operatingStatus": "open",
+        "address": "242, New Taipei City, Xinzhuang District, Xingfu Rd, 736號一層號地下",
+        "country": "Taiwan",
+        "lat": 25.0492352,
+        "lng": 121.4478086,
+        "tags": [
+          "new-taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Kumagoshi%20Ramen/@25.0492352,121.4478086,17z/data=!4m6!3m5!1s0x3442a9337a1cdf11:0x10c98e45c03aec63!8m2!3d25.0492352!4d121.4478086"
+      },
+      {
+        "_key": "tw-eats-48",
+        "_type": "placeItem",
+        "name": "TRASTEVERE",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Italian",
+        "operatingStatus": "open",
+        "address": "106, Taipei City, Da’an District, Guangwu Village, Lane 107, Section 1, Fuxing S Rd, 7號1樓",
+        "country": "Taiwan",
+        "lat": 25.0436636,
+        "lng": 121.54462,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/TRASTEVERE/@25.0436636,121.54462,17z/data=!4m6!3m5!1s0x3442abcffd6749f7:0x7b695b2dc0f268a7!8m2!3d25.0436636!4d121.54462"
+      },
+      {
+        "_key": "tw-eats-49",
+        "_type": "placeItem",
+        "name": "Don Shang He Shi",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Japanese",
+        "operatingStatus": "open",
+        "address": "B1, No. 140號, Section 2, Nanjing E Rd, Zhuyuan Village, Zhongshan District, Taipei City, 10491",
+        "country": "Taiwan",
+        "lat": 25.0517646,
+        "lng": 121.533861,
+        "tags": [
+          "taipei",
+          "japanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Don%20Shang%20He%20Shi/@25.0517646,121.533861,17z/data=!4m6!3m5!1s0x3442a96101346ef7:0xb2e38efb4ab34a62!8m2!3d25.0517646!4d121.533861"
+      },
+      {
+        "_key": "tw-eats-50",
+        "_type": "placeItem",
+        "name": "The Public House",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Bistro",
+        "operatingStatus": "open",
+        "address": "10681, Taipei City, Da’an District, Dun'an Village, Section 4, Xinyi Road, 143號一樓",
+        "country": "Taiwan",
+        "lat": 25.0334458,
+        "lng": 121.5496179,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/The%20Public%20House/@25.0334458,121.5496179,17z/data=!4m6!3m5!1s0x3442abff46b1f7c5:0xdfeccb8698905760!8m2!3d25.0334458!4d121.5496179"
+      },
+      {
+        "_key": "tw-eats-51",
+        "_type": "placeItem",
+        "name": "包真鮮手工包子水餃",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Steamed bun shop",
+        "operatingStatus": "open",
+        "address": "No. 25號, Section 3, Jiangning Rd, Xitou Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0316569,
+        "lng": 121.4709975,
+        "tags": [
+          "banqiao",
+          "noodles-dumplings"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%8C%85%E7%9C%9F%E9%AE%AE%E6%89%8B%E5%B7%A5%E5%8C%85%E5%AD%90%E6%B0%B4%E9%A4%83/@25.0316569,121.4709975,17z/data=!4m6!3m5!1s0x3442a8419c93a16f:0x58f1fdf5b7f495a6!8m2!3d25.0316569!4d121.4709975"
+      },
+      {
+        "_key": "tw-eats-52",
+        "_type": "placeItem",
+        "name": "Kanpai Yakiniku Restaurant Main Shop",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 17號, Lane 236, Section 1, Dunhua S Rd, Ren'ai Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0406471,
+        "lng": 121.5469919,
+        "tags": [
+          "taipei",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Kanpai%20Yakiniku%20Restaurant%20Main%20Shop/@25.0406471,121.5469919,17z/data=!4m6!3m5!1s0x3442abd073331499:0x55f2818b12385070!8m2!3d25.0406471!4d121.5469919"
+      },
+      {
+        "_key": "tw-eats-53",
+        "_type": "placeItem",
+        "name": "Nanmen Market",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "place",
+        "cuisine": "Traditional market",
+        "operatingStatus": "open",
+        "address": "No. 8號, Section 1, Roosevelt Rd, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0324803,
+        "lng": 121.5180034,
+        "tags": [
+          "taipei",
+          "street-food"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Nanmen%20Market/@25.0324803,121.5180034,17z/data=!4m6!3m5!1s0x3442a99ec92066df:0x8ea7c31a37875ce8!8m2!3d25.0324803!4d121.5180034"
+      },
+      {
+        "_key": "tw-eats-54",
+        "_type": "placeItem",
+        "name": "田園海鮮餐廳",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Seafood",
+        "operatingStatus": "open",
+        "address": "No. 5號, Lane 174, Section 2, Bade Rd, Pitou Village, Zhongshan District, Taipei City, 104",
+        "country": "Taiwan",
+        "lat": 25.0459494,
+        "lng": 121.538284,
+        "tags": [
+          "taipei",
+          "seafood"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E7%94%B0%E5%9C%92%E6%B5%B7%E9%AE%AE%E9%A4%90%E5%BB%B3/@25.0459494,121.538284,17z/data=!4m6!3m5!1s0x3442abd88b04ea1b:0xdc32140a7e49e07b!8m2!3d25.0459494!4d121.538284"
+      },
+      {
+        "_key": "tw-eats-55",
+        "_type": "placeItem",
+        "name": "KDI CAFE",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Coffee shop",
+        "operatingStatus": "open",
+        "address": "No. 1號, Lane 70, Section 2, Shuangshi Rd, Songbo Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.028279,
+        "lng": 121.4752677,
+        "tags": [
+          "banqiao",
+          "coffee-tea"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/KDI%20CAFE/@25.028279,121.4752677,17z/data=!4m6!3m5!1s0x3442a943097aeeb3:0x902e6b822ca960e7!8m2!3d25.028279!4d121.4752677"
+      },
+      {
+        "_key": "tw-eats-56",
+        "_type": "placeItem",
+        "name": "鶴料日式居酒屋",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 79號, Section 2, Zhongshan Rd, Xi'an Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0159021,
+        "lng": 121.473834,
+        "tags": [
+          "banqiao",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%B6%B4%E6%96%99%E6%97%A5%E5%BC%8F%E5%B1%85%E9%85%92%E5%B1%8B/@25.0159021,121.473834,17z/data=!4m6!3m5!1s0x3442a9755e87b6a3:0x24a4a85cda05d33b!8m2!3d25.0159021!4d121.473834"
+      },
+      {
+        "_key": "tw-eats-57",
+        "_type": "placeItem",
+        "name": "Ito Kyuemon",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Traditional teahouse",
+        "operatingStatus": "open",
+        "address": "No. 115號, Section 1, Zhongshan N Rd, 中山區 Zhongshan District, Taipei City, 10491",
+        "country": "Taiwan",
+        "lat": 25.0512069,
+        "lng": 121.522492,
+        "tags": [
+          "taipei",
+          "coffee-tea"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Ito%20Kyuemon/@25.0512069,121.522492,17z/data=!4m6!3m5!1s0x3442a96edb56c8a5:0xb4bda5b637ea4860!8m2!3d25.0512069!4d121.522492"
+      },
+      {
+        "_key": "tw-eats-58",
+        "_type": "placeItem",
+        "name": "雞吉君 • 中華雞白湯",
+        "subtitle": "Wanhua District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 7.75,
+        "cuisine": "Ramen",
+        "wouldGoAgain": "yes",
+        "recommendedDishes": [
+          "淡麗雞吉君",
+          "叉燒飯"
+        ],
+        "lastVisited": "2025-04-20",
+        "operatingStatus": "permanently_closed",
+        "address": "No. 172號, Kunming St, 萬華區 Wanhua District, Taipei City, 108",
+        "country": "Taiwan",
+        "lat": 25.0419867,
+        "lng": 121.5045269,
+        "tags": [
+          "taipei",
+          "ramen",
+          "closed",
+          "would-go-again"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%9B%9E%E5%90%89%E5%90%9B%20%E2%80%A2%20%E4%B8%AD%E8%8F%AF%E9%9B%9E%E7%99%BD%E6%B9%AF/@25.0419867,121.5045269,17z/data=!4m6!3m5!1s0x3442a9f1adc40d81:0xa4c68566ee3a101a!8m2!3d25.0419867!4d121.5045269",
+        "images": [
+          {
+            "_key": "tw-img-3-1",
+            "_type": "image",
+            "alt": "鹽味雞白湯",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-0fe0188e783e4c70ab4f5669cf7d65ef547655ad-6144x8160-jpg"
+            }
+          }
+        ]
+      },
+      {
+        "_key": "tw-eats-59",
+        "_type": "placeItem",
+        "name": "小倉酒場kokura_sakaba",
+        "subtitle": "Shilin District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 110號, Jihe Rd, Yixin Village, Shilin District, Taipei City, 111",
+        "country": "Taiwan",
+        "lat": 25.0880679,
+        "lng": 121.5235633,
+        "tags": [
+          "taipei",
+          "izakaya"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%B0%8F%E5%80%89%E9%85%92%E5%A0%B4kokura_sakaba/@25.0880679,121.5235633,17z/data=!4m6!3m5!1s0x3442afc9b484bb2d:0xad21fd072235cafb!8m2!3d25.0880679!4d121.5235633"
+      },
+      {
+        "_key": "tw-eats-60",
+        "_type": "placeItem",
+        "name": "TGI Fridays",
+        "subtitle": "Wanhua District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Traditional American",
+        "operatingStatus": "open",
+        "address": "108, Taipei City, Wanhua District, Wanshou Village, Section 2, Wuchang St, 72號2樓",
+        "country": "Taiwan",
+        "lat": 25.044807,
+        "lng": 121.506211,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/TGI%20Fridays/@25.044807,121.506211,17z/data=!4m6!3m5!1s0x3442a9092fb84eed:0x6e7ff80bac73eb7f!8m2!3d25.044807!4d121.506211"
+      },
+      {
+        "_key": "tw-eats-61",
+        "_type": "placeItem",
+        "name": "發肉燒肉餐酒 板橋三店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Yakiniku",
+        "operatingStatus": "open",
+        "address": "220066, New Taipei City, Banqiao District, Xiangyun Village, 四川路一段20號",
+        "country": "Taiwan",
+        "lat": 25.0063923,
+        "lng": 121.459376,
+        "tags": [
+          "banqiao",
+          "bbq-yakiniku"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E7%99%BC%E8%82%89%E7%87%92%E8%82%89%E9%A4%90%E9%85%92%20%E6%9D%BF%E6%A9%8B%E4%B8%89%E5%BA%97/@25.0063923,121.459376,17z/data=!4m6!3m5!1s0x3468030952fd9b33:0x36a0c4e7ff834e30!8m2!3d25.0063923!4d121.459376"
+      },
+      {
+        "_key": "tw-eats-62",
+        "_type": "placeItem",
+        "name": "NINAO Gelato 蜷尾家 經典冰淇淋",
+        "subtitle": "Anping District, Tainan",
+        "primaryTag": "cafe",
+        "cuisine": "Ice cream shop",
+        "operatingStatus": "open",
+        "address": "No. 720號, Anbei Rd, Jincheng Village, Anping District, Tainan City, 708",
+        "country": "Taiwan",
+        "lat": 22.9973227,
+        "lng": 120.1466772,
+        "tags": [
+          "tainan",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/NINAO%20Gelato%20%E8%9C%B7%E5%B0%BE%E5%AE%B6%20%E7%B6%93%E5%85%B8%E5%86%B0%E6%B7%87%E6%B7%8B/@22.9973227,120.1466772,17z/data=!4m6!3m5!1s0x346dd8af3b41fee3:0x20540e70f4f9b86f!8m2!3d22.9973227!4d120.1466772"
+      },
+      {
+        "_key": "tw-eats-63",
+        "_type": "placeItem",
+        "name": "紅磡 新飲茶 （林森店）",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Cantonese",
+        "operatingStatus": "open",
+        "address": "10491, Taipei City, Zhongshan District, Kangle Village, Linsen N Rd, 263號2F-1",
+        "country": "Taiwan",
+        "lat": 25.0545101,
+        "lng": 121.5255861,
+        "tags": [
+          "taipei",
+          "cantonese-hk"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E7%B4%85%E7%A3%A1%20%E6%96%B0%E9%A3%B2%E8%8C%B6%20%EF%BC%88%E6%9E%97%E6%A3%AE%E5%BA%97%EF%BC%89/@25.0545101,121.5255861,17z/data=!4m6!3m5!1s0x3442a967d62b0b97:0xca98949838299fb1!8m2!3d25.0545101!4d121.5255861"
+      },
+      {
+        "_key": "tw-eats-64",
+        "_type": "placeItem",
+        "name": "炸雞洋行(歡迎電話預訂)",
+        "subtitle": "West Central District, Tainan",
+        "primaryTag": "restaurant",
+        "cuisine": "Hawker stall",
+        "operatingStatus": "open",
+        "address": "No. 41號, Section 3, Guohua St, Qiancao Village, West Central District, Tainan City, 700",
+        "country": "Taiwan",
+        "lat": 22.9942462,
+        "lng": 120.1973897,
+        "tags": [
+          "tainan",
+          "street-food"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E7%82%B8%E9%9B%9E%E6%B4%8B%E8%A1%8C(%E6%AD%A1%E8%BF%8E%E9%9B%BB%E8%A9%B1%E9%A0%90%E8%A8%82)/@22.9942462,120.1973897,17z/data=!4m6!3m5!1s0x346e7664e97dddcb:0xd5994966eb0e5711!8m2!3d22.9942462!4d120.1973897"
+      },
+      {
+        "_key": "tw-eats-65",
+        "_type": "placeItem",
+        "name": "双利冰饌 - 台南正興店",
+        "subtitle": "West Central District, Tainan",
+        "primaryTag": "cafe",
+        "cuisine": "Dessert",
+        "operatingStatus": "open",
+        "address": "No. 66-1號, Zhengxing St, 中正里 West Central District, Tainan City, 700",
+        "country": "Taiwan",
+        "lat": 22.9943478,
+        "lng": 120.1975968,
+        "tags": [
+          "tainan",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%8F%8C%E5%88%A9%E5%86%B0%E9%A5%8C%20-%20%E5%8F%B0%E5%8D%97%E6%AD%A3%E8%88%88%E5%BA%97/@22.9943478,120.1975968,17z/data=!4m6!3m5!1s0x346e77d0269235ad:0x4444a6ac64d6194d!8m2!3d22.9943478!4d120.1975968"
+      },
+      {
+        "_key": "tw-eats-66",
+        "_type": "placeItem",
+        "name": "臭臉找餐",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Brunch",
+        "operatingStatus": "open",
+        "address": "No. 26號, Alley 1, Lane 182, Section 2, Wenhua Rd, Zhongcui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0281695,
+        "lng": 121.4718565,
+        "tags": [
+          "banqiao",
+          "breakfast-brunch"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%87%AD%E8%87%89%E6%89%BE%E9%A4%90/@25.0281695,121.4718565,17z/data=!4m6!3m5!1s0x34680ffb9493d0cf:0xb86d6f77801dc7c0!8m2!3d25.0281695!4d121.4718565"
+      },
+      {
+        "_key": "tw-eats-67",
+        "_type": "placeItem",
+        "name": "蜷尾家 甘味処 (Ninao)",
+        "subtitle": "West Central District, Tainan",
+        "primaryTag": "cafe",
+        "cuisine": "Ice cream shop",
+        "operatingStatus": "open",
+        "address": "No. 92號, Zhengxing St, Qiancao Village, West Central District, Tainan City, 700",
+        "country": "Taiwan",
+        "lat": 22.9943353,
+        "lng": 120.1971048,
+        "tags": [
+          "tainan",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%9C%B7%E5%B0%BE%E5%AE%B6%20%E7%94%98%E5%91%B3%E5%87%A6%20(Ninao)/@22.9943353,120.1971048,17z/data=!4m6!3m5!1s0x346e7664f9ff3b6d:0x5a93a4e80006bcef!8m2!3d22.9943353!4d120.1971048"
+      },
+      {
+        "_key": "tw-eats-68",
+        "_type": "placeItem",
+        "name": "同記安平豆花(安平2店) (Anping Bean Jelly)",
+        "subtitle": "Anping District, Tainan",
+        "primaryTag": "cafe",
+        "cuisine": "Dessert",
+        "operatingStatus": "open",
+        "address": "No. 141-6號, Anbei Rd, Wangcheng Village, Anping District, Tainan City, 708",
+        "country": "Taiwan",
+        "lat": 23.0028424,
+        "lng": 120.1619124,
+        "tags": [
+          "tainan",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%90%8C%E8%A8%98%E5%AE%89%E5%B9%B3%E8%B1%86%E8%8A%B1(%E5%AE%89%E5%B9%B32%E5%BA%97)%20(Anping%20Bean%20Jelly)/@23.0028424,120.1619124,17z/data=!4m6!3m5!1s0x346e761c4d3d2463:0xe666aa10aa101091!8m2!3d23.0028424!4d120.1619124"
+      },
+      {
+        "_key": "tw-eats-69",
+        "_type": "placeItem",
+        "name": "Totto Ramen Zhongxiao Restaurant",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Ramen",
+        "lastVisited": "2023-05-27",
+        "operatingStatus": "open",
+        "address": "No. 9, Alley 5, Lane 107, Section 1, Fuxing S Rd, Guangwu Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0442602,
+        "lng": 121.5443423,
+        "tags": [
+          "taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Totto%20Ramen%20Zhongxiao%20Restaurant/@25.0442602,121.5443423,17z/data=!4m6!3m5!1s0x3442abda4ba30f7b:0x82c7699e52a82518!8m2!3d25.0442602!4d121.5443423"
+      },
+      {
+        "_key": "tw-eats-70",
+        "_type": "placeItem",
+        "name": "螢火蟲居酒屋 忠孝復興店",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "permanently_closed",
+        "address": "No. 13號, Lane 40, Section 4, Zhongxiao E Rd, Ren'ai Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0411751,
+        "lng": 121.5447038,
+        "tags": [
+          "taipei",
+          "izakaya",
+          "closed"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%9E%A2%E7%81%AB%E8%9F%B2%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%BF%A0%E5%AD%9D%E5%BE%A9%E8%88%88%E5%BA%97/@25.0411751,121.5447038,17z/data=!4m6!3m5!1s0x3442ab98322c289b:0xa462d59419068f93!8m2!3d25.0411751!4d121.5447038"
+      },
+      {
+        "_key": "tw-eats-71",
+        "_type": "placeItem",
+        "name": "Butanchu Ramen Taipei",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "rating": 7.25,
+        "cuisine": "Ramen",
+        "lastVisited": "2023-09-29",
+        "operatingStatus": "open",
+        "address": "No. 10, Alley 5, Lane 170, Section 4, Zhongxiao E Rd, Jianlun Village, Da’an District, Taipei City, 106",
+        "country": "Taiwan",
+        "lat": 25.0406826,
+        "lng": 121.5512449,
+        "tags": [
+          "taipei",
+          "ramen"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Butanchu%20Ramen%20Taipei/@25.0406826,121.5512449,17z/data=!4m6!3m5!1s0x3442abb79f8d99f1:0xaf5ebef5667072b4!8m2!3d25.0406826!4d121.5512449"
+      },
+      {
+        "_key": "tw-eats-72",
+        "_type": "placeItem",
+        "name": "Moon Moon Food Banqiao Branch",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 69號, Lane 188, Section 1, Wenhua Rd, Baishou Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0178465,
+        "lng": 121.4688075,
+        "tags": [
+          "banqiao",
+          "taiwanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Moon%20Moon%20Food%20Banqiao%20Branch/@25.0178465,121.4688075,17z/data=!4m6!3m5!1s0x3442a9e3b4c2b8ed:0xdf81b7b94503a844!8m2!3d25.0178465!4d121.4688075"
+      },
+      {
+        "_key": "tw-eats-73",
+        "_type": "placeItem",
+        "name": "一茶甜品",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Dessert",
+        "operatingStatus": "open",
+        "address": "220226, New Taipei City, Banqiao District, Fuqiu Village, Section 1, Zhongshan Rd, 129號1樓",
+        "country": "Taiwan",
+        "lat": 25.0105636,
+        "lng": 121.4622912,
+        "tags": [
+          "banqiao",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E4%B8%80%E8%8C%B6%E7%94%9C%E5%93%81/@25.0105636,121.4622912,17z/data=!4m6!3m5!1s0x3442a936a2b1c6a3:0xdb7fa1c8149e8e2e!8m2!3d25.0105636!4d121.4622912"
+      },
+      {
+        "_key": "tw-eats-74",
+        "_type": "placeItem",
+        "name": "山嵐拉麵 板橋新埔店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Ramen",
+        "operatingStatus": "permanently_closed",
+        "address": "No. 122號, Section 3, Minsheng Rd, Wenhua Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.026712,
+        "lng": 121.4666273,
+        "tags": [
+          "banqiao",
+          "ramen",
+          "closed"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%B1%B1%E5%B5%90%E6%8B%89%E9%BA%B5%20%E6%9D%BF%E6%A9%8B%E6%96%B0%E5%9F%94%E5%BA%97/@25.026712,121.4666273,17z/data=!4m6!3m5!1s0x3442a9a5f27cb527:0x7b8eb18eb49ca764!8m2!3d25.026712!4d121.4666273"
+      },
+      {
+        "_key": "tw-eats-75",
+        "_type": "placeItem",
+        "name": "鮮定味生猛活海鮮",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Seafood",
+        "operatingStatus": "open",
+        "address": "No. 67號, Section 1, Chang'an E Rd, Zhengyi Village, Zhongshan District, Taipei City, 104",
+        "country": "Taiwan",
+        "lat": 25.0486323,
+        "lng": 121.5275615,
+        "tags": [
+          "taipei",
+          "seafood"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%AE%AE%E5%AE%9A%E5%91%B3%E7%94%9F%E7%8C%9B%E6%B4%BB%E6%B5%B7%E9%AE%AE/@25.0486323,121.5275615,17z/data=!4m6!3m5!1s0x3442a965a6207b45:0x6cff8cc66a0a011!8m2!3d25.0486323!4d121.5275615"
+      },
+      {
+        "_key": "tw-eats-76",
+        "_type": "placeItem",
+        "name": "Si Fang A Jiu Braised Pork Rice Wanhua Shop",
+        "subtitle": "Wanhua District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 225號, Guangzhou St, Qingshan Village, Wanhua District, Taipei City, 108",
+        "country": "Taiwan",
+        "lat": 25.0368105,
+        "lng": 121.4988202,
+        "tags": [
+          "taipei",
+          "taiwanese"
+        ],
+        "notes": "Decent place",
+        "externalUrl": "https://www.google.com/maps/place/Si%20Fang%20A%20Jiu%20Braised%20Pork%20Rice%20Wanhua%20Shop/@25.0368105,121.4988202,17z/data=!4m6!3m5!1s0x3442a9a933f8d585:0x8cb2e354940c0898!8m2!3d25.0368105!4d121.4988202"
+      },
+      {
+        "_key": "tw-eats-77",
+        "_type": "placeItem",
+        "name": "M-e-m-o-r-y",
+        "subtitle": "Tamsui District, New Taipei",
+        "primaryTag": "restaurant",
+        "operatingStatus": "open",
+        "address": "No. 251-1號, Zhongzheng Rd, Wenhua Village, Tamsui District, New Taipei City, 251",
+        "country": "Taiwan",
+        "lat": 25.1741908,
+        "lng": 121.4335125,
+        "tags": [
+          "tamsui"
+        ],
+        "notes": "Nice dessert and drink cafe",
+        "externalUrl": "https://www.google.com/maps/place/M-e-m-o-r-y/@25.1741908,121.4335125,17z/data=!4m6!3m5!1s0x3442a5cb1ff81211:0xf2811843fbae0f0d!8m2!3d25.1741908!4d121.4335125"
+      },
+      {
+        "_key": "tw-eats-78",
+        "_type": "placeItem",
+        "name": "淡水老街文化阿給",
+        "subtitle": "Tamsui District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Snack bar",
+        "operatingStatus": "open",
+        "address": "No. 138號, Zhongzheng Rd, Caodong Village, Tamsui District, New Taipei City, 251",
+        "country": "Taiwan",
+        "lat": 25.1697419,
+        "lng": 121.441221,
+        "tags": [
+          "tamsui",
+          "street-food"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E6%B7%A1%E6%B0%B4%E8%80%81%E8%A1%97%E6%96%87%E5%8C%96%E9%98%BF%E7%B5%A6/@25.1697419,121.441221,17z/data=!4m6!3m5!1s0x3442a550892352d3:0xd25f1bb39796cc4c!8m2!3d25.1697419!4d121.441221"
+      },
+      {
+        "_key": "tw-eats-79",
+        "_type": "placeItem",
+        "name": "可口魚丸",
+        "subtitle": "Tamsui District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese street food",
+        "operatingStatus": "temporarily_closed",
+        "address": "No. 232, Zhongzheng Rd, Min'an Village, Tamsui District, New Taipei City, 251",
+        "country": "Taiwan",
+        "lat": 25.1708556,
+        "lng": 121.4391163,
+        "tags": [
+          "tamsui",
+          "taiwanese",
+          "closed"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%8F%AF%E5%8F%A3%E9%AD%9A%E4%B8%B8/@25.1708556,121.4391163,17z/data=!4m6!3m5!1s0x3442a55a3c6f024f:0xf4343eea6dbda36a!8m2!3d25.1708556!4d121.4391163"
+      },
+      {
+        "_key": "tw-eats-80",
+        "_type": "placeItem",
+        "name": "阿香蝦捲",
+        "subtitle": "Tamsui District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese street food",
+        "operatingStatus": "permanently_closed",
+        "address": "No. 230號, Zhongzheng Rd, Min'an Village, Tamsui District, New Taipei City, 251",
+        "country": "Taiwan",
+        "lat": 25.1707833,
+        "lng": 121.4390912,
+        "tags": [
+          "tamsui",
+          "taiwanese",
+          "closed"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E9%98%BF%E9%A6%99%E8%9D%A6%E6%8D%B2/@25.1707833,121.4390912,17z/data=!4m6!3m5!1s0x3442a55a3b1ff297:0xd55fde9706da1e11!8m2!3d25.1707833!4d121.4390912"
+      },
+      {
+        "_key": "tw-eats-81",
+        "_type": "placeItem",
+        "name": "Woolloomooloo",
+        "subtitle": "Xinyi District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Australian",
+        "operatingStatus": "open",
+        "address": "No. 379號, Section 4, Xinyi Road, Zhongxing Village, Xinyi District, Taipei City, 110",
+        "country": "Taiwan",
+        "lat": 25.0333036,
+        "lng": 121.5581173,
+        "tags": [
+          "taipei"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Woolloomooloo/@25.0333036,121.5581173,17z/data=!4m6!3m5!1s0x3442abc98a381297:0xe822c38c9e07609e!8m2!3d25.0333036!4d121.5581173"
+      },
+      {
+        "_key": "tw-eats-82",
+        "_type": "placeItem",
+        "name": "杉男串酒塲 漢生店",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 38號, Hansheng W Rd, 板橋區 Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0184159,
+        "lng": 121.4633676,
+        "tags": [
+          "banqiao",
+          "izakaya"
+        ],
+        "notes": "Nice Izakaya",
+        "externalUrl": "https://www.google.com/maps/place/%E6%9D%89%E7%94%B7%E4%B8%B2%E9%85%92%E5%A1%B2%20%E6%BC%A2%E7%94%9F%E5%BA%97/@25.0184159,121.4633676,17z/data=!4m6!3m5!1s0x3442a912d6a10d2d:0xd9879a6f74208ea9!8m2!3d25.0184159!4d121.4633676"
+      },
+      {
+        "_key": "tw-eats-83",
+        "_type": "placeItem",
+        "name": "阿準越南料理",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Vietnamese",
+        "operatingStatus": "open",
+        "address": "No. 48號, Section 3, Shuangshi Rd, Bocui Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0313531,
+        "lng": 121.4710904,
+        "tags": [
+          "banqiao"
+        ],
+        "notes": "One of the best Pho places in Taipei.",
+        "externalUrl": "https://www.google.com/maps/place/%E9%98%BF%E6%BA%96%E8%B6%8A%E5%8D%97%E6%96%99%E7%90%86/@25.0313531,121.4710904,17z/data=!4m6!3m5!1s0x3442a95aa2f7b6dd:0x69dda364fe4bc33f!8m2!3d25.0313531!4d121.4710904"
+      },
+      {
+        "_key": "tw-eats-84",
+        "_type": "placeItem",
+        "name": "MINI.D COFFEE 美術館",
+        "subtitle": "Gushan District, Kaohsiung",
+        "primaryTag": "cafe",
+        "cuisine": "Cafe",
+        "operatingStatus": "open",
+        "address": "No. 87號, Meishuguan Rd, Longshui Village, Gushan District, Kaohsiung City, 804",
+        "country": "Taiwan",
+        "lat": 22.6546105,
+        "lng": 120.2902308,
+        "tags": [
+          "kaohsiung",
+          "coffee-tea"
+        ],
+        "notes": "Good Coffee.",
+        "externalUrl": "https://www.google.com/maps/place/MINI.D%20COFFEE%20%E7%BE%8E%E8%A1%93%E9%A4%A8/@22.6546105,120.2902308,17z/data=!4m6!3m5!1s0x346e05dd7dfff907:0x6e15d18fdaa1917d!8m2!3d22.6546105!4d120.2902308"
+      },
+      {
+        "_key": "tw-eats-85",
+        "_type": "placeItem",
+        "name": "Lao Chiang Nantai",
+        "subtitle": "Sinsing District, Kaohsiung",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 51號, Nantai Rd, Mingzhuang Village, Sinsing District, Kaohsiung City, 800",
+        "country": "Taiwan",
+        "lat": 22.6311182,
+        "lng": 120.300211,
+        "tags": [
+          "kaohsiung",
+          "taiwanese"
+        ],
+        "notes": "Pretty good game and cheese.\n\nThe black tea milk (紅茶牛奶) is really good.",
+        "externalUrl": "https://www.google.com/maps/place/Lao%20Chiang%20Nantai/@22.6311182,120.300211,17z/data=!4m6!3m5!1s0x346e04899e313b83:0x7bf3d94bd6c8c753!8m2!3d22.6311182!4d120.300211"
+      },
+      {
+        "_key": "tw-eats-86",
+        "_type": "placeItem",
+        "name": "Chill Bake",
+        "subtitle": "Yancheng District, Kaohsiung",
+        "primaryTag": "cafe",
+        "cuisine": "Dessert shop",
+        "operatingStatus": "open",
+        "address": "No. 37號, Lane 63, Wufusi Rd, Nanduan Village, Yancheng District, Kaohsiung City, 803",
+        "country": "Taiwan",
+        "lat": 22.6211726,
+        "lng": 120.2867114,
+        "tags": [
+          "kaohsiung",
+          "dessert"
+        ],
+        "notes": "Really good dessert place.\n\nThe Strawberry Cake was fluffy and nice. Not too sweet, which makes it perfect. Paired with an iced Peach Oolong Tea does wonders on a hot day.",
+        "externalUrl": "https://www.google.com/maps/place/Chill%20Bake/@22.6211726,120.2867114,17z/data=!4m6!3m5!1s0x346e04786c20b67b:0xdef0a22a4c84d5da!8m2!3d22.6211726!4d120.2867114"
+      },
+      {
+        "_key": "tw-eats-87",
+        "_type": "placeItem",
+        "name": "Addiction Aquatic Development",
+        "subtitle": "Zhongshan District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Seafood",
+        "operatingStatus": "open",
+        "address": "No. 18號, Alley 2, Lane 410, Minzu E Rd, Xingxiao Village, Zhongshan District, Taipei City, 10491",
+        "country": "Taiwan",
+        "lat": 25.0667079,
+        "lng": 121.5370059,
+        "tags": [
+          "taipei",
+          "seafood"
+        ],
+        "notes": "Good seafood.",
+        "externalUrl": "https://www.google.com/maps/place/Addiction%20Aquatic%20Development/@25.0667079,121.5370059,17z/data=!4m6!3m5!1s0x3442abfd700a70ff:0x66353fb1b041e11b!8m2!3d25.0667079!4d121.5370059"
+      },
+      {
+        "_key": "tw-eats-88",
+        "_type": "placeItem",
+        "name": "Din Tai Fung Xinsheng Branch",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 277號, Section 2, Xinyi Rd, San'ai Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.033889,
+        "lng": 121.5321338,
+        "tags": [
+          "taipei",
+          "taiwanese"
+        ],
+        "notes": "Go early, and try the world famous Xiaolongbao",
+        "externalUrl": "https://www.google.com/maps/place/Din%20Tai%20Fung%20Xinsheng%20Branch/@25.033889,121.5321338,17z/data=!4m6!3m5!1s0x3442a9e75f3ae503:0x57521f612e413ff9!8m2!3d25.033889!4d121.5321338"
+      },
+      {
+        "_key": "tw-eats-89",
+        "_type": "placeItem",
+        "name": "MATTER CAFE",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Cafe",
+        "operatingStatus": "permanently_closed",
+        "address": "No. 316號, Section 1, Wenhua Rd, Huajiang Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0219672,
+        "lng": 121.4677575,
+        "tags": [
+          "banqiao",
+          "coffee-tea",
+          "closed"
+        ],
+        "notes": "The souffle pancake is really really really good here.",
+        "externalUrl": "https://www.google.com/maps/place/MATTER%20CAFE/@25.0219672,121.4677575,17z/data=!4m6!3m5!1s0x3442a816056021f1:0xbe3cc885bc45a8f4!8m2!3d25.0219672!4d121.4677575"
+      },
+      {
+        "_key": "tw-eats-90",
+        "_type": "placeItem",
+        "name": "Du Hsiao Yueh Restaurant Tainan Chung Cheng Flagship Store",
+        "subtitle": "West Central District, Tainan",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 101號, Jhongjheng Rd, Nanmei Village, West Central District, Tainan City, 700",
+        "country": "Taiwan",
+        "lat": 22.9922048,
+        "lng": 120.2004559,
+        "tags": [
+          "tainan",
+          "taiwanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Du%20Hsiao%20Yueh%20Restaurant%20Tainan%20Chung%20Cheng%20Flagship%20Store/@22.9922048,120.2004559,17z/data=!4m6!3m5!1s0x346e766340c7efc1:0x5751b719d7e7fe97!8m2!3d22.9922048!4d120.2004559"
+      },
+      {
+        "_key": "tw-eats-91",
+        "_type": "placeItem",
+        "name": "Yi Feng",
+        "subtitle": "West Central District, Tainan",
+        "primaryTag": "cafe",
+        "cuisine": "Soft drinks shop",
+        "operatingStatus": "open",
+        "address": "No. 190號, Section 2, Yongfu Rd, Nanmei Village, West Central District, Tainan City, 700",
+        "country": "Taiwan",
+        "lat": 22.995923,
+        "lng": 120.2022704,
+        "tags": [
+          "tainan"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Yi%20Feng/@22.995923,120.2022704,17z/data=!4m6!3m5!1s0x346e76618109e70d:0x1361ef9f81330c2e!8m2!3d22.995923!4d120.2022704"
+      },
+      {
+        "_key": "tw-eats-92",
+        "_type": "placeItem",
+        "name": "矮仔成蝦仁飯",
+        "subtitle": "West Central District, Tainan",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 66號, Section 1, Hai'an Rd, West Central District, Tainan City, 700",
+        "country": "Taiwan",
+        "lat": 22.9889795,
+        "lng": 120.1952292,
+        "tags": [
+          "tainan",
+          "taiwanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E7%9F%AE%E4%BB%94%E6%88%90%E8%9D%A6%E4%BB%81%E9%A3%AF/@22.9889795,120.1952292,17z/data=!4m6!3m5!1s0x346e767a42882fc5:0x488e22fdb0ced930!8m2!3d22.9889795!4d120.1952292"
+      },
+      {
+        "_key": "tw-eats-93",
+        "_type": "placeItem",
+        "name": "王氏魚皮",
+        "subtitle": "Anping District, Tainan",
+        "primaryTag": "restaurant",
+        "cuisine": "Fish",
+        "operatingStatus": "open",
+        "address": "No. 612號, Anping Rd, Ping'an Village, Anping District, Tainan City, 708",
+        "country": "Taiwan",
+        "lat": 22.998989,
+        "lng": 120.1688957,
+        "tags": [
+          "tainan",
+          "seafood"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E7%8E%8B%E6%B0%8F%E9%AD%9A%E7%9A%AE/@22.998989,120.1688957,17z/data=!4m6!3m5!1s0x346e761ac0ceaf85:0x6ccc24c6324363a7!8m2!3d22.998989!4d120.1688957"
+      },
+      {
+        "_key": "tw-eats-94",
+        "_type": "placeItem",
+        "name": "鷹流東京醬油拉麵-極匠(公館店)",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Ramen",
+        "operatingStatus": "open",
+        "address": "No. 4號, Lane 104, Section 3, Tingzhou Rd, Shuiyuan Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0141758,
+        "lng": 121.5331762,
+        "tags": [
+          "taipei",
+          "ramen"
+        ],
+        "notes": "One of my favourite Ramen places in Taipei.",
+        "externalUrl": "https://www.google.com/maps/place/%E9%B7%B9%E6%B5%81%E6%9D%B1%E4%BA%AC%E9%86%AC%E6%B2%B9%E6%8B%89%E9%BA%B5-%E6%A5%B5%E5%8C%A0(%E5%85%AC%E9%A4%A8%E5%BA%97)/@25.0141758,121.5331762,17z/data=!4m6!3m5!1s0x3442a98b16b0e85b:0xa76dfc4fff4cef8a!8m2!3d25.0141758!4d121.5331762"
+      },
+      {
+        "_key": "tw-eats-95",
+        "_type": "placeItem",
+        "name": "Pan's Cake Banqiao Zhongzheng Store",
+        "subtitle": "Banqiao District, New Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Bakery",
+        "operatingStatus": "open",
+        "address": "No. 11-1號, Lane 135, Zhongzheng Rd, Shehou Village, Banqiao District, New Taipei City, 220",
+        "country": "Taiwan",
+        "lat": 25.0154824,
+        "lng": 121.4559405,
+        "tags": [
+          "banqiao",
+          "bakery"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Pan's%20Cake%20Banqiao%20Zhongzheng%20Store/@25.0154824,121.4559405,17z/data=!4m6!3m5!1s0x3442a804bb619003:0x240961cf97e628!8m2!3d25.0154824!4d121.4559405"
+      },
+      {
+        "_key": "tw-eats-96",
+        "_type": "placeItem",
+        "name": "得記麻辣脆皮臭豆腐",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Taiwanese",
+        "operatingStatus": "open",
+        "address": "No. 4號, Alley 16, Lane 52, Section 4, Roosevelt Rd Rd, Shuiyuan Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0144218,
+        "lng": 121.5337272,
+        "tags": [
+          "taipei",
+          "taiwanese"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E5%BE%97%E8%A8%98%E9%BA%BB%E8%BE%A3%E8%84%86%E7%9A%AE%E8%87%AD%E8%B1%86%E8%85%90/@25.0144218,121.5337272,17z/data=!4m6!3m5!1s0x3442a98b051436e7:0xdbaca8d41ae7f971!8m2!3d25.0144218!4d121.5337272"
+      },
+      {
+        "_key": "tw-eats-97",
+        "_type": "placeItem",
+        "name": "Longtan Soy Pudding",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "cafe",
+        "cuisine": "Dessert",
+        "operatingStatus": "open",
+        "address": "No. 239號, Section 3, Tingzhou Rd, Shuiyuan Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.01392,
+        "lng": 121.534102,
+        "tags": [
+          "taipei",
+          "dessert"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Longtan%20Soy%20Pudding/@25.01392,121.534102,17z/data=!4m6!3m5!1s0x3442a98ae206d69d:0x706f71f04a11a269!8m2!3d25.01392!4d121.534102"
+      },
+      {
+        "_key": "tw-eats-98",
+        "_type": "placeItem",
+        "name": "Hsiung Chi Scallion Pancake",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Hawker stall",
+        "operatingStatus": "open",
+        "address": "No. 2號, Ln 108, Roosevelt Rd, Section 4, Shuiyuan Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0134436,
+        "lng": 121.5353398,
+        "tags": [
+          "taipei",
+          "street-food"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/Hsiung%20Chi%20Scallion%20Pancake/@25.0134436,121.5353398,17z/data=!4m6!3m5!1s0x3442a98aea040f57:0xefe154aebdebac9!8m2!3d25.0134436!4d121.5353398"
+      },
+      {
+        "_key": "tw-eats-99",
+        "_type": "placeItem",
+        "name": "Irodori",
+        "subtitle": "Xinyi District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Japanese",
+        "operatingStatus": "open",
+        "address": "110061, Taipei City, Xinyi District, Xicun Village, Songshou Rd, 2號3F",
+        "country": "Taiwan",
+        "lat": 25.0351708,
+        "lng": 121.5628669,
+        "tags": [
+          "taipei",
+          "japanese"
+        ],
+        "notes": "Nice jap buffet",
+        "externalUrl": "https://www.google.com/maps/place/Irodori/@25.0351708,121.5628669,17z/data=!4m6!3m5!1s0x3442abb7a75a2db7:0xf450acb352c47b27!8m2!3d25.0351708!4d121.5628669"
+      },
+      {
+        "_key": "tw-eats-100",
+        "_type": "placeItem",
+        "name": "Oh my!Yakiyan Taipei Roosevelt Branch",
+        "subtitle": "Da’an District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Yakiniku",
+        "operatingStatus": "permanently_closed",
+        "address": "106, Taipei City, Da’an District, Guzhuang Village, Section 2, Roosevelt Rd, 75號3樓",
+        "country": "Taiwan",
+        "lat": 25.0265166,
+        "lng": 121.5231857,
+        "tags": [
+          "taipei",
+          "bbq-yakiniku",
+          "closed"
+        ],
+        "notes": "Nice yakiniku restaurant",
+        "externalUrl": "https://www.google.com/maps/place/Oh%20my!Yakiyan%20Taipei%20Roosevelt%20Branch/@25.0265166,121.5231857,17z/data=!4m6!3m5!1s0x3442a9d2004f9e0b:0x8fcd8686b43dfe23!8m2!3d25.0265166!4d121.5231857"
+      },
+      {
+        "_key": "tw-eats-101",
+        "_type": "placeItem",
+        "name": "藍家割包/四神湯",
+        "subtitle": "Zhongzheng District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Steamed bun shop",
+        "operatingStatus": "open",
+        "address": "No. 3號, Alley 8, Ln. 316, Section 3, Roosevelt Rd, Wencheng Village, Zhongzheng District, Taipei City, 100",
+        "country": "Taiwan",
+        "lat": 25.0157411,
+        "lng": 121.5325808,
+        "tags": [
+          "taipei",
+          "noodles-dumplings"
+        ],
+        "externalUrl": "https://www.google.com/maps/place/%E8%97%8D%E5%AE%B6%E5%89%B2%E5%8C%85%2F%E5%9B%9B%E7%A5%9E%E6%B9%AF/@25.0157411,121.5325808,17z/data=!4m6!3m5!1s0x3442a98b97f75acd:0x8d472041626a331d!8m2!3d25.0157411!4d121.5325808"
+      },
+      {
+        "_key": "tw-eats-102",
+        "_type": "placeItem",
+        "name": "大村武串燒居酒屋-西門店（本店）",
+        "subtitle": "Wanhua District, Taipei",
+        "primaryTag": "restaurant",
+        "cuisine": "Izakaya",
+        "operatingStatus": "open",
+        "address": "No. 2號, Lane 83, Section 2, Hankou St, Fuxing Village, Wanhua District, Taipei City, 108",
+        "country": "Taiwan",
+        "lat": 25.0464563,
+        "lng": 121.5049674,
+        "tags": [
+          "taipei",
+          "izakaya"
+        ],
+        "notes": "Nice izakaya restaurant",
+        "externalUrl": "https://www.google.com/maps/place/%E5%A4%A7%E6%9D%91%E6%AD%A6%E4%B8%B2%E7%87%92%E5%B1%85%E9%85%92%E5%B1%8B-%E8%A5%BF%E9%96%80%E5%BA%97%EF%BC%88%E6%9C%AC%E5%BA%97%EF%BC%89/@25.0464563,121.5049674,17z/data=!4m6!3m5!1s0x3442a90f2520d4cf:0x667eb3d7ed09fdc7!8m2!3d25.0464563!4d121.5049674"
+      }
+    ]
+  }
+]

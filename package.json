@@ -12,6 +12,11 @@
     "lint": "eslint",
     "migrate:sanity": "node scripts/migrate-to-sanity.mjs",
     "migrate:sanity:cli": "sanity exec scripts/migrate-to-sanity.mjs --with-user-token",
+    "seed:places": "node scripts/seed-places-sanity.mjs",
+    "seed:places:cli": "sanity exec scripts/seed-places-sanity.mjs --with-user-token",
+    "import:places": "node scripts/import-notion-gmaps-places.mjs",
+    "import:places:cli": "sanity exec scripts/import-notion-gmaps-places.mjs --with-user-token",
+    "upload:ramen-images:cli": "sanity exec scripts/upload-ramen-images.mjs --with-user-token",
     "format": "prettier --write \"(app|components|config|constants|containers|contexts|sanity)/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
