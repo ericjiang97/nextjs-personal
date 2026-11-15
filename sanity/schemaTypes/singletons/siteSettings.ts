@@ -80,6 +80,25 @@ export const siteSettingsType = defineType({
       group: 'banners',
     }),
     defineField({
+      name: 'placesHeroBadge',
+      title: 'Places Hero Badge',
+      type: 'string',
+      group: 'banners',
+    }),
+    defineField({
+      name: 'placesHeroTitle',
+      title: 'Places Hero Title',
+      type: 'string',
+      group: 'banners',
+    }),
+    defineField({
+      name: 'placesHeroDescription',
+      title: 'Places Hero Description',
+      type: 'text',
+      rows: 2,
+      group: 'banners',
+    }),
+    defineField({
       name: 'mediaHeroBadge',
       title: 'Media Hero Badge',
       type: 'string',
